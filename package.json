@@ -1,7 +1,7 @@
 {
-  "name": "jsonresume-theme-accessible",
+  "name": "jsonresume-theme-a11y",
   "version": "0.0.0",
-  "description": "Accessible (a11y) theme for JSON Resume addressing WCAG 2.1 and ARIA standards",
+  "description": "Theme for JSON Resume addressing WCAG 2.1 and ARIA accessibility (a11y) standards",
   "scripts": "",
   "keywords": [
     "résumé",
