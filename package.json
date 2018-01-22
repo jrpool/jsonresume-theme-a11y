@@ -1,14 +1,141 @@
 {
-  "name": "jsonresume-theme-boilerplate",
-  "version": "0.1.2",
-  "description": "Boilerplate theme for JSON Resume",
-  "author": "Mattias Erming",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/erming/jsonresume-theme-boilerplate"
-  },
+  "name": "jsonresume-theme-accessible",
+  "version": "0.0.0",
+  "description": "Accessible (a11y) theme for JSON Resume addressing WCAG 2.1 and ARIA standards",
+  "scripts": "",
+  "keywords": [
+    "résumé",
+    "resume",
+    "curriculum vitae",
+    "CV",
+    "accessibility",
+    "a11y",
+    "WCAG",
+    "ARIA",
+    "disability",
+    "assistive technology"
+  ],
+  "author": "Jonathan Pool",
   "license": "MIT",
   "dependencies": {
-    "handlebars": "^2.0.0-alpha.4"
+    "handlebars": ">=4.0.11"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": ">=7.0.0-beta.38",
+    "babel-register": ">=6.26.0",
+    "eslint": ">=4.16.0"
+  },
+  "bugs": {
+    "url":
+      "https://github.com/jrpool/jsonresume-theme-a11y.git/issues"
+  },
+  "homepage":
+    "https://github.com/jrpool/jsonresume-theme-a11y.git/index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrpool/jsonresume-theme-a11y"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "browser": true,
+      "es6": true,
+      "jquery": true,
+      "mocha": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "rules": {
+      "arrow-spacing": [
+        "error",
+        {
+          "before": true,
+          "after": true
+        }
+      ],
+      "indent": [
+        "error",
+        2,
+        {
+          "MemberExpression": 0,
+          "SwitchCase": 1
+        }
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "no-array-constructor": [
+        "error"
+      ],
+      "no-cond-assign": [
+        "off"
+      ],
+      "no-control-regex": [
+        "off"
+      ],
+      "no-console": [
+        "off"
+      ],
+      "no-const-assign": [
+        "error"
+      ],
+      "no-new-object": [
+        "error"
+      ],
+      "no-var": [
+        "off"
+      ],
+      "no-whitespace-before-property": [
+        "error"
+      ],
+      "prefer-const": [
+        "warn"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "space-before-blocks": [
+        "error",
+        "always"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "space-in-parens": [
+        "error",
+        "never"
+      ],
+      "space-unary-ops": [
+        "error",
+        {
+          "words": true,
+          "nonwords": false
+        }
+      ],
+      "spaced-comment": [
+        "error",
+        "always",
+        {
+          "markers": [
+            "/",
+            "*"
+          ]
+        }
+      ]
+    }
   }
 }
