@@ -18,7 +18,8 @@
   "author": "Jonathan Pool",
   "license": "MIT",
   "dependencies": {
-    "handlebars": ">=4.0.11"
+    "handlebars": ">=4.0.11",
+    "resume-cli": ">=0.4.19"
   },
   "devDependencies": {
     "babel-preset-es2015": ">=7.0.0-beta.3",
