@@ -1,30 +1,52 @@
-var fs = require("fs");
-var path = require('path');
-var Handlebars = require("handlebars");
+const fs = require('fs');
+const path = require('path');
 
-function render(resume) {
-	var css = fs.readFileSync(__dirname + "/style.css", "utf-8");
-	var tpl = fs.readFileSync(__dirname + "/resume.hbs", "utf-8");
-	var partialsDir = path.join(__dirname, 'partials');
-	var filenames = fs.readdirSync(partialsDir);
+const renderHead = (string, hLevel) => {
+  const tagName = `h${hLevel}`;
+  const openTag = `<${tagName}>`;
+  const closeTag = `</${tagName}>`;
+  return `${openTag}${string}${closeTag}\n`;
+};
 
-	filenames.forEach(function (filename) {
-	  var matches = /^([^.]+).hbs$/.exec(filename);
-	  if (!matches) {
-	    return;
-	  }
-	  var name = matches[1];
-	  var filepath = path.join(partialsDir, filename)
-	  var template = fs.readFileSync(filepath, 'utf8');
+const renderString = string => {
+  return `<p>${string}</p>\n`;
+};
 
-	  Handlebars.registerPartial(name, template);
-	});
-	return Handlebars.compile(tpl)({
-		css: css,
-		resume: resume
-	});
+const renderItem = (item, hLevel) => {
+  const itemType = typeof item;
+  if (Array.isArray(item)) {
+    return item.map(element => renderItem(element, hLevel)).join('');
+  }
+  else if (['number', 'string', 'boolean'].includes(itemType)) {
+    return renderString(item);
+  }
+  else if (itemType === 'object') {
+    return Object.keys(item).map(propertyName => [
+      renderHead(propertyName, hLevel),
+      renderItem(item[propertyName], hLevel + 1)
+    ].join('')).join('');
+  }
+  else {
+    return '';
+  }
+};
+
+const render = cvObject => {
+  const css = fs.readFileSync(
+    path.join(__dirname, 'style.css'), 'utf-8'
+  ).slice(0, -1).split('\n').join('\n      ');
+  const html = renderItem(cvObject, 1).split('\n').join('\n      ');
+  const template = fs.readFileSync(
+    path.join(__dirname, 'template.html'), 'utf-8'
+  );
+  return template
+  .replace('{{style-insert}}', css)
+  .replace('{{main-insert}}', html);
 }
 
-module.exports = {
-	render: render
-};
+const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'));
+const cvObject = JSON.parse(cvJSON);
+const cvHTML = render(cvObject);
+fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
+
+exports = {render};
