@@ -17,6 +17,15 @@ const imageLinkify = (string, alt) => {
   return `<img src="${string}" alt="${alt}">`;
 };
 
+const indent = (string, spaceCount) => string.split('\n').join(
+  '\n' + ' '.repeat(spaceCount)
+);
+
+const sectionize = (string, hLevel) => {
+  const sectionClass = hLevel < 3 ? ` class=level${hLevel}` : '';
+  return `<section${sectionClass}>\n  ${indent(string, 2)}\n</section>\n`;
+};
+
 const renderHead = (string, hLevel) => {
   const tagName = `h${hLevel}`;
   const openTag = `<${tagName}>`;
@@ -25,15 +34,21 @@ const renderHead = (string, hLevel) => {
 };
 
 const renderString = string => {
-  return `<p>${string}</p>\n`;
+  return `<p>${string}</p>`;
 };
 
-const renderItem = (propertyName, item, hLevel) => {
+const ordinary = (code, legend) => legend ? legend[code] || code : code;
+
+const renderItem = (propertyName, item, legend, hLevel) => {
   const itemType = typeof item;
   if (Array.isArray(item)) {
-    return item.map(element => renderItem(
-      propertyName, element, hLevel)
-    ).join('');
+    const sectionContent = item.map(element => {
+      const subSectionContent = renderItem(
+        propertyName, element, legend, hLevel
+      );
+      return sectionize(subSectionContent, hLevel);
+    });
+    return sectionContent.join('').trim();
   }
   else if (['number', 'string', 'boolean'].includes(itemType)) {
     item = item.toString();
@@ -46,21 +61,27 @@ const renderItem = (propertyName, item, hLevel) => {
     return renderString(item);
   }
   else if (itemType === 'object') {
-    return Object.keys(item).map(subPropertyName => [
-      renderHead(subPropertyName, hLevel),
-      renderItem(subPropertyName, item[subPropertyName], hLevel + 1)
-    ].join('')).join('');
+    const sectionContent = Object.keys(item).map(subPropertyName => {
+      const subItem = item[subPropertyName];
+      const subPropertyContent = [
+        renderHead(ordinary(subPropertyName, legend), hLevel),
+        renderItem(subPropertyName, subItem, legend, hLevel + 1)
+      ].join('');
+      const noBox = ['number', 'string', 'boolean'].includes(typeof subItem);
+      return sectionize(subPropertyContent, noBox ? '' : hLevel);
+    });
+    return sectionContent.join('').trim();
   }
   else {
     return '';
   }
 };
 
-const render = cvObject => {
+const render = (cvObject, legend) => {
   const css = fs.readFileSync(
     path.join(__dirname, 'style.css'), 'utf-8'
   ).slice(0, -1).split('\n').join('\n      ');
-  const html = renderItem('', cvObject, 1).split('\n').join('\n      ');
+  const html = indent(renderItem('', cvObject, legend, 1), 6);
   const template = fs.readFileSync(
     path.join(__dirname, 'template.html'), 'utf-8'
   );
@@ -71,7 +92,9 @@ const render = cvObject => {
 
 const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'));
 const cvObject = JSON.parse(cvJSON);
-const cvHTML = render(cvObject);
+const legend = cvObject.legend;
+delete cvObject.legend;
+const cvHTML = render(cvObject, legend);
 fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
 
 exports = {render};

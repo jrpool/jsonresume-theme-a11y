@@ -2,12 +2,50 @@ body {
   background: #eee;
   margin: 3rem 3rem;
 }
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 1rem 0 0 0;
   color: #03a;
 }
-
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.9rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+h4 {
+  font-size: 1.7rem;
+}
+h5 {
+  font-size: 1.6rem;
+}
+h6 {
+  font-size: 1.5rem;
+}
+html {
+  font-size: 1.4vw;
+}
 p {
   margin: 0.3rem 0 0 0;
+  font-size: 1.2rem;
+}
+section.level1 {
+  border-color: slategray;
+}
+section.level2 {
+  margin: 1vw;
+  border-color: mediumslateblue;
+}
+section.level1,
+section.level2 {
+  padding: 1vw;
+  border-style: solid;
+  border-width: 1px;
 }
