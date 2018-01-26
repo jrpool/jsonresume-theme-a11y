@@ -22,7 +22,7 @@ const indent = (string, spaceCount) => string.split('\n').join(
 );
 
 const sectionize = (string, hLevel) => {
-  const sectionClass = hLevel && hLevel < 3 ? ` class=level${hLevel}` : '';
+  const sectionClass = hLevel && hLevel < 4 ? ` class=level${hLevel}` : '';
   return `<section${sectionClass}>\n  ${indent(string, 2)}\n</section>\n`;
 };
 
@@ -46,7 +46,8 @@ const renderItem = (propertyName, item, legend, hLevel) => {
       const subSectionContent = renderItem(
         propertyName, element, legend, hLevel
       );
-      return sectionize(subSectionContent, hLevel);
+      const noBox = ['number', 'string', 'boolean'].includes(typeof element);
+      return sectionize(subSectionContent, noBox ? '' : hLevel);
     });
     return sectionContent.join('').trim();
   }

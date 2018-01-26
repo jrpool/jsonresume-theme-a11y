@@ -16,6 +16,7 @@ h1 {
 }
 h2 {
   font-size: 1.9rem;
+  font-style: italic;
   color: #026;
 }
 h3 {
@@ -24,6 +25,7 @@ h3 {
 }
 h4 {
   font-size: 1.7rem;
+  font-style: italic;
   color: #000;
 }
 h5 {
@@ -32,6 +34,7 @@ h5 {
 }
 h6 {
   font-size: 1.5rem;
+  font-style: italic;
   color: #222;
 }
 html {
@@ -48,14 +51,21 @@ section.level2 {
   margin: 1vw;
   border-color: mediumslateblue;
 }
+section.level3 {
+  margin: 1vw;
+  border-color: mediumturquoise;
+}
 section.level1,
-section.level2 {
+section.level2,
+section.level3 {
   padding: 1vw;
   border-style: solid;
   border-width: 1px;
 }
 
 section.level1 h1,
-section.level2 h2 {
+section.level2 h2,
+section.level3 h2,
+section.level3 h3 {
   margin-top: 0;
 }
