@@ -78,7 +78,7 @@ const renderItem = (propertyName, item, legend, hLevel) => {
   }
 };
 
-const render = (cvObject, legend) => {
+const render = (cvObject, cvBasics, legend) => {
   const css = fs.readFileSync(
     path.join(__dirname, 'style.css'), 'utf-8'
   ).slice(0, -1).split('\n').join('\n      ');
@@ -88,7 +88,7 @@ const render = (cvObject, legend) => {
   );
   return template
   .replace('##style-insert##', css)
-  .replace('##main-insert##', html);
+  .replace('##main-insert##', [cvBasics, html].join('\n'));
 }
 
 const profilesRender = object => {
@@ -131,9 +131,7 @@ delete cvObject.legend;
 const basics = cvObject.basics;
 delete cvObject.basics;
 const cvBasics = basicsRender(basics, legend);
-const cvHTML = render(cvObject, legend);
-fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), [
-  cvBasics, cvHTML
-].join('\n'));
+const cvHTML = render(cvObject, cvBasics, legend);
+fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
 
 exports = {render};

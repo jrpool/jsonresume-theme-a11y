@@ -10,17 +10,38 @@ h5,
 h6 {
   margin: 0.5rem 0 0 0.3rem;
 }
-div#basics-contact th {
+#basics-contact-table th {
+  padding-right: 1rem;
+  text-align: right;
+}
+#basics-profiles-table {
+  margin-bottom: 1rem;
+}
+#basics-contact th {
   text-align: left;
 }
-div#basics-picture {
+#basics-details {
+  font-size: 1.2rem;
+}
+#basics-name {
+  font-weight: bolder;
+}
+#basics-picture {
   float: right;
 }
-div#basics-picture > img {
-  width: 9rem;
+#basics-picture > img {
+  width: 8rem;
 }
-div#basics-summary {
+#basics-summary {
   margin-bottom: 2rem;
+  font-weight: bolder;
+  color: navy;
+}
+#credit {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
 }
 h1,
 .h1c {
@@ -65,12 +86,6 @@ p {
   margin: 0.3rem 0 0 0.3rem;
   font-size: 1.2rem;
 }
-section#credit {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
-}
 section.level1 {
   border-color: slategray;
 }
@@ -97,13 +112,6 @@ section.level3 > section:first-child > h3 {
 table {
   margin: 1rem auto 0 auto;
   border-collapse: collapse;
-}
-table#basics-contact-table th {
-  padding-right: 1rem;
-  text-align: right;
-}
-table#basics-profiles-table {
-  margin-bottom: 1rem;
 }
 td {
   padding: 0.2rem;
