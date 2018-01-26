@@ -48,11 +48,11 @@ section.level1 {
   border-color: slategray;
 }
 section.level2 {
-  margin: 1vw;
+  margin: 0.5vw;
   border-color: mediumslateblue;
 }
 section.level3 {
-  margin: 1vw;
+  margin: 0.5vw;
   border-color: mediumturquoise;
 }
 section.level1,
