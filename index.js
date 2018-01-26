@@ -84,18 +84,56 @@ const render = (cvObject, legend) => {
   ).slice(0, -1).split('\n').join('\n      ');
   const html = indent(renderItem('', cvObject, legend, 1), 6);
   const template = fs.readFileSync(
-    path.join(__dirname, 'template.html'), 'utf-8'
+    path.join(__dirname, 'template.html'), 'utf8'
   );
   return template
-  .replace('{{style-insert}}', css)
-  .replace('{{main-insert}}', html);
+  .replace('##style-insert##', css)
+  .replace('##main-insert##', html);
 }
 
-const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'));
+const profilesRender = object => {
+  return object.profiles.map(profile => {
+    return `<tr>
+      <td>${profile.network}</td>
+      <td>${profile.username}</td>
+      <td>${profile.url}</td>
+    </tr>`;
+  }).join('\n');
+};
+
+const basicsRender = (object, legend) => {
+  const basicsTemplate = fs.readFileSync(
+    path.join(__dirname, 'basicstemplate.html'), 'utf8'
+  );
+  let basics = basicsTemplate
+  .replace('##picture-alt-name##', object.name)
+  .replace('##href-email##', object.email)
+  .replace('##href-website##', object.website);
+  Object.keys(legend).forEach(key => {
+    basics = basics.replace(`##${key}-title##`, legend[key]);
+    if (object[key]) {
+      basics = basics.replace(`##${key}##`, object[key]);
+    }
+    else if (object.location[key]) {
+      basics = basics.replace(`##${key}##`, object.location[key]);
+    }
+    else if (object.profiles[key]) {
+      basics = basics.replace(`##${key}##`, object.profiles[key]);
+    }
+  });
+  return basics.replace('##profiles-insert##', profilesRender(object));
+};
+
+const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'), 'utf8');
 const cvObject = JSON.parse(cvJSON);
 const legend = cvObject.legend;
 delete cvObject.legend;
+const basics = cvObject.basics;
+delete cvObject.basics;
+const cvBasics = basicsRender(basics, legend);
 const cvHTML = render(cvObject, legend);
-fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
+fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), [
+  cvBasics, cvHTML
+].join('\n'));
 
 exports = {render};

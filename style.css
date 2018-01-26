@@ -10,16 +10,31 @@ h5,
 h6 {
   margin: 0.5rem 0 0 0.3rem;
 }
-h1 {
+div#basics-contact th {
+  text-align: left;
+}
+div#basics-picture {
+  float: right;
+}
+div#basics-picture > img {
+  width: 9rem;
+}
+div#basics-summary {
+  margin-bottom: 2rem;
+}
+h1,
+.h1c {
   font-size: 2rem;
   color: #039;
 }
-h2 {
+h2,
+.h2c {
   font-size: 1.9rem;
   font-style: italic;
   color: #026;
 }
-h3 {
+h3,
+.h3c {
   font-size: 1.8rem;
   color: #013;
 }
@@ -37,12 +52,24 @@ h6 {
   font-style: italic;
   color: #222;
 }
+.h1c,
+.h2c,
+.h3c {
+  margin-top: 1rem;
+  text-align: center;
+}
 html {
   font-size: 1.4vw;
 }
 p {
   margin: 0.3rem 0 0 0.3rem;
   font-size: 1.2rem;
+}
+section#credit {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
 }
 section.level1 {
   border-color: slategray;
@@ -62,9 +89,25 @@ section.level3 {
   border-style: solid;
   border-width: 1px;
 }
-
 section.level1 > section:first-child > h1,
 section.level2 > section:first-child > h2,
 section.level3 > section:first-child > h3 {
   margin-top: 0;
+}
+table {
+  margin: 1rem auto 0 auto;
+  border-collapse: collapse;
+}
+table#basics-contact-table th {
+  padding-right: 1rem;
+  text-align: right;
+}
+table#basics-profiles-table {
+  margin-bottom: 1rem;
+}
+td {
+  padding: 0.2rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
 }

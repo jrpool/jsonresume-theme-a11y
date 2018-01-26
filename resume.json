@@ -60,10 +60,10 @@
     "phone": "(510) 225-1717",
     "mobilePhone": "(510) 225-1700",
     "website": "http://stulta.com",
-    "summary": "I build, test, and document accessible web applications.",
+    "summary": "I design, build, test, and document<br>accessible web applications.",
     "location": {
-      "address": "555 10th St",
-      "postalCode": "CA 94607-5208",
+      "address": "555 10th St Apt 312",
+      "postalCode": "94607-5208",
       "city": "Oakland",
       "countryCode": "US",
       "region": "California"
@@ -85,7 +85,7 @@
         "url": "https://stackoverflow.com/users/story/1572601"
       },
       {
-        "network": "MDN Web Docs (Mozilla Foundation)",
+        "network": "MDN Web Docs",
         "username": "JonathanPool",
         "url": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
       },

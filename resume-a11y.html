@@ -1,3 +1,95 @@
+      <section class="basics" title="Basics">
+        <div
+          id="basics-picture"
+          class="float-left"
+          title="Photograph"
+        >
+          <img src="http://stulta.com/images/pool-2009.jpg" alt="Jonathan Pool">
+        </div>
+        <div id="basics-name" class="h1c" title="Name">Jonathan Pool</div>
+        <div
+          id="basics-label" class="h2c" title="Profession">Programmer
+        </div>
+        <div
+          id="basics-summary"
+          class="h3c"
+          title="Summary"
+        >
+          <span>I design, build, test, and document<br>accessible web applications.</span>
+        </div>
+        <section id="basics-details">
+          <div id="basics-contact" class="h4l" title="##contact-title##">
+            <table id="basics-contact-table" class="table-contact">
+              <tr>
+                <th id="email">Email</th>
+                <td><a href="mailto:pool@stulta.com">pool@stulta.com</a></td>
+              </tr>
+              <tr><th id="phone">Telephone</th><td>(510) 225-1717</td></tr>
+              <tr>
+                <th id="mobilePhone">Mobile telephone</th>
+                <td>(510) 225-1700</td>
+              </tr>
+              <tr>
+                <th id="website">Website</th>
+                <td><a href="http://stulta.com">http://stulta.com</a></td>
+              </tr>
+              <tr>
+                <th id="location">Residence</th>
+                <td>
+                  555 10th St Apt 312
+                  <br>
+                  Oakland, California 94607-5208, US
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div id="basics-profiles" class="h4r" title="Profiles">
+            <table id="basics-profiles-table">
+              <tr id="table-profiles-head">
+                <th id="network">Site</th>
+                <th id="username">User ID</th>
+                <th id="url">URL</th>
+              </tr>
+              <tr>
+      <td>Github</td>
+      <td>jrpool</td>
+      <td>https://github.com/jrpool</td>
+    </tr>
+<tr>
+      <td>LinkedIn</td>
+      <td>jonathanpool</td>
+      <td>https://www.linkedin.com/in/jonathanpool/</td>
+    </tr>
+<tr>
+      <td>Stack Overflow</td>
+      <td>1572601</td>
+      <td>https://stackoverflow.com/users/story/1572601</td>
+    </tr>
+<tr>
+      <td>MDN Web Docs</td>
+      <td>JonathanPool</td>
+      <td>https://developer.mozilla.org/en-US/profiles/JonathanPool</td>
+    </tr>
+<tr>
+      <td>Google Scholar</td>
+      <td>qSNjYhQAAAAJ&hl</td>
+      <td>https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en</td>
+    </tr>
+<tr>
+      <td>GitLab</td>
+      <td>JonathanPool</td>
+      <td>https://gitlab.com/JonathanPool</td>
+    </tr>
+<tr>
+      <td>Twitter</td>
+      <td>JonathanRPool</td>
+      <td>https://twitter.com/JonathanRPool</td>
+    </tr>
+            </table>
+          </div>
+        </section>
+      </section>
+
 <!DOCTYPE html>
 <html lang="unk">
   <head>
@@ -20,16 +112,31 @@
       h6 {
         margin: 0.5rem 0 0 0.3rem;
       }
-      h1 {
+      div#basics-contact th {
+        text-align: left;
+      }
+      div#basics-picture {
+        float: right;
+      }
+      div#basics-picture > img {
+        width: 9rem;
+      }
+      div#basics-summary {
+        margin-bottom: 2rem;
+      }
+      h1,
+      .h1c {
         font-size: 2rem;
         color: #039;
       }
-      h2 {
+      h2,
+      .h2c {
         font-size: 1.9rem;
         font-style: italic;
         color: #026;
       }
-      h3 {
+      h3,
+      .h3c {
         font-size: 1.8rem;
         color: #013;
       }
@@ -47,12 +154,24 @@
         font-style: italic;
         color: #222;
       }
+      .h1c,
+      .h2c,
+      .h3c {
+        margin-top: 1rem;
+        text-align: center;
+      }
       html {
         font-size: 1.4vw;
       }
       p {
         margin: 0.3rem 0 0 0.3rem;
         font-size: 1.2rem;
+      }
+      section#credit {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+        font-style: italic;
       }
       section.level1 {
         border-color: slategray;
@@ -72,175 +191,32 @@
         border-style: solid;
         border-width: 1px;
       }
-      
       section.level1 > section:first-child > h1,
       section.level2 > section:first-child > h2,
       section.level3 > section:first-child > h3 {
         margin-top: 0;
       }
+      table {
+        margin: 1rem auto 0 auto;
+        border-collapse: collapse;
+      }
+      table#basics-contact-table th {
+        padding-right: 1rem;
+        text-align: right;
+      }
+      table#basics-profiles-table {
+        margin-bottom: 1rem;
+      }
+      td {
+        padding: 0.2rem;
+        border-style: solid;
+        border-width: 1px;
+        border-color: gray;
+      }
     </style>
   </head>
   <body>
     <main>
-      <section class=level1>
-        <h1>Basics</h1>
-        <section>
-          <h2>Name</h2>
-          <p>Jonathan Pool</p>
-        </section>
-        <section>
-          <h2>Profession</h2>
-          <p>Programmer</p>
-        </section>
-        <section>
-          <h2>Photograph</h2>
-          <p><img src="http://stulta.com/images/pool-2009.jpg" alt="picture"></p>
-        </section>
-        <section>
-          <h2>Email</h2>
-          <p>pool@stulta.com</p>
-        </section>
-        <section>
-          <h2>Telephone</h2>
-          <p>(510) 225-1717</p>
-        </section>
-        <section>
-          <h2>Mobile telephone</h2>
-          <p>(510) 225-1700</p>
-        </section>
-        <section>
-          <h2>Website</h2>
-          <p><a href="http://stulta.com">http://stulta.com</a></p>
-        </section>
-        <section>
-          <h2>Summary</h2>
-          <p>I build, test, and document accessible web applications.</p>
-        </section>
-        <section class=level2>
-          <h2>Residence</h2>
-          <section>
-            <h3>Address</h3>
-            <p>555 10th St</p>
-          </section>
-          <section>
-            <h3>Postal code</h3>
-            <p>CA 94607-5208</p>
-          </section>
-          <section>
-            <h3>City</h3>
-            <p>Oakland</p>
-          </section>
-          <section>
-            <h3>Country code</h3>
-            <p>US</p>
-          </section>
-          <section>
-            <h3>State</h3>
-            <p>California</p>
-          </section>
-        </section>
-        <section class=level2>
-          <h2>Profiles</h2>
-          <section class=level3>
-            <section>
-              <h3>Site</h3>
-              <p>Github</p>
-            </section>
-            <section>
-              <h3>User ID</h3>
-              <p>jrpool</p>
-            </section>
-            <section>
-              <h3>URL</h3>
-              <p><a href="https://github.com/jrpool">https://github.com/jrpool</a></p>
-            </section>
-          </section>
-          <section class=level3>
-            <section>
-              <h3>Site</h3>
-              <p>LinkedIn</p>
-            </section>
-            <section>
-              <h3>User ID</h3>
-              <p>jonathanpool</p>
-            </section>
-            <section>
-              <h3>URL</h3>
-              <p><a href="https://www.linkedin.com/in/jonathanpool/">https://www.linkedin.com/in/jonathanpool/</a></p>
-            </section>
-          </section>
-          <section class=level3>
-            <section>
-              <h3>Site</h3>
-              <p>Stack Overflow</p>
-            </section>
-            <section>
-              <h3>User ID</h3>
-              <p>1572601</p>
-            </section>
-            <section>
-              <h3>URL</h3>
-              <p><a href="https://stackoverflow.com/users/story/1572601">https://stackoverflow.com/users/story/1572601</a></p>
-            </section>
-          </section>
-          <section class=level3>
-            <section>
-              <h3>Site</h3>
-              <p>MDN Web Docs (Mozilla Foundation)</p>
-            </section>
-            <section>
-              <h3>User ID</h3>
-              <p>JonathanPool</p>
-            </section>
-            <section>
-              <h3>URL</h3>
-              <p><a href="https://developer.mozilla.org/en-US/profiles/JonathanPool">https://developer.mozilla.org/en-US/profiles/JonathanPool</a></p>
-            </section>
-          </section>
-          <section class=level3>
-            <section>
-              <h3>Site</h3>
-              <p>Google Scholar</p>
-            </section>
-            <section>
-              <h3>User ID</h3>
-              <p>qSNjYhQAAAAJ&hl</p>
-            </section>
-            <section>
-              <h3>URL</h3>
-              <p><a href="https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en">https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en</a></p>
-            </section>
-          </section>
-          <section class=level3>
-            <section>
-              <h3>Site</h3>
-              <p>GitLab</p>
-            </section>
-            <section>
-              <h3>User ID</h3>
-              <p>JonathanPool</p>
-            </section>
-            <section>
-              <h3>URL</h3>
-              <p><a href="https://gitlab.com/JonathanPool">https://gitlab.com/JonathanPool</a></p>
-            </section>
-          </section>
-          <section class=level3>
-            <section>
-              <h3>Site</h3>
-              <p>Twitter</p>
-            </section>
-            <section>
-              <h3>User ID</h3>
-              <p>JonathanRPool</p>
-            </section>
-            <section>
-              <h3>URL</h3>
-              <p><a href="https://twitter.com/JonathanRPool">https://twitter.com/JonathanRPool</a></p>
-            </section>
-          </section>
-        </section>
-      </section>
       <section class=level1>
         <h1>Skills</h1>
         <section class=level2>
@@ -1651,5 +1627,11 @@
         </section>
       </section>
     </main>
+    <section id="credit">
+      Powered by
+      <a href="https://github.com/jrpool/jsonresume-theme-a11y">
+        jsonresume-theme-a11y
+      </a>
+    </section>
   </body>
 </html>
