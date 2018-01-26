@@ -22,7 +22,7 @@ const indent = (string, spaceCount) => string.split('\n').join(
 );
 
 const sectionize = (string, hLevel) => {
-  const sectionClass = hLevel < 3 ? ` class=level${hLevel}` : '';
+  const sectionClass = hLevel && hLevel < 3 ? ` class=level${hLevel}` : '';
   return `<section${sectionClass}>\n  ${indent(string, 2)}\n</section>\n`;
 };
 
