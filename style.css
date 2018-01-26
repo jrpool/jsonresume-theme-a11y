@@ -8,7 +8,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1rem 0 0 0;
+  margin: 0.5rem 0 0 0.3rem;
 }
 h1 {
   font-size: 2rem;
@@ -41,7 +41,7 @@ html {
   font-size: 1.4vw;
 }
 p {
-  margin: 0.3rem 0 0 0;
+  margin: 0.3rem 0 0 0.3rem;
   font-size: 1.2rem;
 }
 section.level1 {
@@ -58,14 +58,13 @@ section.level3 {
 section.level1,
 section.level2,
 section.level3 {
-  padding: 1vw;
+  padding-bottom: 0.3rem;
   border-style: solid;
   border-width: 1px;
 }
 
-section.level1 h1,
-section.level2 h2,
-section.level3 h2,
-section.level3 h3 {
+section.level1 > section:first-child > h1,
+section.level2 > section:first-child > h2,
+section.level3 > section:first-child > h3 {
   margin-top: 0;
 }
