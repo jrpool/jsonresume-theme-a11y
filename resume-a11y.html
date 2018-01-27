@@ -8,21 +8,6 @@
     >
     <title></title>
     <style>
-      body {
-        background: #eee;
-        margin: 3rem 3rem;
-      }
-      .em {
-        font-weight: bolder;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin: 0.5rem 0 0 0.3rem;
-      }
       #basics-contact th {
         text-align: left;
       }
@@ -47,18 +32,47 @@
       #basics-profiles-table {
         margin-bottom: 1rem;
       }
+      #basics-subSummary td {
+        padding: 0.2rem 1rem;
+      }
       #basics-summary {
+        display: block;
         font-weight: bolder;
         color: navy;
       }
-      #basics-subSummary {
-        margin-bottom: 2rem;
+      #basics-summary-container {
+        display: flex;
+        justify-content: center;
+      }
+      #basics-summary-content {
+        padding: 0 3rem 2rem 3rem;
+        margin-top: 1rem;
+        border-style: solid;
+        border-width: 0.5rem;
+        border-radius: 50%;
+        border-color: blueviolet;
+        border-image-source: radial-gradient(ellipse, green blue);
+      }
+      body {
+        background: #eee;
+        margin: 3rem 3rem;
       }
       #credit {
         margin-top: 1rem;
         text-align: center;
         font-size: 1rem;
         font-style: italic;
+      }
+      .em {
+        font-weight: bolder;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0.5rem 0 0 0.3rem;
       }
       h1,
       .h1c {
@@ -174,16 +188,26 @@
         <div
           id="basics-label" class="h1c" title="Profession">Developer of accessible web applications
         </div>
-        <div id="basics-summary" class="h6c" title="Repertoire">
-          All phases:
-        </div>
-        <div id="basics-subSummary" class="h7c" title="Repertoire list">
-          <table title="Repertoire list">
+        <section id="basics-summary-container">
+          <div></div>
+          <div id="basics-summary-content">
+            <div
+              id="basics-summary"
+              class="h6c"
+              title="Repertoire"
+            >
+              All phases:
+            </div>
+            <div id="basics-subSummary" class="h7c" title="Repertoire list">
+              <table title="Repertoire list">
           <tr><td>planning</td><td>coding</td><td>documentation</td></tr>
             <tr><td>design</td><td>testing</td><td>blogging</td></tr>
             <tr><td>upgrades</td><td>maintenance</td><td>training</td></tr>
           </table>
-        </div>
+            </div>
+          </div>
+          <div></div>
+        </section>
         <section id="basics-details">
           <div id="basics-contact" class="h4l" title="##contact-title##">
             <table id="basics-contact-table" class="table-contact">
@@ -237,7 +261,7 @@
         </section>
       </section>
       <section class=level1>
-        <h1>Information-technology skills</h1>
+        <h1>What I have worked with</h1>
         <section>
           <p><span class=list-item><span class="em">Web development</span>: full-stack, back-end, front-end, SPAs</span></p>
         </section>
@@ -245,13 +269,19 @@
           <p><span class=list-item><span class="em">Version control</span>: git, Github, Gitlab, Bitbucket, SourceForge</span></p>
         </section>
         <section>
-          <p><span class=list-item><span class="em">Programming languages</span>: JavaScript, Perl, Java, VBA, APL</span></p>
+          <p><span class=list-item><span class="em">Programming</span>: JavaScript, Perl, Java, bash, VBA, APL</span></p>
         </section>
         <section>
-          <p><span class=list-item><span class="em">Frameworks/libraries</span>: Node.js, NPM, Express, pg, pg-promise, bcrypt, mocha, chai, ESLint, Materialize, DBI, WordPress</span></p>
+          <p><span class=list-item><span class="em">Back-end</span>: Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI</span></p>
         </section>
         <section>
-          <p><span class=list-item><span class="em">Databases</span>: PostgreSQL, PL/Pgsql, MongoDB</span></p>
+          <p><span class=list-item><span class="em">Front-end</span>: HTML, CSS, JQuery, Cheerio, EJS, Pug, Materialize, WordPress</span></p>
+        </section>
+        <section>
+          <p><span class=list-item><span class="em">Quality control</span>: mocha, chai, Selenium Webdriver, ESLint</span></p>
+        </section>
+        <section>
+          <p><span class=list-item><span class="em">Databases</span>: PostgreSQL, PL/pgSQL, MongoDB</span></p>
         </section>
         <section>
           <p><span class=list-item><span class="em">Accessibility</span>: WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits</span></p>
@@ -269,16 +299,16 @@
           <p><span class=list-item><span class="em">Mail servers</span>: Postfix, sendmail, SendGrid Web API</span></p>
         </section>
         <section>
-          <p><span class=list-item><span class="em">OS installation/administration</span>: Ubuntu, RHEL, OS X</span></p>
+          <p><span class=list-item><span class="em">OS’s</span>: Ubuntu, RHEL, OS X</span></p>
         </section>
         <section>
-          <p><span class=list-item><span class="em">Network administration</span>: Cisco firewall/router/switch OS</span></p>
+          <p><span class=list-item><span class="em">Networks</span>: Cisco firewall/router/switch OS</span></p>
         </section>
         <section>
-          <p><span class=list-item><span class="em">File processing</span>: FineReader, Acrobat, Atom, nano, iconv</span></p>
+          <p><span class=list-item><span class="em">Files</span>: FineReader, Acrobat, iconv, Atom, nano, ed, sed</span></p>
         </section>
         <section>
-          <p><span class=list-item><span class="em">Office applications</span>: Apache OpenOffice, Microsoft Office, Apple iWork</span></p>
+          <p><span class=list-item><span class="em">Office apps</span>: Apache OpenOffice, Microsoft Office, Apple iWork</span></p>
         </section>
         <section>
           <p><span class=list-item><span class="em">CAD</span>: VectorWorks</span></p>
