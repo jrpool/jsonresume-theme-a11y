@@ -34,7 +34,16 @@ const renderHead = (string, hLevel) => {
 };
 
 const renderString = string => {
-  return `<p>${string}</p>`;
+  const colonIndex = string.indexOf(':');
+  let renderString = string;
+  if (colonIndex > 0) {
+    const stringParts = [
+      string.slice(0, colonIndex),
+      string.slice(colonIndex)
+    ];
+    renderString = `<span class="em">${stringParts[0]}</span>${stringParts[1]}`;
+  }
+  return `<p><span class=list-item>${renderString}</span></p>`;
 };
 
 const ordinary = (code, legend) => legend ? legend[code] || code : code;

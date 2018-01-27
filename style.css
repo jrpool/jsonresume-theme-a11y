@@ -2,6 +2,9 @@ body {
   background: #eee;
   margin: 3rem 3rem;
 }
+.em {
+  font-weight: bolder;
+}
 h1,
 h2,
 h3,
@@ -83,7 +86,10 @@ html {
   font-size: 1.4vw;
 }
 p {
-  margin: 0.3rem 0 0 0.3rem;
+  display: list-item;
+  list-style: inside;
+  margin: 0.3rem 0 0 0;
+  padding-left: 0.7rem;
   font-size: 1.2rem;
 }
 section.level1 {
@@ -108,6 +114,10 @@ section.level1 > section:first-child > h1,
 section.level2 > section:first-child > h2,
 section.level3 > section:first-child > h3 {
   margin-top: 0;
+}
+.list-item {
+  position: relative;
+  left: -0.5rem;
 }
 table {
   margin: 1rem auto 0 auto;

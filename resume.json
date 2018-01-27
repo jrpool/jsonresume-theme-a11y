@@ -88,22 +88,21 @@
     ]
   },
   "skills": [
-    "Full-stack Node/JavaScript-based web development",
-    "Perl",
-    "Java",
-    "PostgreSQL",
-    "MongoDB",
-    "Apache httpd/nginx",
-    "Amazon EC2",
-    "SendGrid Web API",
-    "Ubuntu and Red Hat Enterprise Linux",
-    "OS X",
-    "Cisco firewall/router/switch OS",
-    "WordPress",
-    "Apache OpenOffice",
-    "Microsoft Office",
-    "iWork",
-    "VectorWorks (CAD)"
+    "Web development: full-stack, back-end, front-end, SPAs",
+    "Version control: git, Github, Gitlab, Bitbucket, SourceForge",
+    "Programming languages: JavaScript, Perl, Java, VBA, APL",
+    "Frameworks/libraries: Node.js, NPM, Express, pg, pg-promise, bcrypt, mocha, chai, ESLint, Materialize, DBI, WordPress",
+    "Databases: PostgreSQL, PL/Pgsql, MongoDB",
+    "Accessibility: WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits",
+    "Internationalization: Unicode, CLDR, ISO 639, PanLex API",
+    "Web servers: Apache httpd, nginx",
+    "Cloud and virtual server administration: Amazon EC2, S3, OVH",
+    "Mail servers: Postfix, sendmail, SendGrid Web API",
+    "OS installation/administration: Ubuntu, RHEL, OS X",
+    "Network administration: Cisco firewall/router/switch OS",
+    "File processing: FineReader, Acrobat, Atom, nano, iconv",
+    "Office applications: Apache OpenOffice, Microsoft Office, Apple iWork",
+    "CAD: VectorWorks"
   ],
   "accessible": [
     "<a href='https://github.com/jrpool/calculator/blob/master/README3.md'>Accessible Calculator</a>",
@@ -143,6 +142,6 @@
   "publications": [
       "computational lexicography",
       "syntactic ambiguity",
-      "game-theoretic models of language choice"
+      "game-theoretic models of social choice"
   ]
 }
