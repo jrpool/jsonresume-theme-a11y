@@ -13,15 +13,12 @@ h5,
 h6 {
   margin: 0.5rem 0 0 0.3rem;
 }
+#basics-contact th {
+  text-align: left;
+}
 #basics-contact-table th {
   padding-right: 1rem;
   text-align: right;
-}
-#basics-profiles-table {
-  margin-bottom: 1rem;
-}
-#basics-contact th {
-  text-align: left;
 }
 #basics-details {
   font-size: 1.2rem;
@@ -30,15 +27,22 @@ h6 {
   font-weight: bolder;
 }
 #basics-picture {
-  float: right;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
 }
 #basics-picture > img {
   width: 8rem;
 }
+#basics-profiles-table {
+  margin-bottom: 1rem;
+}
 #basics-summary {
-  margin-bottom: 2rem;
   font-weight: bolder;
   color: navy;
+}
+#basics-subSummary {
+  margin-bottom: 2rem;
 }
 #credit {
   margin-top: 1rem;
@@ -62,24 +66,39 @@ h3,
   font-size: 1.8rem;
   color: #013;
 }
-h4 {
+h4,
+.h4c {
   font-size: 1.7rem;
   font-style: italic;
   color: #000;
 }
-h5 {
+h5,
+.h5c {
   font-size: 1.6rem;
   color: #111;
 }
-h6 {
+h6,
+.h6c {
   font-size: 1.5rem;
   font-style: italic;
   color: #222;
 }
+h7,
+.h7c {
+  font-size: 1.4rem;
+  color: #333;
+}
 .h1c,
 .h2c,
-.h3c {
+.h3c,
+.h4c,
+.h5c,
+.h6c {
   margin-top: 1rem;
+  text-align: center;
+}
+.h7c {
+  margin-top: 0;
   text-align: center;
 }
 html {

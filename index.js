@@ -17,7 +17,7 @@ const imageLinkify = (string, alt) => {
   return `<img src="${string}" alt="${alt}">`;
 };
 
-const indent = (string, spaceCount) => string.split('\n').join(
+const indent = (string, spaceCount) => string.trim().split('\n').join(
   '\n' + ' '.repeat(spaceCount)
 );
 
@@ -26,14 +26,14 @@ const sectionize = (string, hLevel) => {
   return `<section${sectionClass}>\n  ${indent(string, 2)}\n</section>\n`;
 };
 
-const renderHead = (string, hLevel) => {
+const headRender = (string, hLevel) => {
   const tagName = `h${hLevel}`;
   const openTag = `<${tagName}>`;
   const closeTag = `</${tagName}>`;
   return `${openTag}${string}${closeTag}\n`;
 };
 
-const renderString = string => {
+const stringRender = string => {
   const colonIndex = string.indexOf(':');
   let renderString = string;
   if (colonIndex > 0) {
@@ -48,11 +48,11 @@ const renderString = string => {
 
 const ordinary = (code, legend) => legend ? legend[code] || code : code;
 
-const renderItem = (propertyName, item, legend, hLevel) => {
+const itemRender = (propertyName, item, legend, hLevel) => {
   const itemType = typeof item;
   if (Array.isArray(item)) {
     const sectionContent = item.map(element => {
-      const subSectionContent = renderItem(
+      const subSectionContent = itemRender(
         propertyName, element, legend, hLevel
       );
       const noBox = ['number', 'string', 'boolean'].includes(typeof element);
@@ -68,14 +68,14 @@ const renderItem = (propertyName, item, legend, hLevel) => {
     else if (isLink(item)) {
       item = linkify(item);
     }
-    return renderString(item);
+    return stringRender(item);
   }
   else if (itemType === 'object') {
     const sectionContent = Object.keys(item).map(subPropertyName => {
       const subItem = item[subPropertyName];
       const subPropertyContent = [
-        renderHead(ordinary(subPropertyName, legend), hLevel),
-        renderItem(subPropertyName, subItem, legend, hLevel + 1)
+        headRender(ordinary(subPropertyName, legend), hLevel),
+        itemRender(subPropertyName, subItem, legend, hLevel + 1)
       ].join('');
       const noBox = ['number', 'string', 'boolean'].includes(typeof subItem);
       return sectionize(subPropertyContent, noBox ? '' : hLevel);
@@ -88,26 +88,34 @@ const renderItem = (propertyName, item, legend, hLevel) => {
 };
 
 const render = (cvObject, cvBasics, legend) => {
-  const css = fs.readFileSync(
+  const css = indent(fs.readFileSync(
     path.join(__dirname, 'style.css'), 'utf-8'
-  ).slice(0, -1).split('\n').join('\n      ');
-  const html = indent(renderItem('', cvObject, legend, 1), 6);
+  ), 6);
+  const html = indent(itemRender('', cvObject, legend, 1), 6);
   const template = fs.readFileSync(
     path.join(__dirname, 'template.html'), 'utf8'
   );
   return template
   .replace('##style-insert##', css)
-  .replace('##main-insert##', [cvBasics, html].join('\n'));
+  .replace('##main-insert##', [cvBasics, html].join('\n' + ' '.repeat(6)));
 }
 
 const profilesRender = object => {
-  return object.profiles.map(profile => {
-    return `<tr>
-      <td>${profile.network}</td>
-      <td>${profile.username}</td>
-      <td>${profile.url}</td>
-    </tr>`;
-  }).join('\n');
+  return indent(object.profiles.map(profile => {
+    return `${' '.repeat(6)}<tr>
+        <td>${profile.network}</td>
+        <td>${profile.username}</td>
+        <td>${profile.url}</td>
+      </tr>`;
+  }).join('\n'), 8);
+};
+
+const tableRender = (content, indentation, title) => {
+  const rows = indent(content.map(row => {
+    return `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`;
+  }).join('\n'), 2);
+  const table = [`<table title="${title}">`, rows, '</table>'].join('\n');
+  return indent(table, indentation);
 };
 
 const basicsRender = (object, legend) => {
@@ -115,9 +123,14 @@ const basicsRender = (object, legend) => {
     path.join(__dirname, 'basicstemplate.html'), 'utf8'
   );
   let basics = basicsTemplate
+  .trim()
   .replace('##picture-alt-name##', object.name)
   .replace('##href-email##', object.email)
   .replace('##href-website##', object.website);
+  basics = basics.replace(
+    '##subSummary##',
+    tableRender(object.subSummary, 10, legend.subSummary)
+  );
   Object.keys(legend).forEach(key => {
     basics = basics.replace(`##${key}-title##`, legend[key]);
     if (object[key]) {

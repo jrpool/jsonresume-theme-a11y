@@ -45,7 +45,8 @@
     "skills": "Information-technology skills",
     "startDate": "Start date (yyyy-mm-dd)",
     "studyType": "Degree or program",
-    "summary": "Summary",
+    "subSummary": "Repertoire list",
+    "summary": "Repertoire",
     "title": "Title",
     "url": "URL",
     "username": "User ID",
@@ -55,13 +56,18 @@
   },
   "basics": {
     "name": "Jonathan Pool",
-    "label": "Programmer",
+    "label": "Developer of accessible web applications",
     "picture": "http://stulta.com/images/pool-2009.jpg",
     "email": "pool@stulta.com",
     "phone": "(510) 225-1717",
     "mobilePhone": "(510) 225-1700",
     "website": "http://stulta.com/forumo",
-    "summary": "I design, build, test, and document<br>accessible web applications.",
+    "summary": "All phases:",
+    "subSummary": [
+      ["planning", "coding", "documentation"],
+      ["design", "testing", "blogging"],
+      ["upgrades", "maintenance", "training"]
+    ],
     "location": {
       "address": "555 10th St Apt 312",
       "postalCode": "94607-5208",

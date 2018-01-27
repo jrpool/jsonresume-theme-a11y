@@ -23,15 +23,12 @@
       h6 {
         margin: 0.5rem 0 0 0.3rem;
       }
+      #basics-contact th {
+        text-align: left;
+      }
       #basics-contact-table th {
         padding-right: 1rem;
         text-align: right;
-      }
-      #basics-profiles-table {
-        margin-bottom: 1rem;
-      }
-      #basics-contact th {
-        text-align: left;
       }
       #basics-details {
         font-size: 1.2rem;
@@ -40,15 +37,22 @@
         font-weight: bolder;
       }
       #basics-picture {
-        float: right;
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
       }
       #basics-picture > img {
         width: 8rem;
       }
+      #basics-profiles-table {
+        margin-bottom: 1rem;
+      }
       #basics-summary {
-        margin-bottom: 2rem;
         font-weight: bolder;
         color: navy;
+      }
+      #basics-subSummary {
+        margin-bottom: 2rem;
       }
       #credit {
         margin-top: 1rem;
@@ -72,24 +76,39 @@
         font-size: 1.8rem;
         color: #013;
       }
-      h4 {
+      h4,
+      .h4c {
         font-size: 1.7rem;
         font-style: italic;
         color: #000;
       }
-      h5 {
+      h5,
+      .h5c {
         font-size: 1.6rem;
         color: #111;
       }
-      h6 {
+      h6,
+      .h6c {
         font-size: 1.5rem;
         font-style: italic;
         color: #222;
       }
+      h7,
+      .h7c {
+        font-size: 1.4rem;
+        color: #333;
+      }
       .h1c,
       .h2c,
-      .h3c {
+      .h3c,
+      .h4c,
+      .h5c,
+      .h6c {
         margin-top: 1rem;
+        text-align: center;
+      }
+      .h7c {
+        margin-top: 0;
         text-align: center;
       }
       html {
@@ -143,7 +162,7 @@
   </head>
   <body>
     <main>
-            <section class="basics" title="Basics">
+<section class="basics" title="Basics">
         <div
           id="basics-picture"
           class="float-left"
@@ -153,10 +172,17 @@
         </div>
         <div id="basics-name" class="h1c" title="Name">Jonathan Pool</div>
         <div
-          id="basics-label" class="h2c" title="Profession">Programmer
+          id="basics-label" class="h1c" title="Profession">Developer of accessible web applications
         </div>
-        <div id="basics-summary" class="h3c" title="Summary">
-          I design, build, test, and document<br>accessible web applications.
+        <div id="basics-summary" class="h6c" title="Repertoire">
+          All phases:
+        </div>
+        <div id="basics-subSummary" class="h7c" title="Repertoire list">
+          <table title="Repertoire list">
+          <tr><td>planning</td><td>coding</td><td>documentation</td></tr>
+            <tr><td>design</td><td>testing</td><td>blogging</td></tr>
+            <tr><td>upgrades</td><td>maintenance</td><td>training</td></tr>
+          </table>
         </div>
         <section id="basics-details">
           <div id="basics-contact" class="h4l" title="##contact-title##">
@@ -192,26 +218,25 @@
                 <th id="url">URL</th>
               </tr>
               <tr>
-      <td>Github</td>
-      <td>jrpool</td>
-      <td>https://github.com/jrpool</td>
-    </tr>
-<tr>
-      <td>LinkedIn</td>
-      <td>jonathanpool</td>
-      <td>https://www.linkedin.com/in/jonathanpool/</td>
-    </tr>
-<tr>
-      <td>MDN Web Docs</td>
-      <td>JonathanPool</td>
-      <td>https://developer.mozilla.org/en-US/profiles/JonathanPool</td>
-    </tr>
+                <td>Github</td>
+                <td>jrpool</td>
+                <td>https://github.com/jrpool</td>
+              </tr>
+              <tr>
+                <td>LinkedIn</td>
+                <td>jonathanpool</td>
+                <td>https://www.linkedin.com/in/jonathanpool/</td>
+              </tr>
+              <tr>
+                <td>MDN Web Docs</td>
+                <td>JonathanPool</td>
+                <td>https://developer.mozilla.org/en-US/profiles/JonathanPool</td>
+              </tr>
             </table>
           </div>
         </section>
       </section>
-
-<section class=level1>
+      <section class=level1>
         <h1>Information-technology skills</h1>
         <section>
           <p><span class=list-item><span class="em">Web development</span>: full-stack, back-end, front-end, SPAs</span></p>
