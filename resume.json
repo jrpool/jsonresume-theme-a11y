@@ -102,6 +102,10 @@
     {
       "link": "https://github.com/jrpool/jsonresume-theme-a11y",
       "content": "jsonresume-theme-a11y"
+    },
+    {
+      "link": "https://github.com/jrpool/singlepropertysite",
+      "content": "singlepropertysite"
     }
   ],
   "openSource": [
@@ -111,7 +115,7 @@
     },
     {
       "link": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool",
-      "content": "MDN Docs"
+      "content": "MDN Web Docs"
     },
     {
       "link": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
@@ -123,24 +127,24 @@
     }
   ],
   "skills": [
-    "Web development: full-stack, back-end, front-end, APIs, SPAs",
-    "Programming: JavaScript, Perl, Java, bash, VBA, APL",
+    "Languages: JavaScript, Perl, Java, bash, VBA, APL",
+    "Scopes: full-stack, back-end, front-end, APIs, SPAs",
     "Back-end: Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI",
+    "Databases: PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations",
     "Front-end: HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize, WordPress",
     "Version control: git, svn, Github, Gitlab, Bitbucket, SourceForge",
-    "Quality control: mocha, chai, Selenium Webdriver, ESLint",
-    "Databases: PostgreSQL, PL/pgSQL, MongoDB, migrations",
-    "Statistics: SPSS",
+    "Quality control: ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools",
     "Accessibility: WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits",
     "Internationalization: Unicode, CLDR, ISO 639, PanLex API",
     "Web servers: Apache httpd, nginx",
-    "Cloud and virtual server administration: Amazon AWS (EC2, S3, Glacier), OVH",
     "Mail servers: Postfix, sendmail, SendGrid Web API",
-    "OS’s: Ubuntu, RHEL, OS X",
-    "Networks: Cisco firewall/router/switch OS",
+    "Remote hosts: Amazon AWS (EC2, S3, Glacier), OVH",
+    "OS’s: Ubuntu, RHEL, OS X, Cisco IOS",
     "Files: FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter",
-    "Office apps: Apache OpenOffice, Microsoft Office, Apple iWork",
-    "CAD: VectorWorks"
+    "CAD: VectorWorks",
+    "Statistics: SPSS",
+    "Office apps: Apache OpenOffice, Apple iWork, Microsoft Office",
+    "Collaboration: Slack, Asana, Wrike, Trello, Egnyte"
   ],
   "languages": [
     "English",
