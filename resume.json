@@ -107,7 +107,7 @@
   "openSource": [
     {
       "link": "https://github.com/eslint/eslint/graphs/contributors",
-      "content": "ESLint"
+      "content": "ESLint (#25)"
     },
     {
       "link": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool",
@@ -115,7 +115,7 @@
     },
     {
       "link": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
-      "content": "LearnersGuild/curriculum-app"
+      "content": "LearnersGuild/curriculum-app (#3)"
     },
     {
       "link": "https://gitlab.com/JonathanPool",
