@@ -26,7 +26,7 @@
     "location": "Residence",
     "mobilePhone": "Mobile telephone",
     "name": "Name",
-    "network": "Site",
+    "network": "Host",
     "openSource": "Open-source contributions",
     "organization": "Organization",
     "phone": "Telephone",
@@ -59,11 +59,8 @@
     "picture": "http://stulta.com/images/pool-2009.jpg",
     "summary": "All phases:",
     "subSummary": [
-      ["planning", "documentation"],
-      ["design", "blogging"],
-      ["coding", "training"],
-      ["linting", "maintenance"],
-      ["testing", "upgrades"]
+      ["planning", "design", "coding", "linting", "testing"],
+      ["documentation", "blogging", "training", "maintenance", "upgrades"]
     ],
     "email": "pool@stulta.com",
     "phone": "(510) 225-1717",
@@ -97,33 +94,33 @@
   "accessible": [
     {
       "link": "https://github.com/jrpool/calculator/blob/master/README3.md",
-      "content": "Accessible Calculator"
+      "intro": "Accessible Calculator"
     },
     {
       "link": "https://github.com/jrpool/jsonresume-theme-a11y",
-      "content": "jsonresume-theme-a11y"
+      "intro": "Accessible <code>jsonresume</code> theme"
     },
     {
       "link": "https://github.com/jrpool/singlepropertysite",
-      "content": "singlepropertysite"
+      "intro": "Senior-friendly single-page site"
     }
   ],
   "openSource": [
     {
       "link": "https://github.com/eslint/eslint/graphs/contributors",
-      "content": "ESLint (#25)"
+      "intro": "ESLint (#25)"
     },
     {
       "link": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool",
-      "content": "MDN Web Docs"
+      "intro": "MDN Web Docs"
     },
     {
       "link": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
-      "content": "LearnersGuild/curriculum-app (#3)"
+      "intro": "LearnersGuild/curriculum-app (#3)"
     },
     {
       "link": "https://gitlab.com/JonathanPool",
-      "content": "PanLem"
+      "intro": "PanLem"
     }
   ],
   "skills": [

@@ -23,11 +23,7 @@
   margin-bottom: 1rem;
 }
 #basics-subSummary td {
-  padding: 0.2rem 1rem;
-}
-#basics-subSummary > table tr > td:first-child {
-  border-right-width: 3px;
-  border-right-style: double;
+  padding: 0.2rem 0.3rem;
 }
 #basics-summary {
   display: block;

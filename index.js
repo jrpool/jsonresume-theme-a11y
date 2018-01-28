@@ -17,8 +17,8 @@ const linkify = string => {
   return `<a href="${string}">${string}</a>`;
 };
 
-const enlink = object => {
-  return `<a href="${object.link}">${object.content}</a>`;
+const appendLink = object => {
+  return `${object.intro}: <a href="${object.link}">${object.link}</a>`;
 };
 
 const imageLinkify = (string, alt) => {
@@ -82,7 +82,7 @@ const itemRender = (propertyName, item, legend, hLevel) => {
   }
   else if (itemType === 'object') {
     if (hasLink(item)) {
-      return stringRender(enlink(item));
+      return stringRender(appendLink(item));
     }
     else {
       const sectionContent = Object.keys(item).map(subPropertyName => {
@@ -114,7 +114,7 @@ const render = (cvObject, cvBasics, title, legend) => {
   .replace('##title##', title)
   .replace('##style-insert##', css)
   .replace('##main-insert##', [cvBasics, html].join('\n' + ' '.repeat(6)));
-}
+};
 
 const profilesRender = object => {
   const profileRows = object.profiles.map(profile => {
