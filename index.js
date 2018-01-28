@@ -5,12 +5,20 @@ const isLink = string => {
   return string.startsWith('http://') || string.startsWith('https://');
 };
 
+const hasLink = object => {
+  return object.hasOwnProperty('link');
+};
+
 const isImageLink = string => {
   return isLink(string) && /\.(?:jpg|jpeg|gif|png|svg)$/.test(string);
 };
 
 const linkify = string => {
   return `<a href="${string}">${string}</a>`;
+};
+
+const enlink = object => {
+  return `<a href="${object.link}">${object.content}</a>`;
 };
 
 const imageLinkify = (string, alt) => {
@@ -34,7 +42,7 @@ const headRender = (string, hLevel) => {
 };
 
 const stringRender = string => {
-  const colonIndex = string.indexOf(':');
+  const colonIndex = string.indexOf(': ');
   let renderString = string;
   if (colonIndex > 0) {
     const stringParts = [
@@ -71,16 +79,23 @@ const itemRender = (propertyName, item, legend, hLevel) => {
     return stringRender(item);
   }
   else if (itemType === 'object') {
-    const sectionContent = Object.keys(item).map(subPropertyName => {
-      const subItem = item[subPropertyName];
-      const subPropertyContent = [
-        headRender(ordinary(subPropertyName, legend), hLevel),
-        itemRender(subPropertyName, subItem, legend, hLevel + 1)
-      ].join('');
-      const noBox = ['number', 'string', 'boolean'].includes(typeof subItem);
-      return sectionize(subPropertyContent, noBox ? '' : hLevel);
-    });
-    return sectionContent.join('').trim();
+    if (hasLink(item)) {
+      console.log('enlinked item is ' + enlink(item));
+      console.log('Rendered: ' + stringRender(enlink(item)));
+      return stringRender(enlink(item));
+    }
+    else {
+      const sectionContent = Object.keys(item).map(subPropertyName => {
+        const subItem = item[subPropertyName];
+        const subPropertyContent = [
+          headRender(ordinary(subPropertyName, legend), hLevel),
+          itemRender(subPropertyName, subItem, legend, hLevel + 1)
+        ].join('');
+        const noBox = ['number', 'string', 'boolean'].includes(typeof subItem);
+        return sectionize(subPropertyContent, noBox ? '' : hLevel);
+      });
+      return sectionContent.join('').trim();
+    }
   }
   else {
     return '';
@@ -101,13 +116,14 @@ const render = (cvObject, cvBasics, legend) => {
 }
 
 const profilesRender = object => {
-  return indent(object.profiles.map(profile => {
+  const profileRows = object.profiles.map(profile => {
     return `${' '.repeat(6)}<tr>
         <td>${profile.network}</td>
         <td>${profile.username}</td>
-        <td>${profile.url}</td>
+        <td>${linkify(profile.url)}</td>
       </tr>`;
-  }).join('\n'), 8);
+  }).join('\n');
+  return indent(profileRows, 8);
 };
 
 const tableRender = (content, indentation, title) => {
@@ -143,7 +159,7 @@ const basicsRender = (object, legend) => {
       basics = basics.replace(`##${key}##`, object.profiles[key]);
     }
   });
-  return basics.replace('##profiles-insert##', profilesRender(object));
+  return basics.replace('##profiles-rows##', profilesRender(object));
 };
 
 const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'), 'utf8');

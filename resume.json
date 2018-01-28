@@ -1,11 +1,10 @@
 {
   "legend": {
-    "accessible": "current a11y projects",
+    "accessible": "Current a11y projects",
     "address": "Address",
     "area": "Subject",
     "awarder": "Awarder",
     "awards": "Grants for software development",
-    "basics": "Basics",
     "city": "City",
     "company": "Company",
     "countryCode": "Country code",
@@ -22,13 +21,13 @@
     "keywords": "Specifics",
     "label": "Profession",
     "language": "Language",
-    "languages": "Human languages (in descending fluency order)",
+    "languages": "Human languages (best→worst)",
     "level": "Proficiency",
     "location": "Residence",
     "mobilePhone": "Mobile telephone",
     "name": "Name",
     "network": "Site",
-    "openSource": "Main contributions to open-source projects",
+    "openSource": "Open-source contributions",
     "organization": "Organization",
     "phone": "Telephone",
     "picture": "Photograph",
@@ -58,10 +57,6 @@
     "name": "Jonathan Pool",
     "label": "Developer of accessible web applications",
     "picture": "http://stulta.com/images/pool-2009.jpg",
-    "email": "pool@stulta.com",
-    "phone": "(510) 225-1717",
-    "mobilePhone": "(510) 225-1700",
-    "website": "http://stulta.com/forumo",
     "summary": "All phases:",
     "subSummary": [
       ["planning", "documentation"],
@@ -70,6 +65,10 @@
       ["linting", "maintenance"],
       ["testing", "upgrades"]
     ],
+    "email": "pool@stulta.com",
+    "phone": "(510) 225-1717",
+    "mobilePhone": "(510) 225-1700",
+    "website": "http://stulta.com/forumo",
     "location": {
       "address": "555 10th St Apt 312",
       "postalCode": "94607-5208",
@@ -115,14 +114,32 @@
     "CAD: VectorWorks"
   ],
   "accessible": [
-    "<a href='https://github.com/jrpool/calculator/blob/master/README3.md'>Accessible Calculator</a>",
-    "<a href='https://github.com/jrpool/jsonresume-theme-a11y'>jsonresume-theme-a11y</a>"
+    {
+      "link": "https://github.com/jrpool/calculator/blob/master/README3.md",
+      "content": "Accessible Calculator"
+    },
+    {
+      "link": "https://github.com/jrpool/jsonresume-theme-a11y",
+      "content": "jsonresume-theme-a11y"
+    }
   ],
   "openSource": [
-    "<a href='https://github.com/eslint/eslint/graphs/contributors'>ESLint</a> (#25)",
-    "<a href='https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool'>MDN Docs</a>",
-    "<a href='https://github.com/LearnersGuild/curriculum-app/graphs/contributors'>LearnersGuild/curriculum-app</a> (#3)",
-    "<a href='https://gitlab.com/JonathanPool'>panlex/PanLem</a>"
+    {
+      "link": "https://github.com/eslint/eslint/graphs/contributors",
+      "content": "ESLint"
+    },
+    {
+      "link": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool",
+      "content": "MDN Docs"
+    },
+    {
+      "link": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
+      "content": "LearnersGuild/curriculum-app"
+    },
+    {
+      "link": "https://gitlab.com/JonathanPool",
+      "content": "PanLem"
+    }
   ],
   "languages": [
     "English",
@@ -134,9 +151,9 @@
     "Norwegian (Bokmål)"
   ],
   "education": [
-      "Learners Guild, 2017–2018, web development",
-      "University of Washington, 2004–2007, computer science and linguistics",
-      "The University of Chicago, 1966–1971, political science"
+    "Learners Guild, 2017–2018, web development",
+    "University of Washington, 2004–2007, computer science and linguistics",
+    "The University of Chicago, 1966–1971, political science"
   ],
   "work": [
     "The Long Now Foundation, 2012–2015, Project Director, PanLex",
@@ -146,12 +163,12 @@
     "Peace Corps, 1964–1966, teaching"
   ],
   "awards": [
-      "University of Maryland",
-      "National Science Foundation"
+    "University of Maryland",
+    "National Science Foundation"
   ],
   "publications": [
-      "computational lexicography",
-      "syntactic ambiguity",
-      "game-theoretic models of social choice"
+    "computational lexicography",
+    "syntactic ambiguity",
+    "game-theoretic models of social choice"
   ]
 }
