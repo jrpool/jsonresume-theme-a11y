@@ -63,7 +63,9 @@ const itemRender = (propertyName, item, legend, hLevel) => {
       const subSectionContent = itemRender(
         propertyName, element, legend, hLevel
       );
-      const noBox = ['number', 'string', 'boolean'].includes(typeof element);
+      const noBox
+        = ['number', 'string', 'boolean'].includes(typeof element)
+        || (typeof element === 'object' && hasLink(element));
       return sectionize(subSectionContent, noBox ? '' : hLevel);
     });
     return sectionContent.join('').trim();
@@ -80,8 +82,6 @@ const itemRender = (propertyName, item, legend, hLevel) => {
   }
   else if (itemType === 'object') {
     if (hasLink(item)) {
-      console.log('enlinked item is ' + enlink(item));
-      console.log('Rendered: ' + stringRender(enlink(item)));
       return stringRender(enlink(item));
     }
     else {

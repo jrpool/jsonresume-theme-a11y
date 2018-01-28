@@ -32,7 +32,7 @@
 #basics-summary {
   display: block;
   font-weight: bolder;
-  color: indigo;
+  color: #344;
 }
 #basics-summary-container {
   display: flex;
@@ -44,7 +44,7 @@
   border-style: solid;
   border-width: 0.5rem;
   border-radius: 50%;
-  border-color: #4b008233;
+  border-color: #33444433;
 }
 body {
   background: #eee;
@@ -70,40 +70,40 @@ h6 {
 h1,
 .h1c {
   font-size: 2rem;
-  color: indigo;
+  color: #344;
 }
 h2,
 .h2c {
   font-size: 1.9rem;
   font-style: italic;
-  color: indigo;
+  color: #344;
 }
 h3,
 .h3c {
   font-size: 1.8rem;
-  color: indigo;
+  color: #344;
 }
 h4,
 .h4c {
   font-size: 1.7rem;
   font-style: italic;
-  color: indigo;
+  color: #344;
 }
 h5,
 .h5c {
   font-size: 1.6rem;
-  color: indigo;
+  color: #344;
 }
 h6,
 .h6c {
   font-size: 1.5rem;
   font-style: italic;
-  color: indigo;
+  color: #344;
 }
 h7,
 .h7c {
   font-size: 1.4rem;
-  color: indigo;
+  color: #344;
 }
 .h1c,
 .h2c,
