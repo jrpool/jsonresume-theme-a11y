@@ -102,7 +102,7 @@ const itemRender = (propertyName, item, legend, hLevel) => {
   }
 };
 
-const render = (cvObject, cvBasics, legend) => {
+const render = (cvObject, cvBasics, title, legend) => {
   const css = indent(fs.readFileSync(
     path.join(__dirname, 'style.css'), 'utf-8'
   ), 6);
@@ -111,6 +111,7 @@ const render = (cvObject, cvBasics, legend) => {
     path.join(__dirname, 'template.html'), 'utf8'
   );
   return template
+  .replace('##title##', title)
   .replace('##style-insert##', css)
   .replace('##main-insert##', [cvBasics, html].join('\n' + ' '.repeat(6)));
 }
@@ -169,7 +170,8 @@ delete cvObject.legend;
 const basics = cvObject.basics;
 delete cvObject.basics;
 const cvBasics = basicsRender(basics, legend);
-const cvHTML = render(cvObject, cvBasics, legend);
+const title = basics.name;
+const cvHTML = render(cvObject, cvBasics, title, legend);
 fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
 
 exports = {render};
