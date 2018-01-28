@@ -64,9 +64,11 @@
     "website": "http://stulta.com/forumo",
     "summary": "All phases:",
     "subSummary": [
-      ["planning", "coding", "documentation"],
-      ["design", "testing", "blogging"],
-      ["upgrades", "maintenance", "training"]
+      ["planning", "documentation"],
+      ["design", "blogging"],
+      ["coding", "training"],
+      ["linting", "maintenance"],
+      ["testing", "upgrades"]
     ],
     "location": {
       "address": "555 10th St Apt 312",
