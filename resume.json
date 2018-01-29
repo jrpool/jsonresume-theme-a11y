@@ -11,6 +11,7 @@
     "countryCode": "Country code",
     "courses": "Courses",
     "date": "Date",
+    "duties": "Duties",
     "education": "Professional education",
     "email": "Email",
     "endDate": "End date (yyyy-mm-dd)",
@@ -94,55 +95,127 @@
   },
   "accessible": [
     {
-      "link": "https://github.com/jrpool/calculator/blob/master/README3.md",
-      "intro": "Accessible Calculator"
+      "intro": "Accessible Calculator",
+      "link": "https://github.com/jrpool/calculator/blob/master/README3.md"
     },
     {
-      "link": "https://github.com/jrpool/jsonresume-theme-a11y",
-      "intro": "Accessible <code>jsonresume</code> theme"
+      "intro": [
+        "Accessible ",
+        {
+          "format": "code",
+          "text": "jsonresume"
+        },
+        " theme"
+      ],
+      "link": "https://github.com/jrpool/jsonresume-theme-a11y"
     },
     {
-      "link": "https://github.com/jrpool/singlepropertysite",
-      "intro": "Senior-friendly single-page site"
+      "intro": "Senior-friendly single-page site",
+      "link": "https://github.com/jrpool/singlepropertysite"
     }
   ],
   "openSource": [
     {
-      "link": "https://github.com/eslint/eslint/graphs/contributors",
-      "intro": "ESLint (#25)"
+      "intro": "ESLint (#25)",
+      "link": "https://github.com/eslint/eslint/graphs/contributors"
     },
     {
-      "link": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool",
-      "intro": "MDN Web Docs"
+      "intro": "MDN Web Docs",
+      "link": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
     },
     {
+      "intro": "LearnersGuild/curriculum-app (#3)",
       "link": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
-      "intro": "LearnersGuild/curriculum-app (#3)"
     },
     {
-      "link": "https://gitlab.com/JonathanPool",
-      "intro": "PanLem"
+      "intro": "PanLem",
+      "link": "https://gitlab.com/JonathanPool"
+    },
+    {
+      "intro": "PanLex developer documentation",
+      "link": "https://dev.panlex.org"
     }
   ],
   "skills": [
-    "Languages: JavaScript, Perl, Java, bash, VBA, APL",
-    "Scopes: full-stack, back-end, front-end, APIs, SPAs",
-    "Back-end: Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI",
-    "Databases: PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations",
-    "Front-end: HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize, WordPress",
-    "Version control: git, svn, Github, Gitlab, Bitbucket, SourceForge",
-    "Quality control: ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools",
-    "Accessibility: WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits",
-    "Internationalization: Unicode, CLDR, ISO 639, PanLex API",
-    "Web servers: Apache httpd, nginx",
-    "Mail servers: Postfix, sendmail, SendGrid Web API",
-    "Remote hosts: Amazon AWS (EC2, S3, Glacier), OVH",
-    "OS’s: Ubuntu, RHEL, OS X, Cisco IOS",
-    "Files: FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter",
-    "CAD: VectorWorks",
-    "Statistics: SPSS",
-    "Office apps: Apache OpenOffice, Apple iWork, Microsoft Office",
-    "Collaboration: Slack, Asana, Wrike, Trello, Egnyte"
+    {
+      "intro": "Languages",
+      "details": "JavaScript, Perl, Java, bash, VBA, APL"
+    },
+    {
+      "intro": "Scopes",
+      "details": "full-stack, back-end, front-end, APIs, SPAs"
+    },
+    {
+      "intro": "Back-end",
+      "details": "Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI"
+    },
+    {
+      "intro": "Databases",
+      "details": "PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations"
+    },
+    {
+      "intro": "Front-end",
+      "details":
+        "HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize"
+    },
+    {
+      "intro": "Content and version management",
+      "details": "git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress"
+    },
+    {
+      "intro": "Quality control",
+      "details":
+        "ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools"
+    },
+    {
+      "intro": "Accessibility",
+      "details": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits"
+    },
+    {
+      "intro": "Internationalization",
+      "details": "Unicode, CLDR, ISO 639, PanLex API"
+    },
+    {
+      "intro": "Web servers",
+      "details": "Apache httpd, nginx"
+    },
+    {
+      "intro": "Mail servers",
+      "details": "Postfix, sendmail, SendGrid Web API"
+    },
+    {
+      "intro": "Remote hosts",
+      "details": "Amazon AWS (EC2, S3, Glacier), OVH"
+    },
+    {
+      "intro": "OS’s",
+      "details": "Ubuntu, RHEL, OS X, Cisco IOS"
+    },
+    {
+      "intro": "Configuration management",
+      "details": "Puppet"
+    },
+    {
+      "intro": "Files",
+      "details":
+        "FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter"
+    },
+    {
+      "intro": "CAD",
+      "details": "VectorWorks"
+    },
+    {
+      "intro": "Statistics",
+      "details": "SPSS"
+    },
+    {
+      "intro": "Office apps",
+      "details": "Apache OpenOffice, Apple iWork, Microsoft Office"
+    },
+    {
+      "intro": "Collaboration",
+      "details": "Slack, Asana, Wrike, Trello, Egnyte"
+    }
   ],
   "languages": [
     "English",
@@ -154,16 +227,64 @@
     "Norwegian (Bokmål)"
   ],
   "education": [
-    "Learners Guild, 2017–2018, web development",
-    "University of Washington, 2004–2007, computer science and linguistics",
-    "The University of Chicago, 1966–1971, political science"
+    {
+      "intro": "Learners Guild",
+      "link": "https://learnersguild.org",
+      "startDate": "2017",
+      "endDate": "2018",
+      "area": "web development"
+    },
+    {
+      "intro": "University of Washington",
+      "link": "http://www.washington.edu",
+      "startDate": "2004",
+      "endDate": "2007",
+      "area": "computer science and linguistics"
+    },
+    {
+      "intro": "The University of Chicago",
+      "link": "https://www.uchicago.edu",
+      "startDate": "1966",
+      "endDate": "1971",
+      "area": "political science"
+    }
   ],
   "work": [
-    "The Long Now Foundation, 2012–2015, Project Director, PanLex",
-    "Centerplex, 1990–2004, small-business owner-operator",
-    "University of Washington, 1977–1993, research and teaching",
-    "State University of New York at Stony Brook, 1971–1977, research and teaching",
-    "Peace Corps, 1964–1966, teaching"
+    {
+      "intro": "The Long Now Foundation",
+      "link": "http://longnow.org",
+      "startDate": "2012",
+      "endDate": "2016",
+      "duties": "Project Director, PanLex"
+    },
+    {
+      "intro": "Centerplex",
+      "link": "http://stulta.com/misc/cx/",
+      "startDate": "1990",
+      "endDate": "2004",
+      "duties": "Project Director, PanLex"
+    },
+    {
+      "intro": "University of Washington",
+      "link": "http://www.washington.edu",
+      "startDate": "1977",
+      "endDate": "1993",
+      "duties": "research and teaching"
+    },
+    {
+      "intro": "State University of New York at Stony Brook",
+      "link": "http://www.stonybrook.edu",
+      "startDate": "1971",
+      "endDate": "1977",
+      "duties": "research and teaching"
+    },
+    {
+      "intro": "Peace Corps",
+      "link": "https://www.peacecorps.gov/",
+      "startDate": "1964",
+      "endDate": "1966",
+      "duties": "teaching"
+    }
   ],
   "awards": [
     "University of Maryland",
