@@ -66,7 +66,9 @@ const itemRender = (propertyName, item, legend, hLevel) => {
       const noBox
         = ['number', 'string', 'boolean'].includes(typeof element)
         || (typeof element === 'object' && hasLink(element));
-      return sectionize(subSectionContent, noBox ? '' : hLevel);
+      return noBox ? `${subSectionContent}\n` : sectionize(
+        subSectionContent, hLevel
+      );
     });
     return sectionContent.join('').trim();
   }
@@ -92,7 +94,9 @@ const itemRender = (propertyName, item, legend, hLevel) => {
           itemRender(subPropertyName, subItem, legend, hLevel + 1)
         ].join('');
         const noBox = ['number', 'string', 'boolean'].includes(typeof subItem);
-        return sectionize(subPropertyContent, noBox ? '' : hLevel);
+        return noBox ? `${subPropertyContent}\n` : sectionize(
+          subPropertyContent, hLevel
+        );
       });
       return sectionContent.join('').trim();
     }
