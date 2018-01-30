@@ -1,3 +1,5 @@
+const html = require('views/html');
+
 const fs = require('fs');
 const path = require('path');
 
