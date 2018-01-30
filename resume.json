@@ -96,7 +96,7 @@
   "accessible": [
     {
       "intro": "Accessible Calculator",
-      "link": "https://github.com/jrpool/calculator/blob/master/README3.md"
+      "url": "https://github.com/jrpool/calculator/blob/master/README3.md"
     },
     {
       "intro": [
@@ -107,114 +107,114 @@
         },
         " theme"
       ],
-      "link": "https://github.com/jrpool/jsonresume-theme-a11y"
+      "url": "https://github.com/jrpool/jsonresume-theme-a11y"
     },
     {
       "intro": "Senior-friendly single-page site",
-      "link": "https://github.com/jrpool/singlepropertysite"
+      "url": "https://github.com/jrpool/singlepropertysite"
     }
   ],
   "openSource": [
     {
       "intro": "ESLint (#25)",
-      "link": "https://github.com/eslint/eslint/graphs/contributors"
+      "url": "https://github.com/eslint/eslint/graphs/contributors"
     },
     {
       "intro": "MDN Web Docs",
-      "link": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
+      "url": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
     },
     {
       "intro": "LearnersGuild/curriculum-app (#3)",
-      "link": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
+      "url": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
     },
     {
       "intro": "PanLem",
-      "link": "https://gitlab.com/JonathanPool"
+      "url": "https://gitlab.com/JonathanPool"
     },
     {
       "intro": "PanLex developer documentation",
-      "link": "https://dev.panlex.org"
+      "url": "https://dev.panlex.org"
     }
   ],
   "skills": [
     {
       "intro": "Languages",
-      "details": "JavaScript, Perl, Java, bash, VBA, APL"
+      "detail": "JavaScript, Perl, Java, bash, VBA, APL"
     },
     {
       "intro": "Scopes",
-      "details": "full-stack, back-end, front-end, APIs, SPAs"
+      "detail": "full-stack, back-end, front-end, APIs, SPAs"
     },
     {
       "intro": "Back-end",
-      "details": "Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI"
+      "detail": "Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI"
     },
     {
       "intro": "Databases",
-      "details": "PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations"
+      "detail": "PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations"
     },
     {
       "intro": "Front-end",
-      "details":
+      "detail":
         "HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize"
     },
     {
       "intro": "Content and version management",
-      "details": "git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress"
+      "detail": "git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress"
     },
     {
       "intro": "Quality control",
-      "details":
+      "detail":
         "ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools"
     },
     {
       "intro": "Accessibility",
-      "details": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits"
+      "detail": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits"
     },
     {
       "intro": "Internationalization",
-      "details": "Unicode, CLDR, ISO 639, PanLex API"
+      "detail": "Unicode, CLDR, ISO 639, PanLex API"
     },
     {
       "intro": "Web servers",
-      "details": "Apache httpd, nginx"
+      "detail": "Apache httpd, nginx"
     },
     {
       "intro": "Mail servers",
-      "details": "Postfix, sendmail, SendGrid Web API"
+      "detail": "Postfix, sendmail, SendGrid Web API"
     },
     {
       "intro": "Remote hosts",
-      "details": "Amazon AWS (EC2, S3, Glacier), OVH"
+      "detail": "Amazon AWS (EC2, S3, Glacier), OVH"
     },
     {
       "intro": "OS’s",
-      "details": "Ubuntu, RHEL, OS X, Cisco IOS"
+      "detail": "Ubuntu, RHEL, OS X, Cisco IOS"
     },
     {
       "intro": "Configuration management",
-      "details": "Puppet"
+      "detail": "Puppet"
     },
     {
       "intro": "Files",
-      "details":
+      "detail":
         "FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter"
     },
     {
       "intro": "CAD",
-      "details": "VectorWorks"
+      "detail": "VectorWorks"
     },
     {
       "intro": "Statistics",
-      "details": "SPSS"
+      "detail": "SPSS"
     },
     {
       "intro": "Office apps",
-      "details": "Apache OpenOffice, Apple iWork, Microsoft Office"
+      "detail": "Apache OpenOffice, Apple iWork, Microsoft Office"
     },
     {
       "intro": "Collaboration",
-      "details": "Slack, Asana, Wrike, Trello, Egnyte"
+      "detail": "Slack, Asana, Wrike, Trello, Egnyte"
     }
   ],
   "languages": [
@@ -229,21 +229,21 @@
   "education": [
     {
       "intro": "Learners Guild",
-      "link": "https://learnersguild.org",
+      "url": "https://learnersguild.org",
       "startDate": "2017",
       "endDate": "2018",
       "area": "web development"
     },
     {
       "intro": "University of Washington",
-      "link": "http://www.washington.edu",
+      "url": "http://www.washington.edu",
       "startDate": "2004",
       "endDate": "2007",
       "area": "computer science and linguistics"
     },
     {
       "intro": "The University of Chicago",
-      "link": "https://www.uchicago.edu",
+      "url": "https://www.uchicago.edu",
       "startDate": "1966",
       "endDate": "1971",
       "area": "political science"
@@ -252,35 +252,35 @@
   "work": [
     {
       "intro": "The Long Now Foundation",
-      "link": "http://longnow.org",
+      "url": "http://longnow.org",
       "startDate": "2012",
       "endDate": "2016",
       "duties": "Project Director, PanLex"
     },
     {
       "intro": "Centerplex",
-      "link": "http://stulta.com/misc/cx/",
+      "url": "http://stulta.com/misc/cx/",
       "startDate": "1990",
       "endDate": "2004",
       "duties": "Project Director, PanLex"
     },
     {
       "intro": "University of Washington",
-      "link": "http://www.washington.edu",
+      "url": "http://www.washington.edu",
       "startDate": "1977",
       "endDate": "1993",
       "duties": "research and teaching"
     },
     {
       "intro": "State University of New York at Stony Brook",
-      "link": "http://www.stonybrook.edu",
+      "url": "http://www.stonybrook.edu",
       "startDate": "1971",
       "endDate": "1977",
       "duties": "research and teaching"
     },
     {
       "intro": "Peace Corps",
-      "link": "https://www.peacecorps.gov/",
+      "url": "https://www.peacecorps.gov/",
       "startDate": "1964",
       "endDate": "1966",
       "duties": "teaching"

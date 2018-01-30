@@ -1,7 +1,24 @@
 const html = require('views/html');
-
 const fs = require('fs');
 const path = require('path');
+
+const parseStringElement = string => html.listItem(string, '', 'list-item', -1);
+
+const parseStringProperty = (name, value) => {
+  const headedString = html.headedString(name, value, ': ');
+};
+
+const parseStringObject = (intro, detail) =>
+  html.headedString(intro, detail, ': ');
+
+const parseLinkObject = (intro, url) =>
+  html.headedString(intro, html.overtLink(url), ': ');
+
+const parseArrayObject = (elements => {
+
+};
+
+// ===================
 
 const isLink = string => {
   return string.startsWith('http://') || string.startsWith('https://');
