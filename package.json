@@ -19,9 +19,7 @@
   ],
   "author": "Jonathan Pool",
   "license": "MIT",
-  "dependencies": {
-    "handlebars": ">=4.0.11"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": ">=7.0.0-beta.3",
     "babel-register": ">=6.26.0",
