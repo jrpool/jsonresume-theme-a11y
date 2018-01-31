@@ -2,6 +2,121 @@ const html = require('views/html');
 const fs = require('fs');
 const path = require('path');
 
+const parseProfile = object => {
+  return html.table(
+    html.row([
+      html.cell(object.network),
+      html.cell(object.username),
+      html.cell(overtLink(object.url))
+    ].join('\n')),
+    'table-profiles',
+    0
+  );
+};
+
+const parseFormattedTextObject = object => {
+  return html.elementize(object.text, 'span', object.format, -1)
+};
+
+const parseLinkObject = (object) =>
+  html.headedString(object.intro, html.overtLink(object.url), ': ');
+
+const parseStringObject = (object) =>
+  html.headedString(object.intro, object.detail, ': ');
+
+const parseEdObject = (object) => html.headedString(
+  html.covertLink(object.intro, object.url),
+  `${object.startDate}–${object.endDate} (${object.area})`,
+  ': '
+);
+
+const parseWorkObject = (object) => html.headedString(
+  html.covertLink(object.intro, object.url),
+  `${object.startDate}–${object.endDate} (${object.duties})`,
+  ': '
+);
+
+const parseStringElement = element => html.listItem(
+  element, '', 'list-item', -1
+);
+
+const parseArrayProperty = (name, value) => {
+  const listItems = value.map(element => {
+    const elementType = typeof element;
+    if (elementType === 'string') {
+      return element;
+    }
+    else if ()
+  });
+  return html.list()
+};
+
+const parse = (parent, child) => {
+  if (Array.isArray(parent)) {
+    if (Array.isArray(child)) {
+      return child.map(grandchild => {
+        return parse(child, grandchild);
+      });
+    }
+    else if (typeof child === 'object') {
+      if (Object.keys(child).every(
+        element => ['network', 'username', 'url'].includes(element)
+      )) {
+        return parseProfile(child);
+      }
+      else if (Object.keys(child).every(
+        element => ['format', 'text'].includes(element)
+      )) {
+        return parseFormattedTextObject(child);
+      }
+      else if (Object.keys(child).every(
+        element => ['intro', 'url'].includes(element)
+      )) {
+        return parseLinkObject(child);
+      }
+      else if (Object.keys(child).every(
+        element => ['intro', 'detail'].includes(element)
+      )) {
+        return parseStringObject(child);
+      }
+      else if (Object.keys(child).every(
+        element => [
+          'intro', 'url', 'startDate', 'endDate', 'area'
+        ].includes(element)
+      )) {
+        return parseEdObject(child);
+      }
+      else if (Object.keys(child).every(
+        element => [
+          'intro', 'url', 'startDate', 'endDate', 'duties'
+        ].includes(element)
+      )) {
+        return parseWorkObject(child);
+      }
+    }
+    else if (typeof child === 'string') {
+      return parseStringElement(child);
+    }
+  }
+  else if (typeof parent === 'object') {
+    if (Array.isArray(child.value)) {
+      return parseArrayProperty(child)
+    }
+    else if (typeof child.value === 'string') {
+      return parseStringProperty(child);
+    }
+    else if (typeof child.value === 'object') {
+      if (Object.keys(child.value).every(
+        element => [
+          'address', 'postalCode', 'city', 'countryCode', 'region'
+        ].includes(element)
+      )) {
+        return parseAddressProperty(child);
+      }
+    }
+  }
+}
+
 const parseStringElement = string => html.listItem(string, '', 'list-item', -1);
 
 const parseStringProperty = (name, value) => {
@@ -14,8 +129,15 @@ const parseStringObject = (intro, detail) =>
 const parseLinkObject = (intro, url) =>
   html.headedString(intro, html.overtLink(url), ': ');
 
-const parseArrayObject = (elements => {
-
+const parseArrayProperty = (name, value) => {
+  const listItems = value.map(element => {
+    const elementType = typeof element;
+    if (elementType === 'string') {
+      return element;
+    }
+    else if ()
+  });
+  return html.list()
 };
 
 // ===================

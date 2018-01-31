@@ -28,7 +28,7 @@ exports.listItem = (content, outerType, innerType, indentation) => {
 };
 
 exports.list = (heading, listItems, type, indentation) => {
-  const content = [heading, [listItems].join('\n')].join('\n');
+  const content = [heading, listItems.join('\n')].join('\n');
   return elementize(content, 'section', type, indentation);
 };
 
