@@ -2,43 +2,43 @@ const html = require('views/html');
 const fs = require('fs');
 const path = require('path');
 
-const parseProfile = object => {
-  return html.table(
-    html.row([
-      html.cell(object.network),
-      html.cell(object.username),
-      html.cell(overtLink(object.url))
-    ].join('\n')),
-    'table-profiles',
-    0
-  );
+const topHeadTable = (array, attributes) => {
+  const keys = Object.keys(array[0]);
+  const headRow = html.row(keys.map(key => html.cell(key, true)));
+  const bodyRows = array.map(object => html.row(keys.map(key => {
+    if (key === 'url') {
+      return html.cell(html.overtLink(object.url), false);
+    }
+    else {
+      return html.cell(object[key]);
+    }
+  })));
+  return html.table(headRow.concat(bodyRows), attributes);
 };
 
-const parseFormattedTextObject = object => {
+const parseFormattedText = object => {
   return html.elementize(object.text, 'span', object.format, -1)
 };
 
-const parseLinkObject = (object) =>
-  html.headedString(object.intro, html.overtLink(object.url), ': ');
+const parseLink = (object) =>
+  html.headedString(object.head, html.overtLink(object.urlTail), ': ');
 
-const parseStringObject = (object) =>
-  html.headedString(object.intro, object.detail, ': ');
+const parseHeadedString = (object) =>
+  html.headedString(object.head, object.tail, ': ');
 
-const parseEdObject = (object) => html.headedString(
-  html.covertLink(object.intro, object.url),
+const parseEd = (object) => html.headedString(
+  html.covertLink(object.head, object.urlTail),
   `${object.startDate}–${object.endDate} (${object.area})`,
   ': '
 );
 
-const parseWorkObject = (object) => html.headedString(
-  html.covertLink(object.intro, object.url),
+const parseWork = (object) => html.headedString(
+  html.covertLink(object.head, object.urlTail),
   `${object.startDate}–${object.endDate} (${object.duties})`,
   ': '
 );
 
-const parseStringElement = element => html.listItem(
-  element, '', 'list-item', -1
-);
+const parseString = element => html.listItem(element, '', 'list-item', -1);
 
 const parseArrayProperty = (name, value) => {
   const listItems = value.map(element => {
@@ -67,35 +67,35 @@ const parse = (parent, child) => {
       else if (Object.keys(child).every(
         element => ['format', 'text'].includes(element)
       )) {
-        return parseFormattedTextObject(child);
+        return parseFormattedText(child);
       }
       else if (Object.keys(child).every(
-        element => ['intro', 'url'].includes(element)
+        element => ['head', 'urlTail'].includes(element)
       )) {
-        return parseLinkObject(child);
+        return parseLink(child);
       }
       else if (Object.keys(child).every(
-        element => ['intro', 'detail'].includes(element)
+        element => ['head', 'tail'].includes(element)
       )) {
-        return parseStringObject(child);
-      }
-      else if (Object.keys(child).every(
-        element => [
-          'intro', 'url', 'startDate', 'endDate', 'area'
-        ].includes(element)
-      )) {
-        return parseEdObject(child);
+        return parseHeadedString(child);
       }
       else if (Object.keys(child).every(
         element => [
-          'intro', 'url', 'startDate', 'endDate', 'duties'
+          'head', 'urlTail', 'startDate', 'endDate', 'area'
         ].includes(element)
       )) {
-        return parseWorkObject(child);
+        return parseEd(child);
+      }
+      else if (Object.keys(child).every(
+        element => [
+          'head', 'urlTail', 'startDate', 'endDate', 'duties'
+        ].includes(element)
+      )) {
+        return parseWork(child);
       }
     }
     else if (typeof child === 'string') {
-      return parseStringElement(child);
+      return parseString(child);
     }
   }
   else if (typeof parent === 'object') {
@@ -123,11 +123,11 @@ const parseStringProperty = (name, value) => {
   const headedString = html.headedString(name, value, ': ');
 };
 
-const parseStringObject = (intro, detail) =>
-  html.headedString(intro, detail, ': ');
+const parseStringObject = (head, tail) =>
+  html.headedString(head, tail, ': ');
 
-const parseLinkObject = (intro, url) =>
-  html.headedString(intro, html.overtLink(url), ': ');
+const parseLinkObject = (head, urlTail) =>
+  html.headedString(head, html.overtLink(urlTail), ': ');
 
 const parseArrayProperty = (name, value) => {
   const listItems = value.map(element => {
@@ -159,7 +159,7 @@ const linkify = string => {
 };
 
 const appendLink = object => {
-  return `${object.intro}: <a href="${object.link}">${object.link}</a>`;
+  return `${object.head}: <a href="${object.link}">${object.link}</a>`;
 };
 
 const imageLinkify = (string, alt) => {
@@ -266,7 +266,7 @@ const profilesRender = object => {
     return `${' '.repeat(6)}<tr>
         <td>${profile.network}</td>
         <td>${profile.username}</td>
-        <td>${linkify(profile.url)}</td>
+        <td>${linkify(profile.urlTail)}</td>
       </tr>`;
   }).join('\n');
   return indent(profileRows, 8);

@@ -95,126 +95,126 @@
   },
   "accessible": [
     {
-      "intro": "Accessible Calculator",
-      "url": "https://github.com/jrpool/calculator/blob/master/README3.md"
+      "head": "Accessible Calculator",
+      "urlTail": "https://github.com/jrpool/calculator/blob/master/README3.md"
     },
     {
-      "intro": [
+      "head": [
         "Accessible ",
         {
-          "format": "code",
+          "meta": "code",
           "text": "jsonresume"
         },
         " theme"
       ],
-      "url": "https://github.com/jrpool/jsonresume-theme-a11y"
+      "urlTail": "https://github.com/jrpool/jsonresume-theme-a11y"
     },
     {
-      "intro": "Senior-friendly single-page site",
-      "url": "https://github.com/jrpool/singlepropertysite"
+      "head": "Senior-friendly single-page site",
+      "urlTail": "https://github.com/jrpool/singlepropertysite"
     }
   ],
   "openSource": [
     {
-      "intro": "ESLint (#25)",
-      "url": "https://github.com/eslint/eslint/graphs/contributors"
+      "head": "ESLint (#25)",
+      "urlTail": "https://github.com/eslint/eslint/graphs/contributors"
     },
     {
-      "intro": "MDN Web Docs",
-      "url": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
+      "head": "MDN Web Docs",
+      "urlTail": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
     },
     {
-      "intro": "LearnersGuild/curriculum-app (#3)",
-      "url": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
+      "head": "LearnersGuild/curriculum-app (#3)",
+      "urlTail": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
     },
     {
-      "intro": "PanLem",
-      "url": "https://gitlab.com/JonathanPool"
+      "head": "PanLem",
+      "urlTail": "https://gitlab.com/JonathanPool"
     },
     {
-      "intro": "PanLex developer documentation",
-      "url": "https://dev.panlex.org"
+      "head": "PanLex developer documentation",
+      "urlTail": "https://dev.panlex.org"
     }
   ],
   "skills": [
     {
-      "intro": "Languages",
-      "detail": "JavaScript, Perl, Java, bash, VBA, APL"
+      "head": "Languages",
+      "tail": "JavaScript, Perl, Java, bash, VBA, APL"
     },
     {
-      "intro": "Scopes",
-      "detail": "full-stack, back-end, front-end, APIs, SPAs"
+      "head": "Scopes",
+      "tail": "full-stack, back-end, front-end, APIs, SPAs"
     },
     {
-      "intro": "Back-end",
-      "detail": "Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI"
+      "head": "Back-end",
+      "tail": "Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI"
     },
     {
-      "intro": "Databases",
-      "detail": "PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations"
+      "head": "Databases",
+      "tail": "PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations"
     },
     {
-      "intro": "Front-end",
-      "detail":
+      "head": "Front-end",
+      "tail":
         "HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize"
     },
     {
-      "intro": "Content and version management",
-      "detail": "git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress"
+      "head": "Content and version management",
+      "tail": "git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress"
     },
     {
-      "intro": "Quality control",
-      "detail":
+      "head": "Quality control",
+      "tail":
         "ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools"
     },
     {
-      "intro": "Accessibility",
-      "detail": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits"
+      "head": "Accessibility",
+      "tail": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits"
     },
     {
-      "intro": "Internationalization",
-      "detail": "Unicode, CLDR, ISO 639, PanLex API"
+      "head": "Internationalization",
+      "tail": "Unicode, CLDR, ISO 639, PanLex API"
     },
     {
-      "intro": "Web servers",
-      "detail": "Apache httpd, nginx"
+      "head": "Web servers",
+      "tail": "Apache httpd, nginx"
     },
     {
-      "intro": "Mail servers",
-      "detail": "Postfix, sendmail, SendGrid Web API"
+      "head": "Mail servers",
+      "tail": "Postfix, sendmail, SendGrid Web API"
     },
     {
-      "intro": "Remote hosts",
-      "detail": "Amazon AWS (EC2, S3, Glacier), OVH"
+      "head": "Remote hosts",
+      "tail": "Amazon AWS (EC2, S3, Glacier), OVH"
     },
     {
-      "intro": "OS’s",
-      "detail": "Ubuntu, RHEL, OS X, Cisco IOS"
+      "head": "OS’s",
+      "tail": "Ubuntu, RHEL, OS X, Cisco IOS"
     },
     {
-      "intro": "Configuration management",
-      "detail": "Puppet"
+      "head": "Configuration management",
+      "tail": "Puppet"
     },
     {
-      "intro": "Files",
-      "detail":
+      "head": "Files",
+      "tail":
         "FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter"
     },
     {
-      "intro": "CAD",
-      "detail": "VectorWorks"
+      "head": "CAD",
+      "tail": "VectorWorks"
     },
     {
-      "intro": "Statistics",
-      "detail": "SPSS"
+      "head": "Statistics",
+      "tail": "SPSS"
     },
     {
-      "intro": "Office apps",
-      "detail": "Apache OpenOffice, Apple iWork, Microsoft Office"
+      "head": "Office apps",
+      "tail": "Apache OpenOffice, Apple iWork, Microsoft Office"
     },
     {
-      "intro": "Collaboration",
-      "detail": "Slack, Asana, Wrike, Trello, Egnyte"
+      "head": "Collaboration",
+      "tail": "Slack, Asana, Wrike, Trello, Egnyte"
     }
   ],
   "languages": [
@@ -228,22 +228,22 @@
   ],
   "education": [
     {
-      "intro": "Learners Guild",
-      "url": "https://learnersguild.org",
+      "head": "Learners Guild",
+      "urlTail": "https://learnersguild.org",
       "startDate": "2017",
       "endDate": "2018",
       "area": "web development"
     },
     {
-      "intro": "University of Washington",
-      "url": "http://www.washington.edu",
+      "head": "University of Washington",
+      "urlTail": "http://www.washington.edu",
       "startDate": "2004",
       "endDate": "2007",
       "area": "computer science and linguistics"
     },
     {
-      "intro": "The University of Chicago",
-      "url": "https://www.uchicago.edu",
+      "head": "The University of Chicago",
+      "urlTail": "https://www.uchicago.edu",
       "startDate": "1966",
       "endDate": "1971",
       "area": "political science"
@@ -251,36 +251,36 @@
   ],
   "work": [
     {
-      "intro": "The Long Now Foundation",
-      "url": "http://longnow.org",
+      "head": "The Long Now Foundation",
+      "urlTail": "http://longnow.org",
       "startDate": "2012",
       "endDate": "2016",
       "duties": "Project Director, PanLex"
     },
     {
-      "intro": "Centerplex",
-      "url": "http://stulta.com/misc/cx/",
+      "head": "Centerplex",
+      "urlTail": "http://stulta.com/misc/cx/",
       "startDate": "1990",
       "endDate": "2004",
       "duties": "Project Director, PanLex"
     },
     {
-      "intro": "University of Washington",
-      "url": "http://www.washington.edu",
+      "head": "University of Washington",
+      "urlTail": "http://www.washington.edu",
       "startDate": "1977",
       "endDate": "1993",
       "duties": "research and teaching"
     },
     {
-      "intro": "State University of New York at Stony Brook",
-      "url": "http://www.stonybrook.edu",
+      "head": "State University of New York at Stony Brook",
+      "urlTail": "http://www.stonybrook.edu",
       "startDate": "1971",
       "endDate": "1977",
       "duties": "research and teaching"
     },
     {
-      "intro": "Peace Corps",
-      "url": "https://www.peacecorps.gov/",
+      "head": "Peace Corps",
+      "urlTail": "https://www.peacecorps.gov/",
       "startDate": "1964",
       "endDate": "1966",
       "duties": "teaching"

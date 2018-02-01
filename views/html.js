@@ -1,6 +1,4 @@
-const classAttr = type => type ? ` class="${type}"` : '';
-
-const indent = (content, indentation) => {
+exports.indent = (content, indentation) => {
   if (indentation === -1) {
     return content;
   }
@@ -8,35 +6,58 @@ const indent = (content, indentation) => {
     return `${content}\n`;
   }
   else {
-    return content.replace(/\n/g, `\n${' '.repeat(indentation)}`) + '\n';
+    const indentedContent = content.replace(
+      /\n/g, `\n${' '.repeat(indentation)}`
+    );
+    return `${indentedContent}\n`;
   }
 };
 
-const elementize = (content, tagName, type, indentation) =>
-  indent(`<${tagName}${classAttr(type)}>${content}</${tagName}>`, indentation);
+const attributize = attributes => Object.keys(attributes).map(
+  name => ` ${name}="${attributes.name}"`
+).join('');
 
-exports.headedString = (head, body, delimiter) =>
-  `${elementize(head, 'span', 'em', -1)}${delimiter}${body}`;
+const elementize = (content, tagName, attributes) =>
+  `<${tagName}${attributize(attributes)}>${content}</${tagName}>`;
 
-exports.overtLink = url => `<a href="${url}">${url}</a>`;
+exports.headedString = (head, tail, delimiter) => {
+  let parsedHead = head;
+  if (Array.isArray(head)) {
+    parsedHead = head.map(element => {
+      const elementType = typeof element;
+      if (
+        elementType === 'object'
+        && Object.keys(element).every(key => ['meta', 'text'].includes(key))
+      ) {
+        return elementize(element.text, element.meta, '');
+      }
+      else if (elementType === 'string') {
+        return element;
+      }
+    }).join('');
+  }
+  return `${elementize(parsedHead, 'span', {class: 'em'})}${delimiter}${tail}`;
+}
 
-exports.covertLink = (text, url) => `<a href="${url}">${text}</a>`;
+exports.overtLink = url => elementize(url, 'a', {href: url});
 
-exports.listItem = (content, outerType, innerType, indentation) => {
-  const innerContent = elementize(content, 'span', innerType, -1)
-  elementize(innerContent, 'p', outerType, indentation);
+exports.covertLink = (text, url) => elementize(text, 'a', {href: url});
+
+exports.listItem = (content, outerType, innerType) => {
+  const contentSpan = elementize(content, 'span', {class: innerType});
+  return elementize(contentSpan, 'p', {class: outerType});
 };
 
-exports.list = (heading, listItems, type, indentation) => {
-  const content = [heading, listItems.join('\n')].join('\n');
-  return elementize(content, 'section', type, indentation);
+exports.list = (heading, listItems, type, title) => {
+  const headedList = heading.concat(listItems).join('\n');
+  return elementize(headedList, 'section', {class: type, title: title});
 };
 
-exports.cell = content => `<td>${content}</td>`;
+exports.cell = (content, isHead) => elementize(
+  content, isHead ? 'th' : 'td', {}
+);
 
-exports.headCell = content => `<th>${content}</th>`;
+exports.row = cells => elementize(cells.join(''), 'tr', {});
 
-exports.row = cells => `<tr>${cells.join('')}</tr>`;
-
-exports.table = (rows, type, indentation) =>
-  elementize(rows.join('\n'), 'table', type, indentation);
+exports.table = (rows, attributes) =>
+  elementize(rows.join('\n'), 'table', attributes);
