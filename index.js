@@ -1,44 +1,115 @@
-const html = require('views/html');
+const renderer = require('views/html');
 const fs = require('fs');
 const path = require('path');
 
-const topHeadTable = (array, attributes) => {
-  const keys = Object.keys(array[0]);
-  const headRow = html.row(keys.map(key => html.cell(key, true)));
-  const bodyRows = array.map(object => html.row(keys.map(key => {
-    if (key === 'url') {
-      return html.cell(html.overtLink(object.url), false);
+const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'), 'utf8');
+const cvObject = JSON.parse(cvJSON);
+const cvSections = cvObject.order
+  ? cvObject.order.data
+  : Object.keys(cvObject).filter(
+    section => cvObject[section].format !== 'hide'
+  );
+const lang = cvObject.lang ? cvObject.lang.data : 'en';
+const legend = cvObject.legend ? cvObject.legend.data : {};
+const cvBasics = basicsRender(basics, legend);
+const title = basics.name;
+const cvHTML = render(cvObject, cvBasics, title, legend);
+fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
+
+exports = {render};
+
+const format = object => {
+  if (Object.keys(object).every(key => ['format', 'data'].includes(key))) {
+    const f = object.format;
+    if (f === 'hide') {
+      return '';
     }
     else {
-      return html.cell(object[key]);
+      const d = object.data;
+      const dt = typeof d;
+      if (dt === 'object') {
+        d = format(d);
+      }
+      if (f === 'head1' && dt === 'string') {
+        return renderer.head1(d);
+    }
+  }
+};
+
+const topHeadTable = (array, attributes, legend) => {
+  const keys = Object.keys(array[0]);
+  const headRow = renderer.row(keys.map(key => renderer.cell(legend.key, true)));
+  const bodyRows = array.map(object => renderer.row(keys.map(key => {
+    if (key === 'url') {
+      return renderer.cell(renderer.overtLink(object.url), false);
+    }
+    else {
+      return renderer.cell(object[key]);
     }
   })));
-  return html.table(headRow.concat(bodyRows), attributes);
+  return renderer.table(headRow.concat(bodyRows), attributes, legend);
 };
 
-const parseFormattedText = object => {
-  return html.elementize(object.text, 'span', object.format, -1)
+const leftHead2ColTable = (array, attributes) => {
+  const keys = Object.keys(array[0]);
+  const rows = array.map(object => renderer.row(keys.map(key => {
+    const headCell = renderer.cell(legend[key], true);
+    const bodyCellContent;
+    if (key === 'email') {
+      bodyCellContent = renderer.overtLink(object.email, true);
+    }
+    else if (key === 'website') {
+      bodyCellContent = renderer.overtLink(object[key], false);
+    }
+    else {
+      bodyCellContent = object[key];
+    }
+    const bodyCell = renderer.cell(bodyCellContent, false);
+    return [headCell, bodyCell];
+  })));
+  return renderer.table(rows, attributes);
 };
 
-const parseLink = (object) =>
-  html.headedString(object.head, html.overtLink(object.urlTail), ': ');
+const formattedString = object => {
+  return renderer.elementize(object.text, 'span', {class: object.format})
+};
 
-const parseHeadedString = (object) =>
-  html.headedString(object.head, object.tail, ': ');
+const overtLink = (object, isEmail) => renderer.headedString(
+  object.head, renderer.overtLink(object.urlTail, isEmail), ': '
+);
 
-const parseEd = (object) => html.headedString(
-  html.covertLink(object.head, object.urlTail),
-  `${object.startDate}–${object.endDate} (${object.area})`,
+const covertLink = (object, isEmail) => renderer.headedString(
+  object.head, renderer.covertLink(object.head, object.urlTail, isEmail), ': '
+);
+
+const headedString = object => renderer.headedString(
+  object.head, object.urlTail, ': '
+);
+
+const edString = object => renderer.headedString(
+  renderer.covertLink(object.head, object.urlTail),
+  `${object.startDate}–${object.endDate}, ${object.area}`,
   ': '
 );
 
-const parseWork = (object) => html.headedString(
-  html.covertLink(object.head, object.urlTail),
-  `${object.startDate}–${object.endDate} (${object.duties})`,
+const workString = object => renderer.headedString(
+  renderer.covertLink(object.head, object.urlTail),
+  `${object.startDate}–${object.endDate}, ${object.duties}`,
   ': '
 );
 
-const parseString = element => html.listItem(element, '', 'list-item', -1);
+const arraySection = (key, value, level) => {
+  const head = renderer.elementize(legend[key], `h${level}`, '');
+  const tail = value.map(element => {
+    if (Array.isArray(element)) {
+      return array
+    }
+  });
+};
+
+const object = (object, isRoot) => {
+  if (isRoot)
+};
 
 const parseArrayProperty = (name, value) => {
   const listItems = value.map(element => {
@@ -48,10 +119,24 @@ const parseArrayProperty = (name, value) => {
     }
     else if ()
   });
-  return html.list()
+  return renderer.list()
 };
 
-const parse = (parent, child) => {
+const property = (object, isRoot, key, legend) => {
+  if (isRoot) {
+    const sectionHead = renderer.elementize(legend[key], 'h1', '');
+    let tail = object[key];
+    if (Array.isArray(tail)) {
+      tail = tail.map(element => arrayElement(element));
+    }
+    else if (typeof tail === 'object') {
+      tail = Object.keys(tail).map(key => objectProperty(key));
+    }
+    const sectionTail = renderer.elementize()
+  }
+};
+
+const relation = (parent, isRoot, child) => {
   if (Array.isArray(parent)) {
     if (Array.isArray(child)) {
       return child.map(grandchild => {
@@ -117,17 +202,17 @@ const parse = (parent, child) => {
   }
 }
 
-const parseStringElement = string => html.listItem(string, '', 'list-item', -1);
+const parseStringElement = string => renderer.listItem(string, '', 'list-item', -1);
 
 const parseStringProperty = (name, value) => {
-  const headedString = html.headedString(name, value, ': ');
+  const headedString = renderer.headedString(name, value, ': ');
 };
 
 const parseStringObject = (head, tail) =>
-  html.headedString(head, tail, ': ');
+  renderer.headedString(head, tail, ': ');
 
 const parseLinkObject = (head, urlTail) =>
-  html.headedString(head, html.overtLink(urlTail), ': ');
+  renderer.headedString(head, renderer.overtLink(urlTail), ': ');
 
 const parseArrayProperty = (name, value) => {
   const listItems = value.map(element => {
@@ -137,7 +222,7 @@ const parseArrayProperty = (name, value) => {
     }
     else if ()
   });
-  return html.list()
+  return renderer.list()
 };
 
 // ===================
@@ -307,16 +392,3 @@ const basicsRender = (object, legend) => {
   });
   return basics.replace('##profiles-rows##', profilesRender(object));
 };
-
-const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'), 'utf8');
-const cvObject = JSON.parse(cvJSON);
-const legend = cvObject.legend;
-delete cvObject.legend;
-const basics = cvObject.basics;
-delete cvObject.basics;
-const cvBasics = basicsRender(basics, legend);
-const title = basics.name;
-const cvHTML = render(cvObject, cvBasics, title, legend);
-fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
-
-exports = {render};

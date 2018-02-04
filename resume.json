@@ -1,298 +1,553 @@
 {
-  "lang": "en",
-  "legend": {
-    "accessible": "Current a11y projects",
-    "address": "Address",
-    "area": "Subject",
-    "awarder": "Awarder",
-    "awards": "Software-development grants",
-    "city": "City",
-    "company": "Company",
-    "countryCode": "Country code",
-    "courses": "Courses",
-    "date": "Date",
-    "duties": "Duties",
-    "education": "Professional education",
-    "email": "Email",
-    "endDate": "End date (yyyy-mm-dd)",
-    "fluency": "Fluency",
-    "gpa": "GPA",
-    "highlights": "Accomplishments",
-    "institution": "Institution",
-    "interests": "Interests",
-    "keywords": "Specifics",
-    "label": "Profession",
-    "language": "Language",
-    "languages": "Human languages (best→worst)",
-    "level": "Proficiency",
-    "location": "Residence",
-    "mobilePhone": "Mobile telephone",
-    "name": "Name",
-    "network": "Host",
-    "openSource": "Open-source contributions",
-    "organization": "Organization",
-    "phone": "Telephone",
-    "picture": "Photograph",
-    "position": "Position",
-    "postalCode": "Postal code",
-    "profiles": "Profiles",
-    "projectWebsite": "Project website",
-    "publications": "Publication subjects",
-    "publisher": "Publisher",
-    "reference": "Referee",
-    "references": "Referees",
-    "region": "State",
-    "releaseDate": "Year of publication",
-    "skills": "What I have worked with",
-    "startDate": "Start date (yyyy-mm-dd)",
-    "studyType": "Degree or program",
-    "subSummary": "Repertoire list",
-    "summary": "Repertoire",
-    "title": "Title",
-    "url": "URL",
-    "username": "User ID",
-    "volunteer": "Volunteering",
-    "website": "Blog",
-    "work": "Work"
+  "lang": {
+    "format": "hide",
+    "data": "en"
   },
-  "basics": {
-    "name": "Jonathan Pool",
-    "label": "Developer of accessible web applications",
-    "picture": "http://stulta.com/images/pool-2009.jpg",
-    "summary": "All phases:",
-    "subSummary": [
+  "order": {
+    "format": "hide",
+    "data": [
+      "picture",
+      "name",
+      "label",
+      "summary",
+      "subSummary",
+      "contacts",
+      "profiles",
+      "accessible",
+      "openSource",
+      "skills",
+      "languages",
+      "education",
+      "work",
+      "awards",
+      "publications"
+    ]
+  },
+  "legend": {
+    "format": "hide",
+    "data": {
+      "accessible": "Current a11y projects",
+      "address": "Address",
+      "area": "Subject",
+      "awarder": "Awarder",
+      "awards": "Software-development grants",
+      "city": "City",
+      "company": "Company",
+      "countryCode": "Country code",
+      "courses": "Courses",
+      "date": "Date",
+      "duties": "Duties",
+      "education": "Professional education",
+      "email": "Email",
+      "endDate": "End date (yyyy-mm-dd)",
+      "fluency": "Fluency",
+      "gpa": "GPA",
+      "highlights": "Accomplishments",
+      "institution": "Institution",
+      "interests": "Interests",
+      "keywords": "Specifics",
+      "label": "Profession",
+      "language": "Language",
+      "languages": "Human languages (best→worst)",
+      "level": "Proficiency",
+      "location": "Mailing address",
+      "mobilePhone": "Mobile telephone",
+      "name": "Name",
+      "network": "Host",
+      "openSource": "Open-source contributions",
+      "organization": "Organization",
+      "phone": "Telephone",
+      "picture": "Photograph",
+      "position": "Position",
+      "postalCode": "Postal code",
+      "profiles": "Profiles",
+      "projectWebsite": "Project website",
+      "publications": "Publication subjects",
+      "publisher": "Publisher",
+      "reference": "Referee",
+      "references": "Referees",
+      "region": "State",
+      "releaseDate": "Year of publication",
+      "skills": "What I have worked with",
+      "startDate": "Start date (yyyy-mm-dd)",
+      "studyType": "Degree or program",
+      "subSummary": "Repertoire list",
+      "summary": "Repertoire",
+      "title": "Title",
+      "url": "URL",
+      "username": "User ID",
+      "volunteer": "Volunteering",
+      "website": "Blog",
+      "work": "Work"
+    }
+  },
+  "picture": {
+    "format": "pic1",
+    "data": {
+      "src": "http://stulta.com/images/pool-2009.jpg",
+      "alt": "Jonathan Pool"
+    }
+  },
+  "name": {
+    "format": "head1",
+    "data": "Jonathan Pool"
+  },
+  "label": {
+    "format": "head2",
+    "data": "Developer of accessible web applications"
+  },
+  "summary": {
+    "format": "head3",
+    "data": "All phases:"
+  },
+  "subSummary": {
+    "format": "rowTables",
+    "data": [
       ["planning", "design", "coding", "linting", "testing"],
       ["documentation", "blogging", "training", "maintenance", "upgrades"]
-    ],
-    "email": "pool@stulta.com",
-    "phone": "(510) 225-1717",
-    "mobilePhone": "(510) 225-1700",
-    "website": "http://stulta.com/forumo",
-    "location": {
-      "address": "555 10th St Apt 312",
-      "postalCode": "94607-5208",
-      "city": "Oakland",
-      "countryCode": "US",
-      "region": "California"
-    },
-    "profiles": [
+    ]
+  },
+  "contacts": {
+    "format": "leftTable",
+    "data": [
       {
-        "network": "Github",
-        "username": "jrpool",
-        "url": "https://github.com/jrpool"
+        "head": "email",
+        "tail": {
+          "format": "mailLink",
+          "url": "pool@stulta.com"
+        }
       },
       {
-        "network": "LinkedIn",
-        "username": "jonathanpool",
-        "url": "https://www.linkedin.com/in/jonathanpool/"
+        "head": "phone",
+        "tail": "(510) 225-1717"
       },
       {
-        "network": "MDN Web Docs",
-        "username": "JonathanPool",
-        "url": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+        "head": "mobilePhone",
+        "tail": "(510) 225-1700"
+      },
+      {
+        "head": "website",
+        "tail": {
+          "format": "hLink",
+          "url": "http://stulta.com/forumo"
+        }
+      },
+      {
+        "head": "location",
+        "tail": {
+          "format": "address",
+          "data": {
+            "address": "555 10th St Apt 312",
+            "postalCode": "94607-5208",
+            "city": "Oakland",
+            "countryCode": "US",
+            "region": "California"
+          }
+        }
       }
     ]
   },
-  "accessible": [
-    {
-      "head": "Accessible Calculator",
-      "urlTail": "https://github.com/jrpool/calculator/blob/master/README3.md"
-    },
-    {
-      "head": [
-        "Accessible ",
-        {
-          "meta": "code",
-          "text": "jsonresume"
+  "profiles": {
+    "format": "topTable",
+    "data": {
+      "head": ["network", "username", "url"],
+      "tail": [
+        [
+          "Github",
+          "jrpool",
+          {
+            "format": "link",
+            "data": "https://github.com/jrpool"
+          }
+        ],
+        [
+          "LinkedIn",
+          "jonathanpool",
+          {
+            "format": "link",
+            "data": "https://www.linkedin.com/in/jonathanpool/"
+          }
+        ],
+        [
+          "MDN Web Docs",
+          "JonathanPool",
+          {
+            "format": "link",
+            "data": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+          }
+        ],
+      ]
+    }
+  },
+  "accessible": {
+    "format": "list",
+    "data": [
+      {
+        "head": "Accessible Calculator",
+        "tail": {
+          "format": "link",
+          "data": "https://github.com/jrpool/calculator/blob/master/README3.md"
         },
-        " theme"
-      ],
-      "urlTail": "https://github.com/jrpool/jsonresume-theme-a11y"
-    },
-    {
-      "head": "Senior-friendly single-page site",
-      "urlTail": "https://github.com/jrpool/singlepropertysite"
-    }
-  ],
-  "openSource": [
-    {
-      "head": "ESLint (#25)",
-      "urlTail": "https://github.com/eslint/eslint/graphs/contributors"
-    },
-    {
-      "head": "MDN Web Docs",
-      "urlTail": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
-    },
-    {
-      "head": "LearnersGuild/curriculum-app (#3)",
-      "urlTail": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
-    },
-    {
-      "head": "PanLem",
-      "urlTail": "https://gitlab.com/JonathanPool"
-    },
-    {
-      "head": "PanLex developer documentation",
-      "urlTail": "https://dev.panlex.org"
-    }
-  ],
-  "skills": [
-    {
-      "head": "Languages",
-      "tail": "JavaScript, Perl, Java, bash, VBA, APL"
-    },
-    {
-      "head": "Scopes",
-      "tail": "full-stack, back-end, front-end, APIs, SPAs"
-    },
-    {
-      "head": "Back-end",
-      "tail": "Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI"
-    },
-    {
-      "head": "Databases",
-      "tail": "PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations"
-    },
-    {
-      "head": "Front-end",
-      "tail":
-        "HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize"
-    },
-    {
-      "head": "Content and version management",
-      "tail": "git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress"
-    },
-    {
-      "head": "Quality control",
-      "tail":
-        "ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools"
-    },
-    {
-      "head": "Accessibility",
-      "tail": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits"
-    },
-    {
-      "head": "Internationalization",
-      "tail": "Unicode, CLDR, ISO 639, PanLex API"
-    },
-    {
-      "head": "Web servers",
-      "tail": "Apache httpd, nginx"
-    },
-    {
-      "head": "Mail servers",
-      "tail": "Postfix, sendmail, SendGrid Web API"
-    },
-    {
-      "head": "Remote hosts",
-      "tail": "Amazon AWS (EC2, S3, Glacier), OVH"
-    },
-    {
-      "head": "OS’s",
-      "tail": "Ubuntu, RHEL, OS X, Cisco IOS"
-    },
-    {
-      "head": "Configuration management",
-      "tail": "Puppet"
-    },
-    {
-      "head": "Files",
-      "tail":
-        "FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter"
-    },
-    {
-      "head": "CAD",
-      "tail": "VectorWorks"
-    },
-    {
-      "head": "Statistics",
-      "tail": "SPSS"
-    },
-    {
-      "head": "Office apps",
-      "tail": "Apache OpenOffice, Apple iWork, Microsoft Office"
-    },
-    {
-      "head": "Collaboration",
-      "tail": "Slack, Asana, Wrike, Trello, Egnyte"
-    }
-  ],
-  "languages": [
-    "English",
-    "Esperanto",
-    "German",
-    "Turkish",
-    "French",
-    "Russian",
-    "Norwegian (Bokmål)"
-  ],
-  "education": [
-    {
-      "head": "Learners Guild",
-      "urlTail": "https://learnersguild.org",
-      "startDate": "2017",
-      "endDate": "2018",
-      "area": "web development"
-    },
-    {
-      "head": "University of Washington",
-      "urlTail": "http://www.washington.edu",
-      "startDate": "2004",
-      "endDate": "2007",
-      "area": "computer science and linguistics"
-    },
-    {
-      "head": "The University of Chicago",
-      "urlTail": "https://www.uchicago.edu",
-      "startDate": "1966",
-      "endDate": "1971",
-      "area": "political science"
-    }
-  ],
-  "work": [
-    {
-      "head": "The Long Now Foundation",
-      "urlTail": "http://longnow.org",
-      "startDate": "2012",
-      "endDate": "2016",
-      "duties": "Project Director, PanLex"
-    },
-    {
-      "head": "Centerplex",
-      "urlTail": "http://stulta.com/misc/cx/",
-      "startDate": "1990",
-      "endDate": "2004",
-      "duties": "Project Director, PanLex"
-    },
-    {
-      "head": "University of Washington",
-      "urlTail": "http://www.washington.edu",
-      "startDate": "1977",
-      "endDate": "1993",
-      "duties": "research and teaching"
-    },
-    {
-      "head": "State University of New York at Stony Brook",
-      "urlTail": "http://www.stonybrook.edu",
-      "startDate": "1971",
-      "endDate": "1977",
-      "duties": "research and teaching"
-    },
-    {
-      "head": "Peace Corps",
-      "urlTail": "https://www.peacecorps.gov/",
-      "startDate": "1964",
-      "endDate": "1966",
-      "duties": "teaching"
-    }
-  ],
-  "awards": [
-    "University of Maryland",
-    "National Science Foundation"
-  ],
-  "publications": [
-    "computational lexicography",
-    "syntactic ambiguity",
-    "game-theoretic models of social choice"
-  ]
+        "delimiter": ": "
+      },
+      {
+        "head": [
+          "Accessible ",
+          {
+            "format": "code",
+            "data": "jsonresume"
+          },
+          " theme"
+        ],
+        "tail": {
+          "format": "link",
+          "data": "https://github.com/jrpool/jsonresume-theme-a11y"
+        },
+        "delimiter": ": "
+      },
+      {
+        "head": "Senior-friendly single-page site",
+        "tail": {
+          "format": "link",
+          "data": "https://github.com/jrpool/singlepropertysite"
+        },
+        "delimiter": ": "
+      }
+    ]
+  },
+  "openSource": {
+    "format": "list",
+    "data": [
+      {
+        "format": "headedString",
+        "data": {
+          "head": "ESLint (#25)",
+          "tail": {
+            "format": "link",
+            "data": "https://github.com/eslint/eslint/graphs/contributors"
+          },
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "MDN Web Docs",
+          "tail": {
+            "format": "link",
+            "data": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
+          },
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "LearnersGuild/curriculum-app (#3)",
+          "tail": {
+            "format": "link",
+            "data": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
+          },
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "PanLem",
+          "tail": {
+            "format": "link",
+            "data": "https://gitlab.com/JonathanPool"
+          },
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "PanLex developer documentation",
+          "tail": {
+            "format": "link",
+            "data": "https://dev.panlex.org"
+          },
+          "delimiter": ": "
+        }
+      }
+    ]
+  },
+  "skills": {
+    "format": "list",
+    "data": [
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Languages",
+          "tail": "JavaScript, Perl, Java, bash, VBA, APL",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Scopes",
+          "tail": "full-stack, back-end, front-end, APIs, SPAs",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Back-end",
+          "tail": "Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Databases",
+          "tail": "PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Front-end",
+          "tail": "HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Content and version management",
+          "tail": "git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Quality control",
+          "tail": "ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Accessibility",
+          "tail": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Internationalization",
+          "tail": "Unicode, CLDR, ISO 639, PanLex API",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Web servers",
+          "tail": "Apache httpd, nginx",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Mail servers",
+          "tail": "Postfix, sendmail, SendGrid Web API",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Remote hosts",
+          "tail": "Amazon AWS (EC2, S3, Glacier), OVH",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "OS’s",
+          "tail": "Ubuntu, RHEL, OS X, Cisco IOS",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Configuration management",
+          "tail": "Puppet",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Files",
+          "tail": "FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "CAD",
+          "tail": "VectorWorks",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Statistics",
+          "tail": "SPSS",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Office apps",
+          "tail": "Apache OpenOffice, Apple iWork, Microsoft Office",
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Collaboration",
+          "tail": "Slack, Asana, Wrike, Trello, Egnyte",
+          "delimiter": ": "
+        }
+      }
+    ]
+  },
+  "languages": {
+    "format": "list",
+    "data": [
+      "English",
+      "Esperanto",
+      "German",
+      "Turkish",
+      "French",
+      "Russian",
+      "Norwegian Bokmål",
+      "Latin"
+    ]
+  },
+  "education": {
+    "format": "list",
+    "data": [
+      {
+        "format": "ed",
+        "data": {
+          "head": "Learners Guild",
+          "url": "https://learnersguild.org",
+          "startDate": "2017",
+          "endDate": "2018",
+          "area": "web development"
+        }
+      },
+      {
+        "format": "ed",
+        "data": {
+          "head": "University of Washington",
+          "url": "http://www.washington.edu",
+          "startDate": "2004",
+          "endDate": "2007",
+          "area": "computer science and linguistics"
+        }
+      },
+      {
+        "format": "ed",
+        "data": {
+          "head": "The University of Chicago",
+          "url": "https://www.uchicago.edu",
+          "startDate": "1966",
+          "endDate": "1971",
+          "area": "political science"
+        }
+      }
+    ]
+  },
+  "work": {
+    "format": "list",
+    "data": [
+      {
+        "format": "work",
+        "data": {
+          "head": "The Long Now Foundation",
+          "urlTail": "http://longnow.org",
+          "startDate": "2012",
+          "endDate": "2016",
+          "duties": "Project Director, PanLex"
+        }
+      },
+      {
+        "format": "work",
+        "data": {
+          "head": "Centerplex",
+          "urlTail": "http://stulta.com/misc/cx/",
+          "startDate": "1990",
+          "endDate": "2004",
+          "duties": "Project Director, PanLex"
+        },
+      },
+      {
+        "format": "work",
+        "data": {
+          "head": "University of Washington",
+          "urlTail": "http://www.washington.edu",
+          "startDate": "1977",
+          "endDate": "1993",
+          "duties": "research and teaching"
+        },
+      },
+      {
+        "format": "work",
+        "data": {
+          "head": "State University of New York at Stony Brook",
+          "urlTail": "http://www.stonybrook.edu",
+          "startDate": "1971",
+          "endDate": "1977",
+          "duties": "research and teaching"
+        },
+      },
+      {
+        "format": "work",
+        "data": {
+          "head": "Peace Corps",
+          "urlTail": "https://www.peacecorps.gov/",
+          "startDate": "1964",
+          "endDate": "1966",
+          "duties": "teaching"
+        }
+      }
+    ]
+  },
+  "awards": {
+    "format": "list",
+    "data": [
+      "University of Maryland",
+      "National Science Foundation"
+    ]
+  },
+  "publications": {
+    "format": "list",
+    "data": [
+      "computational lexicography",
+      "syntactic ambiguity",
+      "game-theoretic models of social choice"
+    ]
+  }
 }
