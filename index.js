@@ -1,20 +1,59 @@
 const renderer = require('views/html');
 const fs = require('fs');
 const path = require('path');
-
-const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'), 'utf8');
+const fileArgs = process.argv.slice(2);
+fileArgs[0] = fileArgs[0] || 'resume.json';
+fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.html';
+const cvJSON = fs.readFileSync(path.join(__dirname, fileArgs[0]), 'utf8');
 const cvObject = JSON.parse(cvJSON);
-const cvSections = cvObject.order
-  ? cvObject.order.data
-  : Object.keys(cvObject).filter(
-    section => cvObject[section].format !== 'hide'
-  );
 const lang = cvObject.lang ? cvObject.lang.data : 'en';
 const legend = cvObject.legend ? cvObject.legend.data : {};
-const cvBasics = basicsRender(basics, legend);
-const title = basics.name;
-const cvHTML = render(cvObject, cvBasics, title, legend);
-fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
+const title = cvObject.name ? cvObject.name.data || 'Résumé';
+
+const legendOf = string => legend[string] || string;
+
+const render = (object, title, legend, renderer) => {
+  const sectionCodes = object.order
+    ? object.order.data
+    : Object.keys(object).filter(
+      section => object[section].format !== 'hide'
+    );
+  return sectionCodes.map(sectionCode => {
+    const spec = object[sectionCode];
+    const format = spec.format || 'default';
+    const title = legendOf(sectionCode);
+    if (format === 'pic1') {
+      return renderer.imageOf(spec.src, spec.alt, sectionTitles);
+    }
+    else if (format === 'head1') {
+      return renderer.headOf(spec.data, 1, title);
+    }
+    else if (format === 'head2') {
+      return renderer.headOf(spec.data, 2, title);
+    }
+    else if (format === 'head3') {
+      return renderer.headOf(spec.data, 3, title);
+    }
+    else if (format === 'rowTables') {
+      return renderer.rowTablesOf(spec.data, title);
+    }
+    else if (format === 'table2Col') {
+      return renderer.table2ColOf(spec.data, title);
+    }
+    else if (format === 'topTable') {
+      return renderer.boxedBulletListOf(spec.data, title, 'level1');
+    }
+    else if (format === 'list') {
+      return renderer.table2ColOf(spec.data, title);
+    }
+});
+  const sectionTitles = sectionCodes.map(
+    sectionCode => legend[sectionCode] || sectionCodes
+  );
+};
+
+const cvHTML = render(cvObject, cvSections, title, legend, renderer);
+fs.writeFileSync(path.join(__dirname, fileArgs[1]), cvHTML);
 
 exports = {render};
 

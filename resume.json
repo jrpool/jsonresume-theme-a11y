@@ -85,7 +85,7 @@
     "format": "pic1",
     "data": {
       "src": "http://stulta.com/images/pool-2009.jpg",
-      "alt": "Jonathan Pool"
+      "alt": "Photograph of Jonathan Pool"
     }
   },
   "name": {
@@ -108,7 +108,7 @@
     ]
   },
   "contacts": {
-    "format": "leftTable",
+    "format": "table2Col",
     "data": [
       {
         "head": "email",

@@ -27,8 +27,10 @@ const element2Of = (content, tagName, attributes, indent) => {
   }
 }
 
-// Photograph of the subject.
-exports.imageOf = (src, alt) => element1Of('img', {src, alt});
+// Specification of a section containing a photograph of the subject.
+exports.imageOf = (src, alt, title) => element2Of(
+  element1Of('img', {src, alt}), 'section', {title}, 2
+);
 
 // Representation of a string, possibly typed.
 exports.stringOf = rep => {
@@ -58,23 +60,31 @@ exports.stringOf = rep => {
 };
 
 // Representation of a string formatted as a heading.
-exports.headOf = (rep, level) => element2Of(stringOf(rep), `h${level}`, {}, -1);
+exports.headOf = (rep, level, title) => element2Of(
+  element2Of(stringOf(rep), `h${level}`, {}, -1), 'section', {title}, 2
+);
 
 // Array of arrays, each representing a 1-row table.
-exports.rowTablesOf = array => {
+exports.rowTablesOf = (array, title) => {
   const rows = array.map(rowArray => {
     const cells = rowArray.map(rep => element2Of(stringOf(rep), 'td', {}, -1));
     return element2Of(cells.join(''), 'tr', {}, 2);
   });
   const tables = rows.map(row => element2Of(row, 'table', {}, 2));
-  return tables.join('\n');
+  return element2Of(tables.join('\n'), 'section', {title}, 2);
+};
+
+// Specification of a table section.
+const tableSectionOf = (rows, title) {
+  const table = element2Of(rows.join('\n'), 'table', {}, 2);
+  return element2Of(table, 'section', {title}, 2);
 };
 
 /*
   Array representing a 2-column table with headings in the left column and
   strings, possibly typed, in the right column.
 */
-exports.table2ColOf = array => {
+exports.table2ColOf = (array, title) => {
   const rows = array.map(rowObject => {
     const head = rowObject.head;
     let tail = stringOf(rowObject.tail);
@@ -82,11 +92,11 @@ exports.table2ColOf = array => {
     const tailCell = element2Of(tail, 'td', {}, -1);
     return (element2Of([headCell, tailCell].join(''), 'tr', {}, 2));
   });
-  return element2Of(rows.join('\n'), 'table', {}, 2);
+  return tableSectionOf(rows, title);
 };
 
 // Array representing a table with headings in the top row.
-exports.tableTopHeadOf = array => {
+exports.tableTopHeadOf = (array, title) => {
   const headCells = array[0].map(head => element2Of(stringOf(head), 'th', {}));
   const tailCells = array.slice(1).map(rowArray => rowArray.map(
     cellSpec => element2Of(stringOf(cellSpec, 'td', {}))
@@ -94,7 +104,7 @@ exports.tableTopHeadOf = array => {
   const rows = [headCells, ...tailCells].map(
     rowCells => element2Of(rowCells.join(''), 'tr', {}, 2)
   );
-  return element2Of(rows.join('\n'), 'table', {}, 2);
+  return tableSectionOf(rows, title);
 };
 
 // Specification of a boxed, headed, bulleted list.
@@ -110,3 +120,8 @@ exports.boxedBulletListOf((array, head, type) => {
     [headParagraph, tailParagraphs].join('\n'), 'section', {class: type}, 2
   );
 });
+
+// Specification of a single-item section.
+exports.section = (rep, type) => element2Of(
+  stringOf(rep), 'section', {class: type}, -1
+);
