@@ -97,7 +97,6 @@
     "format": "head",
     "level": 2,
     "data": "Developer of accessible web applications"
-    }
   },
   "summary": {
     "format": "head",
@@ -185,7 +184,7 @@
           "head": "Accessible Calculator",
           "tail": {
             "format": "hLink",
-            "data": "https://github.com/jrpool/calculator/blob/master/README3.md",
+            "data": "https://github.com/jrpool/calculator/blob/master/README3.md"
           },
           "delimiter": ": "
         }
@@ -253,7 +252,7 @@
           "head": "LearnersGuild/curriculum-app (#3)",
           "tail": {
             "format": "hLink",
-            "data": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
+            "data": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors"
           },
           "delimiter": ": "
         }
@@ -512,7 +511,7 @@
           "startDate": "1990",
           "endDate": "2004",
           "duties": "Project Director, PanLex"
-        },
+        }
       },
       {
         "format": "work",
@@ -522,7 +521,7 @@
           "startDate": "1977",
           "endDate": "1993",
           "duties": "research and teaching"
-        },
+        }
       },
       {
         "format": "work",
@@ -532,7 +531,7 @@
           "startDate": "1971",
           "endDate": "1977",
           "duties": "research and teaching"
-        },
+        }
       },
       {
         "format": "work",

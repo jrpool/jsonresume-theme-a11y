@@ -1,5 +1,5 @@
 // Import dependencies.
-const renderer = require('views/html');
+const renderer = require('./views/html');
 const fs = require('fs');
 const path = require('path');
 
@@ -32,7 +32,7 @@ const render = (key, object, legend) => {
           item => renderer.bulletItemOf(stringOf(item))
         );
         const listHead = renderer.headOf(title, level);
-        return renderer.sectionOf(listHead.concat(bulletItems).join('\n'), '');
+        return renderer.sectionOf([listHead, ...bulletItems].join('\n'), '');
       }
       case 'code': {
         return renderer.element2Of(stringOf(data), 'code', {}, -1);
@@ -64,7 +64,7 @@ const render = (key, object, legend) => {
       }
       case 'rowTables': {
         const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf(row));
+        const rowTables = rows.map(row => renderer.tableOf([row]));
         return renderer.sectionOf(rowTables.join('\n'), title);
       }
       case 'tableLeftHead': {
@@ -80,7 +80,7 @@ const render = (key, object, legend) => {
           rowSpec => renderer.plainRowOf(stringOf(rowSpec))
         );
         const topHeadTable = renderer.tableOf(
-          headRowElement.concat(etcRowElements).join('\n')
+          [headRowElement, ...etcRowElements]
         );
         return renderer.sectionOf(topHeadTable, title);
       }
@@ -96,7 +96,7 @@ const render = (key, object, legend) => {
     }
   }
   else {
-    const keys = object.order || Object.keys(object).filter(
+    const keys = object.order ? object.order.data : Object.keys(object).filter(
       key => object[key].format !== 'hide'
     );
     return keys.map(key => stringOf(object[key])).join('\n');
@@ -113,7 +113,7 @@ const run = () => {
   const lang = cvObject.lang ? cvObject.lang.data : 'en';
   const legend = cvObject.legend ? cvObject.legend.data : {};
   const title = cvObject.name ? cvObject.name.data : 'Résumé';
-  const style = fs.readFileSync(path.join(__dirname, 'style.css'));
+  const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
   const cvHTML = renderer.pageOf(
     render('', cvObject, legend), lang, title, style
   );

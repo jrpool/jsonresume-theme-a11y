@@ -107,18 +107,20 @@ const pageOf = (content, lang, title, style) => {
   return htmlElement;
 };
 
-exports = {
-  hLinkOf,
-  mailLinkOf,
+module.exports = {
+  bulletItemOf,
+  element1Of,
+  element2Of,
   headedStringOf,
   headOf,
-  bulletItemOf,
-  imageOf,
   headRowOf,
-  plainRowOf,
+  hLinkOf,
+  imageOf,
   leftHeadRowOf,
-  tableOf,
+  mailLinkOf,
+  pageOf,
+  plainRowOf,
   sectionOf,
   styleOf,
-  pageOf
+  tableOf,
 };
