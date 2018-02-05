@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Theme for JSON Resume addressing WCAG 2.1 and ARIA accessibility (a11y) standards",
   "scripts": {
-    "lint": "eslint index.js; exit 0"
+    "lint": "eslint index.js views/*.js; exit 0"
   },
   "keywords": [
     "résumé",
