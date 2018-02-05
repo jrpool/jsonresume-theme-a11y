@@ -19,59 +19,80 @@ const render = (key, object, legend) => {
     else if (typeof rep === 'object') {
       return render(key, rep, legend, renderer);
     }
-  }
+  };
   const title = titleOf(key, legend);
   const {format, level, data} = object;
   if (format && data) {
     switch(format) {
-      case 'address':
-        const {address, city, region, postalCode, countryCode} = data;
-        return `${address}\n${city}, ${region} ${postalCode}, ${countryCode}`;
-      case 'boxedBulletList':
+      case 'address': {
+        return `${data.address}\n${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`;
+      }
+      case 'boxedBulletList': {
         const bulletItems = data.map(
           item => renderer.bulletItemOf(stringOf(item))
         );
-        const head = renderer.headOf(title, level);
-        return renderer.sectionOf(head.concat(bulletItems).join('\n'), '');
-      case 'code': return renderer.element2Of(stringOf(data), 'code', {}, -1);
-      case 'ed':
-        const {head, url, startDate, endDate, area} = data;
-        const fullHead = url ? renderer.hLinkOf(head, url) : head;
-        return `${fullHead}, ${startDate}–${endDate}: ${area}`;
-      case 'head':
-        const head = renderer.headOf(stringOf(data), level || 1);
-        return renderer.sectionOf(head, title);
-      case 'headedString': return renderer.headedStringOf(
-        stringOf(data.head), stringOf(data.tail), data.delimiter
-      );
-      case 'hLink': return renderer.hLinkOf(data.label, data.href);
-      case 'mailLink': return renderer.mailLinkOf(data.label, data.href);
-      case 'pic1':
+        const listHead = renderer.headOf(title, level);
+        return renderer.sectionOf(listHead.concat(bulletItems).join('\n'), '');
+      }
+      case 'code': {
+        return renderer.element2Of(stringOf(data), 'code', {}, -1);
+      }
+      case 'ed': {
+        const edHead = data.url ? renderer.hLinkOf(
+          data.head, data.url
+        ) : data.head;
+        return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
+      }
+      case 'head': {
+        const heading = renderer.headOf(stringOf(data), level || 1);
+        return renderer.sectionOf(heading, title);
+      }
+      case 'headedString': {
+        return renderer.headedStringOf(
+          stringOf(data.head), stringOf(data.tail), data.delimiter
+        );
+      }
+      case 'hLink': {
+        return renderer.hLinkOf(data.label, data.href);
+      }
+      case 'mailLink': {
+        return renderer.mailLinkOf(data.label, data.href);
+      }
+      case 'pic1': {
         const image = renderer.imageOf(data.src, data.alt);
         return renderer.sectionOf(image, title);
-      case 'rowTables':
+      }
+      case 'rowTables': {
         const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
         const rowTables = rows.map(row => renderer.tableOf(row));
         return renderer.sectionOf(rowTables.join('\n'), title);
-      case 'tableLeftHead':
+      }
+      case 'tableLeftHead': {
         const rowElements = data.map(
           rowSpec => renderer.leftHeadRowOf(stringOf(rowSpec))
         );
-        const table = tableOf(rowElements);
-        return renderer.sectionOf(table, title);
-      );
-      case 'tableTopHead':
+        const leftHeadTable = renderer.tableOf(rowElements);
+        return renderer.sectionOf(leftHeadTable, title);
+      }
+      case 'tableTopHead': {
         const headRowElement = renderer.headRowOf(stringOf(data[0]));
         const etcRowElements = data.slice(1).map(
           rowSpec => renderer.plainRowOf(stringOf(rowSpec))
         );
-        const table = tableOf(headRowElement.concat(etcRowElements).join('\n'));
-        return renderer.sectionOf(table, title);
-      case 'work':
-        const {head, url, startDate, endDate, duties} = data;
-        const fullHead = url ? renderer.hLinkOf(head, url) : head;
-        return `${fullHead}, ${startDate}–${endDate}: ${duties}`;
-      default: return renderer.headOf(`ERROR: BAD FORMAT AT ${key}`, 1);
+        const topHeadTable = renderer.tableOf(
+          headRowElement.concat(etcRowElements).join('\n')
+        );
+        return renderer.sectionOf(topHeadTable, title);
+      }
+      case 'work': {
+        const workHead = data.url ? renderer.hLinkOf(
+          data.head, data.url
+        ) : data.head;
+        return `${workHead}, ${data.startDate}–${data.endDate}: ${data.duties}`;
+      }
+      default: {
+        return renderer.headOf(`ERROR: BAD FORMAT AT ${key}`, 1);
+      }
     }
   }
   else {
@@ -91,12 +112,12 @@ const run = () => {
   const cvObject = JSON.parse(cvJSON);
   const lang = cvObject.lang ? cvObject.lang.data : 'en';
   const legend = cvObject.legend ? cvObject.legend.data : {};
-  const title = cvObject.name ? cvObject.name.data || 'Résumé';
+  const title = cvObject.name ? cvObject.name.data : 'Résumé';
   const style = fs.readFileSync(path.join(__dirname, 'style.css'));
   const cvHTML = renderer.pageOf(
     render('', cvObject, legend), lang, title, style
   );
   fs.writeFileSync(path.join(__dirname, fileArgs[1]), cvHTML);
-}
+};
 
 run();
