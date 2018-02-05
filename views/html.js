@@ -84,3 +84,25 @@ exports.tableOf = rowElements => element2Of(
 exports.sectionOf = (content, title) => element2Of(
   content, 'section', {title}, 2
 );
+
+// Style.
+exports.styleOf = style => element2Of(style, 'style', {}, -1);
+
+// Page.
+exports.pageOf = (content, lang, title, style) => {
+  const meta0 = element1Of('meta', {charset: 'utf-8'});
+  const meta1 = element1Of('meta', {
+    name: 'viewport',
+    content: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+  });
+  const title = element2Of(title, 'title', {}, -1);
+  const style = element2Of(style, 'style', {}, 2);
+  const head = element2Of(
+    [meta0, meta1, title, style].join('\n'), 'head', {}, 2
+  );
+  const body = element2Of(content, 'body', {}, 2);
+  const html = element2Of(
+    ['<!DOCTYPE html>', head, body].join('\n'), 'html', {}, 2
+  );
+  return html;
+};
