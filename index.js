@@ -1,27 +1,82 @@
+// Import dependencies.
 const renderer = require('views/html');
 const fs = require('fs');
 const path = require('path');
-const fileArgs = process.argv.slice(2);
-fileArgs[0] = fileArgs[0] || 'resume.json';
-fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.html';
-const cvJSON = fs.readFileSync(path.join(__dirname, fileArgs[0]), 'utf8');
-const cvObject = JSON.parse(cvJSON);
-const lang = cvObject.lang ? cvObject.lang.data : 'en';
-const legend = cvObject.legend ? cvObject.legend.data : {};
-const title = cvObject.name ? cvObject.name.data || 'Résumé';
 
-const legendOf = string => legend[string] || string;
+// UTILITIES
 
-const render = (object, title, legend, renderer) => {
-  const sectionCodes = object.order
+// Convert a code to the string that it represents.
+const titleOf = (string, legend) => legend[string] || string;
+
+// Make a renderer render an object.
+const render = (key, object, legend, renderer) => {
+  // Utility to convert non-strings to strings.
+  const stringOf = rep => {
+    if (typeof rep === 'string') {
+      return rep;
+    }
+    else if (Array.isArray(rep)) {
+      return rep.map(item => stringOf(item));
+    }
+    else if (typeof rep === 'object') {
+      return render(key, rep, legend, renderer);
+    }
+  }
+  const title = titleOf(key, legend);
+  const {format, level, data} = object;
+  if (format && data) {
+    switch(format) {
+      case 'address':
+
+      case 'boxedBulletList':
+        const bulletItems = data.map(
+          item => renderer.bulletItemOf(stringOf(item))
+        );
+        const head = renderer.headOf(title, level);
+        return renderer.sectionOf(head.concat(bulletItems).join('\n'), '');
+      case 'head':
+        const head = renderer.headOf(stringOf(data), level || 1);
+        return renderer.sectionOf(head, title);
+      case 'headedString':
+        return renderer.headedStringOf(
+          stringOf(data.head), stringOf(data.tail), data.delimiter
+        );
+      case 'hLink': return renderer.hLinkOf(data.label, data.href);
+      case 'mailLink': return renderer.mailLinkOf(data.label, data.href);
+      case 'pic1':
+        const image = renderer.imageOf(data.src, data.alt);
+        return renderer.sectionOf(image, title);
+      case 'rowTables':
+        const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
+        const rowTables = rows.map(row => renderer.tableOf(row));
+        return renderer.sectionOf(rowTables.join('\n'), title);
+      case 'tableLeftHead':
+        const rowElements = data.map(
+          rowSpec => renderer.leftHeadRowOf(stringOf(rowSpec))
+        );
+        const table = tableOf(rowElements);
+        return renderer.sectionOf(table, title);
+      );
+      case 'tableTopHead':
+        const headRowElement = renderer.headRowOf(stringOf(data[0]));
+        const etcRowElements = data.slice(1).map(
+          rowSpec => renderer.plainRowOf(stringOf(rowSpec))
+        );
+        const table = tableOf(headRowElement.concat(etcRowElements).join('\n'));
+        return renderer.sectionOf(table, title);
+      );
+    }
+  }
+  if (format) {
+
+  }
+  const keys = object.order
     ? object.order.data
-    : Object.keys(object).filter(
-      section => object[section].format !== 'hide'
-    );
-  return sectionCodes.map(sectionCode => {
-    const spec = object[sectionCode];
+    : Object.keys(object).filter(key => object[key].format !== 'hide');
+  return keys.map(key => {
+    const spec = object[key];
     const format = spec.format || 'default';
-    const title = legendOf(sectionCode);
+    const title = legendOf(key);
     if (format === 'pic1') {
       return renderer.imageOf(spec.src, spec.alt, sectionTitles);
     }
@@ -41,17 +96,31 @@ const render = (object, title, legend, renderer) => {
       return renderer.table2ColOf(spec.data, title);
     }
     else if (format === 'topTable') {
-      return renderer.boxedBulletListOf(spec.data, title, 'level1');
+      return renderer.tableTopHeadOf(spec.data, title, 'level1');
     }
     else if (format === 'list') {
-      return renderer.table2ColOf(spec.data, title);
+      return renderer.boxedBulletListOf(spec.data, title);
     }
-});
-  const sectionTitles = sectionCodes.map(
-    sectionCode => legend[sectionCode] || sectionCodes
-  );
+    else if (['headedString', 'hLink', 'mailLink'].includes(format)) {
+      return renderer.stringOf(spec.data);
+    }
+    else if (format === 'ed') {
+      const orgLink = renderer.stringOf()
+      return renderer.boxedBulletListOf(spec.data, title);
+    }
+  }).join('\n');
 };
 
+const fileArgs = process.argv.slice(2);
+fileArgs[0] = fileArgs[0] || 'resume.json';
+fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.html';
+const cvJSON = fs.readFileSync(path.join(__dirname, fileArgs[0]), 'utf8');
+const cvObject = JSON.parse(cvJSON);
+const lang = cvObject.lang ? cvObject.lang.data : 'en';
+const legend = cvObject.legend ? cvObject.legend.data : {};
+const title = cvObject.name ? cvObject.name.data || 'Résumé';
+
+// ==================================================================
 const cvHTML = render(cvObject, cvSections, title, legend, renderer);
 fs.writeFileSync(path.join(__dirname, fileArgs[1]), cvHTML);
 

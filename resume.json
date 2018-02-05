@@ -89,15 +89,19 @@
     }
   },
   "name": {
-    "format": "head1",
+    "format": "head",
+    "level": 1,
     "data": "Jonathan Pool"
   },
   "label": {
-    "format": "head2",
+    "format": "head",
+    "level": 2,
     "data": "Developer of accessible web applications"
+    }
   },
   "summary": {
-    "format": "head3",
+    "format": "head",
+    "level": 3,
     "data": "All phases:"
   },
   "subSummary": {
@@ -108,33 +112,27 @@
     ]
   },
   "contacts": {
-    "format": "table2Col",
+    "format": "tableLeftHead",
     "data": [
-      {
-        "head": "email",
-        "tail": {
+      [
+        "email",
+        {
           "format": "mailLink",
-          "url": "pool@stulta.com"
+          "data": "pool@stulta.com"
         }
-      },
-      {
-        "head": "phone",
-        "tail": "(510) 225-1717"
-      },
-      {
-        "head": "mobilePhone",
-        "tail": "(510) 225-1700"
-      },
-      {
-        "head": "website",
-        "tail": {
+      ],
+      ["phone", "(510) 225-1717"],
+      ["mobilePhone", "(510) 225-1700"],
+      [
+        "website",
+        {
           "format": "hLink",
-          "url": "http://stulta.com/forumo"
+          "data": "http://stulta.com/forumo"
         }
-      },
-      {
-        "head": "location",
-        "tail": {
+      ],
+      [
+        "location",
+        {
           "format": "address",
           "data": {
             "address": "555 10th St Apt 312",
@@ -144,86 +142,95 @@
             "region": "California"
           }
         }
-      }
+      ]
     ]
   },
   "profiles": {
-    "format": "topTable",
-    "data": {
-      "head": ["network", "username", "url"],
-      "tail": [
-        [
-          "Github",
-          "jrpool",
-          {
-            "format": "link",
-            "data": "https://github.com/jrpool"
-          }
-        ],
-        [
-          "LinkedIn",
-          "jonathanpool",
-          {
-            "format": "link",
-            "data": "https://www.linkedin.com/in/jonathanpool/"
-          }
-        ],
-        [
-          "MDN Web Docs",
-          "JonathanPool",
-          {
-            "format": "link",
-            "data": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
-          }
-        ],
+    "format": "tableTopHead",
+    "data": [
+      ["network", "username", "url"],
+      [
+        "Github",
+        "jrpool",
+        {
+          "format": "hLink",
+          "data": "https://github.com/jrpool"
+        }
+      ],
+      [
+        "LinkedIn",
+        "jonathanpool",
+        {
+          "format": "hLink",
+          "data": "https://www.linkedin.com/in/jonathanpool/"
+        }
+      ],
+      [
+        "MDN Web Docs",
+        "JonathanPool",
+        {
+          "format": "hLink",
+          "data": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+        }
       ]
-    }
+    ]
   },
   "accessible": {
-    "format": "list",
+    "format": "BulletList",
+    "level": 1,
     "data": [
       {
-        "head": "Accessible Calculator",
-        "tail": {
-          "format": "link",
-          "data": "https://github.com/jrpool/calculator/blob/master/README3.md"
-        },
-        "delimiter": ": "
-      },
-      {
-        "head": [
-          "Accessible ",
-          {
-            "format": "code",
-            "data": "jsonresume"
+        "format": "headedString",
+        "data": {
+          "head": "Accessible Calculator",
+          "tail": {
+            "format": "hLink",
+            "data": "https://github.com/jrpool/calculator/blob/master/README3.md",
           },
-          " theme"
-        ],
-        "tail": {
-          "format": "link",
-          "data": "https://github.com/jrpool/jsonresume-theme-a11y"
-        },
-        "delimiter": ": "
+          "delimiter": ": "
+        }
       },
       {
-        "head": "Senior-friendly single-page site",
-        "tail": {
-          "format": "link",
-          "data": "https://github.com/jrpool/singlepropertysite"
-        },
-        "delimiter": ": "
+        "format": "headedString",
+        "data": {
+          "head": [
+            "Accessible ",
+            {
+              "format": "code",
+              "data": "jsonresume"
+            },
+            " theme"
+          ],
+          "tail": {
+            "format": "hLink",
+            "data": "https://github.com/jrpool/jsonresume-theme-a11y"
+          },
+          "delimiter": ": "
+        }
+      },
+      {
+        "format": "headedString",
+        "data": {
+          "head": "Senior-friendly single-page site",
+          "tail": {
+            "format": "hLink",
+            "data": "https://github.com/jrpool/singlepropertysite"
+          },
+          "delimiter": ": "
+        }
       }
     ]
   },
   "openSource": {
-    "format": "list",
+    "format": "boxedBulletList",
+    "level": 1,
     "data": [
       {
         "format": "headedString",
         "data": {
           "head": "ESLint (#25)",
           "tail": {
-            "format": "link",
+            "format": "hLink",
             "data": "https://github.com/eslint/eslint/graphs/contributors"
           },
           "delimiter": ": "
@@ -234,7 +241,7 @@
         "data": {
           "head": "MDN Web Docs",
           "tail": {
-            "format": "link",
+            "format": "hLink",
             "data": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
           },
           "delimiter": ": "
@@ -245,7 +252,7 @@
         "data": {
           "head": "LearnersGuild/curriculum-app (#3)",
           "tail": {
-            "format": "link",
+            "format": "hLink",
             "data": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors",
           },
           "delimiter": ": "
@@ -256,7 +263,7 @@
         "data": {
           "head": "PanLem",
           "tail": {
-            "format": "link",
+            "format": "hLink",
             "data": "https://gitlab.com/JonathanPool"
           },
           "delimiter": ": "
@@ -267,7 +274,7 @@
         "data": {
           "head": "PanLex developer documentation",
           "tail": {
-            "format": "link",
+            "format": "hLink",
             "data": "https://dev.panlex.org"
           },
           "delimiter": ": "
@@ -276,7 +283,8 @@
     ]
   },
   "skills": {
-    "format": "list",
+    "format": "boxedBulletList",
+    "level": 1,
     "data": [
       {
         "format": "headedString",
@@ -433,7 +441,8 @@
     ]
   },
   "languages": {
-    "format": "list",
+    "format": "boxedBulletList",
+    "level": 1,
     "data": [
       "English",
       "Esperanto",
@@ -446,7 +455,8 @@
     ]
   },
   "education": {
-    "format": "list",
+    "format": "boxedBulletList",
+    "level": 1,
     "data": [
       {
         "format": "ed",
@@ -481,7 +491,8 @@
     ]
   },
   "work": {
-    "format": "list",
+    "format": "boxedBulletList",
+    "level": 1,
     "data": [
       {
         "format": "work",
@@ -536,14 +547,16 @@
     ]
   },
   "awards": {
-    "format": "list",
+    "format": "boxedBulletList",
+    "level": 1,
     "data": [
       "University of Maryland",
       "National Science Foundation"
     ]
   },
   "publications": {
-    "format": "list",
+    "format": "boxedBulletList",
+    "level": 1,
     "data": [
       "computational lexicography",
       "syntactic ambiguity",
