@@ -27,20 +27,25 @@ const render = (key, object, legend, renderer) => {
   if (format && data) {
     switch(format) {
       case 'address':
-
+        const {address, city, region, postalCode, countryCode} = data;
+        return `${address}\n${city}, ${region} ${postalCode}, ${countryCode}`;
       case 'boxedBulletList':
         const bulletItems = data.map(
           item => renderer.bulletItemOf(stringOf(item))
         );
         const head = renderer.headOf(title, level);
         return renderer.sectionOf(head.concat(bulletItems).join('\n'), '');
+      case 'code': return renderer.element2Of(stringOf(data), 'code', {}, -1);
+      case 'ed':
+        const {head, url, startDate, endDate, area} = data;
+        const fullHead = url ? renderer.hLinkOf(head, url) : head;
+        return `${fullHead}, ${startDate}–${endDate}: ${area}`;
       case 'head':
         const head = renderer.headOf(stringOf(data), level || 1);
         return renderer.sectionOf(head, title);
-      case 'headedString':
-        return renderer.headedStringOf(
-          stringOf(data.head), stringOf(data.tail), data.delimiter
-        );
+      case 'headedString': return renderer.headedStringOf(
+        stringOf(data.head), stringOf(data.tail), data.delimiter
+      );
       case 'hLink': return renderer.hLinkOf(data.label, data.href);
       case 'mailLink': return renderer.mailLinkOf(data.label, data.href);
       case 'pic1':
@@ -64,6 +69,10 @@ const render = (key, object, legend, renderer) => {
         );
         const table = tableOf(headRowElement.concat(etcRowElements).join('\n'));
         return renderer.sectionOf(table, title);
+      case 'work':
+        const {head, url, startDate, endDate, duties} = data;
+        const fullHead = url ? renderer.hLinkOf(head, url) : head;
+        return `${fullHead}, ${startDate}–${endDate}: ${duties}`;
       );
     }
   }

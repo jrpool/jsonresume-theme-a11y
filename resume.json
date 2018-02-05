@@ -176,7 +176,7 @@
     ]
   },
   "accessible": {
-    "format": "BulletList",
+    "format": "boxedBulletList",
     "level": 1,
     "data": [
       {
@@ -498,7 +498,7 @@
         "format": "work",
         "data": {
           "head": "The Long Now Foundation",
-          "urlTail": "http://longnow.org",
+          "url": "http://longnow.org",
           "startDate": "2012",
           "endDate": "2016",
           "duties": "Project Director, PanLex"
@@ -508,7 +508,7 @@
         "format": "work",
         "data": {
           "head": "Centerplex",
-          "urlTail": "http://stulta.com/misc/cx/",
+          "url": "http://stulta.com/misc/cx/",
           "startDate": "1990",
           "endDate": "2004",
           "duties": "Project Director, PanLex"
@@ -518,7 +518,7 @@
         "format": "work",
         "data": {
           "head": "University of Washington",
-          "urlTail": "http://www.washington.edu",
+          "url": "http://www.washington.edu",
           "startDate": "1977",
           "endDate": "1993",
           "duties": "research and teaching"
@@ -528,7 +528,7 @@
         "format": "work",
         "data": {
           "head": "State University of New York at Stony Brook",
-          "urlTail": "http://www.stonybrook.edu",
+          "url": "http://www.stonybrook.edu",
           "startDate": "1971",
           "endDate": "1977",
           "duties": "research and teaching"
@@ -538,7 +538,7 @@
         "format": "work",
         "data": {
           "head": "Peace Corps",
-          "urlTail": "https://www.peacecorps.gov/",
+          "url": "https://www.peacecorps.gov/",
           "startDate": "1964",
           "endDate": "1966",
           "duties": "teaching"
