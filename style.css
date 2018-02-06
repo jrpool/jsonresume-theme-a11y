@@ -1,38 +1,8 @@
-#basics-contact th {
-  text-align: left;
+body {
+  background: #eee;
+  margin: 3rem 3rem;
 }
-#basics-contact-table th {
-  padding-right: 1rem;
-  text-align: right;
-}
-#basics-details {
-  font-size: 1.2rem;
-}
-#basics-name {
-  font-weight: bolder;
-}
-#basics-picture {
-  position: absolute;
-  top: 3rem;
-  right: 3rem;
-  width: 8rem;
-}
-#basics-profiles-table {
-  margin-bottom: 1rem;
-}
-#basics-subSummary td {
-  padding: 0.2rem 0.3rem;
-}
-#basics-summary {
-  display: block;
-  font-weight: bolder;
-  color: #344;
-}
-#basics-summary-container {
-  display: flex;
-  justify-content: center;
-}
-#basics-summary-content {
+.compactDiv {
   padding: 0 3rem 2rem 3rem;
   margin-top: 1rem;
   border-style: solid;
@@ -40,15 +10,38 @@
   border-radius: 50%;
   border-color: #33444433;
 }
-body {
-  background: #eee;
-  margin: 3rem 3rem;
+.pic1 > img {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  width: 8rem;
 }
-#credit {
+.rowTable ~ .rowTable {
+  margin-top: 0.1rem;
+}
+.rowTablesCircled {
+  display: flex;
+  justify-content: center;
+}
+.rowTablesCircled td {
+  padding: 0.2rem 0.3rem;
+}
+section > .tableLH,
+section > .tableTH {
+  margin-top: 2rem;
+}
+.tableLH th {
+  text-align: right;
+  padding-right: 0.5rem;
+}
+.theme-credit {
   margin-top: 1rem;
   text-align: center;
   font-size: 1rem;
   font-style: italic;
+}
+#basics-profiles-table {
+  margin-bottom: 1rem;
 }
 .em {
   font-weight: bolder;
@@ -62,53 +55,54 @@ h6 {
   margin: 0.5rem 0 0 0.3rem;
 }
 h1,
-.h1c {
+.head1 {
   font-size: 2rem;
   color: #344;
 }
 h2,
-.h2c {
+.head2 {
   font-size: 1.9rem;
   font-style: italic;
   color: #344;
 }
 h3,
-.h3c {
+.head3 {
   font-size: 1.8rem;
   color: #344;
 }
 h4,
-.h4c {
+.head4 {
   font-size: 1.7rem;
   font-style: italic;
   color: #344;
 }
 h5,
-.h5c {
+.head5 {
   font-size: 1.6rem;
   color: #344;
 }
 h6,
-.h6c {
+.head6 {
   font-size: 1.5rem;
   font-style: italic;
   color: #344;
 }
 h7,
-.h7c {
+.head7 {
   font-size: 1.4rem;
   color: #344;
 }
-.h1c,
-.h2c,
-.h3c,
-.h4c,
-.h5c,
-.h6c {
+.head1,
+.head2,
+.head3,
+.head4,
+.head5,
+.head6 {
   margin-top: 1rem;
   text-align: center;
+  font-weight: bolder;
 }
-.h7c {
+.head7 {
   margin-top: 0;
   text-align: center;
 }

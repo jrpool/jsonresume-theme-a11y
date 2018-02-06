@@ -3,25 +3,34 @@ const renderer = require('./views/html');
 const fs = require('fs');
 const path = require('path');
 
-// Convert a code to the string that it represents.
+// Utility to convert a code to the string that it represents.
 const titleOf = (string, legend) => legend[string] || string;
 
 // Make the renderer render an object.
 const render = (key, object, legend) => {
   // Utility to convert non-strings to strings.
-  const stringOf = rep => {
+  const stringOf = (subkey, rep) => {
     if (typeof rep === 'string') {
       return rep;
     }
     else if (Array.isArray(rep)) {
-      return rep.map(item => stringOf(item));
+      return rep.map(item => stringOf(key, item)).join('');
     }
     else if (typeof rep === 'object') {
-      return render(key, rep, legend, renderer);
+      return render(subkey, rep, legend);
     }
+  };
+  const compactSectionOf = (content, atObject) => {
+    const bufferDiv = renderer.element2Of('', 'div', {}, -1);
+    const middleDiv = renderer.element2Of(
+      content, 'div', {class: 'compactDiv'}, 2
+    );
+    const quasiRow = [bufferDiv, middleDiv, bufferDiv].join('\n');
+    return renderer.sectionOf(quasiRow, atObject);
   };
   const title = titleOf(key, legend);
   const {format, level, data} = object;
+  let formatClass;
   if (format && data) {
     switch(format) {
       case 'address': {
@@ -29,13 +38,15 @@ const render = (key, object, legend) => {
       }
       case 'boxedBulletList': {
         const bulletItems = data.map(
-          item => renderer.bulletItemOf(stringOf(item))
+          item => renderer.bulletItemOf(stringOf(key, item))
         );
         const listHead = renderer.headOf(title, level);
-        return renderer.sectionOf([listHead, ...bulletItems].join('\n'), '');
+        return renderer.sectionOf(
+          [listHead, ...bulletItems].join('\n'), {title, class: format}
+        );
       }
       case 'code': {
-        return renderer.element2Of(stringOf(data), 'code', {}, -1);
+        return renderer.element2Of(stringOf(key, data), 'code', {}, -1);
       }
       case 'ed': {
         const edHead = data.url ? renderer.hLinkOf(
@@ -44,12 +55,13 @@ const render = (key, object, legend) => {
         return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
       }
       case 'head': {
-        const heading = renderer.headOf(stringOf(data), level || 1);
-        return renderer.sectionOf(heading, title);
+        const headLevel = level || 1;
+        const heading = renderer.headOf(stringOf(key, data), headLevel);
+        return renderer.sectionOf(heading, {title, class: `head${headLevel}`});
       }
       case 'headedString': {
         return renderer.headedStringOf(
-          stringOf(data.head), stringOf(data.tail), data.delimiter
+          stringOf(key, data.head), stringOf(key, data.tail), data.delimiter
         );
       }
       case 'hLink': {
@@ -60,29 +72,52 @@ const render = (key, object, legend) => {
       }
       case 'pic1': {
         const image = renderer.imageOf(data.src, data.alt);
-        return renderer.sectionOf(image, title);
+        return renderer.sectionOf(image, {title, class: format});
       }
       case 'rowTables': {
         const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf([row]));
-        return renderer.sectionOf(rowTables.join('\n'), title);
+        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
+        return renderer.sectionOf(
+          rowTables.join('\n'), {title, class: format}
+        );
+      }
+      case 'rowTablesCircled': {
+        const head = renderer.element2Of(
+          data.head, 'div', {class: `head${level}`}, -1
+        );
+        const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
+        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
+        return compactSectionOf(
+          [head, ...rowTables].join('\n'), {title, class: format}
+        );
       }
       case 'tableLeftHead': {
         const rowElements = data.map(
-          rowSpec => renderer.leftHeadRowOf(stringOf(rowSpec))
+          rowSpec => {
+            rowSpec[0] = titleOf(rowSpec[0], legend);
+            return renderer.leftHeadRowOf(
+              rowSpec.map(cellSpec => stringOf('', cellSpec))
+            );
+          }
         );
-        const leftHeadTable = renderer.tableOf(rowElements);
-        return renderer.sectionOf(leftHeadTable, title);
+        const leftHeadTable = renderer.tableOf(rowElements, 'tableLH');
+        return renderer.sectionOf(leftHeadTable, {title});
       }
       case 'tableTopHead': {
-        const headRowElement = renderer.headRowOf(stringOf(data[0]));
+        const headRowElement = renderer.headRowOf(
+          data[0].map(string => titleOf(string, legend))
+        );
         const etcRowElements = data.slice(1).map(
-          rowSpec => renderer.plainRowOf(stringOf(rowSpec))
+          rowSpec => renderer.plainRowOf(
+            rowSpec.map(cellSpec => stringOf('', cellSpec))
+          )
         );
         const topHeadTable = renderer.tableOf(
-          [headRowElement, ...etcRowElements]
+          [headRowElement, ...etcRowElements], 'tableTH'
         );
-        return renderer.sectionOf(topHeadTable, title);
+        return renderer.sectionOf(
+          topHeadTable, {title}
+        );
       }
       case 'work': {
         const workHead = data.url ? renderer.hLinkOf(
@@ -97,9 +132,9 @@ const render = (key, object, legend) => {
   }
   else {
     const keys = object.order ? object.order.data : Object.keys(object).filter(
-      key => object[key].format !== 'hide'
+      subkey => object[subkey].format !== 'hide'
     );
-    return keys.map(key => stringOf(object[key])).join('\n');
+    return keys.map(subkey => stringOf(subkey, object[subkey])).join('\n');
   }
 };
 
@@ -114,8 +149,18 @@ const run = () => {
   const legend = cvObject.legend ? cvObject.legend.data : {};
   const title = cvObject.name ? cvObject.name.data : 'Résumé';
   const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
+  const footPrefix = titleOf('creditTo', legend);
+  const footLink = {
+    format: 'hLink',
+    data: {
+      label: 'jsonresume-theme-a11y',
+      href: 'https://github.com/jrpool/jsonresume-theme-a11y'
+    }
+  };
+  const footContent = [footPrefix, render('', footLink, legend)].join('');
+  const footElement = renderer.sectionOf(footContent, {class: 'theme-credit'});
   const cvHTML = renderer.pageOf(
-    render('', cvObject, legend), lang, title, style
+    render('', cvObject, legend), footElement, lang, title, style
   );
   fs.writeFileSync(path.join(__dirname, fileArgs[1]), cvHTML);
 };

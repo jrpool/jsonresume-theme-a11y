@@ -33,8 +33,10 @@
       "awards": "Software-development grants",
       "city": "City",
       "company": "Company",
+      "contacts": "Contact information",
       "countryCode": "Country code",
       "courses": "Courses",
+      "creditTo": "Powered by ",
       "date": "Date",
       "duties": "Duties",
       "education": "Professional education",
@@ -71,7 +73,6 @@
       "skills": "What I have worked with",
       "startDate": "Start date (yyyy-mm-dd)",
       "studyType": "Degree or program",
-      "subSummary": "Repertoire list",
       "summary": "Repertoire",
       "title": "Title",
       "url": "URL",
@@ -99,16 +100,15 @@
     "data": "Developer of accessible web applications"
   },
   "summary": {
-    "format": "head",
+    "format": "rowTablesCircled",
     "level": 3,
-    "data": "All phases:"
-  },
-  "subSummary": {
-    "format": "rowTables",
-    "data": [
-      ["planning", "design", "coding", "linting", "testing"],
-      ["documentation", "blogging", "training", "maintenance", "upgrades"]
-    ]
+    "data": {
+      "head": "All phases:",
+      "tables": [
+        ["planning", "design", "coding", "linting", "testing"],
+        ["documentation", "blogging", "training", "maintenance", "upgrades"]
+      ]
+    }
   },
   "contacts": {
     "format": "tableLeftHead",
@@ -117,7 +117,9 @@
         "email",
         {
           "format": "mailLink",
-          "data": "pool@stulta.com"
+          "data": {
+            "href": "pool@stulta.com"
+          }
         }
       ],
       ["phone", "(510) 225-1717"],
@@ -126,7 +128,9 @@
         "website",
         {
           "format": "hLink",
-          "data": "http://stulta.com/forumo"
+          "data": {
+            "href": "http://stulta.com/forumo"
+          }
         }
       ],
       [
@@ -153,7 +157,9 @@
         "jrpool",
         {
           "format": "hLink",
-          "data": "https://github.com/jrpool"
+          "data": {
+            "href": "https://github.com/jrpool"
+          }
         }
       ],
       [
@@ -161,7 +167,9 @@
         "jonathanpool",
         {
           "format": "hLink",
-          "data": "https://www.linkedin.com/in/jonathanpool/"
+          "data": {
+            "href": "https://www.linkedin.com/in/jonathanpool/"
+          }
         }
       ],
       [
@@ -169,7 +177,9 @@
         "JonathanPool",
         {
           "format": "hLink",
-          "data": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+          "data": {
+            "href": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+          }
         }
       ]
     ]
@@ -184,7 +194,9 @@
           "head": "Accessible Calculator",
           "tail": {
             "format": "hLink",
-            "data": "https://github.com/jrpool/calculator/blob/master/README3.md"
+            "data": {
+              "href": "https://github.com/jrpool/calculator/blob/master/README3.md"
+            }
           },
           "delimiter": ": "
         }
@@ -202,7 +214,9 @@
           ],
           "tail": {
             "format": "hLink",
-            "data": "https://github.com/jrpool/jsonresume-theme-a11y"
+            "data": {
+              "href": "https://github.com/jrpool/jsonresume-theme-a11y"
+            }
           },
           "delimiter": ": "
         }
@@ -213,7 +227,9 @@
           "head": "Senior-friendly single-page site",
           "tail": {
             "format": "hLink",
-            "data": "https://github.com/jrpool/singlepropertysite"
+            "data": {
+              "href": "https://github.com/jrpool/singlepropertysite"
+            }
           },
           "delimiter": ": "
         }
@@ -230,7 +246,9 @@
           "head": "ESLint (#25)",
           "tail": {
             "format": "hLink",
-            "data": "https://github.com/eslint/eslint/graphs/contributors"
+            "data": {
+              "href": "https://github.com/eslint/eslint/graphs/contributors"
+            }
           },
           "delimiter": ": "
         }
@@ -241,7 +259,9 @@
           "head": "MDN Web Docs",
           "tail": {
             "format": "hLink",
-            "data": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
+            "data": {
+              "href": "https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool"
+            }
           },
           "delimiter": ": "
         }
@@ -252,7 +272,9 @@
           "head": "LearnersGuild/curriculum-app (#3)",
           "tail": {
             "format": "hLink",
-            "data": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors"
+            "data": {
+              "href": "https://github.com/LearnersGuild/curriculum-app/graphs/contributors"
+            }
           },
           "delimiter": ": "
         }
@@ -263,7 +285,9 @@
           "head": "PanLem",
           "tail": {
             "format": "hLink",
-            "data": "https://gitlab.com/JonathanPool"
+            "data": {
+              "href": "https://gitlab.com/JonathanPool"
+            }
           },
           "delimiter": ": "
         }
@@ -274,7 +298,9 @@
           "head": "PanLex developer documentation",
           "tail": {
             "format": "hLink",
-            "data": "https://dev.panlex.org"
+            "data": {
+              "href": "https://dev.panlex.org"
+            }
           },
           "delimiter": ": "
         }

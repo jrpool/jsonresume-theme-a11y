@@ -73,20 +73,20 @@ const leftHeadRowOf = array => {
 const rowOf = cellElements => element2Of(cellElements.join(''), 'tr', {}, 2);
 
 // Table.
-const tableOf = rowElements => element2Of(
-  rowElements.join('\n'), 'table', {}, 2
+const tableOf = (rowElements, type) => element2Of(
+  rowElements.join('\n'), 'table', {class: type}, 2
 );
 
 // Section.
-const sectionOf = (content, title) => element2Of(
-  content, 'section', {title}, 2
+const sectionOf = (content, atObject) => element2Of(
+  content, 'section', atObject, 2
 );
 
 // Style.
 const styleOf = style => element2Of(style, 'style', {}, -1);
 
 // Page.
-const pageOf = (content, lang, title, style) => {
+const pageOf = (content, foot, lang, title, style) => {
   const meta0Element = element1Of('meta', {charset: 'utf-8'});
   const meta1Element = element1Of('meta', {
     name: 'viewport',
@@ -100,11 +100,14 @@ const pageOf = (content, lang, title, style) => {
     {},
     2
   );
-  const bodyElement = element2Of(content, 'body', {}, 2);
-  const htmlElement = element2Of(
-    ['<!DOCTYPE html>', headElement, bodyElement].join('\n'), 'html', {}, 2
+  const mainElement = element2Of(content, 'main', {}, 2);
+  const bodyElement = element2Of(
+    [mainElement, foot].join('\n'), 'body', {}, 2
   );
-  return htmlElement;
+  const htmlElement = element2Of(
+    [headElement, bodyElement].join('\n'), 'html', {lang}, 2
+  );
+  return ['<!DOCTYPE html>', htmlElement].join('\n');
 };
 
 module.exports = {
