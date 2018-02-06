@@ -42,7 +42,8 @@ const render = (key, object, legend) => {
         );
         const listHead = renderer.headOf(title, level);
         return renderer.sectionOf(
-          [listHead, ...bulletItems].join('\n'), {title, class: format}
+          [listHead, ...bulletItems].join('\n'),
+          {title, class: `${format} level${level}`}
         );
       }
       case 'code': {
@@ -115,9 +116,7 @@ const render = (key, object, legend) => {
         const topHeadTable = renderer.tableOf(
           [headRowElement, ...etcRowElements], 'tableTH'
         );
-        return renderer.sectionOf(
-          topHeadTable, {title}
-        );
+        return renderer.sectionOf(topHeadTable, {title});
       }
       case 'work': {
         const workHead = data.url ? renderer.hLinkOf(

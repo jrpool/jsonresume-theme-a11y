@@ -1,6 +1,14 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background: #eee;
   margin: 3rem 3rem;
+}
+.boxedBulletList {
+  padding-bottom: 0.5rem;
+  border-style: solid;
+  border-width: 1px;
 }
 .compactDiv {
   padding: 0 3rem 2rem 3rem;
@@ -9,6 +17,89 @@ body {
   border-width: 0.5rem;
   border-radius: 50%;
   border-color: #33444433;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+h7 {
+  margin: 0.5rem 0 0 0.3rem;
+  color: #344;
+}
+h1,
+.head1 {
+  font-size: 2rem;
+}
+h2,
+.head2 {
+  font-size: 1.9rem;
+  font-style: italic;
+}
+h3,
+.head3 {
+  font-size: 1.8rem;
+}
+h4,
+.head4 {
+  font-size: 1.7rem;
+  font-style: italic;
+}
+h5,
+.head5 {
+  font-size: 1.6rem;
+}
+h6,
+.head6 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+h7,
+.head7 {
+  font-size: 1.4rem;
+}
+.head1,
+.head2,
+.head3,
+.head4,
+.head5,
+.head6,
+.head7 {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bolder;
+  color: #344;
+}
+html {
+  font-size: 1.4vw;
+}
+.level1 > section:first-child > h1,
+.level2 > section:first-child > h2,
+.level3 > section:first-child > h3 {
+  margin-top: 0;
+}
+.level1 {
+  border-color: slategray;
+}
+.level2 {
+  margin: 0.5vw;
+  border-color: mediumslateblue;
+}
+.level3 {
+  margin: 0.5vw;
+  border-color: mediumturquoise;
+}
+.list-item {
+  position: relative;
+  left: -0.5rem;
+}
+p {
+  display: list-item;
+  list-style: inside;
+  margin: 0.3rem 0 0 0;
+  padding-left: 0.75rem;
+  font-size: 1.2rem;
 }
 .pic1 > img {
   position: absolute;
@@ -24,11 +115,24 @@ body {
   justify-content: center;
 }
 .rowTablesCircled td {
-  padding: 0.2rem 0.3rem;
+  padding-right: 0.3rem;
 }
 section > .tableLH,
 section > .tableTH {
   margin-top: 2rem;
+}
+.boxedBulletList + .boxedBulletList {
+  margin-top: -1px;
+}
+section:not(.boxedBulletList) + .boxedBulletList {
+  margin-top: 1.5rem;
+}
+strong {
+  font-weight: bold;
+}
+table {
+  margin: 1rem auto 0 auto;
+  border-collapse: collapse;
 }
 .tableLH th {
   text-align: right;
@@ -39,113 +143,6 @@ section > .tableTH {
   text-align: center;
   font-size: 1rem;
   font-style: italic;
-}
-#basics-profiles-table {
-  margin-bottom: 1rem;
-}
-.em {
-  font-weight: bolder;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0.5rem 0 0 0.3rem;
-}
-h1,
-.head1 {
-  font-size: 2rem;
-  color: #344;
-}
-h2,
-.head2 {
-  font-size: 1.9rem;
-  font-style: italic;
-  color: #344;
-}
-h3,
-.head3 {
-  font-size: 1.8rem;
-  color: #344;
-}
-h4,
-.head4 {
-  font-size: 1.7rem;
-  font-style: italic;
-  color: #344;
-}
-h5,
-.head5 {
-  font-size: 1.6rem;
-  color: #344;
-}
-h6,
-.head6 {
-  font-size: 1.5rem;
-  font-style: italic;
-  color: #344;
-}
-h7,
-.head7 {
-  font-size: 1.4rem;
-  color: #344;
-}
-.head1,
-.head2,
-.head3,
-.head4,
-.head5,
-.head6 {
-  margin-top: 1rem;
-  text-align: center;
-  font-weight: bolder;
-}
-.head7 {
-  margin-top: 0;
-  text-align: center;
-}
-html {
-  font-size: 1.4vw;
-}
-p {
-  display: list-item;
-  list-style: inside;
-  margin: 0.3rem 0 0 0;
-  padding-left: 0.7rem;
-  font-size: 1.2rem;
-}
-section.level1 {
-  border-color: slategray;
-}
-section.level2 {
-  margin: 0.5vw;
-  border-color: mediumslateblue;
-}
-section.level3 {
-  margin: 0.5vw;
-  border-color: mediumturquoise;
-}
-section.level1,
-section.level2,
-section.level3 {
-  padding-bottom: 0.3rem;
-  border-style: solid;
-  border-width: 1px;
-}
-section.level1 > section:first-child > h1,
-section.level2 > section:first-child > h2,
-section.level3 > section:first-child > h3 {
-  margin-top: 0;
-}
-.list-item {
-  position: relative;
-  left: -0.5rem;
-}
-table {
-  margin: 1rem auto 0 auto;
-  border-collapse: collapse;
 }
 td {
   padding: 0.2rem;
