@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Theme for JSON Resume addressing WCAG 2.1 and ARIA accessibility (a11y) standards",
   "scripts": {
-    "lint": "eslint index.js; exit 0"
+    "lint": "eslint index.js views/*.js; exit 0"
   },
   "keywords": [
     "résumé",
@@ -19,9 +19,7 @@
   ],
   "author": "Jonathan Pool",
   "license": "MIT",
-  "dependencies": {
-    "handlebars": ">=4.0.11"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": ">=7.0.0-beta.3",
     "babel-register": ">=6.26.0",

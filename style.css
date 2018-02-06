@@ -1,38 +1,16 @@
-#basics-contact th {
-  text-align: left;
+* {
+  box-sizing: border-box;
 }
-#basics-contact-table th {
-  padding-right: 1rem;
-  text-align: right;
+body {
+  background: #eee;
+  margin: 3rem 3rem;
 }
-#basics-details {
-  font-size: 1.2rem;
+.boxedBulletList {
+  padding-bottom: 0.5rem;
+  border-style: solid;
+  border-width: 1px;
 }
-#basics-name {
-  font-weight: bolder;
-}
-#basics-picture {
-  position: absolute;
-  top: 3rem;
-  right: 3rem;
-  width: 8rem;
-}
-#basics-profiles-table {
-  margin-bottom: 1rem;
-}
-#basics-subSummary td {
-  padding: 0.2rem 0.3rem;
-}
-#basics-summary {
-  display: block;
-  font-weight: bolder;
-  color: #344;
-}
-#basics-summary-container {
-  display: flex;
-  justify-content: center;
-}
-#basics-summary-content {
+.compactDiv {
   padding: 0 3rem 2rem 3rem;
   margin-top: 1rem;
   border-style: solid;
@@ -40,118 +18,131 @@
   border-radius: 50%;
   border-color: #33444433;
 }
-body {
-  background: #eee;
-  margin: 3rem 3rem;
-}
-#credit {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
-}
-.em {
-  font-weight: bolder;
-}
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6
+h7 {
   margin: 0.5rem 0 0 0.3rem;
-}
-h1,
-.h1c {
-  font-size: 2rem;
   color: #344;
 }
+h1,
+.head1 {
+  font-size: 2rem;
+}
 h2,
-.h2c {
+.head2 {
   font-size: 1.9rem;
   font-style: italic;
-  color: #344;
 }
 h3,
-.h3c {
+.head3 {
   font-size: 1.8rem;
-  color: #344;
 }
 h4,
-.h4c {
+.head4 {
   font-size: 1.7rem;
   font-style: italic;
-  color: #344;
 }
 h5,
-.h5c {
+.head5 {
   font-size: 1.6rem;
-  color: #344;
 }
 h6,
-.h6c {
+.head6 {
   font-size: 1.5rem;
   font-style: italic;
-  color: #344;
 }
 h7,
-.h7c {
+.head7 {
   font-size: 1.4rem;
-  color: #344;
 }
-.h1c,
-.h2c,
-.h3c,
-.h4c,
-.h5c,
-.h6c {
+.head1,
+.head2,
+.head3,
+.head4,
+.head5,
+.head6,
+.head7 {
   margin-top: 1rem;
   text-align: center;
-}
-.h7c {
-  margin-top: 0;
-  text-align: center;
+  font-weight: bolder;
+  color: #344;
 }
 html {
   font-size: 1.4vw;
 }
-p {
-  display: list-item;
-  list-style: inside;
-  margin: 0.3rem 0 0 0;
-  padding-left: 0.7rem;
-  font-size: 1.2rem;
+.level1 > section:first-child > h1,
+.level2 > section:first-child > h2,
+.level3 > section:first-child > h3 {
+  margin-top: 0;
 }
-section.level1 {
+.level1 {
   border-color: slategray;
 }
-section.level2 {
+.level2 {
   margin: 0.5vw;
   border-color: mediumslateblue;
 }
-section.level3 {
+.level3 {
   margin: 0.5vw;
   border-color: mediumturquoise;
-}
-section.level1,
-section.level2,
-section.level3 {
-  padding-bottom: 0.3rem;
-  border-style: solid;
-  border-width: 1px;
-}
-section.level1 > section:first-child > h1,
-section.level2 > section:first-child > h2,
-section.level3 > section:first-child > h3 {
-  margin-top: 0;
 }
 .list-item {
   position: relative;
   left: -0.5rem;
 }
+p {
+  display: list-item;
+  list-style: inside;
+  margin: 0.3rem 0 0 0;
+  padding-left: 0.75rem;
+  font-size: 1.2rem;
+}
+.pic1 > img {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  width: 8rem;
+}
+.rowTable ~ .rowTable {
+  margin-top: 0.1rem;
+}
+.rowTablesCircled {
+  display: flex;
+  justify-content: center;
+}
+.rowTablesCircled td {
+  padding-right: 0.3rem;
+}
+section > .tableLH,
+section > .tableTH {
+  margin-top: 2rem;
+}
+.boxedBulletList + .boxedBulletList {
+  margin-top: -1px;
+}
+section:not(.boxedBulletList) + .boxedBulletList {
+  margin-top: 1.5rem;
+}
+strong {
+  font-weight: bold;
+}
 table {
   margin: 1rem auto 0 auto;
   border-collapse: collapse;
+}
+.tableLH th {
+  text-align: right;
+  padding-right: 0.5rem;
+}
+.theme-credit {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
 }
 td {
   padding: 0.2rem;

@@ -1,181 +1,167 @@
+// Import dependencies.
+const renderer = require('./views/html');
 const fs = require('fs');
 const path = require('path');
 
-const isLink = string => {
-  return string.startsWith('http://') || string.startsWith('https://');
-};
+// Utility to convert a code to the string that it represents.
+const titleOf = (string, legend) => legend[string] || string;
 
-const hasLink = object => {
-  return object.hasOwnProperty('link');
-};
-
-const isImageLink = string => {
-  return isLink(string) && /\.(?:jpg|jpeg|gif|png|svg)$/.test(string);
-};
-
-const linkify = string => {
-  return `<a href="${string}">${string}</a>`;
-};
-
-const appendLink = object => {
-  return `${object.intro}: <a href="${object.link}">${object.link}</a>`;
-};
-
-const imageLinkify = (string, alt) => {
-  return `<img src="${string}" alt="${alt}">`;
-};
-
-const indent = (string, spaceCount) => string.trim().split('\n').join(
-  '\n' + ' '.repeat(spaceCount)
-);
-
-const sectionize = (string, hLevel) => {
-  const sectionClass = hLevel && hLevel < 4 ? ` class=level${hLevel}` : '';
-  return `<section${sectionClass}>\n  ${indent(string, 2)}\n</section>\n`;
-};
-
-const headRender = (string, hLevel) => {
-  const tagName = `h${hLevel}`;
-  const openTag = `<${tagName}>`;
-  const closeTag = `</${tagName}>`;
-  return `${openTag}${string}${closeTag}\n`;
-};
-
-const stringRender = string => {
-  const colonIndex = string.indexOf(': ');
-  let renderString = string;
-  if (colonIndex > 0) {
-    const stringParts = [
-      string.slice(0, colonIndex),
-      string.slice(colonIndex)
-    ];
-    renderString = `<span class="em">${stringParts[0]}</span>${stringParts[1]}`;
-  }
-  return `<p><span class=list-item>${renderString}</span></p>`;
-};
-
-const ordinary = (code, legend) => legend ? legend[code] || code : code;
-
-const itemRender = (propertyName, item, legend, hLevel) => {
-  const itemType = typeof item;
-  if (Array.isArray(item)) {
-    const sectionContent = item.map(element => {
-      const subSectionContent = itemRender(
-        propertyName, element, legend, hLevel
-      );
-      const noBox
-        = ['number', 'string', 'boolean'].includes(typeof element)
-        || (typeof element === 'object' && hasLink(element));
-      return noBox ? `${subSectionContent}\n` : sectionize(
-        subSectionContent, hLevel
-      );
-    });
-    return sectionContent.join('').trim();
-  }
-  else if (['number', 'string', 'boolean'].includes(itemType)) {
-    item = item.toString();
-    if (isImageLink(item)) {
-      item = imageLinkify(item, propertyName);
+// Make the renderer render an object.
+const render = (key, object, legend) => {
+  // Utility to convert non-strings to strings.
+  const stringOf = (subkey, rep) => {
+    if (typeof rep === 'string') {
+      return rep;
     }
-    else if (isLink(item)) {
-      item = linkify(item);
+    else if (Array.isArray(rep)) {
+      return rep.map(item => stringOf(key, item)).join('');
     }
-    return stringRender(item);
-  }
-  else if (itemType === 'object') {
-    if (hasLink(item)) {
-      return stringRender(appendLink(item));
+    else if (typeof rep === 'object') {
+      return render(subkey, rep, legend);
     }
-    else {
-      const sectionContent = Object.keys(item).map(subPropertyName => {
-        const subItem = item[subPropertyName];
-        const subPropertyContent = [
-          headRender(ordinary(subPropertyName, legend), hLevel),
-          itemRender(subPropertyName, subItem, legend, hLevel + 1)
-        ].join('');
-        const noBox = ['number', 'string', 'boolean'].includes(typeof subItem);
-        return noBox ? `${subPropertyContent}\n` : sectionize(
-          subPropertyContent, hLevel
+  };
+  const compactSectionOf = (content, atObject) => {
+    const bufferDiv = renderer.element2Of('', 'div', {}, -1);
+    const middleDiv = renderer.element2Of(
+      content, 'div', {class: 'compactDiv'}, 2
+    );
+    const quasiRow = [bufferDiv, middleDiv, bufferDiv].join('\n');
+    return renderer.sectionOf(quasiRow, atObject);
+  };
+  const title = titleOf(key, legend);
+  const {format, level, data} = object;
+  let formatClass;
+  if (format && data) {
+    switch(format) {
+      case 'address': {
+        return `${data.address}\n${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`;
+      }
+      case 'boxedBulletList': {
+        const bulletItems = data.map(
+          item => renderer.bulletItemOf(stringOf(key, item))
         );
-      });
-      return sectionContent.join('').trim();
+        const listHead = renderer.headOf(title, level);
+        return renderer.sectionOf(
+          [listHead, ...bulletItems].join('\n'),
+          {title, class: `${format} level${level}`}
+        );
+      }
+      case 'code': {
+        return renderer.element2Of(stringOf(key, data), 'code', {}, -1);
+      }
+      case 'ed': {
+        const edHead = data.url ? renderer.hLinkOf(
+          data.head, data.url
+        ) : data.head;
+        return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
+      }
+      case 'head': {
+        const headLevel = level || 1;
+        const heading = renderer.headOf(stringOf(key, data), headLevel);
+        return renderer.sectionOf(heading, {title, class: `head${headLevel}`});
+      }
+      case 'headedString': {
+        return renderer.headedStringOf(
+          stringOf(key, data.head), stringOf(key, data.tail), data.delimiter
+        );
+      }
+      case 'hLink': {
+        return renderer.hLinkOf(data.label, data.href);
+      }
+      case 'mailLink': {
+        return renderer.mailLinkOf(data.label, data.href);
+      }
+      case 'pic1': {
+        const image = renderer.imageOf(data.src, data.alt);
+        return renderer.sectionOf(image, {title, class: format});
+      }
+      case 'rowTables': {
+        const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
+        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
+        return renderer.sectionOf(
+          rowTables.join('\n'), {title, class: format}
+        );
+      }
+      case 'rowTablesCircled': {
+        const head = renderer.element2Of(
+          data.head, 'div', {class: `head${level}`}, -1
+        );
+        const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
+        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
+        return compactSectionOf(
+          [head, ...rowTables].join('\n'), {title, class: format}
+        );
+      }
+      case 'tableLeftHead': {
+        const rowElements = data.map(
+          rowSpec => {
+            rowSpec[0] = titleOf(rowSpec[0], legend);
+            return renderer.leftHeadRowOf(
+              rowSpec.map(cellSpec => stringOf('', cellSpec))
+            );
+          }
+        );
+        const leftHeadTable = renderer.tableOf(rowElements, 'tableLH');
+        return renderer.sectionOf(leftHeadTable, {title});
+      }
+      case 'tableTopHead': {
+        const headRowElement = renderer.headRowOf(
+          data[0].map(string => titleOf(string, legend))
+        );
+        const etcRowElements = data.slice(1).map(
+          rowSpec => renderer.plainRowOf(
+            rowSpec.map(cellSpec => stringOf('', cellSpec))
+          )
+        );
+        const topHeadTable = renderer.tableOf(
+          [headRowElement, ...etcRowElements], 'tableTH'
+        );
+        return renderer.sectionOf(topHeadTable, {title});
+      }
+      case 'work': {
+        const workHead = data.url ? renderer.hLinkOf(
+          data.head, data.url
+        ) : data.head;
+        return `${workHead}, ${data.startDate}–${data.endDate}: ${data.duties}`;
+      }
+      default: {
+        return renderer.headOf(`ERROR: BAD FORMAT AT ${key}`, 1);
+      }
     }
   }
   else {
-    return '';
+    const keys = object.order ? object.order.data : Object.keys(object).filter(
+      subkey => object[subkey].format !== 'hide'
+    );
+    return keys.map(subkey => stringOf(subkey, object[subkey])).join('\n');
   }
 };
 
-const render = (cvObject, cvBasics, title, legend) => {
-  const css = indent(fs.readFileSync(
-    path.join(__dirname, 'style.css'), 'utf-8'
-  ), 6);
-  const html = indent(itemRender('', cvObject, legend, 1), 6);
-  const template = fs.readFileSync(
-    path.join(__dirname, 'template.html'), 'utf8'
-  );
-  return template
-  .replace('##title##', title)
-  .replace('##style-insert##', css)
-  .replace('##main-insert##', [cvBasics, html].join('\n' + ' '.repeat(6)));
-};
-
-const profilesRender = object => {
-  const profileRows = object.profiles.map(profile => {
-    return `${' '.repeat(6)}<tr>
-        <td>${profile.network}</td>
-        <td>${profile.username}</td>
-        <td>${linkify(profile.url)}</td>
-      </tr>`;
-  }).join('\n');
-  return indent(profileRows, 8);
-};
-
-const tableRender = (content, indentation, title) => {
-  const rows = indent(content.map(row => {
-    return `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`;
-  }).join('\n'), 2);
-  const table = [`<table title="${title}">`, rows, '</table>'].join('\n');
-  return indent(table, indentation);
-};
-
-const basicsRender = (object, legend) => {
-  const basicsTemplate = fs.readFileSync(
-    path.join(__dirname, 'basicstemplate.html'), 'utf8'
-  );
-  let basics = basicsTemplate
-  .trim()
-  .replace('##picture-alt-name##', object.name)
-  .replace('##href-email##', object.email)
-  .replace('##href-website##', object.website);
-  basics = basics.replace(
-    '##subSummary##',
-    tableRender(object.subSummary, 10, legend.subSummary)
-  );
-  Object.keys(legend).forEach(key => {
-    basics = basics.replace(`##${key}-title##`, legend[key]);
-    if (object[key]) {
-      basics = basics.replace(`##${key}##`, object[key]);
+// Process the specified file.
+const run = () => {
+  const fileArgs = process.argv.slice(2);
+  fileArgs[0] = fileArgs[0] || 'resume.json';
+  fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.html';
+  const cvJSON = fs.readFileSync(path.join(__dirname, fileArgs[0]), 'utf8');
+  const cvObject = JSON.parse(cvJSON);
+  const lang = cvObject.lang ? cvObject.lang.data : 'en';
+  const legend = cvObject.legend ? cvObject.legend.data : {};
+  const title = cvObject.name ? cvObject.name.data : 'Résumé';
+  const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
+  const footPrefix = titleOf('creditTo', legend);
+  const footLink = {
+    format: 'hLink',
+    data: {
+      label: 'jsonresume-theme-a11y',
+      href: 'https://github.com/jrpool/jsonresume-theme-a11y'
     }
-    else if (object.location[key]) {
-      basics = basics.replace(`##${key}##`, object.location[key]);
-    }
-    else if (object.profiles[key]) {
-      basics = basics.replace(`##${key}##`, object.profiles[key]);
-    }
-  });
-  return basics.replace('##profiles-rows##', profilesRender(object));
+  };
+  const footContent = [footPrefix, render('', footLink, legend)].join('');
+  const footElement = renderer.sectionOf(footContent, {class: 'theme-credit'});
+  const cvHTML = renderer.pageOf(
+    render('', cvObject, legend), footElement, lang, title, style
+  );
+  fs.writeFileSync(path.join(__dirname, fileArgs[1]), cvHTML);
 };
 
-const cvJSON = fs.readFileSync(path.join(__dirname, 'resume.json'), 'utf8');
-const cvObject = JSON.parse(cvJSON);
-const legend = cvObject.legend;
-delete cvObject.legend;
-const basics = cvObject.basics;
-delete cvObject.basics;
-const cvBasics = basicsRender(basics, legend);
-const title = basics.name;
-const cvHTML = render(cvObject, cvBasics, title, legend);
-fs.writeFileSync(path.join(__dirname, 'resume-a11y.html'), cvHTML);
-
-exports = {render};
+run();
