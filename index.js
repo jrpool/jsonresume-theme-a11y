@@ -32,6 +32,7 @@ const render = (key, object, legend) => {
   const {format, level, data} = object;
   let formatClass;
   if (format && data) {
+    level = level || 1;
     switch(format) {
       case 'address': {
         return renderer.multilineOf([
@@ -59,9 +60,8 @@ const render = (key, object, legend) => {
         return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
       }
       case 'head': {
-        const headLevel = level || 1;
-        const heading = renderer.headOf(stringOf(key, data), headLevel);
-        return renderer.sectionOf(heading, {title, class: `head${headLevel}`});
+        const heading = renderer.headOf(stringOf(key, data), level);
+        return renderer.sectionOf(heading, {title, class: `head${level}`});
       }
       case 'headedString': {
         return renderer.headedStringOf(

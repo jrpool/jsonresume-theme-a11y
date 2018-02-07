@@ -83,7 +83,7 @@ To convert any string that is eligible for conversion, include a `legend` proper
 
 Strings eligible for conversion but missing from the `legend` property (if any) are output without conversion.
 
-Not all property names are included in the output document content. 
+Property names, converted if possible, are included in the output document content in basic usage. In advanced usage, they are included in the output document for `boxedBulletList` properties. For other properties, they are made the values of `title` attributes, with the result that they appear as tooltips for those hovering a pointer on `boxedBulletList` sections, and they are also accessible to assistive technologies.
 
 The `docs/resume-sample-1.json` file in this theme’s repository contains a `legend` object whose `data` object includes a conversion of each property name that appears in the `jsonresume` project’s sample `resume.json` file. It begins:
 
@@ -100,6 +100,85 @@ The `docs/resume-sample-1.json` file in this theme’s repository contains a `le
 }
 ```
 
+### Content
+
+You can decide what sections exist in your résumé, what they contain, and how they are formatted.
+
+Think of each top-level property in your source file as a section. You can choose any property name for it (`work`, `references`, etc.), and that name, or if possible its legend conversion, will become the heading or title-attribute value of the section.
+
+You can give each top-level property a format, if you wish. Do that my making the value of the property an object and then giving that object at least 2 properties, named `format` and `data`. Some formats will require other properties, as described below.
+
+The `format` property should have a string value chosen from this list:
+
+- boxedBulletList
+- head
+- pic1
+- rowTables
+- rowTablesCircled
+- tableLeftHead
+- tableTopHead
+- work
+
+The format you choose constrains other properties of the object, as follows:
+
+#### Boxed bullet list (`boxedBulletList`)
+
+The `data` value must be an array of what we can call “stringables”. For now, assume that they are strings.
+
+There may be a `level` property, with an integer value from 1 through 3. If there is none, the application will set `level` to 1. The value should depend on the degree of nesting of the list within other lists: 1 if it’s a top-level list, 2 if nested within another one, or 3 if nested even deeper.
+
+This property will be rendered as a bulleted list, with a heading, enclosed in a box. Each stringable in the `data` array will be an item in the list. The property name, or its conversion, will be the heading.
+
+#### Heading (`head`)
+
+The `data` value must be a stringable.
+
+There may be a `level` property, indicating how prominent you want the heading to be, from 1 (most) to 7 (least). If there isn’t one, the application will set `level` to 1.
+
+The property will be rendered as a centered line of bold text.
+
+#### Portrait ('pic1')
+
+The `data` value must be an object with 2 properties: `src` and `alt`. The value of `src` should be the URL of an image. The value of `alt` should be a string describing the image.
+
+The property will be rendered as an image in the upper-right corner of the document, not displacing any other content.
+
+#### One-row tables (`rowTables`)
+
+The `data` value must be an array of arrays of strings. Each inner array represents a one-row table whose cells are populated by the strings in that array.
+
+The property will be rendered as a set of one-row tables, each centered, one below the other.
+
+#### One-row tables with heading and border (`rowTablesCircled`)
+
+The `data` value must be an object with `head` and `tables` properties. The `head` value must be a string. The `tables` value must be an array of arrays, as specified above under “One-row tables”.
+
+There may be a `level` property, indicating how prominent you want the heading to be, from 1 (most) to 7 (least). If there isn’t one, the application will set `level` to 1.
+
+The property will be rendered as a set of one-row tables, as with “One-row tables”, but with two additional features: a heading and an oval border.
+
+#### Left-headed table (`tableLeftHead`)
+
+The `data` value must be an array of arrays. Each inner array must contain at least 2 elements, the first being a string and the others being stringables.
+
+The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The headings will be the first elements of the inner arrays, or, if possible, their legend conversions.
+
+#### Top-headed table (`tableTopHead`)
+
+
+
+===
+
+- address
+- code
+- ed
+- headedString
+- hLink
+- mailLink
+
+is an array, then
+
+You can give each sectiona format, a level, and content.
  whose array of strings.
 : The purposes and meanings of items are described by semantic tag names and `title` attributes. Semantically distinct sections are identified as `section` elements
  choose the values of the `title` attributes.: The default nclude a `legend` property in your JSON file that maps property names to , so that assistive technologies and tooltips will show (or translate) understandable captions.
