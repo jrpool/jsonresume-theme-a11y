@@ -371,7 +371,7 @@
         "format": "headedString",
         "data": {
           "head": "Accessibility",
-          "tail": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits",
+          "tail": "WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits, ADA Title III",
           "delimiter": ": "
         }
       },
