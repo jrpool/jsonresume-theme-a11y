@@ -34,7 +34,10 @@ const render = (key, object, legend) => {
   if (format && data) {
     switch(format) {
       case 'address': {
-        return `${data.address}\n${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`;
+        return renderer.multilineOf([
+          data.address,
+          `${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`
+        ]);
       }
       case 'boxedBulletList': {
         const bulletItems = data.map(

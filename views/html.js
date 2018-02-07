@@ -1,7 +1,5 @@
 // Renderer into HTML.
 
-// UTILITIES
-
 // Attribute specification.
 const atSpecOf = atObject => Object.keys(atObject).map(
   name => ` ${name}="${atObject[name]}"`
@@ -30,6 +28,9 @@ const hLinkOf = (label, href) => element2Of(label || href, 'a', {href}, -1);
 const mailLinkOf = (label, href) => element2Of(
   label || href, 'a', {href: `mailto:${href}`}, -1
 );
+
+// Multiline string.
+const multilineOf = lineArray => lineArray.join(element1Of('br', {}));
 
 // Headed string.
 const headedStringOf = (head, tail, delimiter) => {
@@ -121,6 +122,7 @@ module.exports = {
   imageOf,
   leftHeadRowOf,
   mailLinkOf,
+  multilineOf,
   pageOf,
   plainRowOf,
   sectionOf,
