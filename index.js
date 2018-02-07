@@ -46,7 +46,7 @@ const render = (key, object, legend) => {
         const listHead = renderer.headOf(title, level);
         return renderer.sectionOf(
           [listHead, ...bulletItems].join('\n'),
-          {title, class: `${format} level${level}`}
+          {class: `${format} level${level}`}
         );
       }
       case 'code': {
