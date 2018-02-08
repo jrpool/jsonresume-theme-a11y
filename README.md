@@ -100,7 +100,7 @@ The `docs/resume-sample-1.json` file in this theme’s repository contains a `le
 }
 ```
 
-### Content
+### Section content
 
 You can decide what sections exist in your résumé, what they contain, and how they are formatted.
 
@@ -117,7 +117,6 @@ The `format` property should have a string value chosen from this list:
 - rowTablesCircled
 - tableLeftHead
 - tableTopHead
-- work
 
 The format you choose constrains other properties of the object, as follows:
 
@@ -165,24 +164,60 @@ The property will be rendered as a table whose leftmost column contains headings
 
 #### Top-headed table (`tableTopHead`)
 
+The `data` value must be an array of arrays. The first inner array must be an array of strings, and any and all subsequent inner arrays must be arrays of stringables.
 
+The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their legend conversion.
 
-===
+### Stringables
 
-- address
-- code
-- ed
-- headedString
-- hLink
-- mailLink
+Wherever a stringable is specified above, you can choose to provide it as a string. If you do, it will be rendered as it is.
 
-is an array, then
+Alternatively, you can provide it as an object with `format` and `data` properties. The format you choose determines the constraints on the value of `data`. The allowed values of `format` are:
 
-You can give each sectiona format, a level, and content.
- whose array of strings.
-: The purposes and meanings of items are described by semantic tag names and `title` attributes. Semantically distinct sections are identified as `section` elements
- choose the values of the `title` attributes.: The default nclude a `legend` property in your JSON file that maps property names to , so that assistive technologies and tooltips will show (or translate) understandable captions.
- For different visual effects, you can revise the `style.css` file.
- Being more generic and permissive: You may use more than the standard property names.
- - Being more configurable: You may create an alternate `basicstemplate.html` file to reformat the specially formatted `basics` section. Alternatively, you may simply rename the section containing the basic information to something other than `basics`, and then it will be treated like any other section.
- - Respecting your choices: Some other `jsonresume` themes make decisions for you on inclusions, exclusions, and labels. With the exception of the `basics` section, as described above, this theme displays all the data in your JSON file.
+#### Address (`address`)
+
+The `data` value must be an object with `address`, `city, `region`, `postalCode`, and `countryCode` properties, where each of those properties has a string value.
+
+It will be rendered as a 2-line string, with a line break after the (street) address.
+
+#### Code (`code`)
+
+The `data` value must be a stringable.
+
+It will be rendered as a string whose typography indicates it is a segment of code.
+
+#### Education (`ed`)
+
+The `data` value must be an object with `head`, (optionally) `url`, `startDate`, `endDate`, and `area` (i.e. subject) properties.
+
+It will be rendered as a single-line string. If a URL is provided, it will be the destination but not the content of a link. The link’s content will be the educational institution (`head`).
+
+#### Headed string (`headedString`)
+
+The `data` value must be an object with `head`, `tail`, and (optionally) `delimiter` properties. If you provide no `delimiter` property, the application sets the delimiter to `: `. The `head` and `tail` must each be stringables.
+
+It will be rendered as a single-line string starting with the rendering of `head`, in bold, with the delimiter after that and, at the end, the rendering of `tail`.
+
+#### Hyperlink (`hLink`)
+
+The `data` value must be an object with (optionally) `label` and `href` properties, each having a string value, where the `href` string is a URL.
+
+It will be rendered as a single-line hyperlink. If you provide a `label` property, its value will be shown as the link content. If you don’t, the displayed link content will be the URL that you provide as the `href` value.
+
+#### Email link (`mailLink`)
+
+The requirements and rendering are the same as with a hyperlink, except that the URL you provide as the `href` value is an email address. The application prefixes it with `mailto:` so that the link triggers the preparation of an email message.
+
+#### Work (`work`)
+
+The requirements and rendering are the same as with education, except that `duties` replaces `area`.
+
+### Invocation
+
+You can exercise additional control over the execution of the application, beyond what the `resume` command allows.
+
+For this additional control, clone the application’s repository into a local directory and execute the application as follows:
+
+`node index [source file] [output file]`
+
+This command will use this theme to render the specified source file and will output the rendering to the specified output file.

@@ -65,7 +65,9 @@ const render = (key, object, legend) => {
       }
       case 'headedString': {
         return renderer.headedStringOf(
-          stringOf(key, data.head), stringOf(key, data.tail), data.delimiter
+          stringOf(key, data.head),
+          stringOf(key, data.tail),
+          data.delimiter || ': '
         );
       }
       case 'hLink': {
