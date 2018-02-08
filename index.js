@@ -29,8 +29,8 @@ const render = (key, object, legend) => {
     return renderer.sectionOf(quasiRow, atObject);
   };
   const title = titleOf(key, legend);
-  const {format, level, data} = object;
-  let formatClass;
+  const {format, data} = object;
+  let {level} = object;
   if (format && data) {
     level = level || 1;
     switch(format) {
