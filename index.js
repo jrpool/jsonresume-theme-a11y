@@ -6,7 +6,7 @@ const path = require('path');
 // Utility to convert a code to the string that it represents.
 const titleOf = (string, legend) => legend[string] || string;
 
-// Make the renderer render an object.
+// Make the renderer render an array or other object.
 const render = (key, object, legend) => {
   // Utility to convert non-strings to strings.
   const stringOf = (subkey, rep) => {
@@ -30,9 +30,9 @@ const render = (key, object, legend) => {
   };
   const title = titleOf(key, legend);
   const {format, data} = object;
-  let {level} = object;
+  let {treeLevel} = object;
   if (format && data) {
-    level = level || 1;
+    treeLevel = treeLevel || 1;
     switch(format) {
       case 'address': {
         return renderer.multilineOf([
@@ -44,10 +44,10 @@ const render = (key, object, legend) => {
         const bulletItems = data.map(
           item => renderer.bulletItemOf(stringOf(key, item))
         );
-        const listHead = renderer.headOf(title, level);
+        const listHead = renderer.headOf(title, treeLevel);
         return renderer.sectionOf(
           [listHead, ...bulletItems].join('\n'),
-          {class: `${format} level${level}`}
+          {class: `${format} treeLevel${treeLevel}`}
         );
       }
       case 'code': {
@@ -60,8 +60,8 @@ const render = (key, object, legend) => {
         return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
       }
       case 'head': {
-        const heading = renderer.headOf(stringOf(key, data), level);
-        return renderer.sectionOf(heading, {title, class: `head${level}`});
+        const heading = renderer.headOf(stringOf(key, data), treeLevel);
+        return renderer.sectionOf(heading, {title, class: `head${treeLevel}`});
       }
       case 'headedString': {
         return renderer.headedStringOf(
@@ -89,7 +89,7 @@ const render = (key, object, legend) => {
       }
       case 'rowTablesCircled': {
         const head = renderer.element2Of(
-          data.head, 'div', {class: `head${level}`}, -1
+          data.head, 'div', {class: `head${treeLevel}`}, -1
         );
         const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
         const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
@@ -135,9 +135,48 @@ const render = (key, object, legend) => {
     }
   }
   else {
-    const keys = object.order ? object.order.data : Object.keys(object).filter(
-      subkey => object[subkey].format !== 'hide'
+    treeLevel = treeLevel || 1;
+    const listHead = renderer.headOf(title, treeLevel);
+    const listKeys = object.order ? object.order.data : Object.keys(object).filter(
+      listKey => object[listKey].format !== 'hide'
     );
+    const renderPlainProp = (key, value) => {
+      if (key) {
+        if (typeof value === 'string') {
+          return renderer.headedStringOf(key, value, ': ');
+        }
+        else if (Array.isArray(value)) {
+          const sublistHead = renderer.headOf(titleOf(key, treeLevel + 1));
+          const sublistItems = value.map(item => {
+            if ()
+          });
+          bulletItems.push()
+          bulletItems.push(renderer.sectionOf(
+            value.map(item => renderPlainProp('', item)).join()
+          ));
+      }
+      }
+    const listItems = listKeys.map(
+      listKey => renderPlainProp(listKey, object[listKey])
+    );
+    return renderer.sectionOf(
+      [listHead, ...listItems].join('\n'),
+      {class: `boxedBulletList level${treeLevel}`}
+    );
+    keys.forEach(subkey => {
+      const value = object.subkey;
+      if (typeof value === 'string') {
+        bulletItems.push(renderer.headedStringOf(subkey, value, ': '));
+      }
+      else if (Array.isArray(value)) {
+
+      }
+    });
+    if (typeof ) = data.map(item => {
+      if
+      renderer.bulletItemOf(
+      stringOf(key, item)
+    ));
     return keys.map(subkey => stringOf(subkey, object[subkey])).join('\n');
   }
 };
@@ -164,7 +203,7 @@ const run = () => {
   const footContent = [footPrefix, render('', footLink, legend)].join('');
   const footElement = renderer.sectionOf(footContent, {class: 'theme-credit'});
   const cvHTML = renderer.pageOf(
-    render('', cvObject, legend), footElement, lang, title, style
+    render('Résumé', cvObject, legend), footElement, lang, title, style
   );
   fs.writeFileSync(path.join(__dirname, fileArgs[1]), cvHTML);
 };
