@@ -8,18 +8,6 @@ const titleOf = (string, legend) => legend[string] || string;
 
 // Make the renderer render an array or object.
 const render = (key, structure, legend) => {
-  // Utility to convert non-strings to strings.
-  const stringOf = (subkey, rep) => {
-    if (typeof rep === 'string') {
-      return rep;
-    }
-    else if (Array.isArray(rep)) {
-      return rep.map(item => stringOf(key, item)).join('');
-    }
-    else if (typeof rep === 'object') {
-      return render(subkey, rep, legend);
-    }
-  };
   const compactSectionOf = (content, atObject) => {
     const bufferDiv = renderer.element2Of('', 'div', {}, -1);
     const middleDiv = renderer.element2Of(
@@ -30,14 +18,14 @@ const render = (key, structure, legend) => {
   };
   const title = titleOf(key, legend);
   if (typeof structure === 'string') {
-    return stringOf(key, structure);
+    return structure;
   }
   else if (Array.isArray(structure)) {
     const list = [];
     if (title) {
       list.push(renderer.headOf(title, treeLevel));
     }
-    list.push(structure.map(item => stringOf(key, item));
+    list.push(structure.map(item => render(key, item, legend));
     return renderer.sectionOf(
       list.join('\n'), {class: `boxedBulletList level${treeLevel}`}
     );
@@ -56,7 +44,7 @@ const render = (key, structure, legend) => {
         case 'boxedBulletList': {
           const listHead = renderer.headOf(title, treeLevel);
           const bulletItems = data.map(
-            item => renderer.bulletItemOf(stringOf(key, item))
+            item => renderer.bulletItemOf(render(key, item, legend))
           );
           return renderer.sectionOf(
             [listHead, ...bulletItems].join('\n'),
@@ -64,7 +52,7 @@ const render = (key, structure, legend) => {
           );
         }
         case 'code': {
-          return renderer.element2Of(stringOf(key, data), 'code', {}, -1);
+          return renderer.element2Of(render(key, data, legend), 'code', {}, -1);
         }
         case 'ed': {
           const edHead = data.url ? renderer.hLinkOf(
@@ -73,13 +61,13 @@ const render = (key, structure, legend) => {
           return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
         }
         case 'head': {
-          const heading = renderer.headOf(stringOf(key, data), treeLevel);
+          const heading = renderer.headOf(render(key, data, legend), treeLevel);
           return renderer.sectionOf(heading, {title, class: `head${treeLevel}`});
         }
         case 'headedString': {
           return renderer.headedStringOf(
-            stringOf(key, data.head),
-            stringOf(key, data.tail),
+            render(key, data.head, legend),
+            render(key, data.tail, legend),
             data.delimiter || ': '
           );
         }
@@ -115,7 +103,7 @@ const render = (key, structure, legend) => {
             rowSpec => {
               rowSpec[0] = titleOf(rowSpec[0], legend);
               return renderer.leftHeadRowOf(
-                rowSpec.map(cellSpec => stringOf('', cellSpec))
+                rowSpec.map(cellSpec => render('', cellSpec, legend))
               );
             }
           );
@@ -128,7 +116,7 @@ const render = (key, structure, legend) => {
           );
           const etcRowElements = data.slice(1).map(
             rowSpec => renderer.plainRowOf(
-              rowSpec.map(cellSpec => stringOf('', cellSpec))
+              rowSpec.map(cellSpec => render('', cellSpec, legend))
             )
           );
           const topHeadTable = renderer.tableOf(
