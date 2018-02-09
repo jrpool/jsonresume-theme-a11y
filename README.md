@@ -30,7 +30,10 @@ The standard instructions for using `jsonresume` themes can apply to this theme:
 
 ## Advanced usage
 
-This theme gives you additional control over your résumé, beyond what the basic usage offers.
+This theme gives you additional control over your résumé, beyond what the basic usage offers. You can exercise this control by modifying:
+
+- The source file
+- The command that invokes the application
 
 ### Language
 
@@ -45,11 +48,63 @@ You can declare what language your résumé is in. Do this by including a `lang`
 
 This is not only a localization feature, but also an accessibility feature. Declaring the language can be particularly helpful to a reader who has an assistive device convert the text to speech. By declaring the language, you may make it possible for the device to render the content with correct pronunciation.
 
+### Legend
+
+You can decide how headings and titles are rendered.
+
+Headings and titles can appear in the following ways:
+
+- Heading of a list
+- Heading of a headed string
+- Metafact (fact revealed to a parser or conditionally displayed)
+
+Examples:
+
+<blockquote>
+**Languages known**<br>
+Cobol<br>
+Go<br><br>
+
+**Languages known**: Cobol, Go<br><br>
+
+`<h2 title="Languages known">Cobol, Go</h2>`
+</blockquote>
+
+Strings that can become headings and titles are present in your source file either as property names or as values of properties, as specified below. You can decide to convert them, when rendered, to strings of your own choosing.
+
+If your source file complies with the project standard described above under “Basic usage”, the only strings affected by a legend will be property names in your source file, plus `creditTo`, which appears in the credit attribution at the end of the output file.
+
+If you extend the project standard by using options described in this “Advanced usage” section, the following property values, too, may become headings or titles:
+
+- The value of any `tableLeftHead` property is an array of arrays. Each inner array represents a table row. The **first** element of each inner array is a string that represent the content of the first cell of its row, which is a heading for the row. You can decide how that string is converted.
+- The value of any `tableTopHead` property is an array of arrays. Each inner array represents a table row. The **first** inner array represents the first (top) row of the table. That row contains strings that represent the headings of all the columns. You can decide how those strings are converted.
+
+To convert any string that is eligible for conversion, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an object. The `data` object should have a property for each heading or title that you want converted. The property name is the property name or value you want to use in your source file. Its value is the string you want it converted to when rendered.
+
+Strings eligible for conversion but missing from the `legend` property (if any) are rendered without conversion.
+
+Property names, converted if possible, are included in the output document content in basic usage. In advanced usage, they are included in the output document for `boxedBulletList` properties. For other properties, they are rendered as metafacts the values of `title` attributes, with the result that they appear as tooltips for those hovering a pointer on `boxedBulletList` sections, and they are also accessible to assistive technologies.
+
+The `docs/resume-sample-1.json` file in this theme’s repository contains a `legend` object whose `data` object includes a conversion of each property name that appears in the `jsonresume` project’s sample `resume.json` file. It begins:
+
+```json
+"legend": {
+  "format": "hide",
+  "data": {
+    "address": "Address",
+    "area": "Area",
+    "awarder": "Awarded by",
+    "awards": "Awards, grants, and prizes",
+    "...": "..."
+  }
+}
+```
+
 ### Order
 
-You can decide which properties in your source file will be rendered at all. For those that you choose to render, you can specify what order they appear in.
+You can decide which properties of the objects in your source file will be rendered at all. For those that you choose to render, you can specify what order they appear in.
 
-Do this by including an `order` property in your source file. Make the value of the `order` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an array of strings. Each string should be one of the property names in your source file. Only those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
+Do this by adding an `order` property to each object you want to control. Make the value of the `order` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an array of strings. Each string should be one of the property names in your source file. Only those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
 
 If you choose not to include an `order` property, the application does not promise to render the properties in a particular order. Typically the rendering order will be the same as the order in which the properties appear in the source file, but that is not guaranteed.
 
@@ -68,45 +123,13 @@ An example of an `order` property is:
 }
 ```
 
-### Legend
-
-You can decide how headings and titles are rendered. Some property names and some values are rendered as parts of your résumé. You may choose to convert them, when rendered, to strings of your own choosing.
-
-If your source file complies with the project standard described above under “Basic usage”, the only strings affected by a legend will be the property names in your source file, plus `creditTo`, which appears in the credit attribution at the end of the output file.
-
-If you extend the project standard by using options described in this “Advanced usage” section, some property values, too, may be affected by a legend, specifically:
-
-- The value of any `tableLeftHead` property is an array of arrays. Each inner array represents a table row. The **first** element of each inner array is a string that represent the content of the first cell of its row, which is a heading for the row. The legend can convert that string.
-- The value of any `tableTopHead` property is an array of arrays. Each inner array represents a table row. The **first** inner array represents the first (top) row of the table. That row contains strings that represent the headings of all the columns. The legend can convert those strings.
-
-To convert any string that is eligible for conversion, include a `legend` property in your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an object. The `data` object should have a property for each heading or title that you want to convert. The property name is the heading or title. Its value is the string you want it converted to.
-
-Strings eligible for conversion but missing from the `legend` property (if any) are output without conversion.
-
-Property names, converted if possible, are included in the output document content in basic usage. In advanced usage, they are included in the output document for `boxedBulletList` properties. For other properties, they are made the values of `title` attributes, with the result that they appear as tooltips for those hovering a pointer on `boxedBulletList` sections, and they are also accessible to assistive technologies.
-
-The `docs/resume-sample-1.json` file in this theme’s repository contains a `legend` object whose `data` object includes a conversion of each property name that appears in the `jsonresume` project’s sample `resume.json` file. It begins:
-
-```json
-"legend": {
-  "format": "hide",
-  "data": {
-    "address": "Address",
-    "area": "Area",
-    "awarder": "Awarder",
-    "awards": "Awards",
-    "...": "..."
-  }
-}
-```
-
 ### Section content
 
 You can decide what sections exist in your résumé, what they contain, and how they are formatted.
 
 Think of each top-level property in your source file as a section. You can choose any property name for it (`work`, `references`, etc.), and that name, or if possible its legend conversion, will become the heading or title-attribute value of the section.
 
-You can give each top-level property a format, if you wish. Do that my making the value of the property an object and then giving that object at least 2 properties, named `format` and `data`. Some formats will require other properties, as described below.
+You can give each top-level property a format, if you wish. Do that by making the value of the property an object and then giving that object at least 2 properties, named `format` and `data`. Some formats will require other properties, as described below.
 
 The `format` property should have a string value chosen from this list:
 
@@ -126,7 +149,20 @@ The `data` value must be an array of what we can call “stringables”. For now
 
 There may be a `level` property, with an integer value from 1 through 3. If there is none, the application will set `level` to 1. The value should depend on the degree of nesting of the list within other lists: 1 if it’s a top-level list, 2 if nested within another one, or 3 if nested even deeper.
 
-This property will be rendered as a bulleted list, with a heading, enclosed in a box. Each stringable in the `data` array will be an item in the list. The property name, or its conversion, will be the heading.
+Example:
+
+```json
+"hobbies": {
+  "format": "boxedBulletList",
+  "level": 2,
+  "data": [
+    "philately",
+    "hang gliding"
+  ]
+}
+```
+
+The property will be rendered as a bulleted list, with a heading, enclosed in a box. Each stringable in the `data` array will be an item in the list. The property name, or its conversion, will be the heading.
 
 #### Heading (`head`)
 

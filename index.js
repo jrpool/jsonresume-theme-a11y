@@ -3,20 +3,24 @@ const renderer = require('./views/html');
 const fs = require('fs');
 const path = require('path');
 
-// Utility to convert a code to the string that it represents.
+// Utility to convert a code according to a legend.
 const titleOf = (string, legend) => legend[string] || string;
 
-// Make the renderer render an array or object.
-const render = (key, structure, legend) => {
-  const compactSectionOf = (content, atObject) => {
-    const bufferDiv = renderer.element2Of('', 'div', {}, -1);
-    const middleDiv = renderer.element2Of(
-      content, 'div', {class: 'compactDiv'}, 2
-    );
-    const quasiRow = [bufferDiv, middleDiv, bufferDiv].join('\n');
-    return renderer.sectionOf(quasiRow, atObject);
-  };
+// Utility to identify a list of keys of properties to be rendered.
+const keysOf = object =>
+  object.order && object.order.format !== 'hide'
+  ? object.order.data
+  : Object.keys(object).filter(key => object[key].format !== 'hide');
+
+/*
+  Make the renderer render an item. Precondition: origin is one of:
+    0. 'root'
+    1. 'array'
+    2. ['key']
+
+const render = (structure, origin, legend) => {
   const title = titleOf(key, legend);
+  const treeLevel = structure.treeLevel || 1;
   if (typeof structure === 'string') {
     return structure;
   }
@@ -25,14 +29,13 @@ const render = (key, structure, legend) => {
     if (title) {
       list.push(renderer.headOf(title, treeLevel));
     }
-    list.push(structure.map(item => render(key, item, legend));
+    list.push(...structure.map(item => render(item, element, legend)));
     return renderer.sectionOf(
       list.join('\n'), {class: `boxedBulletList level${treeLevel}`}
     );
   }
   else if (typeof structure === 'object') {
     const {format, data} = structure;
-    let treeLevel = structure.treeLevel || 1;
     if (format && data) {
       switch(format) {
         case 'address': {
@@ -44,11 +47,11 @@ const render = (key, structure, legend) => {
         case 'boxedBulletList': {
           const listHead = renderer.headOf(title, treeLevel);
           const bulletItems = data.map(
-            item => renderer.bulletItemOf(render(key, item, legend))
+            item => renderer.bulletItemOf(render(item, element, legend))
           );
           return renderer.sectionOf(
             [listHead, ...bulletItems].join('\n'),
-            {class: `${format} treeLevel${treeLevel}`}
+            {class: `${format} level${treeLevel}`}
           );
         }
         case 'code': {
@@ -89,6 +92,14 @@ const render = (key, structure, legend) => {
           );
         }
         case 'rowTablesCircled': {
+          const compactSectionOf = (content, atObject) => {
+            const bufferDiv = renderer.element2Of('', 'div', {}, -1);
+            const middleDiv = renderer.element2Of(
+              content, 'div', {class: 'compactDiv'}, 2
+            );
+            const quasiRow = [bufferDiv, middleDiv, bufferDiv].join('\n');
+            return renderer.sectionOf(quasiRow, atObject);
+          };
           const head = renderer.element2Of(
             data.head, 'div', {class: `head${treeLevel}`}, -1
           );
@@ -136,11 +147,22 @@ const render = (key, structure, legend) => {
       }
     }
     else {
-      const list = Object.keys(structure).map(
-        subkey => headedStringOf(subkey, structure[subkey], ': ')
+      const contentList = [];
+      if (title) {
+        contentList.push(renderer.headOf(title, treeLevel);
+      }
+      const propertyKeys = keysOf(structure);
+      const bulletItems = propertyKeys.map(key => {
+        if (typeof stucture[key] === 'string') {
+          return renderer.headedStringOf(key, structure[key], ': ');
+        }
+        else if (Array.isArray(structure[key])) {
+
+        }
       );
       return renderer.sectionOf(
-        list.join('\n'), {class: `boxedBulletList level${treeLevel}`}
+        [listHead, ...bulletItems].join('\n'),
+        {class: `boxedBulletList level${treeLevel}`}
       );
     }
   }
