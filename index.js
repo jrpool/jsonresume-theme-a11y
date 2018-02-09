@@ -6,8 +6,8 @@ const path = require('path');
 // Utility to convert a code to the string that it represents.
 const titleOf = (string, legend) => legend[string] || string;
 
-// Make the renderer render an array or other object.
-const render = (key, object, legend) => {
+// Make the renderer render an array or object.
+const render = (key, structure, legend) => {
   // Utility to convert non-strings to strings.
   const stringOf = (subkey, rep) => {
     if (typeof rep === 'string') {
@@ -29,155 +29,132 @@ const render = (key, object, legend) => {
     return renderer.sectionOf(quasiRow, atObject);
   };
   const title = titleOf(key, legend);
-  const {format, data} = object;
-  let {treeLevel} = object;
-  if (format && data) {
-    treeLevel = treeLevel || 1;
-    switch(format) {
-      case 'address': {
-        return renderer.multilineOf([
-          data.address,
-          `${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`
-        ]);
-      }
-      case 'boxedBulletList': {
-        const bulletItems = data.map(
-          item => renderer.bulletItemOf(stringOf(key, item))
-        );
-        const listHead = renderer.headOf(title, treeLevel);
-        return renderer.sectionOf(
-          [listHead, ...bulletItems].join('\n'),
-          {class: `${format} treeLevel${treeLevel}`}
-        );
-      }
-      case 'code': {
-        return renderer.element2Of(stringOf(key, data), 'code', {}, -1);
-      }
-      case 'ed': {
-        const edHead = data.url ? renderer.hLinkOf(
-          data.head, data.url
-        ) : data.head;
-        return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
-      }
-      case 'head': {
-        const heading = renderer.headOf(stringOf(key, data), treeLevel);
-        return renderer.sectionOf(heading, {title, class: `head${treeLevel}`});
-      }
-      case 'headedString': {
-        return renderer.headedStringOf(
-          stringOf(key, data.head),
-          stringOf(key, data.tail),
-          data.delimiter || ': '
-        );
-      }
-      case 'hLink': {
-        return renderer.hLinkOf(data.label, data.href);
-      }
-      case 'mailLink': {
-        return renderer.mailLinkOf(data.label, data.href);
-      }
-      case 'pic1': {
-        const image = renderer.imageOf(data.src, data.alt);
-        return renderer.sectionOf(image, {title, class: format});
-      }
-      case 'rowTables': {
-        const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
-        return renderer.sectionOf(
-          rowTables.join('\n'), {title, class: format}
-        );
-      }
-      case 'rowTablesCircled': {
-        const head = renderer.element2Of(
-          data.head, 'div', {class: `head${treeLevel}`}, -1
-        );
-        const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
-        return compactSectionOf(
-          [head, ...rowTables].join('\n'), {title, class: format}
-        );
-      }
-      case 'tableLeftHead': {
-        const rowElements = data.map(
-          rowSpec => {
-            rowSpec[0] = titleOf(rowSpec[0], legend);
-            return renderer.leftHeadRowOf(
+  if (typeof structure === 'string') {
+    return stringOf(key, structure);
+  }
+  else if (Array.isArray(structure)) {
+    const list = [];
+    if (title) {
+      list.push(renderer.headOf(title, treeLevel));
+    }
+    list.push(structure.map(item => stringOf(key, item));
+    return renderer.sectionOf(
+      list.join('\n'), {class: `boxedBulletList level${treeLevel}`}
+    );
+  }
+  else if (typeof structure === 'object') {
+    const {format, data} = structure;
+    let treeLevel = structure.treeLevel || 1;
+    if (format && data) {
+      switch(format) {
+        case 'address': {
+          return renderer.multilineOf([
+            data.address,
+            `${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`
+          ]);
+        }
+        case 'boxedBulletList': {
+          const listHead = renderer.headOf(title, treeLevel);
+          const bulletItems = data.map(
+            item => renderer.bulletItemOf(stringOf(key, item))
+          );
+          return renderer.sectionOf(
+            [listHead, ...bulletItems].join('\n'),
+            {class: `${format} treeLevel${treeLevel}`}
+          );
+        }
+        case 'code': {
+          return renderer.element2Of(stringOf(key, data), 'code', {}, -1);
+        }
+        case 'ed': {
+          const edHead = data.url ? renderer.hLinkOf(
+            data.head, data.url
+          ) : data.head;
+          return `${edHead}, ${data.startDate}–${data.endDate}: ${data.area}`;
+        }
+        case 'head': {
+          const heading = renderer.headOf(stringOf(key, data), treeLevel);
+          return renderer.sectionOf(heading, {title, class: `head${treeLevel}`});
+        }
+        case 'headedString': {
+          return renderer.headedStringOf(
+            stringOf(key, data.head),
+            stringOf(key, data.tail),
+            data.delimiter || ': '
+          );
+        }
+        case 'hLink': {
+          return renderer.hLinkOf(data.label, data.href);
+        }
+        case 'mailLink': {
+          return renderer.mailLinkOf(data.label, data.href);
+        }
+        case 'pic1': {
+          const image = renderer.imageOf(data.src, data.alt);
+          return renderer.sectionOf(image, {title, class: format});
+        }
+        case 'rowTables': {
+          const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
+          const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
+          return renderer.sectionOf(
+            rowTables.join('\n'), {title, class: format}
+          );
+        }
+        case 'rowTablesCircled': {
+          const head = renderer.element2Of(
+            data.head, 'div', {class: `head${treeLevel}`}, -1
+          );
+          const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
+          const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
+          return compactSectionOf(
+            [head, ...rowTables].join('\n'), {title, class: format}
+          );
+        }
+        case 'tableLeftHead': {
+          const rowElements = data.map(
+            rowSpec => {
+              rowSpec[0] = titleOf(rowSpec[0], legend);
+              return renderer.leftHeadRowOf(
+                rowSpec.map(cellSpec => stringOf('', cellSpec))
+              );
+            }
+          );
+          const leftHeadTable = renderer.tableOf(rowElements, 'tableLH');
+          return renderer.sectionOf(leftHeadTable, {title});
+        }
+        case 'tableTopHead': {
+          const headRowElement = renderer.headRowOf(
+            data[0].map(string => titleOf(string, legend))
+          );
+          const etcRowElements = data.slice(1).map(
+            rowSpec => renderer.plainRowOf(
               rowSpec.map(cellSpec => stringOf('', cellSpec))
-            );
-          }
-        );
-        const leftHeadTable = renderer.tableOf(rowElements, 'tableLH');
-        return renderer.sectionOf(leftHeadTable, {title});
-      }
-      case 'tableTopHead': {
-        const headRowElement = renderer.headRowOf(
-          data[0].map(string => titleOf(string, legend))
-        );
-        const etcRowElements = data.slice(1).map(
-          rowSpec => renderer.plainRowOf(
-            rowSpec.map(cellSpec => stringOf('', cellSpec))
-          )
-        );
-        const topHeadTable = renderer.tableOf(
-          [headRowElement, ...etcRowElements], 'tableTH'
-        );
-        return renderer.sectionOf(topHeadTable, {title});
-      }
-      case 'work': {
-        const workHead = data.url ? renderer.hLinkOf(
-          data.head, data.url
-        ) : data.head;
-        return `${workHead}, ${data.startDate}–${data.endDate}: ${data.duties}`;
-      }
-      default: {
-        return renderer.headOf(`ERROR: BAD FORMAT AT ${key}`, 1);
+            )
+          );
+          const topHeadTable = renderer.tableOf(
+            [headRowElement, ...etcRowElements], 'tableTH'
+          );
+          return renderer.sectionOf(topHeadTable, {title});
+        }
+        case 'work': {
+          const workHead = data.url ? renderer.hLinkOf(
+            data.head, data.url
+          ) : data.head;
+          return `${workHead}, ${data.startDate}–${data.endDate}: ${data.duties}`;
+        }
+        default: {
+          return renderer.headOf(`ERROR: BAD FORMAT AT ${key}`, 1);
+        }
       }
     }
-  }
-  else {
-    treeLevel = treeLevel || 1;
-    const listHead = renderer.headOf(title, treeLevel);
-    const listKeys = object.order ? object.order.data : Object.keys(object).filter(
-      listKey => object[listKey].format !== 'hide'
-    );
-    const renderPlainProp = (key, value) => {
-      if (key) {
-        if (typeof value === 'string') {
-          return renderer.headedStringOf(key, value, ': ');
-        }
-        else if (Array.isArray(value)) {
-          const sublistHead = renderer.headOf(titleOf(key, treeLevel + 1));
-          const sublistItems = value.map(item => {
-            if ()
-          });
-          bulletItems.push()
-          bulletItems.push(renderer.sectionOf(
-            value.map(item => renderPlainProp('', item)).join()
-          ));
-      }
-      }
-    const listItems = listKeys.map(
-      listKey => renderPlainProp(listKey, object[listKey])
-    );
-    return renderer.sectionOf(
-      [listHead, ...listItems].join('\n'),
-      {class: `boxedBulletList level${treeLevel}`}
-    );
-    keys.forEach(subkey => {
-      const value = object.subkey;
-      if (typeof value === 'string') {
-        bulletItems.push(renderer.headedStringOf(subkey, value, ': '));
-      }
-      else if (Array.isArray(value)) {
-
-      }
-    });
-    if (typeof ) = data.map(item => {
-      if
-      renderer.bulletItemOf(
-      stringOf(key, item)
-    ));
-    return keys.map(subkey => stringOf(subkey, object[subkey])).join('\n');
+    else {
+      const list = Object.keys(structure).map(
+        subkey => headedStringOf(subkey, structure[subkey], ': ')
+      );
+      return renderer.sectionOf(
+        list.join('\n'), {class: `boxedBulletList level${treeLevel}`}
+      );
+    }
   }
 };
 
