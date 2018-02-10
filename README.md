@@ -21,12 +21,13 @@ Available under [the MIT license](http://mths.be/mit).
 
 ## Basic usage
 
-The standard instructions for using `jsonresume` themes can apply to this theme:
+If you wish, you can use this application as a theme for a document complying with the [`jsonresume` schema](https://jsonresume.org/schema/). That schema requires a JSON-compliant source file whose property names and value types are drawn from a permitted set.
 
 - Install [resume-cli](https://github.com/jsonresume/resume-cli).
 - Install this theme: `npm install jsonresume-theme-a11y`.
-- Create your JSON source file per the `resume-cli` instructions.
-- Generate an HTML, markdown, or PDF file: `resume export --theme a11y --format html [outputfilename]`.
+- Create your JSON source file. You can use the `resume init` command to start that file.
+- Name your source file `resume.json` and put it into the `resume-cli` directory where this README file is located.
+- Generate an HTML, markdown, or PDF file: `resume export --theme a11y --format {html|markdown|pdf} [outputfilename]`.
 
 ## Advanced usage
 
@@ -35,9 +36,13 @@ This theme gives you additional control over your résumé, beyond what the basi
 - The source file
 - The command that invokes the application
 
-### Language
+Your options and the methods for selecting them are described below.
 
-You can declare what language your résumé is in. Do this by including a `lang` property in your source file. Make the value of the `lang` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an [HTML-standard code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a language. Follow the [advice of the W3C](https://www.w3.org/International/questions/qa-choosing-language-tags) on this. For English, the `lang` property would be:
+### Language (`lang`)
+
+You can declare what language your résumé is in. This makes your résumé localized and also more accessible. With the language declared, an assistive device that is converting the text to speech may be better able to render the content with correct pronunciation.
+
+Do this by including a `lang` property at the root level of your source file. Make the value of the `lang` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an [HTML-standard code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a language. Follow the [advice of the W3C](https://www.w3.org/International/questions/qa-choosing-language-tags) on this. For English, the `lang` property would be:
 
 ```json
 "lang": {
@@ -46,9 +51,9 @@ You can declare what language your résumé is in. Do this by including a `lang`
 }
 ```
 
-This is not only a localization feature, but also an accessibility feature. Declaring the language can be particularly helpful to a reader who has an assistive device convert the text to speech. By declaring the language, you may make it possible for the device to render the content with correct pronunciation.
+### Headings and titles (`legend`)
 
-### Legend
+#### Introduction
 
 You can decide how headings and titles are rendered.
 
@@ -58,7 +63,9 @@ Headings and titles can appear in the following ways:
 - Heading of a headed string
 - Metafact (fact revealed to a parser or conditionally displayed)
 
-Examples:
+Under various conditions, a string may be rendered as one or another of these headings or titles. When they are rendered as titles, they appear as tooltips for those hovering a pointer, and they are also accessible to assistive technologies.
+
+#### Examples
 
 <blockquote>
 **Languages known**<br>
@@ -70,22 +77,25 @@ Go<br><br>
 `<h2 title="Languages known">Cobol, Go</h2>`
 </blockquote>
 
-Strings that can become headings and titles are present in your source file either as property names or as values of properties, as specified below. You can decide to convert them, when rendered, to strings of your own choosing.
+In these examples, “Languages known” may be the rendered form of `languages`, `langs`, or some other string in your source file.
 
-If your source file complies with the project standard described above under “Basic usage”, the only strings affected by a legend will be property names in your source file, plus `creditTo`, which appears in the credit attribution at the end of the output file.
+#### Eligible strings
 
-If you extend the project standard by using options described in this “Advanced usage” section, the following property values, too, may become headings or titles:
+Some property names and other strings in your source file are eligible for conversion into headings and titles.
 
-- The value of any `tableLeftHead` property is an array of arrays. Each inner array represents a table row. The **first** element of each inner array is a string that represent the content of the first cell of its row, which is a heading for the row. You can decide how that string is converted.
-- The value of any `tableTopHead` property is an array of arrays. Each inner array represents a table row. The **first** inner array represents the first (top) row of the table. That row contains strings that represent the headings of all the columns. You can decide how those strings are converted.
+If your source file complies with the project standard described above under “Basic usage”, the property names in your source file and one additional name specific to this application, namely `creditTo`, are used as headings or titles.
 
-To convert any string that is eligible for conversion, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an object. The `data` object should have a property for each heading or title that you want converted. The property name is the property name or value you want to use in your source file. Its value is the string you want it converted to when rendered.
+If you extend the project standard by using other options described in this “Advanced usage” section, the following string-type property values, too, are used as headings:
 
-Strings eligible for conversion but missing from the `legend` property (if any) are rendered without conversion.
+- The value of any `tableLeftHead` property is an array of arrays. Each inner array represents a table row. The **first** element of each inner array is a string that represent the content of the first cell of its row, which is a heading for the row.
+- The value of any `tableTopHead` property is an array of arrays. Each inner array represents a table row. The **first** inner array represents the first (top) row of the table. That row contains strings that represent the headings of all the columns.
+- The value of the `title` property of any object in your source file is rendered as a metafact about that object as rendered.
 
-Property names, converted if possible, are included in the output document content in basic usage. In advanced usage, they are included in the output document for `boxedBulletList` properties. For other properties, they are rendered as metafacts the values of `title` attributes, with the result that they appear as tooltips for those hovering a pointer on `boxedBulletList` sections, and they are also accessible to assistive technologies.
+#### Method
 
-The `docs/resume-sample-1.json` file in this theme’s repository contains a `legend` object whose `data` object includes a conversion of each property name that appears in the `jsonresume` project’s sample `resume.json` file. It begins:
+To convert any string that is eligible for conversion, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an object. The `data` object should have a property for each string that you want converted. That property’s name is the string, and its value is the string you want rendered.
+
+Example:
 
 ```json
 "legend": {
@@ -100,15 +110,19 @@ The `docs/resume-sample-1.json` file in this theme’s repository contains a `le
 }
 ```
 
+Strings eligible for conversion but missing from the `legend` property (if any) are rendered without conversion.
+
+The `docs/resume-sample-1.json` file in this theme’s repository is identical to the `jsonresume` project’s sample source file, except that a `legend` property is added. It converts each property name that appears in the source file to a human-intelligible string in English.
+
 ### Order
 
-You can decide which properties of the objects in your source file will be rendered at all. For those that you choose to render, you can specify what order they appear in.
+You can decide what things appear in your output file, and in what order.
 
-Do this by adding an `order` property to each object you want to control. Make the value of the `order` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an array of strings. Each string should be one of the property names in your source file. Only those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
+Some objects in your source file are rendered in a particular order, as specified below. Otherwise, however, the properties of an object are rendered as a list, and in an arbitrary order.
 
-If you choose not to include an `order` property, the application does not promise to render the properties in a particular order. Typically the rendering order will be the same as the order in which the properties appear in the source file, but that is not guaranteed.
+To dictate the order rather than leave it to chance, you can give such an object an additional `order` property. Make its value an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an array of strings. Each string should be one of the property names in the object. **Only** those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
 
-An example of an `order` property is:
+An example of an `order` property that might appear in the root-level object is:
 
 ```json
 "order": {
@@ -123,25 +137,23 @@ An example of an `order` property is:
 }
 ```
 
-### Section content
+### Sectioning
 
-You can decide what sections exist in your résumé, what they contain, and how they are formatted.
+Your résumé will be partitioned into sections, sections may be in turn partitioned into subsections, subsections may be further partitioned into subsubsections, and so on.
 
-Think of each top-level property in your source file as a section. You can choose any property name for it (`work`, `references`, etc.), and that name, or if possible its legend conversion, will become the heading or title-attribute value of the section.
+Each section will have a format. You can let the application determine each section’s format, or you can choose it yourself.
 
-You can give each top-level property a format, if you wish. Do that by making the value of the property an object and then giving that object at least 2 properties, named `format` and `data`. Some formats will require other properties, as described below.
+Each section will also have a title. Together with headings in some sections, the titles ensure that users of assistive devices can perceive the document structure.
+
+The application implements the following 7 section types. To give a type to a section, represent that section in your source file as an object with properties `format`, `title`, and `data`.
+
+- Give its `format` property the name of one of the 7 section types (shown in parentheses below).
+- Give its `data` property a value that complies with the specifications of that format.
+- Give its `type` property a string value describing the nature of the section. If this value is found among the property names in a root-level `legend` object, it will converted accordingly before being rendered.
 
 The `format` property should have a string value chosen from this list:
 
-- boxedBulletList
-- head
-- pic1
-- rowTables
-- rowTablesCircled
-- tableLeftHead
-- tableTopHead
-
-The format you choose constrains other properties of the object, as follows:
+The 7 supported section formats (with the values to be given to their `format` properties) are:
 
 #### Boxed bullet list (`boxedBulletList`)
 

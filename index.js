@@ -17,6 +17,7 @@ const keysOf = object =>
     0. 'root'
     1. 'array'
     2. ['key']
+  */
 
 const render = (structure, origin, legend) => {
   const title = titleOf(key, legend);
