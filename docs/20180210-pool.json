@@ -18,7 +18,7 @@
       "skills",
       "languages",
       "education",
-      "work",
+      "edWork",
       "awards",
       "publications"
     ]
@@ -47,7 +47,7 @@
       "skills": "Skills",
       "url": "URL",
       "username": "User ID",
-      "work": "Work"
+      "edWork": "Work"
     }
   },
   "picture": {
@@ -76,8 +76,10 @@
     "format": "rowTablesCircled",
     "title": "profDetail",
     "data": {
-      "head": "I do",
-      "size": 3,
+      "head": {
+        "size": 3,
+        "data": "I do"
+      },
       "tables": [
         ["planning", "design", "coding", "linting", "testing"],
         ["documentation", "blogging", "training", "maintenance", "upgrades"]
@@ -88,8 +90,10 @@
     "format": "tableLeftHeads",
     "title": "contacts",
     "data": {
-      "head": "I can be found at",
-      "size": 4,
+      "head": {
+        "size": 4,
+        "data": "I can be found at"
+      },
       "table": [
         [
           "email",
@@ -122,8 +126,10 @@
     "format": "tableTopHead",
     "title": "profiles",
     "data": {
-      "head": "My artifacts are at",
-      "size": 4,
+      "head": {
+        "size": 4,
+        "data": "My artifacts are at"
+      },
       "table": [
         ["network", "username", "url"],
         [
@@ -172,8 +178,10 @@
     "format": "boxedBulletList",
     "title": "a11yWork",
     "data": {
-      "head": "I’m designing and building",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I’m designing and building"
+      },
       "list": [
         {
           "format": "headedString",
@@ -228,8 +236,10 @@
     "format": "boxedBulletList",
     "title": "openSource",
     "data": {
-      "head": "I have contributed to",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I have contributed to"
+      },
       "list": [
         {
           "format": "headedString",
@@ -303,8 +313,10 @@
     "format": "boxedBulletList",
     "title": "skills",
     "data": {
-      "head": "I have worked with",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I have worked with"
+      },
       "list": [
         {
           "format": "headedString",
@@ -465,8 +477,10 @@
     "format": "boxedBulletList",
     "title": "languages",
     "data": {
-      "head": "I can communicate in (best→worst)",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I can communicate in (best→worst)"
+      },
       "list": [
         "English",
         "Esperanto",
@@ -483,107 +497,111 @@
     "format": "boxedBulletList",
     "title": "education",
     "data": {
-      "head": "I have studied at",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I have studied at"
+      },
       "list": [
         {
-          "format": "ed",
+          "format": "edWork",
           "data": {
             "head": "Learners Guild",
             "url": "https://learnersguild.org",
             "startDate": "2017",
             "endDate": "2018",
-            "area": "web development"
+            "subject": "web development"
           }
         },
         {
-          "format": "ed",
+          "format": "edWork",
           "data": {
             "head": "University of Washington",
             "url": "https://jpdev.pro/info/docs/pool-uw-transcript.pdf",
             "startDate": "2004",
             "endDate": "2007",
-            "area": "computer science, user interface design, linguistics"
+            "subject": "computer science, user interface design, linguistics"
           }
         },
         {
-          "format": "ed",
+          "format": "edWork",
           "data": {
             "head": "The University of Chicago",
             "url": "https://www.uchicago.edu",
             "startDate": "1966",
             "endDate": "1971",
-            "area": "political science"
+            "subject": "political science"
           }
         },
         {
-          "format": "ed",
+          "format": "edWork",
           "data": {
             "head": "Harvard University",
             "url": "https://www.harvard.edu",
             "startDate": "1960",
             "endDate": "1964",
-            "area": "government"
+            "subject": "government"
           }
         }
       ]
     }
   },
-  "work": {
+  "edWork": {
     "format": "boxedBulletList",
-    "title": "work",
+    "title": "edWork",
     "data": {
-      "head": "I have worked at",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I have worked at"
+      },
       "list": [
         {
-          "format": "work",
+          "format": "edWork",
           "data": {
             "head": "The Long Now Foundation",
             "url": "http://longnow.org",
             "startDate": "2012",
             "endDate": "2016",
-            "duties": "Project Director, PanLex"
+            "subject": "Project Director, PanLex"
           }
         },
         {
-          "format": "work",
+          "format": "edWork",
           "data": {
             "head": "Centerplex",
             "url": "http://stulta.com/misc/cx/",
             "startDate": "1990",
             "endDate": "2004",
-            "duties": "contracting, project management, ADA upgrades"
+            "subject": "contracting, project management, ADA upgrades"
           }
         },
         {
-          "format": "work",
+          "format": "edWork",
           "data": {
             "head": "University of Washington",
             "url": "http://www.washington.edu",
             "startDate": "1977",
             "endDate": "1993",
-            "duties": "research and teaching"
+            "subject": "research and teaching"
           }
         },
         {
-          "format": "work",
+          "format": "edWork",
           "data": {
             "head": "State University of New York at Stony Brook",
             "url": "http://www.stonybrook.edu",
             "startDate": "1971",
             "endDate": "1977",
-            "duties": "research and teaching"
+            "subject": "research and teaching"
           }
         },
         {
-          "format": "work",
+          "format": "edWork",
           "data": {
             "head": "Peace Corps",
             "url": "https://www.peacecorps.gov/",
             "startDate": "1964",
             "endDate": "1966",
-            "duties": "teaching"
+            "subject": "teaching"
           }
         }
       ]
@@ -593,8 +611,10 @@
     "format": "boxedBulletList",
     "title": "awards",
     "data": {
-      "head": "I have received software grants from",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I have received software grants from"
+      },
       "list": [
         "University of Maryland",
         "National Science Foundation"
@@ -605,8 +625,10 @@
     "format": "boxedBulletList",
     "title": "publications",
     "data": {
-      "head": "I have published about",
-      "headSize": 2,
+      "head": {
+        "size": 2,
+        "data": "I have published about"
+      },
       "list": [
         "computational lexicography",
         "syntactic ambiguity",
