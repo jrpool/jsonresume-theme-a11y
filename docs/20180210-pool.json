@@ -27,59 +27,27 @@
     "format": "hide",
     "data": {
       "a11yWork": "Accessibility work",
-      "address": "Address",
-      "area": "Subject",
-      "awarder": "Awarder",
       "awards": "awards",
       "blog": "Blog",
-      "city": "City",
-      "company": "Company",
       "contacts": "Contact information",
-      "countryCode": "Country code",
-      "courses": "Courses",
       "creditTo": "Powered by ",
-      "date": "Date",
-      "duties": "Duties",
       "education": "Education",
       "email": "Email",
-      "endDate": "End date (yyyy-mm-dd)",
-      "fluency": "Fluency",
-      "gpa": "GPA",
-      "highlights": "Accomplishments",
-      "identity": "Identity",
-      "institution": "Institution",
-      "interests": "Interests",
-      "keywords": "Specifics",
-      "language": "Language",
+      "identity": "Name and occupation",
       "languages": "Human languages",
-      "level": "Proficiency",
       "location": "Mailing address",
       "mobilePhone": "Mobile telephone",
       "network": "Host",
       "openSource": "Open-source contributions",
-      "organization": "Organization",
       "phone": "Telephone",
       "picture": "Photograph",
-      "position": "Position",
-      "postalCode": "Postal code",
       "profDetail": "Professional repertoire",
       "profiles": "Profiles",
-      "projectWebsite": "Project website",
       "publications": "Publications",
-      "publisher": "Publisher",
-      "reference": "Referee",
-      "references": "Referees",
-      "region": "State",
-      "releaseDate": "Year of publication",
       "skills": "Skills",
-      "startDate": "Start date (yyyy-mm-dd)",
-      "studyType": "Degree or program",
-      "title": "Title",
       "url": "URL",
       "username": "User ID",
-      "volunteer": "Volunteering",
-      "work": "Work",
-      "workHist": "Employment and self-employment"
+      "work": "Work"
     }
   },
   "picture": {
@@ -92,7 +60,7 @@
   },
   "identity": {
     "format": "center",
-    "title": "My name and occupation",
+    "title": "identity",
     "data": [
       {
         "text": "Jonathan Pool",
@@ -120,7 +88,7 @@
     "format": "tableLeftHeads",
     "title": "contacts",
     "data": {
-      "head": "Where I am",
+      "head": "I can be found at",
       "headSize": 4,
       "table": [
         [
@@ -154,7 +122,7 @@
     "format": "tableTopHead",
     "title": "profiles",
     "data": {
-      "head": "Where I leave things",
+      "head": "My artifacts are at",
       "headSize": 4,
       "table": [
         ["network", "username", "url"],
@@ -204,7 +172,7 @@
     "format": "boxedBulletList",
     "title": "a11yWork",
     "data": {
-      "head": "Some accessibility projects",
+      "head": "I’m designing and building",
       "headSize": 2,
       "list": [
         {
@@ -260,7 +228,7 @@
     "format": "boxedBulletList",
     "title": "openSource",
     "data": {
-      "head": "Some open-source contributions",
+      "head": "I have contributed to",
       "headSize": 2,
       "list": [
         {
@@ -335,7 +303,7 @@
     "format": "boxedBulletList",
     "title": "skills",
     "data": {
-      "head": "What I have worked with",
+      "head": "I have worked with",
       "headSize": 2,
       "list": [
         {
@@ -497,7 +465,7 @@
     "format": "boxedBulletList",
     "title": "languages",
     "data": {
-      "head": "What I can communicate in (best→worst)",
+      "head": "I can communicate in (best→worst)",
       "headSize": 2,
       "list": [
         "English",
@@ -515,7 +483,7 @@
     "format": "boxedBulletList",
     "title": "education",
     "data": {
-      "head": "My education",
+      "head": "I have studied at",
       "headSize": 2,
       "list": [
         {
@@ -565,7 +533,7 @@
     "format": "boxedBulletList",
     "title": "work",
     "data": {
-      "head": "Where I have worked",
+      "head": "I have worked at",
       "headSize": 2,
       "list": [
         {
@@ -625,7 +593,7 @@
     "format": "boxedBulletList",
     "title": "awards",
     "data": {
-      "head": "Software grants I have received",
+      "head": "I have received software grants from",
       "headSize": 2,
       "list": [
         "University of Maryland",
@@ -637,7 +605,7 @@
     "format": "boxedBulletList",
     "title": "publications",
     "data": {
-      "head": "What I have published about",
+      "head": "I have published about",
       "headSize": 2,
       "list": [
         "computational lexicography",

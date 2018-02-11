@@ -270,20 +270,10 @@ The property will be rendered as a set of one-row tables, as with “One-row tab
 
 The `data` value must be an array of arrays. Each inner array must contain at least 2 elements, the first being a string and the others being stringables.
 
-The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The headings will be the first elements of the inner arrays, or, if possible, their legend conversions.
+The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The headings will be the first elements of the inner arrays, or, if possible, their conversions.
 
 #### Top-headed table (`tableTopHead`)
 
 The `data` value must be an array of arrays. The first inner array must be an array of strings, and any and all subsequent inner arrays must be arrays of stringables.
 
-The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their legend conversion.
-
-### Invocation
-
-You can exercise additional control over the execution of the application, beyond what the `resume` command allows.
-
-For this additional control, clone the application’s repository into a local directory and execute the application as follows:
-
-`node index [source file] [output file]`
-
-This command will use this theme to render the specified source file and will output the rendering to the specified output file.
+The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their conversion.
