@@ -177,31 +177,31 @@ You can give various formats to inline text in your résumé. The theme format r
 
 #### Address (`address`)
 
-The `data` value must be an object with `address`, `city`, `region`, `postalCode`, and `countryCode` properties, where each of those properties has a string value.
+The `data` value is an object with `address`, `city`, `region`, `postalCode`, and `countryCode` properties, where each of those properties has a string value.
 
 It will be rendered as a 2-line string, with a line break after the (street) address.
 
 #### Code (`code`)
 
-The `data` value must be a stringable.
+The `data` value is a stringable.
 
 It will be rendered as a string whose typography indicates it is a segment of code.
 
 #### Education or work (`edWork`)
 
-The `data` value must be an object with `location`, (optionally) `url`, `startDate`, `endDate`, and `subject` properties.
+The `data` value is an object with `location`, (optionally) `url`, `startDate`, `endDate`, and `subject` properties.
 
 It will be rendered as a single-line string. If a URL is provided, it will be the destination but not the content of a link. The link’s content will be the value of the `location` property.
 
 #### Headed string (`headedString`)
 
-The `data` value must be an object with `head`, `tail`, and (optionally) `delimiter` properties. If you provide no `delimiter` property, the application sets the delimiter to `: `. The `head` and `tail` must each be stringables.
+The `data` value is an object with `head`, `tail`, and (optionally) `delimiter` properties. If you provide no `delimiter` property, the application sets the delimiter to `: `. The `head` and `tail` must each be stringables.
 
 It will be rendered as a single-line string starting with the rendering of `head`, in bold, with the delimiter after that and, at the end, the rendering of `tail`.
 
 #### Hyperlink (`hLink`)
 
-The `data` value must be an object with (optionally) `label` and `href` properties, each having a string value, where the `href` string is a URL.
+The `data` value is an object with (optionally) `label` and `href` properties, each having a string value, where the `href` string is a URL.
 
 It will be rendered as a single-line hyperlink. If you provide a `label` property, its value will be shown as the link content. If you don’t, the displayed link content will be the URL that you provide as the `href` value.
 
@@ -225,7 +225,7 @@ There are 7 permitted section formats:
 
 #### Boxed bullet list (`boxedBulletList`)
 
-The `data` value must be an array of stringables.
+The `data` value is an array of stringables.
 
 Example:
 
@@ -250,13 +250,13 @@ The `text` values will be rendered as lines, one below the other.
 
 #### Portrait ('cornerPic')
 
-The `data` value must be an object with 2 properties: `src` and `alt`. The value of `src` should be the URL of an image. The value of `alt` should be a string describing the image.
+The `data` value is an object with 2 properties: `src` and `alt`. The value of `src` should be the URL of an image. The value of `alt` should be a string describing the image.
 
 The property will be rendered as an image in the upper-right corner of the document, not displacing any other content.
 
 #### One-row tables (`rowTables`)
 
-The `data` value must be an array of arrays of strings. Each inner array represents a one-row table whose cells are populated by the strings in that array.
+The `data` value is an array of arrays of strings. Each inner array represents a one-row table whose cells are populated by the strings in that array.
 
 The property will be rendered as a set of one-row tables, each centered, one below the other.
 
@@ -266,14 +266,14 @@ The `data` value is an object with `head` and `tables` properties. The `head` va
 
 The property will be rendered as a set of one-row tables, as with “One-row tables”, but with two additional features: a heading and an oval border.
 
-#### Left-headed table (`tableLeftHead`)
+#### Left-headed table (`tableLeftHeads`)
 
-The `data` value must be an array of arrays. Each inner array must contain at least 2 elements, the first being a string and the others being stringables.
+The `data` value is an object with properties `head`, `size`, and `table`. The `head` value is a string. The `size` value is an integer from 1 (largest) through 7 (smallest). The `table` value is an array of arrays. Each inner array must contain at least 2 elements, the first being a string and the others being stringables.
 
-The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The headings will be the first elements of the inner arrays, or, if possible, their conversions.
+The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The row headings will be the first elements of the inner arrays, or, if possible, their conversions.
 
 #### Top-headed table (`tableTopHead`)
 
-The `data` value must be an array of arrays. The first inner array must be an array of strings, and any and all subsequent inner arrays must be arrays of stringables.
+The `data` value is an object with properties `head`, `size`, and `table`. The `head` value is a string. The `size` value is an integer from 1 (largest) through 7 (smallest). The `table` value is an array of arrays. The first inner array is an array of strings, and any and all subsequent inner arrays are arrays of stringables.
 
-The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their conversion.
+The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their conversions.

@@ -76,8 +76,8 @@
     "format": "rowTablesCircled",
     "title": "profDetail",
     "data": {
-      "head": "All phases:",
-      "headSize": 3,
+      "head": "I do",
+      "size": 3,
       "tables": [
         ["planning", "design", "coding", "linting", "testing"],
         ["documentation", "blogging", "training", "maintenance", "upgrades"]
@@ -89,7 +89,7 @@
     "title": "contacts",
     "data": {
       "head": "I can be found at",
-      "headSize": 4,
+      "size": 4,
       "table": [
         [
           "email",
@@ -123,7 +123,7 @@
     "title": "profiles",
     "data": {
       "head": "My artifacts are at",
-      "headSize": 4,
+      "size": 4,
       "table": [
         ["network", "username", "url"],
         [

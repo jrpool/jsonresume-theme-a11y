@@ -56,7 +56,7 @@ const render = (structure, origin, legend) => {
           );
         }
         case 'code': {
-          return renderer.element2Of(render(key, data, legend), 'code', {}, -1);
+          return renderer.codeOf(render(key, data, legend));
         }
         case 'ed': {
           const edHead = data.url ? renderer.hLinkOf(
@@ -94,16 +94,10 @@ const render = (structure, origin, legend) => {
         }
         case 'rowTablesCircled': {
           const compactSectionOf = (content, atObject) => {
-            const bufferDiv = renderer.element2Of('', 'div', {}, -1);
-            const middleDiv = renderer.element2Of(
-              content, 'div', {class: 'compactDiv'}, 2
-            );
-            const quasiRow = [bufferDiv, middleDiv, bufferDiv].join('\n');
+            const quasiRow = renderer.squeezeBox(content);
             return renderer.sectionOf(quasiRow, atObject);
           };
-          const head = renderer.element2Of(
-            data.head, 'div', {class: `head${treeLevel}`}, -1
-          );
+          const head = renderer.headOf(data.head, data.size);
           const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
           const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
           return compactSectionOf(

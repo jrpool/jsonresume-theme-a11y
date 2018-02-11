@@ -1,5 +1,7 @@
 // Renderer into HTML.
 
+// UTILITIES
+
 // Attribute specification.
 const atSpecOf = atObject => Object.keys(atObject).map(
   name => ` ${name}="${atObject[name]}"`
@@ -21,6 +23,8 @@ const element2Of = (content, tagName, atObject, indent) => {
   }
 };
 
+// STRINGIFIERS
+
 // Hyperlink.
 const hLinkOf = (label, href) => element2Of(label || href, 'a', {href}, -1);
 
@@ -39,7 +43,22 @@ const headedStringOf = (head, tail, delimiter) => {
 };
 
 // Heading.
-const headOf = (string, level) => element2Of(string, `h${level}`, {}, -1);
+const headOf = (string, size) => element2Of(
+  string, `h1`, {class: `size${size}`}, -1
+);
+
+// Code.
+const codeOf = string => element2Of(string, 'code', {}, -1);
+
+// BLOCKIFIERS
+
+// Squeeze box
+const squeezeBoxOf = content => {
+  const squeezer = element2Of('', 'div', {}, -1);
+  const squeezed = element2Of(content, 'div', {class: 'compactDiv'}, 2);
+  return [squeezer, squeezed, squeezer].join('\n');
+};
+
 
 // Bulleted string paragraph.
 const bulletItemOf = string => {
@@ -50,13 +69,13 @@ const bulletItemOf = string => {
 // Image.
 const imageOf = (src, alt) => element1Of('img', {src, alt});
 
-// Heading table row.
+// Heading row.
 const headRowOf = array => {
   const cells = array.map(string => element2Of(string, 'th', {}, -1));
   return rowOf(cells);
 };
 
-// Plain table row.
+// Plain row.
 const plainRowOf = array => {
   const cells = array.map(string => element2Of(string, 'td', {}, -1));
   return rowOf(cells);
@@ -126,6 +145,7 @@ module.exports = {
   pageOf,
   plainRowOf,
   sectionOf,
+  squeezeBoxOf,
   styleOf,
   tableOf,
 };
