@@ -11,36 +11,75 @@ This application is still under development and has not yet been published for u
 This theme differs from other `jsonresume` themes by:
 
 - Complying with accessibility standards.
-- Including accessible metadata (for assistive technologies) in the output.
-- Giving you granular control over content and format.
 - Prioritizing accessibility over visual appeal.
+- Giving you granular control over content and format.
 
 ## License
 
 Available under [the MIT license](http://mths.be/mit).
 
-## Basic usage
+## Usage
 
-If you wish, you can use this application as a theme for a document complying with the [`jsonresume` schema](https://jsonresume.org/schema/). That schema requires a JSON-compliant source file whose property names and value types are drawn from a permitted set.
+### Introduction
+
+In order to give you more control over your résumé than other themes do, this theme defines a new standard for the JSON source file. The standard is more liberal, by giving you more flexibility. But it also imposes some requirements that you must satisfy in order to exercise your additional power.
+
+For interoperability with other `jsonresume` themes, this theme contains a module that translates a file from the `jsonresume` standard format to the theme format. If you already have a résumé in the former standard, you can use that module to create a version in the theme’s format. Thereafter you can edit that version as you choose, to change the information in your résumé and how it appears.
+
+### Installation
 
 - Install [resume-cli](https://github.com/jsonresume/resume-cli).
 - Install this theme: `npm install jsonresume-theme-a11y`.
-- Create your JSON source file. You can use the `resume init` command to start that file.
-- Name your source file `resume.json` and put it into the `resume-cli` directory where this README file is located.
-- Generate an HTML, markdown, or PDF file: `resume export --theme a11y --format {html|markdown|pdf} [outputfilename]`.
 
-## Advanced usage
+### Authoring
 
-This theme gives you additional control over your résumé, beyond what the basic usage offers. You can exercise this control by modifying:
+If you want to create, a résumé in the `jsonresume` standard format, you can:
 
-- The source file
-- The command that invokes the application
+- Use the `resume init` command to generate a starter source file.
+- Name the source file `resume.json` and put it into the `resume-cli` directory where this README file is located.
+- Edit the source file so it contains the information you want.
 
-Your options and the methods for selecting them are described below.
+Once you have a source file in the `jsonresume` standard format, you can convert it to this theme’s format as follows:
+
+- Clone this theme’s repository into a local directory.
+- Use the `node convert [oldsourcefile] [newsourcefile]` command to convert your source file to this theme’s format.
+
+If you want to use only this theme and you don’t yet have a résumé in the `jsonresume` standard format, you can author a file directly in this theme’s format. That format is described below.
+
+### Generation
+
+#### In `resume-cli`
+
+If you have a résumé in the `jsonresume` standard format, you can generate an output in this theme with the `resume-cli` command:
+
+`resume export --theme a11y --format {html|markdown|pdf} [outputfilename]`
+
+This command will generate the output in two steps:
+
+- It will convert your source file to a source file in this theme’s format.
+- It will then generate an output file from the latter file.
+
+The command requires that your source file be located in the `resume-cli` directory and be named `resume.json`.
+
+#### In `jsonresume-theme-a11y`
+
+If you are in a local repository of this theme instead, and if you have already created or generated a source file in this theme’s format, you can generate an HTML output file with the command:
+
+`node index [< source file] [> output file]`
+
+This command gets your source file from standard input and outputs the result to standard output. That permits you to maintain multiple source files, and keep them anywhere in your filesystem. You can choose the input and output files each time you issue the command.
+
+This command will use this theme to render the specified source file and will output the HTML rendering to the specified output file.
+
+At this time, this command does not generate a PDF or Markdown output file. You can do that with the `resume-cli` counterpart, or by using another method to convert this command’s HTML output to PDF or Markdown.
+
+## Theme format
+
+This is a specification of the theme’s JSON source file format.
 
 ### Language (`lang`)
 
-You can declare what language your résumé is in. This makes your résumé localized and also more accessible. With the language declared, an assistive device that is converting the text to speech may be better able to render the content with correct pronunciation.
+You can declare what language your résumé is in. This makes your résumé localized and also more accessible. With the language declared, an assistive device that is converting the text to speech may be better able to choose the proper language-specific algorithm and thus render the content with correct pronunciation.
 
 Do this by including a `lang` property at the root level of your source file. Make the value of the `lang` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an [HTML-standard code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a language. Follow the [advice of the W3C](https://www.w3.org/International/questions/qa-choosing-language-tags) on this. For English, the `lang` property would be:
 
@@ -51,19 +90,19 @@ Do this by including a `lang` property at the root level of your source file. Ma
 }
 ```
 
-### Headings and titles (`legend`)
+### Introducers (`legend`)
 
 #### Introduction
 
-You can decide how headings and titles are rendered.
+You can decide how “introducers” are rendered.
 
-Headings and titles can appear in the following ways:
+Introducers can appear in the following forms:
 
 - Heading of a list
-- Heading of a headed string
+- Prefix of a string
 - Metafact (fact revealed to a parser or conditionally displayed)
 
-Under various conditions, a string may be rendered as one or another of these headings or titles. When they are rendered as titles, they appear as tooltips for those hovering a pointer, and they are also accessible to assistive technologies.
+Under various conditions, a string may be rendered as one or another of these introducers. When they are rendered as metafacts, they appear as hover-triggered tooltips, and they are also accessible to assistive technologies.
 
 #### Examples
 
@@ -77,23 +116,22 @@ Go<br><br>
 `<h2 title="Languages known">Cobol, Go</h2>`
 </blockquote>
 
-In these examples, “Languages known” may be the rendered form of `languages`, `langs`, or some other string in your source file.
+In these examples, “Languages known” is an introducer.
 
 #### Eligible strings
 
-Some property names and other strings in your source file are eligible for conversion into headings and titles.
+The following strings in your source file are introducers:
 
-If your source file complies with the project standard described above under “Basic usage”, the property names in your source file and one additional name specific to this application, namely `creditTo`, are used as headings or titles.
-
-If you extend the project standard by using other options described in this “Advanced usage” section, the following string-type property values, too, are used as headings:
-
-- The value of any `tableLeftHead` property is an array of arrays. Each inner array represents a table row. The **first** element of each inner array is a string that represent the content of the first cell of its row, which is a heading for the row.
-- The value of any `tableTopHead` property is an array of arrays. Each inner array represents a table row. The **first** inner array represents the first (top) row of the table. That row contains strings that represent the headings of all the columns.
-- The value of the `title` property of any object in your source file is rendered as a metafact about that object as rendered.
+- Non-hidden property names
+- Values of `title` properties
+- First cells of `tableLeftHead` rows
+- Cells in first `tableTopHead` row
 
 #### Method
 
-To convert any string that is eligible for conversion, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an object. The `data` object should have a property for each string that you want converted. That property’s name is the string, and its value is the string you want rendered.
+Before this theme renders an introducer in an output file, the theme first checks to see whether you want it “translated”. That means converted from its text in the source file to some other text.
+
+To tell the theme to translate introducers, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an object. The `data` object should have a property for each introducer that you want translated. Use the original text as the property name, and the translation as the property value.
 
 Example:
 
@@ -101,26 +139,20 @@ Example:
 "legend": {
   "format": "hide",
   "data": {
-    "address": "Address",
-    "area": "Area",
-    "awarder": "Awarded by",
+    "address": "Street address",
+    "area": "Major",
+    "awarder": "Granting agency",
     "awards": "Awards, grants, and prizes",
     "...": "..."
   }
 }
 ```
 
-Strings eligible for conversion but missing from the `legend` property (if any) are rendered without conversion.
-
-The `docs/resume-sample-1.json` file in this theme’s repository is identical to the `jsonresume` project’s sample source file, except that a `legend` property is added. It converts each property name that appears in the source file to a human-intelligible string in English.
-
 ### Order
 
-You can decide what things appear in your output file, and in what order.
+You can decide what root-level sections appear in your output file, and in what order.
 
-Some objects in your source file are rendered in a particular order, as specified below. Otherwise, however, the properties of an object are rendered as a list, and in an arbitrary order.
-
-To dictate the order rather than leave it to chance, you can give such an object an additional `order` property. Make its value an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an array of strings. Each string should be one of the property names in the object. **Only** those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
+The root-level properties in your source file, unless they are hidden or omitted, represent sections of your résumé. To decide which sections to include, and what order they will appear in, include an `order` property at the root level of your source file. Make its value an object with 2 properties: `format` and `data`. The value of `format` should be `hide`, and the value of `data` should be an array of strings. Each string should be one of the root-level property names. **Only** those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
 
 An example of an `order` property that might appear in the root-level object is:
 
@@ -131,100 +163,21 @@ An example of an `order` property that might appear in the root-level object is:
     "name",
     "contacts",
     "skills",
-    "projects"
+    "projects",
     "references"
   ]
 }
 ```
 
-### Sectioning
-
-Your résumé will be partitioned into sections, sections may be in turn partitioned into subsections, subsections may be further partitioned into subsubsections, and so on.
-
-Each section will have a format. You can let the application determine each section’s format, or you can choose it yourself.
-
-Each section will also have a title. Together with headings in some sections, the titles ensure that users of assistive devices can perceive the document structure.
-
-The application implements the following 7 section types. To give a type to a section, represent that section in your source file as an object with properties `format`, `title`, and `data`.
-
-- Give its `format` property the name of one of the 7 section types (shown in parentheses below).
-- Give its `data` property a value that complies with the specifications of that format.
-- Give its `type` property a string value describing the nature of the section. If this value is found among the property names in a root-level `legend` object, it will converted accordingly before being rendered.
-
-The `format` property should have a string value chosen from this list:
-
-The 7 supported section formats (with the values to be given to their `format` properties) are:
-
-#### Boxed bullet list (`boxedBulletList`)
-
-The `data` value must be an array of what we can call “stringables”. For now, assume that they are strings.
-
-There may be a `level` property, with an integer value from 1 through 3. If there is none, the application will set `level` to 1. The value should depend on the degree of nesting of the list within other lists: 1 if it’s a top-level list, 2 if nested within another one, or 3 if nested even deeper.
-
-Example:
-
-```json
-"hobbies": {
-  "format": "boxedBulletList",
-  "level": 2,
-  "data": [
-    "philately",
-    "hang gliding"
-  ]
-}
-```
-
-The property will be rendered as a bulleted list, with a heading, enclosed in a box. Each stringable in the `data` array will be an item in the list. The property name, or its conversion, will be the heading.
-
-#### Heading (`head`)
-
-The `data` value must be a stringable.
-
-There may be a `level` property, indicating how prominent you want the heading to be, from 1 (most) to 7 (least). If there isn’t one, the application will set `level` to 1.
-
-The property will be rendered as a centered line of bold text.
-
-#### Portrait ('pic1')
-
-The `data` value must be an object with 2 properties: `src` and `alt`. The value of `src` should be the URL of an image. The value of `alt` should be a string describing the image.
-
-The property will be rendered as an image in the upper-right corner of the document, not displacing any other content.
-
-#### One-row tables (`rowTables`)
-
-The `data` value must be an array of arrays of strings. Each inner array represents a one-row table whose cells are populated by the strings in that array.
-
-The property will be rendered as a set of one-row tables, each centered, one below the other.
-
-#### One-row tables with heading and border (`rowTablesCircled`)
-
-The `data` value must be an object with `head` and `tables` properties. The `head` value must be a string. The `tables` value must be an array of arrays, as specified above under “One-row tables”.
-
-There may be a `level` property, indicating how prominent you want the heading to be, from 1 (most) to 7 (least). If there isn’t one, the application will set `level` to 1.
-
-The property will be rendered as a set of one-row tables, as with “One-row tables”, but with two additional features: a heading and an oval border.
-
-#### Left-headed table (`tableLeftHead`)
-
-The `data` value must be an array of arrays. Each inner array must contain at least 2 elements, the first being a string and the others being stringables.
-
-The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The headings will be the first elements of the inner arrays, or, if possible, their legend conversions.
-
-#### Top-headed table (`tableTopHead`)
-
-The `data` value must be an array of arrays. The first inner array must be an array of strings, and any and all subsequent inner arrays must be arrays of stringables.
-
-The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their legend conversion.
+If your source file does not contain a root-level `order` property, then all of the non-hidden sections will be rendered, and there is no guarantee as to the order they will appear in.
 
 ### Stringables
 
-Wherever a stringable is specified above, you can choose to provide it as a string. If you do, it will be rendered as it is.
-
-Alternatively, you can provide it as an object with `format` and `data` properties. The format you choose determines the constraints on the value of `data`. The allowed values of `format` are:
+You can give various formats to inline text in your résumé. The theme format requires that some items be “stringables”. A stringable is either a string or an object that the theme knows how to convert to a string. Such an object must have `format` and `data` properties. The format property has one of the following format descriptors as its value:
 
 #### Address (`address`)
 
-The `data` value must be an object with `address`, `city, `region`, `postalCode`, and `countryCode` properties, where each of those properties has a string value.
+The `data` value must be an object with `address`, `city`, `region`, `postalCode`, and `countryCode` properties, where each of those properties has a string value.
 
 It will be rendered as a 2-line string, with a line break after the (street) address.
 
@@ -234,11 +187,11 @@ The `data` value must be a stringable.
 
 It will be rendered as a string whose typography indicates it is a segment of code.
 
-#### Education (`ed`)
+#### Education or work (`edWork`)
 
-The `data` value must be an object with `head`, (optionally) `url`, `startDate`, `endDate`, and `area` (i.e. subject) properties.
+The `data` value must be an object with `location`, (optionally) `url`, `startDate`, `endDate`, and `subject` properties.
 
-It will be rendered as a single-line string. If a URL is provided, it will be the destination but not the content of a link. The link’s content will be the educational institution (`head`).
+It will be rendered as a single-line string. If a URL is provided, it will be the destination but not the content of a link. The link’s content will be the value of the `location` property.
 
 #### Headed string (`headedString`)
 
@@ -256,9 +209,74 @@ It will be rendered as a single-line hyperlink. If you provide a `label` propert
 
 The requirements and rendering are the same as with a hyperlink, except that the URL you provide as the `href` value is an email address. The application prefixes it with `mailto:` so that the link triggers the preparation of an email message.
 
-#### Work (`work`)
+### Sections
 
-The requirements and rendering are the same as with education, except that `duties` replaces `area`.
+#### Introduction
+
+As described above, your résumé will be partitioned into sections. Sections may also have subsections, which may have subsubsections, etc. When “section” appears below, it refers to a section at any level of nesting.
+
+Each section must have a format, a “title” (i.e. metafact), and some content. To specify a section, make it an object with `format`, `title`, and `data` properties, whose values comply with the requirements given below.
+
+The `title` property of a section object may, if you wish, be identical to the name of the property whose value that object is. For example, if there is a `hobbies` property and your legend translates `hobbies` to “Leisure activities”, you can make the `title` value `hobbies`, just like the property name.
+
+However, you may prefer to have a reusable legend while customizing some of the titles, such as replacing "hobbies" with "What I do after work".
+
+There are 7 permitted section formats:
+
+#### Boxed bullet list (`boxedBulletList`)
+
+The `data` value must be an array of stringables.
+
+Example:
+
+```json
+"hobbies": {
+  "format": "boxedBulletList",
+  "title": "What I do after work",
+  "data": [
+    "philately",
+    "hang gliding"
+  ]
+}
+```
+
+The property will be rendered as a bulleted list with a heading (i.e. the value of `title`, or its conversion), enclosed in a box. Each stringable in the `data` array will be an item in the bulleted list.
+
+#### Centered text (`center`)
+
+The `data` value is an array of objects. Each object has `text` and `size` properties. The `text` value is a stringable. The `size` value is an integer from 1 (largest) through 7 (smallest).
+
+The `text` values will be rendered as lines, one below the other.
+
+#### Portrait ('cornerPic')
+
+The `data` value must be an object with 2 properties: `src` and `alt`. The value of `src` should be the URL of an image. The value of `alt` should be a string describing the image.
+
+The property will be rendered as an image in the upper-right corner of the document, not displacing any other content.
+
+#### One-row tables (`rowTables`)
+
+The `data` value must be an array of arrays of strings. Each inner array represents a one-row table whose cells are populated by the strings in that array.
+
+The property will be rendered as a set of one-row tables, each centered, one below the other.
+
+#### One-row tables with heading and border (`rowTablesCircled`)
+
+The `data` value is an object with `head` and `tables` properties. The `head` value is an object with `text` and `size` properties. The `text` value is a stringable. The `size` value is an integer from 1 (largest) through 7 (smallest). The `tables` value is an array of arrays, as specified above under “One-row tables”.
+
+The property will be rendered as a set of one-row tables, as with “One-row tables”, but with two additional features: a heading and an oval border.
+
+#### Left-headed table (`tableLeftHead`)
+
+The `data` value must be an array of arrays. Each inner array must contain at least 2 elements, the first being a string and the others being stringables.
+
+The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The headings will be the first elements of the inner arrays, or, if possible, their legend conversions.
+
+#### Top-headed table (`tableTopHead`)
+
+The `data` value must be an array of arrays. The first inner array must be an array of strings, and any and all subsequent inner arrays must be arrays of stringables.
+
+The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their legend conversion.
 
 ### Invocation
 

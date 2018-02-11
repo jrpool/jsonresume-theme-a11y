@@ -46,6 +46,7 @@
       "fluency": "Fluency",
       "gpa": "GPA",
       "highlights": "Accomplishments",
+      "identity": "Identity",
       "institution": "Institution",
       "interests": "Interests",
       "keywords": "Specifics",
@@ -54,7 +55,6 @@
       "level": "Proficiency",
       "location": "Mailing address",
       "mobilePhone": "Mobile telephone",
-      "name": "Name",
       "network": "Host",
       "openSource": "Open-source contributions",
       "organization": "Organization",
@@ -62,7 +62,6 @@
       "picture": "Photograph",
       "position": "Position",
       "postalCode": "Postal code",
-      "prof": "Profession",
       "profDetail": "Professional repertoire",
       "profiles": "Profiles",
       "projectWebsite": "Project website",
@@ -91,21 +90,19 @@
       "alt": "Photograph of Jonathan Pool"
     }
   },
-  "name": {
+  "identity": {
     "format": "center",
-    "title": "name",
-    "data": {
-      "head": "Jonathan Pool",
-      "headSize": 1
-    }
-  },
-  "prof": {
-    "format": "center",
-    "title": "prof",
-    "data": {
-      "head": "Developer of accessible web applications",
-      "headSize": 2
-    }
+    "title": "My name and occupation",
+    "data": [
+      {
+        "text": "Jonathan Pool",
+        "size": 1
+      },
+      {
+        "text": "Developer of accessible web applications",
+        "size": 2
+      }
+    ]
   },
   "profDetail": {
     "format": "rowTablesCircled",
