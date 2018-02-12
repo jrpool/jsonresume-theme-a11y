@@ -111,7 +111,7 @@ const page = () => {
       }
       case 'rowTablesCircled': {
         const compactSectionOf = (content, title, format) => {
-          const quasiTable = renderer.squeezeBox(content);
+          const quasiTable = renderer.squeezeBoxOf(content);
           return renderer.sectionOf(quasiTable, title, format);
         };
         const head = renderer.headOf(data.head, data.size);
@@ -122,7 +122,8 @@ const page = () => {
         );
       }
       case 'tableLeftHeads': {
-        const rowElements = data.map(
+        const head = renderer.headOf(data.head.data, data.head.size);
+        const rowElements = data.table.map(
           rowSpec => {
             rowSpec[0] = titleOf(rowSpec[0], legend);
             return renderer.leftHeadRowOf(

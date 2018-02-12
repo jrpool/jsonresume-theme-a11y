@@ -97,30 +97,44 @@
         "data": "I can be found at"
       },
       "table": [
-        [
-          "email",
-          {
-            "format": "mailLink",
-            "data": {
-              "href": "pool@stulta.com"
+        {
+          "label": "email",
+          "data": [
+            {
+              "format": "mailLink",
+              "data": {
+                "href": "pool@stulta.com"
+              }
             }
-          }
-        ],
-        ["phone", "(510) 225-1717"],
-        ["mobilePhone", "(510) 225-1700"],
-        [
-          "location",
-          {
-            "format": "address",
-            "data": {
-              "point": "555 10th St Apt 312",
-              "postalCode": "94607-5208",
-              "city": "Oakland",
-              "countryCode": "US",
-              "region": "California"
+          ]
+        },
+        {
+          "label": "phone",
+          "data": [
+            "(510) 225-1717"
+          ]
+        },
+        {
+          "label": "mobilePhone",
+          "data": [
+            "(510) 225-1700"
+          ]
+        },
+        {
+          "label": "location",
+          "data": [
+            {
+              "format": "address",
+              "data": {
+                "point": "555 10th St Apt 312",
+                "postalCode": "94607-5208",
+                "city": "Oakland",
+                "countryCode": "US",
+                "region": "California"
+              }
             }
-          }
-        ]
+          ]
+        }
       ]
     }
   },
@@ -132,48 +146,50 @@
         "size": 4,
         "data": "My artifacts are at"
       },
-      "table": [
-        ["network", "username", "url"],
-        [
-          "Github",
-          "jrpool",
-          {
-            "format": "hLink",
-            "data": {
-              "href": "https://github.com/jrpool"
+      "table": {
+        "label": ["network", "username", "url"],
+        "data": [
+          [
+            "Github",
+            "jrpool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://github.com/jrpool"
+              }
             }
-          }
-        ],
-        [
-          "LinkedIn",
-          "jonathanpool",
-          {
-            "format": "hLink",
-            "data": {
-              "href": "https://www.linkedin.com/in/jonathanpool/"
+          ],
+          [
+            "LinkedIn",
+            "jonathanpool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://www.linkedin.com/in/jonathanpool/"
+              }
             }
-          }
-        ],
-        [
-          "MDN Web Docs",
-          "JonathanPool",
-          {
-            "format": "hLink",
-            "data": {
-              "href": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+          ],
+          [
+            "MDN Web Docs",
+            "JonathanPool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+              }
             }
-          }
-        ],
-        [
-          "blog",
-          {
-            "format": "hLink",
-            "data": {
-              "href": "http://stulta.com/forumo"
+          ],
+          [
+            "blog",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "http://stulta.com/forumo"
+              }
             }
-          }
+          ]
         ]
-      ]
+      }
     }
   },
   "projects": {

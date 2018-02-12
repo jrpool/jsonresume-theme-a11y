@@ -94,19 +94,13 @@ Do this by including a `lang` property at the root level of your source file. Ma
 
 You can determine the title of the document that will contain your résumé. Do this by including a `title` property at the root level of your source file. Make the value of the `title` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is the title, as a string.
 
-### Introducers (`legend`)
+### Translation (`legend`)
 
 #### Introduction
 
-You can decide how “introducers” are rendered.
+You can make the theme translate some strings into other strings.
 
-Introducers can appear in the following forms:
-
-- Heading of a list
-- Prefix of a string
-- Metafact (fact revealed to a parser or conditionally displayed)
-
-Under various conditions, a string may be rendered as one or another of these introducers. When it is rendered as a metafact, it appears as a hover-triggered tooltip and is accessible to assistive technologies.
+The translatable strings include some headings, prefixes, and metafacts (facts revealed to a parser or conditionally displayed).
 
 #### Examples
 
@@ -120,23 +114,13 @@ Go<br><br>
 `<section title="Languages known">`
 </blockquote>
 
-In these examples, “Languages known” is an introducer.
-
-#### Eligible strings
-
-The following strings in your source file are introducers:
-
-- Values of `title` properties
-- First cells of `tableLeftHead` rows
-- Cells in first `tableTopHead` row
+In these examples, the “Languages known” may appear as-is in your source file, or may have been translated from a string such as `langs`.
 
 #### Method
 
-Before this theme renders an introducer in an output file, the theme first checks to see whether you want it “translated”. That means converted from its text in the source file to some other text.
+Wherever there is a `title` or `label` property in your source file and the value of that property is a string, that string is translatable. Before rendering the string, the theme checks whether you want it translated. If so, the theme renders its translation. If not, the theme renders the string as it appears in your source file.
 
-To tell the theme to translate introducers, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an object. The `data` object has a property for each introducer that you want translated. Use the original text as the property name, and the translation as the property value.
-
-You don’t need to have all introducers translated. If any introducer is missing from your legend, it will be rendered without translation.
+To tell the theme to translate a `title` or `label` string, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an object. The `data` object has a property for each string that you want translated. The property’s name is the original text, and its value is the translation.
 
 Example:
 
