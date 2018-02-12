@@ -3,22 +3,24 @@
     "format": "hide",
     "data": "en"
   },
+  "title": {
+    "format": "hide",
+    "data": "Résumé: Jonathan Pool"
+  },
   "order": {
     "format": "hide",
     "data": [
       "picture",
-      "name",
-      "label",
-      "summary",
-      "subSummary",
+      "identity",
+      "profDetail",
       "contacts",
       "profiles",
-      "accessible",
+      "projects",
       "openSource",
       "skills",
       "languages",
       "education",
-      "edWork",
+      "work",
       "awards",
       "publications"
     ]
@@ -26,8 +28,7 @@
   "legend": {
     "format": "hide",
     "data": {
-      "a11yWork": "Accessibility work",
-      "awards": "awards",
+      "awards": "Awards",
       "blog": "Blog",
       "contacts": "Contact information",
       "creditTo": "Powered by ",
@@ -38,16 +39,17 @@
       "location": "Mailing address",
       "mobilePhone": "Mobile telephone",
       "network": "Host",
-      "openSource": "Open-source contributions",
+      "openSource": "Open-source development",
       "phone": "Telephone",
       "picture": "Photograph",
       "profDetail": "Professional repertoire",
       "profiles": "Profiles",
+      "projects": "Projects",
       "publications": "Publications",
       "skills": "Skills",
       "url": "URL",
       "username": "User ID",
-      "edWork": "Work"
+      "work": "Work"
     }
   },
   "picture": {
@@ -63,12 +65,12 @@
     "title": "identity",
     "data": [
       {
-        "text": "Jonathan Pool",
-        "size": 1
+        "size": 1,
+        "text": "Jonathan Pool"
       },
       {
-        "text": "Developer of accessible web applications",
-        "size": 2
+        "size": 2,
+        "text": "Developer of accessible web applications"
       }
     ]
   },
@@ -111,7 +113,7 @@
           {
             "format": "address",
             "data": {
-              "address": "555 10th St Apt 312",
+              "point": "555 10th St Apt 312",
               "postalCode": "94607-5208",
               "city": "Oakland",
               "countryCode": "US",
@@ -174,9 +176,9 @@
       ]
     }
   },
-  "a11yWork": {
+  "projects": {
     "format": "boxedBulletList",
-    "title": "a11yWork",
+    "title": "projects",
     "data": {
       "head": {
         "size": 2,
@@ -507,8 +509,8 @@
           "data": {
             "head": "Learners Guild",
             "url": "https://learnersguild.org",
-            "startDate": "2017",
-            "endDate": "2018",
+            "startDate": "2017-05-01",
+            "endDate": "2018-02-16",
             "subject": "web development"
           }
         },
@@ -517,8 +519,8 @@
           "data": {
             "head": "University of Washington",
             "url": "https://jpdev.pro/info/docs/pool-uw-transcript.pdf",
-            "startDate": "2004",
-            "endDate": "2007",
+            "startDate": "2004-03-29",
+            "endDate": "2007-06-01",
             "subject": "computer science, user interface design, linguistics"
           }
         },
@@ -527,8 +529,8 @@
           "data": {
             "head": "The University of Chicago",
             "url": "https://www.uchicago.edu",
-            "startDate": "1966",
-            "endDate": "1971",
+            "startDate": "1966-09-01",
+            "endDate": "1971-04-30",
             "subject": "political science"
           }
         },
@@ -537,17 +539,17 @@
           "data": {
             "head": "Harvard University",
             "url": "https://www.harvard.edu",
-            "startDate": "1960",
-            "endDate": "1964",
+            "startDate": "1960-09-01",
+            "endDate": "1964-06-30",
             "subject": "government"
           }
         }
       ]
     }
   },
-  "edWork": {
+  "work": {
     "format": "boxedBulletList",
-    "title": "edWork",
+    "title": "work",
     "data": {
       "head": {
         "size": 2,
@@ -559,8 +561,8 @@
           "data": {
             "head": "The Long Now Foundation",
             "url": "http://longnow.org",
-            "startDate": "2012",
-            "endDate": "2016",
+            "startDate": "2012-01-01",
+            "endDate": "2016-12-19",
             "subject": "Project Director, PanLex"
           }
         },
@@ -569,8 +571,8 @@
           "data": {
             "head": "Centerplex",
             "url": "http://stulta.com/misc/cx/",
-            "startDate": "1990",
-            "endDate": "2004",
+            "startDate": "1993-06-16",
+            "endDate": "2004-06-11",
             "subject": "contracting, project management, ADA upgrades"
           }
         },
@@ -579,8 +581,8 @@
           "data": {
             "head": "University of Washington",
             "url": "http://www.washington.edu",
-            "startDate": "1977",
-            "endDate": "1993",
+            "startDate": "1977-09-16",
+            "endDate": "1993-06-15",
             "subject": "research and teaching"
           }
         },
@@ -589,8 +591,8 @@
           "data": {
             "head": "State University of New York at Stony Brook",
             "url": "http://www.stonybrook.edu",
-            "startDate": "1971",
-            "endDate": "1977",
+            "startDate": "1971-01-01",
+            "endDate": "1977-06-15",
             "subject": "research and teaching"
           }
         },
@@ -599,8 +601,8 @@
           "data": {
             "head": "Peace Corps",
             "url": "https://www.peacecorps.gov/",
-            "startDate": "1964",
-            "endDate": "1966",
+            "startDate": "1964-06-15",
+            "endDate": "1966-06-15",
             "subject": "teaching"
           }
         }

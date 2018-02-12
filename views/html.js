@@ -98,8 +98,8 @@ const tableOf = (rowElements, type) => element2Of(
 );
 
 // Section.
-const sectionOf = (content, atObject) => element2Of(
-  content, 'section', atObject, 2
+const sectionOf = (content, title, type) => element2Of(
+  content, 'section', {title, class: type}, 2
 );
 
 // Style.
