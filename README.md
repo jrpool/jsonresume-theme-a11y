@@ -75,20 +75,13 @@ At this time, this command does not generate a PDF or Markdown output file. You 
 
 ## Theme format
 
-This is a specification of the theme’s JSON source file format.
+This is a specification of the theme’s JSON source file format. To understand it more easily, you can look at the sample source file at `docs/resume-sample-a11y.json` for examples of all of the cases described below.
 
 ### Language (`lang`)
 
 You can declare what language your résumé is in. This makes your résumé localized and also more accessible. With the language declared, an assistive device that is converting the text to speech may be better able to choose the proper language-specific algorithm and thus render the content with correct pronunciation.
 
-Do this by including a `lang` property at the root level of your source file. Make the value of the `lang` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an [HTML-standard code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a language. Follow the [advice of the W3C](https://www.w3.org/International/questions/qa-choosing-language-tags) on this. For English, the `lang` property would be:
-
-```json
-"lang": {
-  "format": "hide",
-  "data": "en"
-}
-```
+Do this by including a `lang` property at the root level of your source file. Make the value of the `lang` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an [HTML-standard code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a language. Follow the [advice of the W3C](https://www.w3.org/International/questions/qa-choosing-language-tags) on this.
 
 ### Page title (`title`)
 
@@ -100,42 +93,11 @@ You can determine the title of the document that will contain your résumé. Do 
 
 You can make the theme translate some strings into other strings.
 
-The translatable strings include some headings, prefixes, and metafacts (facts revealed to a parser or conditionally displayed).
-
-#### Examples
-
-<blockquote>
-**Languages known**<br>
-Cobol<br>
-Go<br><br>
-
-**Languages known**: Cobol, Go<br><br>
-
-`<section title="Languages known">`
-</blockquote>
-
-In these examples, the “Languages known” may appear as-is in your source file, or may have been translated from a string such as `langs`.
+Wherever there is a `title` or `label` property in your source file and the value of that property is a string (or an array of strings), that string is (or the strings in that array are) translatable. Before rendering such a string, the theme checks whether you want it translated. If so, the theme renders its translation. If not, the theme renders the string as it appears in your source file.
 
 #### Method
 
-Wherever there is a `title` or `label` property in your source file and the value of that property is a string, that string is translatable. Before rendering the string, the theme checks whether you want it translated. If so, the theme renders its translation. If not, the theme renders the string as it appears in your source file.
-
 To tell the theme to translate a `title` or `label` string, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an object. The `data` object has a property for each string that you want translated. The property’s name is the original text, and its value is the translation.
-
-Example:
-
-```json
-"legend": {
-  "format": "hide",
-  "data": {
-    "address": "Street address",
-    "area": "Major",
-    "awarder": "Granting agency",
-    "awards": "Awards, grants, and prizes",
-    "...": "..."
-  }
-}
-```
 
 ### Order
 
@@ -143,32 +105,17 @@ You can decide what root-level sections appear in your output file, and in what 
 
 The root-level properties in your source file, unless they are hidden or omitted, represent sections of your résumé. To decide which sections to include, and what order they will appear in, include an `order` property at the root level of your source file. Make its value an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an array of strings. Each string is one of the root-level property names. **Only** those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
 
-An example of an `order` property that might appear in the root-level object is:
-
-```json
-"order": {
-  "format": "hide",
-  "data": [
-    "name",
-    "contacts",
-    "skills",
-    "projects",
-    "references"
-  ]
-}
-```
-
 If your source file does not contain a root-level `order` property, then all of the non-hidden sections will be rendered, and there is no guarantee as to the order they will appear in.
 
 ### Stringables
 
-You can choose how inline text in your résumé is rendered. The theme format requires that some items be “stringables”. A stringable is a string, array, or object. If it is an array, then each of its elements is a non-array stringable, and the theme concatenates the renderings of the elements to create a string. If it is an object, then it has `format` and `data` properties. The format property has one of the following values (`address`, etc.), and the `data` property complies with the specifications of that value.
+You can choose how inline text in your résumé is formatted. The theme format requires that some items be “stringables”. A stringable is a string, array, or object. If it is an array, then each of its elements is a non-array stringable, and the theme concatenates the renderings of the elements to create a string. If it is an object, then it has `format` and `data` properties. The format property has one of the following values (`address`, etc.), and the `data` property complies with the specifications of that value. The theme converts the object to a string.
 
 #### Address (`address`)
 
 The `data` value is an object with `point`, `city`, `region`, `postalCode`, and `countryCode` properties, where each of those properties has a string value.
 
-It will be rendered as a 2-line string, with a line break after the (street) address.
+It will be rendered as a 2-line string, with a line break after the `point` string (which is typically a street address or postal box identifier).
 
 #### Code (`code`)
 
@@ -180,7 +127,7 @@ It will be rendered as a string whose typography indicates it is a segment of co
 
 The `data` value is an object with `location`, (optionally) `url`, `startDate`, `endDate`, and `subject` properties.
 
-It will be rendered as a single-line string. If a URL is provided, it will be the destination but not the content of a link. The link’s content will be the value of the `location` property.
+It will be rendered as a single-line string. If a URL is provided, it will be the destination but not the content of a link. The link’s content will be the value of the `location` property (typically the name of a school or other organization).
 
 #### Headed string (`headedString`)
 
@@ -202,13 +149,9 @@ The requirements and rendering are the same as with a hyperlink, except that the
 
 #### Introduction
 
-As described above, your résumé will be partitioned into sections.
+As described above, your résumé will be partitioned into sections, each represented in your source file as a root-level property.
 
 Each section has a format, a “title” (i.e. metafact), and some content. To specify a section, make it an object with `format`, `title`, and `data` properties, whose values comply with the requirements given below.
-
-The `title` property of a section object may, if you wish, be identical to the name of the property whose value that object is. For example, if there is a `hobbies` property and your legend translates `hobbies` to “Leisure activities”, you can make the `title` value `hobbies`, just like the property name.
-
-However, you may prefer to have a reusable legend while customizing some of the titles, such as replacing "hobbies" with "What I do after work".
 
 Some formats require that the `data` property have an object value and that this value have a `head` property. In such cases, the `head` property’s value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a stringable.
 
@@ -216,27 +159,9 @@ There are 7 permitted section formats:
 
 #### Boxed bullet list (`boxedBulletList`)
 
-The `data` value is an object with `head` and `list` properties. For the `head` property, see above. The `list` property has an array of stringables as its value.
+The `data` value is an object with `head` (see above) and `list` properties. The `list` property has an array of stringables as its value.
 
-Example:
-
-```json
-"hobbies": {
-  "format": "boxedBulletList",
-  "data": {
-    "head": {
-      "size": 2,
-      "data": "What I do after work"
-    },
-    "list": [
-      "philately",
-      "hang gliding"
-    ]
-  }
-}
-```
-
-The property will be rendered as a bulleted list with a heading, enclosed in a box. Each stringable in the `data.` array will be an item in the bulleted list.
+The property will be rendered as a bulleted list with a heading, enclosed in a box. Each stringable in the `data.list` array will be an item in the bulleted list.
 
 #### Centered text (`center`)
 
@@ -264,12 +189,12 @@ The property will be rendered as a set of one-row tables, as with “One-row tab
 
 #### Left-headed table (`tableLeftHeads`)
 
-The `data` value is an object with properties `head` (see above) and `table`. The `table` value is an array of arrays. Each inner array contains at least 2 elements, the first being a string and the others being stringables.
+The `data` value is an object with properties `head` (see above) and `table`. The `table` value is an array of objects. Each inner object has `label` and `data` properties. The `label` value is a string. The `data` value is an array of stringables.
 
-The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered. The row headings will be the first elements of the inner arrays, or, if possible, their conversions.
+The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered.
 
 #### Top-headed table (`tableTopHead`)
 
-The `data` value is an object with properties `head` (see above) and `table`. The `table` value is an array of arrays. The first inner array is an array of strings, and any and all subsequent inner arrays are arrays of stringables.
+The `data` value is an object with properties `head` (see above) and `table`. The `table` value is an object with `label` and `data` properties. The `label` value is an array of strings. The `data` value is an array of stringables.
 
-The property will be rendered as a table whose top row contains headings, centered and not bordered. The headings will be the elements of the first inner array or, if possible, their conversions.
+The property will be rendered as a table whose top row contains headings, centered and not bordered.
