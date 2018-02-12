@@ -9,8 +9,8 @@ const titleOf = (string, legend) => legend[string] || string;
 // Function identifying a list of keys of properties to be rendered.
 const keysOf = object =>
   object.order && object.order.format !== 'hide'
-  ? object.order.data
-  : Object.keys(object).filter(key => object[key].format !== 'hide');
+    ? object.order.data
+    : Object.keys(object).filter(key => object[key].format !== 'hide');
 
 // Function rendering a stringable.
 const stringOf = stringable => {
@@ -57,7 +57,7 @@ const stringOf = stringable => {
 // Function rendering a heading.
 const headOf = object => renderer.headOf(stringOf(object.data), object.size);
 
-// Function rendering the object represented by a source file.
+// Function rendering and writing the object represented by a source file.
 const page = () => {
   const fileArgs = process.argv.slice(2);
   fileArgs[0] = fileArgs[0] || 'docs/resume-a11y.json';
@@ -78,13 +78,13 @@ const page = () => {
   };
   const footContent = [footPrefix, stringOf(footLink)].join('');
   const footSection = renderer.sectionOf(
-    footContent, 'credit', 'theme-credit'}
+    footContent, 'credit', 'theme-credit'
   );
   const sectionNames = keysOf(cvObject);
   const sections = sectionNames.map(sectionName => {
     const sectionObject = cvObject[sectionName];
     const format = sectionObject.format;
-    const title = sectionObject.title;
+    const title = titleOf(sectionObject.title, legend);
     const data = sectionObject.data;
     switch(format) {
       case 'boxedBulletList': {
@@ -97,7 +97,7 @@ const page = () => {
         );
       }
       case 'center': {
-        const heading = renderer.headOf(pageOf(key, data, legend), treeLevel);
+        const heading = renderer.headOf(stringOf(data));
         return renderer.sectionOf(heading, title, format);
       }
       case 'cornerPic': {
@@ -139,7 +139,7 @@ const page = () => {
         );
         const etcRowElements = data.slice(1).map(
           rowSpec => renderer.plainRowOf(
-            rowSpec.map(cellSpec => pageOf('', cellSpec, legend))
+            rowSpec.map(cellSpec => stringOf(cellSpec))
           )
         );
         const topHeadTable = renderer.tableOf(
@@ -150,8 +150,11 @@ const page = () => {
     }
   });
   const sectionContent = sections.join('\n');
-  return renderer.pageOf(sectionContent, footSection, lang, pageTitle, style);
+  const result = renderer.pageOf(
+    sectionContent, footSection, lang, pageTitle, style
+  );
+  fs.writeFileSync(path.join(__dirname, fileArgs[1]), result);
 };
 
 // Process the specified file.
-fs.writeFileSync(path.join(__dirname, fileArgs[1]), page());
+page();

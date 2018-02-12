@@ -126,7 +126,6 @@ In these examples, “Languages known” is an introducer.
 
 The following strings in your source file are introducers:
 
-- Non-hidden property names
 - Values of `title` properties
 - First cells of `tableLeftHead` rows
 - Cells in first `tableTopHead` row

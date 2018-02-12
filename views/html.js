@@ -44,7 +44,7 @@ const headedStringOf = (head, tail, delimiter) => {
 
 // Heading.
 const headOf = (string, size) => element2Of(
-  string, `h1`, {class: `size${size}`}, -1
+  string, 'h1', {class: `size${size}`}, -1
 );
 
 // Code.
@@ -132,6 +132,7 @@ const pageOf = (content, foot, lang, title, style) => {
 
 module.exports = {
   bulletItemOf,
+  codeOf,
   element1Of,
   element2Of,
   headedStringOf,
