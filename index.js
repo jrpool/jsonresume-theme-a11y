@@ -125,20 +125,23 @@ const page = () => {
         const head = renderer.headOf(data.head.data, data.head.size);
         const rowElements = data.table.map(
           rowSpec => {
-            rowSpec[0] = titleOf(rowSpec[0], legend);
+            rowSpec.data.unshift(titleOf(rowSpec.label, legend));
             return renderer.leftHeadRowOf(
-              rowSpec.map(cellSpec => stringOf(cellSpec))
+              rowSpec.data.map(cellSpec => stringOf(cellSpec))
             );
           }
         );
         const leftHeadTable = renderer.tableOf(rowElements, 'tableLH');
-        return renderer.sectionOf(leftHeadTable, title, 'center');
+        return renderer.sectionOf(
+          [head, leftHeadTable].join('\n'), title, 'center'
+        );
       }
       case 'tableTopHead': {
+        const head = renderer.headOf(data.head.data, data.head.size);
         const headRowElement = renderer.headRowOf(
-          data[0].map(string => titleOf(string, legend))
+          data.table.label.map(string => titleOf(string, legend))
         );
-        const etcRowElements = data.slice(1).map(
+        const etcRowElements = data.table.data.map(
           rowSpec => renderer.plainRowOf(
             rowSpec.map(cellSpec => stringOf(cellSpec))
           )
@@ -146,7 +149,9 @@ const page = () => {
         const topHeadTable = renderer.tableOf(
           [headRowElement, ...etcRowElements], 'tableTH'
         );
-        return renderer.sectionOf(topHeadTable, title, 'center');
+        return renderer.sectionOf(
+          [head, topHeadTable].join('\n'), title, 'center'
+        );
       }
     }
   });
