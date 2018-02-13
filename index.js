@@ -92,8 +92,9 @@ const page = () => {
         const bulletItems = data.list.map(
           item => renderer.bulletItemOf(stringOf(item))
         );
+        const bulletList = renderer.bulletListOf(bulletItems);
         return renderer.sectionOf(
-          [listHead, ...bulletItems].join('\n'), title, format
+          [listHead, bulletList].join('\n'), title, format
         );
       }
       case 'center': {

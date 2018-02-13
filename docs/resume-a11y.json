@@ -200,7 +200,7 @@
     "data": {
       "head": {
         "size": 2,
-        "data": "I’m designing and building"
+        "data": "My latest projects are"
       },
       "list": [
         {
@@ -539,7 +539,7 @@
             "url": "https://jpdev.pro/info/docs/pool-uw-transcript.pdf",
             "startDate": "2004-03-29",
             "endDate": "2007-06-01",
-            "subject": "computer science, user interface design, linguistics"
+            "subject": "computer science, UI design, linguistics"
           }
         },
         {

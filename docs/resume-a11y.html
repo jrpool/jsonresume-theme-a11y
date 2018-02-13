@@ -60,10 +60,6 @@
         margin: 0.5rem 0 0 0.3rem;
         color: #344;
       }
-      .list-item {
-        position: relative;
-        left: -0.5rem;
-      }
       p {
         display: list-item;
         list-style: inside;
@@ -83,6 +79,10 @@
       }
       .boxedBulletList + .boxedBulletList {
         margin-top: -1px;
+      }
+      li,
+      td {
+        font-size: 1.2rem;
       }
       section:not(.boxedBulletList) + .boxedBulletList {
         margin-top: 2rem;
@@ -134,6 +134,9 @@
         border-width: 1px;
         border-color: slategray;
         text-align: left;
+      }
+      ul {
+        margin: 0.25rem 0;
       }
       
     </style>
@@ -202,77 +205,93 @@
         </table>
       </section>
       <section title="Projects" class="boxedBulletList">
-        <h1 class="size2">I’m designing and building</h1>
-        <p><span class="list-item"><strong>Accessible Calculator</strong>: <a href="https://github.com/jrpool/calculator/blob/master/README3.md">https://github.com/jrpool/calculator/blob/master/README3.md</a></span></p>
-        <p><span class="list-item"><strong>Accessible <code>jsonresume</code> theme</strong>: <a href="https://github.com/jrpool/jsonresume-theme-a11y">https://github.com/jrpool/jsonresume-theme-a11y</a></span></p>
-        <p><span class="list-item"><strong>Senior-friendly single-page site</strong>: <a href="https://github.com/jrpool/singlepropertysite">https://github.com/jrpool/singlepropertysite</a></span></p>
+        <h1 class="size2">My latest projects are</h1>
+        <ul>
+          <li><strong>Accessible Calculator</strong>: <a href="https://github.com/jrpool/calculator/blob/master/README3.md">https://github.com/jrpool/calculator/blob/master/README3.md</a></li>
+          <li><strong>Accessible <code>jsonresume</code> theme</strong>: <a href="https://github.com/jrpool/jsonresume-theme-a11y">https://github.com/jrpool/jsonresume-theme-a11y</a></li>
+          <li><strong>Senior-friendly single-page site</strong>: <a href="https://github.com/jrpool/singlepropertysite">https://github.com/jrpool/singlepropertysite</a></li>
+        </ul>
       </section>
       <section title="Open-source development" class="boxedBulletList">
         <h1 class="size2">I have contributed to</h1>
-        <p><span class="list-item"><strong>ESLint (#25)</strong>: <a href="https://github.com/eslint/eslint/graphs/contributors">https://github.com/eslint/eslint/graphs/contributors</a></span></p>
-        <p><span class="list-item"><strong>MDN Web Docs</strong>: <a href="https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool">https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool</a></span></p>
-        <p><span class="list-item"><strong>LearnersGuild/curriculum-app (#3)</strong>: <a href="https://github.com/LearnersGuild/curriculum-app/graphs/contributors">https://github.com/LearnersGuild/curriculum-app/graphs/contributors</a></span></p>
-        <p><span class="list-item"><strong>PanLem</strong>: <a href="https://gitlab.com/JonathanPool">https://gitlab.com/JonathanPool</a></span></p>
-        <p><span class="list-item"><strong>PanLex developer documentation</strong>: <a href="https://dev.panlex.org">https://dev.panlex.org</a></span></p>
+        <ul>
+          <li><strong>ESLint (#25)</strong>: <a href="https://github.com/eslint/eslint/graphs/contributors">https://github.com/eslint/eslint/graphs/contributors</a></li>
+          <li><strong>MDN Web Docs</strong>: <a href="https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool">https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool</a></li>
+          <li><strong>LearnersGuild/curriculum-app (#3)</strong>: <a href="https://github.com/LearnersGuild/curriculum-app/graphs/contributors">https://github.com/LearnersGuild/curriculum-app/graphs/contributors</a></li>
+          <li><strong>PanLem</strong>: <a href="https://gitlab.com/JonathanPool">https://gitlab.com/JonathanPool</a></li>
+          <li><strong>PanLex developer documentation</strong>: <a href="https://dev.panlex.org">https://dev.panlex.org</a></li>
+        </ul>
       </section>
       <section title="Skills" class="boxedBulletList">
         <h1 class="size2">I have worked with</h1>
-        <p><span class="list-item"><strong>Languages</strong>: JavaScript, Perl, Java, bash, VBA, APL</span></p>
-        <p><span class="list-item"><strong>Scopes</strong>: full-stack, back-end, front-end, APIs, SPAs</span></p>
-        <p><span class="list-item"><strong>Back-end</strong>: Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI</span></p>
-        <p><span class="list-item"><strong>Databases</strong>: PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations</span></p>
-        <p><span class="list-item"><strong>Front-end</strong>: HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize</span></p>
-        <p><span class="list-item"><strong>Content and version management</strong>: git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress</span></p>
-        <p><span class="list-item"><strong>Quality control</strong>: ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools</span></p>
-        <p><span class="list-item"><strong>Accessibility</strong>: WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits, ADA Title III</span></p>
-        <p><span class="list-item"><strong>Internationalization</strong>: Unicode, CLDR, ISO 639, PanLex API</span></p>
-        <p><span class="list-item"><strong>Web servers</strong>: Apache httpd, nginx</span></p>
-        <p><span class="list-item"><strong>Mail servers</strong>: Postfix, sendmail, SendGrid Web API</span></p>
-        <p><span class="list-item"><strong>Remote hosts</strong>: Amazon AWS (EC2, S3, Glacier), OVH</span></p>
-        <p><span class="list-item"><strong>OS’s</strong>: Ubuntu, RHEL, OS X, Cisco IOS</span></p>
-        <p><span class="list-item"><strong>Configuration management</strong>: Puppet</span></p>
-        <p><span class="list-item"><strong>Files</strong>: FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter</span></p>
-        <p><span class="list-item"><strong>CAD</strong>: VectorWorks</span></p>
-        <p><span class="list-item"><strong>Statistics</strong>: SPSS</span></p>
-        <p><span class="list-item"><strong>Office apps</strong>: Apache OpenOffice, Apple iWork, Microsoft Office</span></p>
-        <p><span class="list-item"><strong>Collaboration</strong>: Slack, Asana, Wrike, Trello, Egnyte</span></p>
+        <ul>
+          <li><strong>Languages</strong>: JavaScript, Perl, Java, bash, VBA, APL</li>
+          <li><strong>Scopes</strong>: full-stack, back-end, front-end, APIs, SPAs</li>
+          <li><strong>Back-end</strong>: Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, DBI</li>
+          <li><strong>Databases</strong>: PostgreSQL, PL/pgSQL, SQL Server, FileMaker Pro, MongoDB, migrations</li>
+          <li><strong>Front-end</strong>: HTML, CSS, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize</li>
+          <li><strong>Content and version management</strong>: git, svn, Github, Gitlab, Bitbucket, SourceForge, WordPress</li>
+          <li><strong>Quality control</strong>: ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools</li>
+          <li><strong>Accessibility</strong>: WCAG 2.1, ARIA, Chrome/aXe/Siteimprove audits, ADA Title III</li>
+          <li><strong>Internationalization</strong>: Unicode, CLDR, ISO 639, PanLex API</li>
+          <li><strong>Web servers</strong>: Apache httpd, nginx</li>
+          <li><strong>Mail servers</strong>: Postfix, sendmail, SendGrid Web API</li>
+          <li><strong>Remote hosts</strong>: Amazon AWS (EC2, S3, Glacier), OVH</li>
+          <li><strong>OS’s</strong>: Ubuntu, RHEL, OS X, Cisco IOS</li>
+          <li><strong>Configuration management</strong>: Puppet</li>
+          <li><strong>Files</strong>: FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter</li>
+          <li><strong>CAD</strong>: VectorWorks</li>
+          <li><strong>Statistics</strong>: SPSS</li>
+          <li><strong>Office apps</strong>: Apache OpenOffice, Apple iWork, Microsoft Office</li>
+          <li><strong>Collaboration</strong>: Slack, Asana, Wrike, Trello, Egnyte</li>
+        </ul>
       </section>
       <section title="Human languages" class="boxedBulletList">
         <h1 class="size2">I can communicate in (best→worst)</h1>
-        <p><span class="list-item">English</span></p>
-        <p><span class="list-item">Esperanto</span></p>
-        <p><span class="list-item">German</span></p>
-        <p><span class="list-item">Turkish</span></p>
-        <p><span class="list-item">French</span></p>
-        <p><span class="list-item">Norwegian Bokmål</span></p>
-        <p><span class="list-item">Russian</span></p>
-        <p><span class="list-item">Latin</span></p>
+        <ul>
+          <li>English</li>
+          <li>Esperanto</li>
+          <li>German</li>
+          <li>Turkish</li>
+          <li>French</li>
+          <li>Norwegian Bokmål</li>
+          <li>Russian</li>
+          <li>Latin</li>
+        </ul>
       </section>
       <section title="Education" class="boxedBulletList">
         <h1 class="size2">I have studied at</h1>
-        <p><span class="list-item"><a href="https://learnersguild.org">Learners Guild</a>, 2017-05-01–2018-02-16: web development</span></p>
-        <p><span class="list-item"><a href="https://jpdev.pro/info/docs/pool-uw-transcript.pdf">University of Washington</a>, 2004-03-29–2007-06-01: computer science, user interface design, linguistics</span></p>
-        <p><span class="list-item"><a href="https://www.uchicago.edu">The University of Chicago</a>, 1966-09-01–1971-04-30: political science</span></p>
-        <p><span class="list-item"><a href="https://www.harvard.edu">Harvard University</a>, 1960-09-01–1964-06-30: government</span></p>
+        <ul>
+          <li><a href="https://learnersguild.org">Learners Guild</a>, 2017-05-01–2018-02-16: web development</li>
+          <li><a href="https://jpdev.pro/info/docs/pool-uw-transcript.pdf">University of Washington</a>, 2004-03-29–2007-06-01: computer science, UI design, linguistics</li>
+          <li><a href="https://www.uchicago.edu">The University of Chicago</a>, 1966-09-01–1971-04-30: political science</li>
+          <li><a href="https://www.harvard.edu">Harvard University</a>, 1960-09-01–1964-06-30: government</li>
+        </ul>
       </section>
       <section title="Work" class="boxedBulletList">
         <h1 class="size2">I have worked at</h1>
-        <p><span class="list-item"><a href="http://longnow.org">The Long Now Foundation</a>, 2012-01-01–2016-12-19: Project Director, PanLex</span></p>
-        <p><span class="list-item"><a href="http://stulta.com/misc/cx/">Centerplex</a>, 1993-06-16–2004-06-11: contracting, project management, ADA upgrades</span></p>
-        <p><span class="list-item"><a href="http://www.washington.edu">University of Washington</a>, 1977-09-16–1993-06-15: research and teaching</span></p>
-        <p><span class="list-item"><a href="http://www.stonybrook.edu">State University of New York at Stony Brook</a>, 1971-01-01–1977-06-15: research and teaching</span></p>
-        <p><span class="list-item"><a href="https://www.peacecorps.gov/">Peace Corps</a>, 1964-06-15–1966-06-15: teaching</span></p>
+        <ul>
+          <li><a href="http://longnow.org">The Long Now Foundation</a>, 2012-01-01–2016-12-19: Project Director, PanLex</li>
+          <li><a href="http://stulta.com/misc/cx/">Centerplex</a>, 1993-06-16–2004-06-11: contracting, project management, ADA upgrades</li>
+          <li><a href="http://www.washington.edu">University of Washington</a>, 1977-09-16–1993-06-15: research and teaching</li>
+          <li><a href="http://www.stonybrook.edu">State University of New York at Stony Brook</a>, 1971-01-01–1977-06-15: research and teaching</li>
+          <li><a href="https://www.peacecorps.gov/">Peace Corps</a>, 1964-06-15–1966-06-15: teaching</li>
+        </ul>
       </section>
       <section title="Awards" class="boxedBulletList">
         <h1 class="size2">I have received software grants from</h1>
-        <p><span class="list-item">University of Maryland</span></p>
-        <p><span class="list-item">National Science Foundation</span></p>
+        <ul>
+          <li>University of Maryland</li>
+          <li>National Science Foundation</li>
+        </ul>
       </section>
       <section title="Publications" class="boxedBulletList">
         <h1 class="size2">I have published about</h1>
-        <p><span class="list-item">computational lexicography</span></p>
-        <p><span class="list-item">syntactic ambiguity</span></p>
-        <p><span class="list-item">game-theoretic models of social choice</span></p>
+        <ul>
+          <li>computational lexicography</li>
+          <li>syntactic ambiguity</li>
+          <li>game-theoretic models of social choice</li>
+        </ul>
       </section>
     </main>
     <section title="credit" class="theme-credit">

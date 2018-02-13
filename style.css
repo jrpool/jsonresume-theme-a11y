@@ -53,10 +53,6 @@ h1 {
   margin: 0.5rem 0 0 0.3rem;
   color: #344;
 }
-.list-item {
-  position: relative;
-  left: -0.5rem;
-}
 p {
   display: list-item;
   list-style: inside;
@@ -76,6 +72,10 @@ p {
 }
 .boxedBulletList + .boxedBulletList {
   margin-top: -1px;
+}
+li,
+td {
+  font-size: 1.2rem;
 }
 section:not(.boxedBulletList) + .boxedBulletList {
   margin-top: 2rem;
@@ -127,4 +127,7 @@ td {
   border-width: 1px;
   border-color: slategray;
   text-align: left;
+}
+ul {
+  margin: 0.25rem 0;
 }

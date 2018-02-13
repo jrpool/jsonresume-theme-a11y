@@ -62,8 +62,12 @@ const squeezeBoxOf = content => {
 
 // Bulleted string paragraph.
 const bulletItemOf = string => {
-  const contentSpan = element2Of(string, 'span', {class: 'list-item'});
-  return element2Of(contentSpan, 'p', {}, -1);
+  return element2Of(string, 'li', {}, -1);
+};
+
+// Bullet list.
+const bulletListOf = array => {
+  return element2Of(array.join('\n'), 'ul', {}, 2);
 };
 
 // Image.
@@ -132,6 +136,7 @@ const pageOf = (content, foot, lang, title, style) => {
 
 module.exports = {
   bulletItemOf,
+  bulletListOf,
   codeOf,
   element1Of,
   element2Of,
