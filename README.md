@@ -153,15 +153,15 @@ As described above, your résumé will be partitioned into sections, each repres
 
 Each section has a format, a “title” (i.e. metafact), and some content. To specify a section, make it an object with `format`, `title`, and `data` properties, whose values comply with the requirements given below.
 
-Some formats require that the `data` property have an object value and that this value have a `head` property. In such cases, the `head` property’s value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a stringable.
+Some formats require that the `data` property have an object value. This object may be required, or permitted, to have a `head` property. In such cases, the `head` property’s value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a stringable.
 
 There are 7 permitted section formats:
 
 #### Boxed bullet list (`boxedBulletList`)
 
-The `data` value is an object with `head` (see above) and `list` properties. The `list` property has an array of stringables as its value.
+The `data` value is an object with an optional `head` property (see above) and a `list` property. The `list` property has an array of stringables as its value.
 
-The property will be rendered as a bulleted list with a heading, enclosed in a box. Each stringable in the `data.list` array will be an item in the bulleted list.
+The property will be rendered as a bulleted list, with a heading if you included a `head` property, enclosed in a box. Each stringable in the `data.list` array will be an item in the bulleted list.
 
 #### Centered text (`center`)
 
@@ -181,20 +181,20 @@ The `data` value is an array of arrays of strings. Each inner array represents a
 
 The property will be rendered as a set of one-row tables, each centered, one below the other.
 
-#### One-row tables with heading and border (`rowTablesCircled`)
+#### One-row tables with border (`rowTablesCircled`)
 
-The `data` value is an object with `head` (see above) and `tables` properties. The `tables` value is an array of arrays, as specified above under “One-row tables”.
+The `data` value is an object with an optional `head` property (see above) and a `tables` property. The `tables` value is an array of arrays, as specified above under “One-row tables”.
 
-The property will be rendered as a set of one-row tables, as with “One-row tables”, but with two additional features: a heading and an oval border.
+The property will be rendered as a set of one-row tables, as with “One-row tables”, but also with a heading if you included a `head` property and an oval border.
 
 #### Left-headed table (`tableLeftHeads`)
 
-The `data` value is an object with properties `head` (see above) and `table`. The `table` value is an array of objects. Each inner object has `label` and `data` properties. The `label` value is a string. The `data` value is an array of stringables.
+The `data` value is an object with an optional `head` property (see above) and a `table` property. The `table` value is an array of objects. Each inner object has `label` and `data` properties. The `label` value is a string. The `data` value is an array of stringables.
 
-The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered.
+The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered, with a heading if you included a `head` property.
 
 #### Top-headed table (`tableTopHead`)
 
-The `data` value is an object with properties `head` (see above) and `table`. The `table` value is an object with `label` and `data` properties. The `label` value is an array of strings. The `data` value is an array of stringables.
+The `data` value is an object with an optional `head` property (see above) and a `table` property. The `table` value is an object with `label` and `data` properties. The `label` value is an array of strings. The `data` value is an array of stringables.
 
-The property will be rendered as a table whose top row contains headings, centered and not bordered.
+The property will be rendered as a table whose top row contains headings, centered and not bordered, with a heading if you included a `head` property.

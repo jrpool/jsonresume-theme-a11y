@@ -55,15 +55,19 @@ const stringOf = stringable => {
 };
 
 // Function rendering a heading.
-const headOf = object => renderer.headOf(stringOf(object.data), object.size);
+const headOf = object => {
+  const headObject = object.head;
+  return headObject
+    ? renderer.headOf(stringOf(headObject.data), headObject.size)
+    : '';
+}
 
 // Function rendering and writing the object represented by a source file.
 const page = () => {
   const fileArgs = process.argv.slice(2);
   fileArgs[0] = fileArgs[0] || 'docs/resume-a11y.json';
   fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.html';
-  const cvJSON = fs.readFileSync(path.join(__dirname, fileArgs[0]), 'utf8');
-  const cvObject = JSON.parse(cvJSON);
+  const cvObject = require(path.join(__dirname, fileArgs[0]));
   const lang = cvObject.lang ? cvObject.lang.data : 'en';
   const pageTitle = cvObject.title ? cvObject.title.data : 'Résumé';
   const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
@@ -88,14 +92,13 @@ const page = () => {
     const data = sectionObject.data;
     switch(format) {
       case 'boxedBulletList': {
-        const listHead = headOf(data.head);
+        const head = headOf(data);
         const bulletItems = data.list.map(
           item => renderer.bulletItemOf(stringOf(item))
         );
         const bulletList = renderer.bulletListOf(bulletItems);
-        return renderer.sectionOf(
-          [listHead, bulletList].join('\n'), title, format
-        );
+        const content = head ? [head, bulletList].join('\n') : bulletList;
+        return renderer.sectionOf(content, title, format);
       }
       case 'center': {
         const lines = data.map(
@@ -117,16 +120,17 @@ const page = () => {
           const quasiTable = renderer.squeezeBoxOf(content);
           return renderer.sectionOf(quasiTable, title, format);
         };
-        const head = renderer.headOf(data.head.data, data.head.size);
+        const head = headOf(data);
         const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
         const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
+        const contentItems = head ? [head, ...rowTables] : rowTables;
         return compactSectionOf(
-          [head, ...rowTables].join('\n'), title, 'rowTablesCircled'
+          contentItems.join('\n'), title, 'rowTablesCircled'
         );
       }
       case 'tableLeftHeads': {
-        const head = renderer.headOf(data.head.data, data.head.size);
-        const rowElements = data.table.map(
+        const head = headOf(data);
+        const rowItems = data.table.map(
           rowSpec => {
             rowSpec.data.unshift(titleOf(rowSpec.label, legend));
             return renderer.leftHeadRowOf(
@@ -134,27 +138,25 @@ const page = () => {
             );
           }
         );
-        const leftHeadTable = renderer.tableOf(rowElements, 'tableLH');
-        return renderer.sectionOf(
-          [head, leftHeadTable].join('\n'), title, 'center'
-        );
+        const table = renderer.tableOf(rowItems, 'tableLH');
+        const content = head ? [head, table].join('\n') : table;
+        return renderer.sectionOf(content, title, 'center');
       }
       case 'tableTopHead': {
-        const head = renderer.headOf(data.head.data, data.head.size);
-        const headRowElement = renderer.headRowOf(
+        const head = headOf(data);
+        const headRowItem = renderer.headRowOf(
           data.table.label.map(string => titleOf(string, legend))
         );
-        const etcRowElements = data.table.data.map(
+        const etcRowItems = data.table.data.map(
           rowSpec => renderer.plainRowOf(
             rowSpec.map(cellSpec => stringOf(cellSpec))
           )
         );
-        const topHeadTable = renderer.tableOf(
-          [headRowElement, ...etcRowElements], 'tableTH'
+        const table = renderer.tableOf(
+          [headRowItem, ...etcRowItems], 'tableTH'
         );
-        return renderer.sectionOf(
-          [head, topHeadTable].join('\n'), title, 'center'
-        );
+        const content = head ? [head, table].join('\n') : table;
+        return renderer.sectionOf(content, title, 'center');
       }
     }
   });
