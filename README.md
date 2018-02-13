@@ -33,43 +33,45 @@ For interoperability with other `jsonresume` themes, this theme contains a modul
 
 ### Authoring
 
-If you want to create, a résumé in the `jsonresume` standard format, you can:
+#### Project format
+
+If you want to create, a résumé in the `jsonresume` format, you can:
 
 - Use the `resume init` command to generate a starter source file.
 - Name the source file `resume.json` and put it into the `resume-cli` directory where this README file is located.
 - Edit the source file so it contains the information you want.
 
-Once you have a source file in the `jsonresume` standard format, you can convert it to this theme’s format as follows:
+Once you have a source file in the `jsonresume` format, you can convert it to this theme’s format as follows:
 
 - Clone this theme’s repository into a local directory.
 - Use the `node convert [oldsourcefile] [newsourcefile]` command to convert your source file to this theme’s format.
 
-If you want to use only this theme and you don’t yet have a résumé in the `jsonresume` standard format, you can author a file directly in this theme’s format. That format is described below.
+Once you have converted your project-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s features.
+
+#### Theme format
+
+If you want to use only this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below.
 
 ### Generation
 
 #### In `resume-cli`
 
-If you have a résumé in the `jsonresume` standard format, you can generate an output in this theme with the `resume-cli` command:
+If you have a source file named `resume.json` in the `jsonresume` format in your working directory, you can generate an output with this theme by using the `resume-cli` command:
 
 `resume export --theme a11y --format {html|markdown|pdf} [outputfilename]`
 
 This command will generate the output in two steps:
 
-- It will convert your source file to a source file in this theme’s format.
+- It will convert your source file to a source file in this theme’s format, saving that file as `resume-a11y.json`.
 - It will then generate an output file from the latter file.
-
-The command requires that your source file be located in the `resume-cli` directory and be named `resume.json`.
 
 #### In `jsonresume-theme-a11y`
 
 If you are in a local repository of this theme instead, and if you have already created or generated a source file in this theme’s format, you can generate an HTML output file with the command:
 
-`node index [< source file] [> output file]`
+`node index [source file] [output file]`
 
-This command gets your source file from standard input and outputs the result to standard output. That permits you to maintain multiple source files, and keep them anywhere in your filesystem. You can choose the input and output files each time you issue the command.
-
-This command will use this theme to render the specified source file and will output the HTML rendering to the specified output file.
+If you omit the source-file argument, the theme expects the source file to be `docs/resume-a11y.json`. If you omit the output-file argument, the theme writes the output file to `docs/resume-a11y.html`.
 
 At this time, this command does not generate a PDF or Markdown output file. You can do that with the `resume-cli` counterpart, or by using another method to convert this command’s HTML output to PDF or Markdown.
 
