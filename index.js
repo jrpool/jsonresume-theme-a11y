@@ -97,8 +97,10 @@ const page = () => {
         );
       }
       case 'center': {
-        const heading = renderer.headOf(stringOf(data));
-        return renderer.sectionOf(heading, title, format);
+        const lines = data.map(
+          lineSpec => renderer.headOf(stringOf(lineSpec.text), lineSpec.size)
+        );
+        return renderer.sectionOf(lines.join('\n'), title, format);
       }
       case 'cornerPic': {
         const image = renderer.imageOf(data.src, data.alt);
@@ -114,11 +116,11 @@ const page = () => {
           const quasiTable = renderer.squeezeBoxOf(content);
           return renderer.sectionOf(quasiTable, title, format);
         };
-        const head = renderer.headOf(data.head, data.size);
+        const head = renderer.headOf(data.head.data, data.head.size);
         const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
         const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
         return compactSectionOf(
-          [head, ...rowTables].join('\n'), title, 'compact'
+          [head, ...rowTables].join('\n'), title, 'rowTablesCircled'
         );
       }
       case 'tableLeftHeads': {

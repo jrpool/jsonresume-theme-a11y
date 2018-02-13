@@ -55,7 +55,7 @@ const codeOf = string => element2Of(string, 'code', {}, -1);
 // Squeeze box
 const squeezeBoxOf = content => {
   const squeezer = element2Of('', 'div', {}, -1);
-  const squeezed = element2Of(content, 'div', {class: 'compactDiv'}, 2);
+  const squeezed = element2Of(content, 'div', {class: 'compact'}, 2);
   return [squeezer, squeezed, squeezer].join('\n');
 };
 

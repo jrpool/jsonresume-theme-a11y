@@ -79,7 +79,7 @@
     "title": "profDetail",
     "data": {
       "head": {
-        "size": 3,
+        "size": 4,
         "data": "I do"
       },
       "tables": [
@@ -118,6 +118,17 @@
           "label": "mobilePhone",
           "data": [
             "(510) 225-1700"
+          ]
+        },
+        {
+          "label": "blog",
+          "data": [
+            {
+              "format": "hLink",
+              "data": {
+                "href": "http://stulta.com/forumo"
+              }
+            }
           ]
         },
         {
@@ -176,15 +187,6 @@
               "format": "hLink",
               "data": {
                 "href": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
-              }
-            }
-          ],
-          [
-            "blog",
-            {
-              "format": "hLink",
-              "data": {
-                "href": "http://stulta.com/forumo"
               }
             }
           ]
@@ -523,7 +525,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "Learners Guild",
+            "location": "Learners Guild",
             "url": "https://learnersguild.org",
             "startDate": "2017-05-01",
             "endDate": "2018-02-16",
@@ -533,7 +535,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "University of Washington",
+            "location": "University of Washington",
             "url": "https://jpdev.pro/info/docs/pool-uw-transcript.pdf",
             "startDate": "2004-03-29",
             "endDate": "2007-06-01",
@@ -543,7 +545,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "The University of Chicago",
+            "location": "The University of Chicago",
             "url": "https://www.uchicago.edu",
             "startDate": "1966-09-01",
             "endDate": "1971-04-30",
@@ -553,7 +555,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "Harvard University",
+            "location": "Harvard University",
             "url": "https://www.harvard.edu",
             "startDate": "1960-09-01",
             "endDate": "1964-06-30",
@@ -575,7 +577,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "The Long Now Foundation",
+            "location": "The Long Now Foundation",
             "url": "http://longnow.org",
             "startDate": "2012-01-01",
             "endDate": "2016-12-19",
@@ -585,7 +587,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "Centerplex",
+            "location": "Centerplex",
             "url": "http://stulta.com/misc/cx/",
             "startDate": "1993-06-16",
             "endDate": "2004-06-11",
@@ -595,7 +597,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "University of Washington",
+            "location": "University of Washington",
             "url": "http://www.washington.edu",
             "startDate": "1977-09-16",
             "endDate": "1993-06-15",
@@ -605,7 +607,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "State University of New York at Stony Brook",
+            "location": "State University of New York at Stony Brook",
             "url": "http://www.stonybrook.edu",
             "startDate": "1971-01-01",
             "endDate": "1977-06-15",
@@ -615,7 +617,7 @@
         {
           "format": "edWork",
           "data": {
-            "head": "Peace Corps",
+            "location": "Peace Corps",
             "url": "https://www.peacecorps.gov/",
             "startDate": "1964-06-15",
             "endDate": "1966-06-15",
