@@ -94,7 +94,7 @@
     "data": {
       "head": {
         "size": 4,
-        "data": "I can be found at"
+        "data": "Find me at"
       },
       "table": [
         {
@@ -155,7 +155,7 @@
     "data": {
       "head": {
         "size": 4,
-        "data": "My artifacts are at"
+        "data": "Look me up at"
       },
       "table": {
         "label": ["network", "username", "url"],
@@ -187,6 +187,16 @@
               "format": "hLink",
               "data": {
                 "href": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+              }
+            }
+          ],
+          [
+            "Google Scholar",
+            "Jonathan Pool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en&oi=ao"
               }
             }
           ]
@@ -307,7 +317,7 @@
             "tail": {
               "format": "hLink",
               "data": {
-                "href": "https://gitlab.com/JonathanPool"
+                "href": "https://jpdev.pro/info/docs/panlem-pool.png"
               }
             },
             "delimiter": ": "
@@ -342,7 +352,7 @@
           "format": "headedString",
           "data": {
             "head": "Languages",
-            "tail": "JavaScript, Perl, Java, bash, VBA, APL",
+            "tail": "JavaScript, Perl, Java, bash, 68000 Assembly, VBA, APL",
             "delimiter": ": "
           }
         },
