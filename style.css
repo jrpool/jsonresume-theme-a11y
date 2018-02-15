@@ -28,6 +28,9 @@ body {
   border-style: solid;
   border-width: 1px;
 }
+.boxedBulletList + .boxedBulletList {
+  margin-top: -1px;
+}
 .center,
 .compact {
   text-align: center;
@@ -53,6 +56,10 @@ h1 {
   margin: 0.5rem 0 0 0.3rem;
   color: #344;
 }
+li,
+td {
+  font-size: 1.2rem;
+}
 .rowTable ~ .rowTable {
   margin-top: 0.1rem;
 }
@@ -62,13 +69,6 @@ h1 {
 }
 .rowTablesCircled td {
   padding-right: 0.3rem;
-}
-.boxedBulletList + .boxedBulletList {
-  margin-top: -1px;
-}
-li,
-td {
-  font-size: 1.2rem;
 }
 section:not(.boxedBulletList) + .boxedBulletList {
   margin-top: 2rem;
@@ -94,7 +94,8 @@ section:not(.boxedBulletList) + .boxedBulletList {
   font-size: 1.5rem;
   font-style: italic;
 }
-.size7 {
+.size7,
+p {
   font-size: 1.4rem;
 }
 strong {

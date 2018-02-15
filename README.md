@@ -46,6 +46,8 @@ Once you have a source file in the `jsonresume` format, you can convert it to th
 - Clone this theme’s repository into a local directory.
 - Use the `node convert [oldsourcefile] [newsourcefile]` command to convert your source file to this theme’s format.
 
+If you omit the `oldsourcefile` argument, `convert` will look for the input file as `resume.json`. If you omit the `newsourcefile` argument, `convert` will write the output file to `docs/resume-a11y.json`.
+
 Once you have converted your project-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s features.
 
 #### Theme format
@@ -157,7 +159,12 @@ Each section has a format, a “title” (i.e. metafact), and some content. To s
 
 Some formats require that the `data` property have an object value. This object may be required, or permitted, to have a `head` property. In such cases, the `head` property’s value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a stringable.
 
-There are 7 permitted section formats:
+There are 8 permitted section formats:
+
+#### Paragraph (`left`)
+The `data` value is an array of strings.
+
+The property will be rendered as a succession of paragraphs, left-justified, one per string.
 
 #### Boxed bullet list (`boxedBulletList`)
 

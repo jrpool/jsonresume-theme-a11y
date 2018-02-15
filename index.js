@@ -25,19 +25,51 @@ const stringOf = stringable => {
     const data = stringable.data;
     switch(format) {
       case 'address': {
-        return renderer.multilineOf([
-          data.point,
-          `${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`
-        ]);
+        const {point, city, region, postalCode, countryCode} = data;
+        const line1Item = data.point, line2Items = [
+          data.city, data.region, data.postalCode, data.countryCode
+        ];
+        let line2Item = '';
+        if (line2Items[0]) {
+          const cityRegion = line2Items.slice(0, 2).filter(
+            item => item.length
+          ).join(', ');
+          const cityRegionCode = [cityRegion, line2Items[2]].filter(
+            item => item.length
+          ).join(' ');
+          line2Item = [cityRegionCode, line2Items[3]].filter(
+            item => item.length
+          ).join(', ');
+        }
+        else {
+          line1Item = line2Items[2] = '';
+          line2Item = line2Items.filter(item => item.length).join(', ');
+        }
+        return renderer.multilineOf(
+          [line1Item, line2Item].filter(item => item.length)
+        );
       }
       case 'code': {
         return renderer.codeOf(stringOf(data));
       }
       case 'edWork': {
-        const location = data.url ? renderer.hLinkOf(
-          data.location, data.url
-        ) : data.location;
-        return `${location}, ${data.startDate}–${data.endDate}: ${data.subject}`;
+        const {location, startDate, endDate} = data;
+        let locationItem = '', dateItem = '';
+        if (location) {
+          locationItem = data.url ? renderer.hLinkOf(
+            location, data.url
+          ) : location;
+        }
+        if (startDate || endDate) {
+          dateItem = `${startDate || ''}–${endDate || ''}`;
+        }
+        const subjectItem = data.subject || '';
+        const locationDateItem = [locationItem, dateItem].filter(
+          item => item.length
+        ).join(', ');
+        return [locationDateItem, subjectItem].filter(
+          item => item.length
+        ).join(': ');
       }
       case 'headedString': {
         return renderer.headedStringOf(
@@ -101,7 +133,7 @@ const page = () => {
         return renderer.sectionOf(content, title, format);
       }
       case 'center': {
-        const lines = data.map(
+        const lines = data.filter(lineSpec => lineSpec.text.length).map(
           lineSpec => renderer.headOf(stringOf(lineSpec.text), lineSpec.size)
         );
         return renderer.sectionOf(lines.join('\n'), title, format);
@@ -109,6 +141,10 @@ const page = () => {
       case 'cornerPic': {
         const image = renderer.imageOf(data.src, data.alt);
         return renderer.sectionOf(image, title, format);
+      }
+      case 'left': {
+        const lines = data.map(line => renderer.ParagraphOf(line));
+        return renderer.sectionOf(lines.join('\n'), title, format);
       }
       case 'rowTables': {
         const rows = data.map(rowArray => renderer.plainRowOf(rowArray));

@@ -52,23 +52,21 @@ const codeOf = string => element2Of(string, 'code', {}, -1);
 
 // BLOCKIFIERS
 
-// Squeeze box
+// Squeeze box.
 const squeezeBoxOf = content => {
   const squeezer = element2Of('', 'div', {}, -1);
   const squeezed = element2Of(content, 'div', {class: 'compact'}, 2);
   return [squeezer, squeezed, squeezer].join('\n');
 };
 
+// Paragraph.
+const paragraphOf = string => element2Of(string, 'p', {}, -1);
 
 // Bulleted string paragraph.
-const bulletItemOf = string => {
-  return element2Of(string, 'li', {}, -1);
-};
+const bulletItemOf = string => element2Of(string, 'li', {}, -1);
 
 // Bullet list.
-const bulletListOf = array => {
-  return element2Of(array.join('\n'), 'ul', {}, 2);
-};
+const bulletListOf = array => element2Of(array.join('\n'), 'ul', {}, 2);
 
 // Image.
 const imageOf = (src, alt) => element1Of('img', {src, alt});
