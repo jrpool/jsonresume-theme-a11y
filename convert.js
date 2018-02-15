@@ -332,6 +332,34 @@ a11yObject.awards = {
     }) : []
   }
 };
+a11yObject.publications = {
+  normalFormat: 'boxedBulletList',
+  format: publications && publications.length ? 'boxedBulletList' : 'hide',
+  title: 'publications',
+  data: {
+    head: {
+      size: 2,
+      data: 'Publications'
+    },
+    list: publications && publications.length ? publications.map(
+      publicationsItem => {
+        const {name, publisher, releaseDate, website, summary} = publications;
+        websiteItem = website ? {
+          format: 'hLink',
+          data: {
+            href: website
+          }
+        } : '';
+        const preSummary = [name, publisher, releaseDate, websiteItem].filter(
+          item => item && item.length
+        ).map(item => )
+        return [title, date, awarder, summary].filter(
+          item => item && item.length
+        ).join(', ');
+      }
+    ) : []
+  }
+};
 // Function converting a string according to a legend.
 const titleOf = (string, legend) => legend[string] || string;
 

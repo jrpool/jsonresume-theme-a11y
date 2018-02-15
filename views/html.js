@@ -23,18 +23,21 @@ const element2Of = (content, tagName, atObject, indent) => {
   }
 };
 
-// STRINGIFIERS
+// ELEMENT CREATORS
 
-// Hyperlink.
-const hLinkOf = (label, href) => element2Of(label || href, 'a', {href}, -1);
+// Bullet list.
+const bulletListOf = array => element2Of(array.join('\n'), 'ul', {}, 2);
+
+// Bulleted list item.
+const bulletItemOf = string => element2Of(string, 'li', {}, -1);
+
+// Code.
+const codeOf = string => element2Of(string, 'code', {}, -1);
 
 // Email link.
 const mailLinkOf = (label, href) => element2Of(
   label || href, 'a', {href: `mailto:${href}`}, -1
 );
-
-// Multiline string.
-const multilineOf = lineArray => lineArray.join(element1Of('br', {}));
 
 // Headed string.
 const headedStringOf = (head, tail, delimiter) => {
@@ -47,41 +50,17 @@ const headOf = (string, size) => element2Of(
   string, 'h1', {class: `size${size}`}, -1
 );
 
-// Code.
-const codeOf = string => element2Of(string, 'code', {}, -1);
-
-// BLOCKIFIERS
-
-// Squeeze box.
-const squeezeBoxOf = content => {
-  const squeezer = element2Of('', 'div', {}, -1);
-  const squeezed = element2Of(content, 'div', {class: 'compact'}, 2);
-  return [squeezer, squeezed, squeezer].join('\n');
-};
-
-// Paragraph.
-const paragraphOf = string => element2Of(string, 'p', {}, -1);
-
-// Bulleted string paragraph.
-const bulletItemOf = string => element2Of(string, 'li', {}, -1);
-
-// Bullet list.
-const bulletListOf = array => element2Of(array.join('\n'), 'ul', {}, 2);
-
-// Image.
-const imageOf = (src, alt) => element1Of('img', {src, alt});
-
 // Heading row.
 const headRowOf = array => {
   const cells = array.map(string => element2Of(string, 'th', {}, -1));
   return rowOf(cells);
 };
 
-// Plain row.
-const plainRowOf = array => {
-  const cells = array.map(string => element2Of(string, 'td', {}, -1));
-  return rowOf(cells);
-};
+// Hyperlink.
+const hLinkOf = (label, href) => element2Of(label || href, 'a', {href}, -1);
+
+// Image.
+const imageOf = (src, alt) => element1Of('img', {src, alt});
 
 // Left-headed table row.
 const leftHeadRowOf = array => {
@@ -91,21 +70,8 @@ const leftHeadRowOf = array => {
   return rowOf(cells);
 };
 
-// Table row.
-const rowOf = cellElements => element2Of(cellElements.join(''), 'tr', {}, 2);
-
-// Table.
-const tableOf = (rowElements, type) => element2Of(
-  rowElements.join('\n'), 'table', {class: type}, 2
-);
-
-// Section.
-const sectionOf = (content, title, type) => element2Of(
-  content, 'section', {title, class: type}, 2
-);
-
-// Style.
-const styleOf = style => element2Of(style, 'style', {}, -1);
+// Multiline string.
+const multilineOf = lineArray => lineArray.join(element1Of('br', {}));
 
 // Page.
 const pageOf = (content, foot, lang, title, style) => {
@@ -131,6 +97,38 @@ const pageOf = (content, foot, lang, title, style) => {
   );
   return ['<!DOCTYPE html>', htmlElement].join('\n');
 };
+
+// Paragraph.
+const paragraphOf = string => element2Of(string, 'p', {}, -1);
+
+// Plain row.
+const plainRowOf = array => {
+  const cells = array.map(string => element2Of(string, 'td', {}, -1));
+  return rowOf(cells);
+};
+
+// Section.
+const sectionOf = (content, title, type) => element2Of(
+  content, 'section', {title, class: type}, 2
+);
+
+// Squeeze box.
+const squeezeBoxOf = content => {
+  const squeezer = element2Of('', 'div', {}, -1);
+  const squeezed = element2Of(content, 'div', {class: 'compact'}, 2);
+  return [squeezer, squeezed, squeezer].join('\n');
+};
+
+// Style.
+const styleOf = style => element2Of(style, 'style', {}, -1);
+
+// Table.
+const tableOf = (rowElements, type) => element2Of(
+  rowElements.join('\n'), 'table', {class: type}, 2
+);
+
+// Table row.
+const rowOf = cellElements => element2Of(cellElements.join(''), 'tr', {}, 2);
 
 module.exports = {
   bulletItemOf,

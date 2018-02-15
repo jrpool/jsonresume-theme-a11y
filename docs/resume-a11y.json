@@ -647,6 +647,17 @@
       },
       "list": [
         "University of Maryland",
+        [
+          "Fake Foundation",
+          {
+            "format": "bulletList",
+            "data": [
+              "Prize amount $1,000,000,000",
+              "Awarded 2019",
+              "Revoked for fraud 2020"
+            ]
+          }
+        ],
         "National Science Foundation"
       ]
     }
