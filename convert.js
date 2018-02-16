@@ -302,4 +302,6 @@ boxedBulletListOf('references', 'References', 'name', [
 ], '');
 
 // Write object as JSON string to converted source file.
-fs.writeFileSync(path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject));
+fs.writeFileSync(
+  path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject, null, 2)
+);
