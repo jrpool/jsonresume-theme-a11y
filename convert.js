@@ -89,18 +89,7 @@ a11yObject.legend = {
     work: 'Work'
   }
 };
-const {
-  basics,
-  work,
-  volunteer,
-  education,
-  awards,
-  publications,
-  skills,
-  languages,
-  interests,
-  references
-} = cvObject;
+const {basics} = cvObject;
 {
   const {
     name, label, picture, email, phone, website, summary, location, profiles
@@ -185,15 +174,12 @@ const {
       ]
     }
   };
-}
-a11yObject.summary = {
-  normalFormat: 'left',
-  format: summary ? 'left' : 'hide',
-  title: 'summary',
-  data: summary ? summary.split('\n') : ''
-};
-{
-  const {network, username, url} = profiles;
+  a11yObject.summary = {
+    normalFormat: 'left',
+    format: summary ? 'left' : 'hide',
+    title: 'summary',
+    data: summary ? summary.split('\n') : ''
+  };
   a11yObject.profiles = {
     normalFormat: 'tableTopHead',
     format: profiles && profiles.length ? 'tableTopHead' : 'hide',
@@ -228,12 +214,12 @@ const headedStringOf = (head, tail) => {
     format: 'headedString',
     data: {
       head,
-      tail: tailItem || ''
+      tail: tailItem || '',
       delimiter: ': '
     }
   };
 };
-const headedlistOf = (
+const headedListOf = (
   object, headPropertyName, etcPropertyNames, delimiter
 ) => {
   const result = [headedStringOf(headPropertyName, object[headPropertyName])];
@@ -274,32 +260,24 @@ const boxedBulletListOf = (
   };
 };
 boxedBulletListOf('work', 'Work history', 'company', [
-  position, website, startDate, endDate, summary, highlights
+  'position', 'website', 'startDate', 'endDate', 'summary', 'highlights'
 ], '/');
 boxedBulletListOf('volunteer', 'Volunteering', 'organization', [
-  position, website, startDate, endDate, summary, highlights
+  'position', 'website', 'startDate', 'endDate', 'summary', 'highlights'
 ], '/');
 boxedBulletListOf('education', 'Education', 'institution', [
-  area, studyType, startDate, endDate, gpa, courses
+  'area', 'studyType', 'startDate', 'endDate', 'gpa', 'courses'
 ], '/');
 boxedBulletListOf('awards', 'Grants, awards, and prizes', 'title', [
-  date, awarder, summary
+  'date', 'awarder', 'summary'
 ], '');
 boxedBulletListOf('publications', 'Publications', 'name', [
-  publisher, releaseDate, website, summary
+  'publisher', 'releaseDate', 'website', 'summary'
 ], '');
-boxedBulletListOf('skills', 'Skills', 'name', [
-  level, keywords
-], ', ');
-boxedBulletListOf('languages', 'Languages known', 'name', [
-  level
-], '');
-boxedBulletListOf('interests', 'Interests', 'name', [
-  keywords
-], ', ');
-boxedBulletListOf('references', 'References', 'name', [
-  reference
-], '');
+boxedBulletListOf('skills', 'Skills', 'name', ['level', 'keywords'], ', ');
+boxedBulletListOf('languages', 'Languages known', 'name', ['level'], '');
+boxedBulletListOf('interests', 'Interests', 'name', ['keywords'], ', ');
+boxedBulletListOf('references', 'References', 'name', ['reference'], '');
 
 // Write object as JSON string to converted source file.
 fs.writeFileSync(
