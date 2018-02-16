@@ -147,7 +147,7 @@ const page = () => {
         return renderer.sectionOf(image, title, format);
       }
       case 'left': {
-        const lines = data.map(line => renderer.ParagraphOf(line));
+        const lines = data.map(line => renderer.paragraphOf(line));
         return renderer.sectionOf(lines.join('\n'), title, format);
       }
       case 'rowTables': {

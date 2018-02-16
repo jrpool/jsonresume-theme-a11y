@@ -1,0 +1,460 @@
+{
+  "lang": {
+    "format": "hide",
+    "data": "en"
+  },
+  "order": {
+    "format": "hide",
+    "data": [
+      "picture",
+      "identity",
+      "summary",
+      "contacts",
+      "profiles",
+      "work",
+      "volunteer",
+      "education",
+      "awards",
+      "publications",
+      "skills",
+      "languages",
+      "interests",
+      "references"
+    ]
+  },
+  "legend": {
+    "format": "hide",
+    "data": {
+      "address": "Address",
+      "area": "Area",
+      "awarder": "Awarder",
+      "awards": "Awards",
+      "basics": "Basics",
+      "city": "City",
+      "company": "Company",
+      "countryCode": "Country code",
+      "courses": "Courses",
+      "creditTo": "Powered by ",
+      "date": "Date",
+      "education": "Education",
+      "email": "Email",
+      "endDate": "End date",
+      "fluency": "Fluency",
+      "gpa": "GPA",
+      "highlights": "Highlights",
+      "institution": "Institution",
+      "interests": "Interests",
+      "keywords": "Keywords",
+      "label": "Label",
+      "language": "Language",
+      "languages": "Languages",
+      "level": "Level",
+      "location": "Mailing address",
+      "name": "Name",
+      "network": "Network",
+      "organization": "Organization",
+      "phone": "Phone",
+      "picture": "Picture",
+      "position": "Position",
+      "postalCode": "Postal code",
+      "profiles": "Profiles",
+      "publications": "Publications",
+      "publisher": "Publisher",
+      "reference": "Reference",
+      "references": "References",
+      "region": "Region",
+      "releaseDate": "Release date",
+      "skills": "Skills",
+      "startDate": "Start date",
+      "studyType": "Study type",
+      "summary": "Synopsis",
+      "title": "Title",
+      "url": "URL",
+      "username": "Username",
+      "volunteer": "Volunteering",
+      "website": "Website",
+      "work": "Work"
+    }
+  },
+  "picture": {
+    "normalFormat": "cornerPic",
+    "format": "hide",
+    "title": "picture",
+    "data": {
+      "src": "",
+      "alt": "Photograph of test"
+    }
+  },
+  "identity": {
+    "normalFormat": "center",
+    "format": "center",
+    "title": "identity",
+    "data": [
+      {
+        "size": 1,
+        "text": "test"
+      },
+      {
+        "size": 2,
+        "text": "Programmer"
+      }
+    ]
+  },
+  "contacts": {
+    "normalFormat": "tableLeftHeads",
+    "format": "tableLeftHeads",
+    "title": "contacts",
+    "data": {
+      "table": [
+        {
+          "label": "email",
+          "data": [
+            {
+              "format": "mailLink",
+              "data": {
+                "href": "test4@test.com"
+              }
+            }
+          ]
+        },
+        {
+          "label": "phone",
+          "data": [
+            "(912) 555-4321"
+          ]
+        },
+        {
+          "label": "website",
+          "data": [
+            {
+              "format": "hLink",
+              "data": {
+                "href": "http://richardhendricks.com"
+              }
+            }
+          ]
+        },
+        {
+          "label": "location",
+          "data": [
+            {
+              "format": "address",
+              "data": {
+                "point": "2712 Broadway St",
+                "city": "San Francisco",
+                "region": "California",
+                "postalCode": "CA 94115",
+                "countryCode": "US"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "normalFormat": "left",
+    "format": "left",
+    "title": "summary",
+    "data": [
+      "Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!"
+    ]
+  },
+  "profiles": {
+    "normalFormat": "tableTopHead",
+    "format": "tableTopHead",
+    "title": "profiles",
+    "data": {
+      "head": {
+        "size": 4,
+        "data": "Profiles"
+      },
+      "table": {
+        "label": [
+          "network",
+          "username",
+          "url"
+        ],
+        "data": [
+          [
+            "Twitter",
+            "neutralthoughts",
+            {
+              "format": "hLink",
+              "data": {
+                "href": ""
+              }
+            }
+          ],
+          [
+            "SoundCloud",
+            "dandymusicnl",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://soundcloud.com/dandymusicnl"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "work": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "work",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Work history"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "company",
+              "tail": "Pied Piper",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "volunteer": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "volunteer",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Volunteering"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "organization",
+              "tail": "CoderDojo",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "education": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "education",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Education"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "institution",
+              "tail": "University of Oklahoma",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "awards": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "awards",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Grants, awards, and prizes"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "title",
+              "tail": "Digital Compression Pioneer Award",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "publications": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "publications",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Publications"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "name",
+              "tail": "Video compression for 3d media",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "skills": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "skills",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Skills"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "name",
+              "tail": "Web Development",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "name",
+              "tail": "Compression",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "languages": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "languages",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Languages known"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "name",
+              "tail": "",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "interests": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "interests",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Interests"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "name",
+              "tail": "Wildlife",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  },
+  "references": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "references",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "References"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "name",
+              "tail": "Erlich Bachman",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": []
+          }
+        ]
+      ]
+    }
+  }
+}

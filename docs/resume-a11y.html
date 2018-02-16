@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Résumé</title>
+    <style>
+      @media (max-width: 650px) {
+        html {
+          font-size: 10px;
+        }
+      }
+      @media (min-width: 651px) {
+        .cornerPic > img {
+          position: absolute;
+          top: 3rem;
+          right: 3rem;
+        }
+        html {
+          font-size: 1.6vw;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      a {
+        overflow-wrap: break-word;
+      }
+      body {
+        background: #eee;
+        margin: 3rem 3rem;
+      }
+      .boxedBulletList {
+        padding-bottom: 0.5rem;
+        border-style: solid;
+        border-width: 1px;
+      }
+      .boxedBulletList + .boxedBulletList {
+        margin-top: -1px;
+      }
+      .center,
+      .compact {
+        text-align: center;
+      }
+      .center,
+      .rowTablesCircled {
+        margin-top: 1.5rem;
+      }
+      .compact {
+        padding: 0 3rem 2rem 3rem;
+        border-style: solid;
+        border-width: 0.5rem;
+        border-radius: 50%;
+        border-color: #33444433;
+      }
+      .cornerPic {
+        text-align: center;
+      }
+      .cornerPic > img {
+        width: 8rem;
+      }
+      h1 {
+        margin: 0.5rem 0 0 0.3rem;
+        color: #344;
+      }
+      li,
+      td {
+        font-size: 1.2rem;
+      }
+      .rowTable ~ .rowTable {
+        margin-top: 0.1rem;
+      }
+      .rowTablesCircled {
+        display: flex;
+        justify-content: center;
+      }
+      .rowTablesCircled td {
+        padding-right: 0.3rem;
+      }
+      section:not(.boxedBulletList) + .boxedBulletList {
+        margin-top: 2rem;
+      }
+      .size1 {
+        font-size: 2rem;
+      }
+      .size2 {
+        font-size: 1.9rem;
+        font-style: italic;
+      }
+      .size3 {
+        font-size: 1.8rem;
+      }
+      .size4 {
+        font-size: 1.7rem;
+        font-style: italic;
+      }
+      .size5 {
+        font-size: 1.6rem;
+      }
+      .size6 {
+        font-size: 1.5rem;
+        font-style: italic;
+      }
+      .size7,
+      p {
+        font-size: 1.4rem;
+      }
+      strong {
+        font-weight: bold;
+      }
+      table {
+        margin: 0.5rem auto 0 auto;
+        border-collapse: collapse;
+      }
+      .tableLH th {
+        text-align: right;
+        padding-right: 0.5rem;
+      }
+      .theme-credit {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+        font-style: italic;
+      }
+      td {
+        padding: 0.2rem;
+        border-style: solid;
+        border-width: 1px;
+        border-color: slategray;
+        text-align: left;
+      }
+      ul {
+        margin: 0.25rem 0;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <main>
+      <section title="identity" class="center">
+        <h1 class="size1">test</h1>
+        <h1 class="size2">Programmer</h1>
+      </section>
+      <section title="contacts" class="center">
+        <table class="tableLH">
+          <tr>
+            <th>Email</th><td><a href="mailto:test4@test.com">test4@test.com</a></td>
+          </tr>
+          <tr>
+            <th>Phone</th><td>(912) 555-4321</td>
+          </tr>
+          <tr>
+            <th>Website</th><td><a href="http://richardhendricks.com">http://richardhendricks.com</a></td>
+          </tr>
+          <tr>
+            <th>Mailing address</th><td>2712 Broadway St<br>San Francisco, California CA 94115, US</td>
+          </tr>
+        </table>
+      </section>
+      <section title="Synopsis" class="left">
+        <p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p>
+      </section>
+      <section title="Profiles" class="center">
+        <h1 class="size4">Profiles</h1>
+        <table class="tableTH">
+          <tr>
+            <th>Network</th><th>Username</th><th>URL</th>
+          </tr>
+          <tr>
+            <td>Twitter</td><td>neutralthoughts</td><td><a href=""></a></td>
+          </tr>
+          <tr>
+            <td>SoundCloud</td><td>dandymusicnl</td><td><a href="https://soundcloud.com/dandymusicnl">https://soundcloud.com/dandymusicnl</a></td>
+          </tr>
+        </table>
+      </section>
+      <section title="Work" class="boxedBulletList">
+        <h1 class="size2">Work history</h1>
+        <ul>
+          <li><strong>company</strong>: Pied Piper<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="Volunteering" class="boxedBulletList">
+        <h1 class="size2">Volunteering</h1>
+        <ul>
+          <li><strong>organization</strong>: CoderDojo<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="Education" class="boxedBulletList">
+        <h1 class="size2">Education</h1>
+        <ul>
+          <li><strong>institution</strong>: University of Oklahoma<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="Awards" class="boxedBulletList">
+        <h1 class="size2">Grants, awards, and prizes</h1>
+        <ul>
+          <li><strong>title</strong>: Digital Compression Pioneer Award<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="Publications" class="boxedBulletList">
+        <h1 class="size2">Publications</h1>
+        <ul>
+          <li><strong>name</strong>: Video compression for 3d media<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="Skills" class="boxedBulletList">
+        <h1 class="size2">Skills</h1>
+        <ul>
+          <li><strong>name</strong>: Web Development<ul>
+            
+          </ul></li>
+          <li><strong>name</strong>: Compression<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="Languages" class="boxedBulletList">
+        <h1 class="size2">Languages known</h1>
+        <ul>
+          <li><strong>name</strong>: <ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="Interests" class="boxedBulletList">
+        <h1 class="size2">Interests</h1>
+        <ul>
+          <li><strong>name</strong>: Wildlife<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+      <section title="References" class="boxedBulletList">
+        <h1 class="size2">References</h1>
+        <ul>
+          <li><strong>name</strong>: Erlich Bachman<ul>
+            
+          </ul></li>
+        </ul>
+      </section>
+    </main>
+    <section title="credit" class="theme-credit">
+      Powered by <a href="https://github.com/jrpool/jsonresume-theme-a11y">jsonresume-theme-a11y</a>
+    </section>
+  </body>
+</html>

@@ -2,15 +2,15 @@
 const fs = require('fs');
 const path = require('path');
 
-// Process command arguments.
+// Process the command arguments.
 const fileArgs = process.argv.slice(2);
 fileArgs[0] = fileArgs[0] || './resume.json';
 fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.json';
 
-// Retrieve source file.
+// Retrieve the source file.
 const cvObject = require(path.join(__dirname, fileArgs[0]));
 
-// Convert it to object in jsonresume-theme-a11y format.
+// Convert it to an object in jsonresume-theme-a11y format.
 const a11yObject = {};
 a11yObject.lang = {
   format: 'hide',
@@ -89,8 +89,8 @@ a11yObject.legend = {
     work: 'Work'
   }
 };
-const {basics} = cvObject;
 {
+  const {basics} = cvObject;
   const {
     name, label, picture, email, phone, website, summary, location, profiles
   } = basics;
@@ -219,21 +219,19 @@ const headedStringOf = (head, tail) => {
     }
   };
 };
-const headedListOf = (
-  object, headPropertyName, etcPropertyNames, delimiter
-) => {
-  const result = [headedStringOf(headPropertyName, object[headPropertyName])];
+const headedListOf = (object, listHead, etcHeads, delimiter) => {
+  const result = [headedStringOf(listHead, object[listHead])];
   result.push({
     format: 'bulletList',
     data: []
   });
-  etcPropertyNames.forEach(name => {
-    let tail = object[name];
-    if(Array.isArray(object[name])) {
-      tail = tail.join(delimiter);
-    }
+  etcHeads.forEach(head => {
+    let tail = object[head];
     if (tail) {
-      result[1].data.push(headedStringOf(name, tail));
+      if(Array.isArray(tail)) {
+        tail = tail.join(delimiter);
+      }
+      result[1].data.push(headedStringOf(head, tail));
     }
   });
   return result;
@@ -252,9 +250,7 @@ const boxedBulletListOf = (
         data: boxHead
       },
       list: it && it.length ? it.map(
-        object => headedListOf(
-          object, listHead, etcHeads.map(etcHead => object[etcHead], delimiter)
-        )
+        object => headedListOf(object, listHead, etcHeads, delimiter)
       ) : []
     }
   };
@@ -281,5 +277,5 @@ boxedBulletListOf('references', 'References', 'name', ['reference'], '');
 
 // Write object as JSON string to converted source file.
 fs.writeFileSync(
-  path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject, null, 2)
+  path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject, null, '  ')
 );
