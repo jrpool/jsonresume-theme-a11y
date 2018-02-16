@@ -35,6 +35,9 @@
         border-style: solid;
         border-width: 1px;
       }
+      .boxedBulletList + .boxedBulletList {
+        margin-top: -1px;
+      }
       .center,
       .compact {
         text-align: center;
@@ -60,6 +63,10 @@
         margin: 0.5rem 0 0 0.3rem;
         color: #344;
       }
+      li,
+      td {
+        font-size: 1.2rem;
+      }
       .rowTable ~ .rowTable {
         margin-top: 0.1rem;
       }
@@ -69,13 +76,6 @@
       }
       .rowTablesCircled td {
         padding-right: 0.3rem;
-      }
-      .boxedBulletList + .boxedBulletList {
-        margin-top: -1px;
-      }
-      li,
-      td {
-        font-size: 1.2rem;
       }
       section:not(.boxedBulletList) + .boxedBulletList {
         margin-top: 2rem;
@@ -101,7 +101,8 @@
         font-size: 1.5rem;
         font-style: italic;
       }
-      .size7 {
+      .size7,
+      p {
         font-size: 1.4rem;
       }
       strong {
@@ -278,6 +279,11 @@
         <h1 class="size2">I have received software grants from</h1>
         <ul>
           <li>University of Maryland</li>
+          <li>Fake Foundation<ul>
+            <li>Prize amount $1,000,000,000</li>
+            <li>Awarded 2019</li>
+            <li>Revoked for fraud 2020</li>
+          </ul></li>
           <li>National Science Foundation</li>
         </ul>
       </section>

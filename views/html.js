@@ -145,6 +145,7 @@ module.exports = {
   mailLinkOf,
   multilineOf,
   pageOf,
+  paragraphOf,
   plainRowOf,
   sectionOf,
   squeezeBoxOf,

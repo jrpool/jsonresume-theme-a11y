@@ -2,10 +2,15 @@
 const fs = require('fs');
 const path = require('path');
 
+// Process command arguments.
 const fileArgs = process.argv.slice(2);
 fileArgs[0] = fileArgs[0] || './resume.json';
 fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.json';
+
+// Retrieve source file.
 const cvObject = require(path.join(__dirname, fileArgs[0]));
+
+// Convert it to object in jsonresume-theme-a11y format.
 const a11yObject = {};
 a11yObject.lang = {
   format: 'hide',
@@ -214,315 +219,87 @@ a11yObject.summary = {
     }
   };
 }
-{
-a11yObject.work = {
-  normalFormat: 'boxedBulletList',
-  format: work && work.length ? 'boxedBulletList' : 'hide',
-  title: 'work',
-  data: {
-    head: {
-      size: 2,
-      data: 'Work history'
-    },
-    list: work && work.length ? work.map(workItem => {
-      const {
-        company, position, website, startDate, endDate, summary, highlights
-      } = work;
-      const summaryItem = summary && summary.endsWith('.')
-        ? summary.slice(0, -1)
-        : summary;
-      const highlightsItem = highlights && highlights.endsWith('.')
-        ? highlights.slice(0, -1)
-        : highlights;
-      const subject = summaryItem && highlightsItem
-        ? `${summaryItem}. ${highlightsItem}.`
-        : `${summaryItem || ''}${highlightsItem || ''}`;
-      return {
-        format: 'edWork',
-        data: {
-          location: company || '',
-          url: website || '',
-          startDate: startDate || '',
-          endDate: endDate || '',
-          subject
-        }
-      };
-    }) : []
-  }
-};
-a11yObject.volunteer = {
-  normalFormat: 'boxedBulletList',
-  format: volunteer && volunteer.length ? 'boxedBulletList' : 'hide',
-  title: 'volunteer',
-  data: {
-    head: {
-      size: 2,
-      data: 'Volunteering'
-    },
-    list: volunteer && volunteer.length ? volunteer.map(volunteerItem => {
-      const {
-        organization, position, website, startDate, endDate, summary, highlights
-      } = volunteer;
-      const subject = summary && highlights
-        ? `${summary}. ${highlights}`
-        : (summary || '') + (highlights || '');
-      return {
-        format: 'edWork',
-        data: {
-          location: organization || '',
-          url: website || '',
-          startDate: startDate || '',
-          endDate: endDate || '',
-          subject
-        }
-      };
-    }) : []
-  }
-};
-a11yObject.education = {
-  normalFormat: 'boxedBulletList',
-  format: education && education.length ? 'boxedBulletList' : 'hide',
-  title: 'education',
-  data: {
-    head: {
-      size: 2,
-      data: 'Education'
-    },
-    list: education && education.length ? education.map(educationItem => {
-      const {
-        institution, area, studyType, startDate, endDate, gpa, courses
-      } = education;
-      const courseItem = courses ? courses.join(', ') : '';
-      const gpaItem = gpa ? `GPA: ${gpa}` : '';
-      const subject = [
-        studyType,
-        area,
-        courseItem,
-        summary && highlights
-          ? `${summary}. ${highlights}`
-          : (summary || '') + (highlights || '')
-        ].filter(item => item && item.length).join('; ');
-      return {
-        format: 'edWork',
-        data: {
-          location: institution || '',
-          url: '',
-          startDate: startDate || '',
-          endDate: endDate || '',
-          subject
-        }
-      };
-    }) : []
-  }
-};
-a11yObject.awards = {
-  normalFormat: 'boxedBulletList',
-  format: awards && awards.length ? 'boxedBulletList' : 'hide',
-  title: 'awards',
-  data: {
-    head: {
-      size: 2,
-      data: 'Grants, awards, and prizes'
-    },
-    list: awards && awards.length ? awards.map(awardsItem => {
-      const {title, date, awarder, summary} = awards;
-      return [title, date, awarder, summary].filter(
-        item => item && item.length
-      ).join(', ');
-    }) : []
-  }
-};
-a11yObject.publications = {
-  normalFormat: 'boxedBulletList',
-  format: publications && publications.length ? 'boxedBulletList' : 'hide',
-  title: 'publications',
-  data: {
-    head: {
-      size: 2,
-      data: 'Publications'
-    },
-    list: publications && publications.length ? publications.map(
-      publicationsItem => {
-        const {name, publisher, releaseDate, website, summary} = publications;
-        websiteItem = website ? {
-          format: 'hLink',
-          data: {
-            href: website
-          }
-        } : '';
-        const preSummary = [name, publisher, releaseDate, websiteItem].filter(
-          item => item && item.length
-        ).map(item => )
-        return [title, date, awarder, summary].filter(
-          item => item && item.length
-        ).join(', ');
-      }
-    ) : []
-  }
-};
-// Function converting a string according to a legend.
-const titleOf = (string, legend) => legend[string] || string;
-
-// Function identifying a list of keys of properties to be rendered.
-const keysOf = object =>
-  object.order && object.order.format !== 'hide'
-    ? object.order.data
-    : Object.keys(object).filter(key => object[key].format !== 'hide');
-
-// Function rendering a stringable.
-const stringOf = stringable => {
-  if (typeof stringable === 'string') {
-    return stringable;
-  }
-  else if (Array.isArray(stringable)) {
-    return stringable.map(element => stringOf(element)).join('');
-  }
-  else if (typeof stringable === 'object') {
-    const format = stringable.format;
-    const data = stringable.data;
-    switch(format) {
-      case 'address': {
-        return renderer.multilineOf([
-          data.point,
-          `${data.city}, ${data.region} ${data.postalCode}, ${data.countryCode}`
-        ]);
-      }
-      case 'code': {
-        return renderer.codeOf(stringOf(data));
-      }
-      case 'edWork': {
-        const location = data.url ? renderer.hLinkOf(
-          data.location, data.url
-        ) : data.location;
-        return `${location}, ${data.startDate}–${data.endDate}: ${data.subject}`;
-      }
-      case 'headedString': {
-        return renderer.headedStringOf(
-          stringOf(data.head), stringOf(data.tail), data.delimiter || ': '
-        );
-      }
-      case 'hLink': {
-        return renderer.hLinkOf(data.label, data.href);
-      }
-      case 'mailLink': {
-        return renderer.mailLinkOf(data.label, data.href);
-      }
-    }
-  }
-};
-
-// Function rendering a heading.
-const headOf = object => {
-  const headObject = object.head;
-  return headObject
-    ? renderer.headOf(stringOf(headObject.data), headObject.size)
-    : '';
-}
-
-// Function rendering and writing the object represented by a source file.
-const page = () => {
-  const fileArgs = process.argv.slice(2);
-  fileArgs[0] = fileArgs[0] || 'docs/resume-a11y.json';
-  fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.html';
-  const cvObject = require(path.join(__dirname, fileArgs[0]));
-  const lang = cvObject.lang ? cvObject.lang.data : 'en';
-  const pageTitle = cvObject.title ? cvObject.title.data : 'Résumé';
-  const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
-  const legend = cvObject.legend ? cvObject.legend.data : {};
-  const footPrefix = titleOf('creditTo', legend);
-  const footLink = {
+const headedStringOf = (head, tail) => {
+  const tailItem = head === 'website' ? {
     format: 'hLink',
+    href: tail
+  } : tail;
+  return {
+    format: 'headedString',
     data: {
-      label: 'jsonresume-theme-a11y',
-      href: 'https://github.com/jrpool/jsonresume-theme-a11y'
+      head,
+      tail: tailItem || ''
+      delimiter: ': '
     }
   };
-  const footContent = [footPrefix, stringOf(footLink)].join('');
-  const footSection = renderer.sectionOf(
-    footContent, 'credit', 'theme-credit'
-  );
-  const sectionNames = keysOf(cvObject);
-  const sections = sectionNames.map(sectionName => {
-    const sectionObject = cvObject[sectionName];
-    const format = sectionObject.format;
-    const title = titleOf(sectionObject.title, legend);
-    const data = sectionObject.data;
-    switch(format) {
-      case 'boxedBulletList': {
-        const head = headOf(data);
-        const bulletItems = data.list.map(
-          item => renderer.bulletItemOf(stringOf(item))
-        );
-        const bulletList = renderer.bulletListOf(bulletItems);
-        const content = head ? [head, bulletList].join('\n') : bulletList;
-        return renderer.sectionOf(content, title, format);
-      }
-      case 'center': {
-        const lines = data.map(
-          lineSpec => renderer.headOf(stringOf(lineSpec.text), lineSpec.size)
-        );
-        return renderer.sectionOf(lines.join('\n'), title, format);
-      }
-      case 'cornerPic': {
-        const image = renderer.imageOf(data.src, data.alt);
-        return renderer.sectionOf(image, title, format);
-      }
-      case 'rowTables': {
-        const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
-        return renderer.sectionOf(rowTables.join('\n'), title, 'center');
-      }
-      case 'rowTablesCircled': {
-        const compactSectionOf = (content, title, format) => {
-          const quasiTable = renderer.squeezeBoxOf(content);
-          return renderer.sectionOf(quasiTable, title, format);
-        };
-        const head = headOf(data);
-        const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
-        const contentItems = head ? [head, ...rowTables] : rowTables;
-        return compactSectionOf(
-          contentItems.join('\n'), title, 'rowTablesCircled'
-        );
-      }
-      case 'tableLeftHeads': {
-        const head = headOf(data);
-        const rowItems = data.table.map(
-          rowSpec => {
-            rowSpec.data.unshift(titleOf(rowSpec.label, legend));
-            return renderer.leftHeadRowOf(
-              rowSpec.data.map(cellSpec => stringOf(cellSpec))
-            );
-          }
-        );
-        const table = renderer.tableOf(rowItems, 'tableLH');
-        const content = head ? [head, table].join('\n') : table;
-        return renderer.sectionOf(content, title, 'center');
-      }
-      case 'tableTopHead': {
-        const head = headOf(data);
-        const headRowItem = renderer.headRowOf(
-          data.table.label.map(string => titleOf(string, legend))
-        );
-        const etcRowItems = data.table.data.map(
-          rowSpec => renderer.plainRowOf(
-            rowSpec.map(cellSpec => stringOf(cellSpec))
-          )
-        );
-        const table = renderer.tableOf(
-          [headRowItem, ...etcRowItems], 'tableTH'
-        );
-        const content = head ? [head, table].join('\n') : table;
-        return renderer.sectionOf(content, title, 'center');
-      }
+};
+const headedlistOf = (
+  object, headPropertyName, etcPropertyNames, delimiter
+) => {
+  const result = [headedStringOf(headPropertyName, object[headPropertyName])];
+  result.push({
+    format: 'bulletList',
+    data: []
+  });
+  etcPropertyNames.forEach(name => {
+    let tail = object[name];
+    if(Array.isArray(object[name])) {
+      tail = tail.join(delimiter);
+    }
+    if (tail) {
+      result[1].data.push(headedStringOf(name, tail));
     }
   });
-  const sectionContent = sections.join('\n');
-  const result = renderer.pageOf(
-    sectionContent, footSection, lang, pageTitle, style
-  );
-  fs.writeFileSync(path.join(__dirname, fileArgs[1]), result);
+  return result;
 };
+const boxedBulletListOf = (
+  section, boxHead, listHead, etcHeads, delimiter
+) => {
+  const it = cvObject[section];
+  a11yObject[section] = {
+    normalFormat: 'boxedBulletList',
+    format: it && it.length ? 'boxedBulletList' : 'hide',
+    title: section,
+    data: {
+      head: {
+        size: 2,
+        data: boxHead
+      },
+      list: it && it.length ? it.map(
+        object => headedListOf(
+          object, listHead, etcHeads.map(etcHead => object[etcHead], delimiter)
+        )
+      ) : []
+    }
+  };
+};
+boxedBulletListOf('work', 'Work history', 'company', [
+  position, website, startDate, endDate, summary, highlights
+], '/');
+boxedBulletListOf('volunteer', 'Volunteering', 'organization', [
+  position, website, startDate, endDate, summary, highlights
+], '/');
+boxedBulletListOf('education', 'Education', 'institution', [
+  area, studyType, startDate, endDate, gpa, courses
+], '/');
+boxedBulletListOf('awards', 'Grants, awards, and prizes', 'title', [
+  date, awarder, summary
+], '');
+boxedBulletListOf('publications', 'Publications', 'name', [
+  publisher, releaseDate, website, summary
+], '');
+boxedBulletListOf('skills', 'Skills', 'name', [
+  level, keywords
+], ', ');
+boxedBulletListOf('languages', 'Languages known', 'name', [
+  level
+], '');
+boxedBulletListOf('interests', 'Interests', 'name', [
+  keywords
+], ', ');
+boxedBulletListOf('references', 'References', 'name', [
+  reference
+], '');
 
-// Process the specified file.
-page();
+// Write object as JSON string to converted source file.
+fs.writeFileSync(path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject));

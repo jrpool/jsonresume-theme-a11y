@@ -26,9 +26,8 @@ const stringOf = stringable => {
     switch(format) {
       case 'address': {
         const {point, city, region, postalCode, countryCode} = data;
-        const line1Item = data.point, line2Items = [
-          data.city, data.region, data.postalCode, data.countryCode
-        ];
+        let line1Item = point;
+        const line2Items = [city, region, postalCode, countryCode];
         let line2Item = '';
         if (line2Items[0]) {
           const cityRegion = line2Items.slice(0, 2).filter(
@@ -97,7 +96,7 @@ const headOf = object => {
   return headObject
     ? renderer.headOf(stringOf(headObject.data), headObject.size)
     : '';
-}
+};
 
 // Function rendering and writing the object represented by a source file.
 const page = () => {
