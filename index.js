@@ -48,6 +48,11 @@ const stringOf = stringable => {
           [line1Item, line2Item].filter(item => item.length)
         );
       }
+      case 'bulletList': {
+        return renderer.bulletListOf(
+          data.map(item => renderer.bulletItemOf(stringOf(item)))
+        );
+      }
       case 'code': {
         return renderer.codeOf(stringOf(data));
       }
@@ -80,11 +85,6 @@ const stringOf = stringable => {
       }
       case 'mailLink': {
         return renderer.mailLinkOf(data.label, data.href);
-      }
-      case 'bulletList': {
-        return renderer.bulletListOf(
-          data.map(item => renderer.bulletItemOf(item))
-        );
       }
     }
   }

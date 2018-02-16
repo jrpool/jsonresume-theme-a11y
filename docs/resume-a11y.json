@@ -214,14 +214,68 @@
           {
             "format": "headedString",
             "data": {
-              "head": "company",
+              "head": "Company",
               "tail": "Pied Piper",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "CEO/President",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://piedpiper.com"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "2013-12-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2014-12-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": "Build an algorithm for artist to detect if their music was violating copy right infringement laws/Successfully won Techcrunch Disrupt/Optimized an algorithm that holds the current world record for Weisman Scores",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]
@@ -241,14 +295,68 @@
           {
             "format": "headedString",
             "data": {
-              "head": "organization",
+              "head": "Organization",
               "tail": "CoderDojo",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Teacher",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://coderdojo.com/"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "2012-01-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2013-01-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Global movement of free coding clubs for young people.",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": "Awarded 'Teacher of the Month'",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]
@@ -268,14 +376,63 @@
           {
             "format": "headedString",
             "data": {
-              "head": "institution",
+              "head": "Institution",
               "tail": "University of Oklahoma",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Area",
+                  "tail": "Information Technology",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Study type",
+                  "tail": "Bachelor",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "2011-06-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2014-01-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "GPA",
+                  "tail": "4.0",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Courses",
+                  "tail": "DB1101 - Basic SQL/CS2011 - Java Introduction",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]
@@ -295,14 +452,39 @@
           {
             "format": "headedString",
             "data": {
-              "head": "title",
+              "head": "Title",
               "tail": "Digital Compression Pioneer Award",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Date",
+                  "tail": "2014-11-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Awarder",
+                  "tail": "Techcrunch",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "There is no spoon.",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]
@@ -322,14 +504,52 @@
           {
             "format": "headedString",
             "data": {
-              "head": "name",
+              "head": "Name",
               "tail": "Video compression for 3d media",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Publisher",
+                  "tail": "Hooli",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Release date",
+                  "tail": "2014-10-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Innovative middle-out compression algorithm that changes the way we store data.",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]
@@ -349,28 +569,62 @@
           {
             "format": "headedString",
             "data": {
-              "head": "name",
+              "head": "Name",
               "tail": "Web Development",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "Master",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Keywords",
+                  "tail": "HTML, CSS, Javascript",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ],
         [
           {
             "format": "headedString",
             "data": {
-              "head": "name",
+              "head": "Name",
               "tail": "Compression",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "Master",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Keywords",
+                  "tail": "Mpeg, MP4, GIF",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]
@@ -390,7 +644,7 @@
           {
             "format": "headedString",
             "data": {
-              "head": "name",
+              "head": "Name",
               "tail": "",
               "delimiter": ": "
             }
@@ -417,14 +671,23 @@
           {
             "format": "headedString",
             "data": {
-              "head": "name",
+              "head": "Name",
               "tail": "Wildlife",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Keywords",
+                  "tail": "Ferrets, Unicorns",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]
@@ -444,14 +707,23 @@
           {
             "format": "headedString",
             "data": {
-              "head": "name",
+              "head": "Name",
               "tail": "Erlich Bachman",
               "delimiter": ": "
             }
           },
           {
             "format": "bulletList",
-            "data": []
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Reference",
+                  "tail": "It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.",
+                  "delimiter": ": "
+                }
+              }
+            ]
           }
         ]
       ]

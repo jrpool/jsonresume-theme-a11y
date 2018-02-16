@@ -205,15 +205,18 @@ a11yObject.legend = {
     }
   };
 }
+const titleOf = string => a11yObject.legend.data[string] || string;
 const headedStringOf = (head, tail) => {
   const tailItem = head === 'website' ? {
     format: 'hLink',
-    href: tail
+    data: {
+      href: tail
+    }
   } : tail;
   return {
     format: 'headedString',
     data: {
-      head,
+      head: titleOf(head),
       tail: tailItem || '',
       delimiter: ': '
     }
@@ -277,5 +280,5 @@ boxedBulletListOf('references', 'References', 'name', ['reference'], '');
 
 // Write object as JSON string to converted source file.
 fs.writeFileSync(
-  path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject, null, '  ')
+  path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject, null, 2)
 );

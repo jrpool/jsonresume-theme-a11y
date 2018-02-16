@@ -121,6 +121,12 @@ The `data` value is an object with `point`, `city`, `region`, `postalCode`, and 
 
 It will be rendered as a 2-line string, with a line break after the `point` string (which is typically a street address or postal box identifier).
 
+#### Bullet list (`bulletList`)
+
+The `data` value is an array of stringables.
+
+It will be rendered as a list of strings, each prefixed with a bullet.
+
 #### Code (`code`)
 
 The `data` value is a stringable.
@@ -161,11 +167,6 @@ Some formats require that the `data` property have an object value. This object 
 
 There are 8 permitted section formats:
 
-#### Paragraph (`left`)
-The `data` value is an array of strings.
-
-The property will be rendered as a succession of paragraphs, left-justified, one per string.
-
 #### Boxed bullet list (`boxedBulletList`)
 
 The `data` value is an object with an optional `head` property (see above) and a `list` property. The `list` property has an array of stringables as its value.
@@ -178,11 +179,11 @@ The `data` value is an array of objects. Each object has `size` and `text` prope
 
 The `text` values will be rendered as lines, one below the other.
 
-#### Portrait (`cornerPic`)
+#### Left-headed table (`tableLeftHeads`)
 
-The `data` value is an object with 2 string properties: `src` and `alt`. The value of `src` is the URL of an image. The value of `alt` is a description of the image.
+The `data` value is an object with an optional `head` property (see above) and a `table` property. The `table` value is an array of objects. Each inner object has `label` and `data` properties. The `label` value is a string. The `data` value is an array of stringables.
 
-The property will be rendered as an image in the upper-right corner of the document, not displacing any other content.
+The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered, with a heading if you included a `head` property.
 
 #### One-row tables (`rowTables`)
 
@@ -196,11 +197,16 @@ The `data` value is an object with an optional `head` property (see above) and a
 
 The property will be rendered as a set of one-row tables, as with “One-row tables”, but also with a heading if you included a `head` property and an oval border.
 
-#### Left-headed table (`tableLeftHeads`)
+#### Paragraph (`left`)
+The `data` value is an array of strings.
 
-The `data` value is an object with an optional `head` property (see above) and a `table` property. The `table` value is an array of objects. Each inner object has `label` and `data` properties. The `label` value is a string. The `data` value is an array of stringables.
+The property will be rendered as a succession of paragraphs, left-justified, one per string.
 
-The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered, with a heading if you included a `head` property.
+#### Portrait (`cornerPic`)
+
+The `data` value is an object with 2 string properties: `src` and `alt`. The value of `src` is the URL of an image. The value of `alt` is a description of the image.
+
+The property will be rendered as an image in the upper-right corner of the document, not displacing any other content.
 
 #### Top-headed table (`tableTopHead`)
 
