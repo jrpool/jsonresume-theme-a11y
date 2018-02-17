@@ -1,14 +1,28 @@
 // Import dependencies.
 const fs = require('fs');
 const path = require('path');
+const commander = require('commander');
 
 // Process the command arguments.
-const fileArgs = process.argv.slice(2);
-fileArgs[0] = fileArgs[0] || './resume.json';
-fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.json';
+commander
+.description(
+  'Create a jsonresume-theme-a11y source file from a jsonresume source file'
+)
+.option(
+  '-i, --input <filename>', 'Source file in jsonresume format [resume.json]'
+)
+.option(
+  '-o, --output <filename>',
+  'Destination file in jsonresume-theme-a11y format [resume-a11y.json]'
+)
+.option('-v, --verbose', 'Format array properties as 1-line-per-element lists');
+commander.parse(process.argv);
+const inFile = commander.input || 'resume.json';
+const outFile = commander.output || 'resume-a11y.json';
+const verbose = commander.verbose;
 
 // Retrieve the source file.
-const cvObject = require(path.join(__dirname, fileArgs[0]));
+const cvObject = require(path.join(__dirname, inFile));
 
 // Convert it to an object in jsonresume-theme-a11y format.
 const a11yObject = {};
@@ -231,7 +245,7 @@ const headedListOf = (object, listHead, etcHeads, delimiter) => {
   etcHeads.forEach(head => {
     let tail = object[head];
     if (tail) {
-      if(Array.isArray(tail)) {
+      if(Array.isArray(tail) && !verbose) {
         tail = tail.join(delimiter);
       }
       result[1].data.push(headedStringOf(head, tail));
@@ -280,5 +294,5 @@ boxedBulletListOf('references', 'References', 'name', ['reference'], '');
 
 // Write object as JSON string to converted source file.
 fs.writeFileSync(
-  path.join(__dirname, fileArgs[1]), JSON.stringify(a11yObject, null, 2)
+  path.join(__dirname, outFile), JSON.stringify(a11yObject, null, 2)
 );
