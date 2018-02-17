@@ -57,7 +57,7 @@ a11yObject.legend = {
     highlights: 'Highlights',
     institution: 'Institution',
     interests: 'Interests',
-    keywords: 'Keywords',
+    keywords: 'Details',
     label: 'Label',
     language: 'Language',
     languages: 'Languages',

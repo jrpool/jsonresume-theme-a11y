@@ -170,7 +170,8 @@
         "semantics",
         "lexical ambiguity",
         "computational linguistics",
-        "grammar engineering"
+        "grammar engineering",
+        "human rights law and philosophy"
       ]
     },
     {
@@ -286,9 +287,9 @@
       "name": "Scopes",
       "level": "intermediate",
       "keywords": [
-        "full-stack",
-        "back-end",
-        "front-end",
+        "full stack",
+        "back end",
+        "front end",
         "APIs",
         "SPAs"
       ],
@@ -363,7 +364,7 @@
       "keywords": [
         "WCAG 2.1",
         "ARIA",
-        "Chrome/aXe/Siteimprove audits",
+        "Chrome/aXe/Siteimprove/WAVE/OpenWAX/Tenon.io audits",
         "ADA Title III"
       ],
     },
@@ -398,9 +399,7 @@
       "name": "Remote hosts",
       "level": "intermediate",
       "keywords": [
-        "Amazon AWS (EC2",
-        "S3",
-        "Glacier)",
+        "Amazon AWS (EC2", "S3", "Glacier)",
         "OVH"
       ],
     },
@@ -432,6 +431,7 @@
         "nano",
         "ed",
         "sed",
+        "bbEdit/TextWrangler",
         "GraphicConverter"
       ],
     },
@@ -473,22 +473,75 @@
   "languages": [
     {
       "language": "English",
-      "fluency": "Native speaker"
+      "fluency": "native"
+    },
+    {
+      "language": "Esperanto",
+      "fluency": "professional"
+    },
+    {
+      "language": "German",
+      "fluency": "working"
+    },
+    {
+      "language": "Turkish",
+      "fluency": "working"
+    },
+    {
+      "language": "French",
+      "fluency": "practical"
+    },
+    {
+      "language": "Norwegian (Bokmål)",
+      "fluency": "practical"
+    },
+    {
+      "language": "Russian",
+      "fluency": "practical"
+    },
+    {
+      "language": "Latin",
+      "fluency": "fragmentary"
     }
   ],
   "interests": [
     {
-      "name": "Wildlife",
+      "name": "language design",
       "keywords": [
-        "Ferrets",
-        "Unicorns"
+        "controlled Languages",
+        "artificial languages",
+        "disambiguation"
+      ]
+    },
+    {
+      "name": "human rights",
+      "keywords": [
+        "universality",
+        "humanitarian intervention",
+        "migration rights",
+        "genocide",
+        "civil liberties",
+        "transparency",
+        "quasi-municipality democracy"
+      ]
+    },
+    {
+      "name": "social choice",
+      "keywords": [
+        "voting design",
+        "language choice",
+        "rational mediation"
       ]
     }
   ],
   "references": [
     {
-      "name": "Erlich Bachman",
-      "reference": "It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company."
+      "name": "Learners Guild",
+      "reference": "Instructors and colleagues during 2017–2018 enrollment as trainee-apprentice (on request)"
+    },
+    {
+      "name": "The Long Now Foundation",
+      "reference": "Supervisors and colleagues during 2012–2016 tenure as PanLex Project Director (on request)"
     }
   ]
 }
