@@ -440,7 +440,7 @@
           "format": "headedString",
           "data": {
             "head": "Remote hosts",
-            "tail": "Amazon AWS (EC2, S3, Glacier), OVH",
+            "tail": "Amazon AWS (EC2, S3, Glacier), Heroku, OVH",
             "delimiter": ": "
           }
         },

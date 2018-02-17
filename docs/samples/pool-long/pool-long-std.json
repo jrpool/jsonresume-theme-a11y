@@ -179,32 +179,32 @@
   ],
   "languages": [
     {
-      "language": "English",
-      "fluency": "Native speaker"
+      "name": "English",
+      "level": "Native speaker"
     },
     {
-      "language": "Esperanto",
-      "fluency": "High"
+      "name": "Esperanto",
+      "level": "High"
     },
     {
-      "language": "German",
-      "fluency": "Medium-high"
+      "name": "German",
+      "level": "Medium-high"
     },
     {
-      "language": "Turkish",
-      "fluency": "Medium"
+      "name": "Turkish",
+      "level": "Medium"
     },
     {
-      "language": "French",
-      "fluency": "Medium-low"
+      "name": "French",
+      "level": "Medium-low"
     },
     {
-      "language": "Russian",
-      "fluency": "Medium-low"
+      "name": "Russian",
+      "level": "Medium-low"
     },
     {
-      "language": "Norwegian (Bokmål)",
-      "fluency": "Medium-low"
+      "name": "Norwegian (Bokmål)",
+      "level": "Medium-low"
     }
   ],
   "education": [
