@@ -556,7 +556,7 @@
           "format": "edWork",
           "data": {
             "location": "The University of Chicago",
-            "url": "https://www.uchicago.edu",
+            "url": "https://jpdev.pro/info/docs/pool-uc-transcript.pdf",
             "startDate": "1966-09-01",
             "endDate": "1971-04-30",
             "subject": "political science"
@@ -647,17 +647,6 @@
       },
       "list": [
         "University of Maryland",
-        [
-          "Fake Foundation",
-          {
-            "format": "bulletList",
-            "data": [
-              "Prize amount $1,000,000,000",
-              "Awarded 2019",
-              "Revoked for fraud 2020"
-            ]
-          }
-        ],
         "National Science Foundation"
       ]
     }
