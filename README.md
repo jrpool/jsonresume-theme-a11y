@@ -120,7 +120,7 @@ If your source file does not contain a root-level `order` property, then all of 
 
 ### Stringables
 
-You can choose how inline text in your résumé is formatted. The theme format requires that some items be “stringables”. A stringable is a string, array, or object. If it is an array, then each of its elements is a non-array stringable, and the theme concatenates the renderings of the elements to create a string. If it is an object, then it has `format` and `data` properties. The format property has one of the following values (`address`, etc.), and the `data` property complies with the specifications of that value. The theme converts the object to a string.
+You can choose how inline text in your résumé is formatted. The theme format requires that some items be “stringables”. A stringable is a string, array, or object. If it is an array, then each of its elements is a stringable. If it is an object, then it has `format` and `data` properties. The format property has one of the following values (`address`, etc.), and the `data` property complies with the specifications of that value. The theme converts the object to a string. Wherever a specification requires a stringable, if an array of stringables is provided, the theme renders each element of the array and then concatenates the renderings into a string.
 
 #### Address (`address`)
 
