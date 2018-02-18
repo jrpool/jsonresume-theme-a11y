@@ -2,6 +2,7 @@
 const renderer = require('./views/html');
 const fs = require('fs');
 const path = require('path');
+const commander = require('commander');
 
 // Function converting a string according to a legend.
 const titleOf = (string, legend) => legend[string] || string;
@@ -102,10 +103,19 @@ const headOf = object => {
 
 // Function rendering and writing the object represented by a source file.
 const page = () => {
-  const fileArgs = process.argv.slice(2);
-  fileArgs[0] = fileArgs[0] || 'resume-a11y.json';
-  fileArgs[1] = fileArgs[1] || 'resume-a11y.html';
-  const cvObject = require(path.join(__dirname, fileArgs[0]));
+  commander
+  .description('Create an HTML file from a jsonresume-theme-a11y source file')
+  .option(
+    '-i, --input <filename>', 'Source file in jsonresume-theme-a11y format [resume-a11y.json]'
+  )
+  .option(
+    '-o, --output <filename>',
+    'Destination file in HTML format [resume-a11y.html]'
+  );
+  commander.parse(process.argv);
+  const inFile = commander.input || 'resume-a11y.json';
+  const outFile = commander.output || 'resume-a11y.html';
+  const cvObject = require(path.join(__dirname, inFile));
   const lang = cvObject.lang ? cvObject.lang.data : 'en';
   const pageTitle = cvObject.title ? cvObject.title.data : 'Résumé';
   const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
@@ -206,7 +216,7 @@ const page = () => {
   const result = renderer.pageOf(
     sectionContent, footSection, lang, pageTitle, style
   );
-  fs.writeFileSync(path.join(__dirname, fileArgs[1]), result);
+  fs.writeFileSync(path.join(__dirname, outFile), result);
 };
 
 // Process the specified file.
