@@ -232,10 +232,21 @@ const headedStringOf = (head, tail) => {
     data: {
       head: titleOf(head),
       tail: tailItem || '',
-      delimiter: ': '
+      delimiter: tailItem ? ': ' : ''
     }
   };
 };
+const unheadedListOf = (head, tail) => ({
+  format: 'headedString',
+  data: {
+    head: titleOf(head),
+    tail
+  }
+});
+const bulletListOf = array => ({
+  format: 'bulletList',
+  data: array
+});
 const headedListOf = (object, listHead, etcHeads, delimiter) => {
   const result = [headedStringOf(listHead, object[listHead])];
   result.push({
@@ -245,10 +256,19 @@ const headedListOf = (object, listHead, etcHeads, delimiter) => {
   etcHeads.forEach(head => {
     let tail = object[head];
     if (tail) {
-      if(Array.isArray(tail) && !verbose) {
-        tail = tail.join(delimiter);
+      let tailItem;
+      if(Array.isArray(tail)) {
+        if (verbose) {
+          tailItem = unheadedListOf(head, bulletListOf(tail));
+        }
+        else {
+          tailItem = headedStringOf(head, tail.join(delimiter));
+        }
       }
-      result[1].data.push(headedStringOf(head, tail));
+      else {
+        tailItem = headedStringOf(head, tail);
+      }
+      result[1].data.push(tailItem);
     }
   });
   return result;

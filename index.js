@@ -77,7 +77,9 @@ const stringOf = stringable => {
       }
       case 'headedString': {
         return renderer.headedStringOf(
-          stringOf(data.head), stringOf(data.tail), data.delimiter || ': '
+          stringOf(data.head),
+          stringOf(data.tail),
+          data.hasOwnProperty('delimiter') ? data.delimiter : ''
         );
       }
       case 'hLink': {
@@ -101,8 +103,8 @@ const headOf = object => {
 // Function rendering and writing the object represented by a source file.
 const page = () => {
   const fileArgs = process.argv.slice(2);
-  fileArgs[0] = fileArgs[0] || 'docs/resume-a11y.json';
-  fileArgs[1] = fileArgs[1] || 'docs/resume-a11y.html';
+  fileArgs[0] = fileArgs[0] || 'resume-a11y.json';
+  fileArgs[1] = fileArgs[1] || 'resume-a11y.html';
   const cvObject = require(path.join(__dirname, fileArgs[0]));
   const lang = cvObject.lang ? cvObject.lang.data : 'en';
   const pageTitle = cvObject.title ? cvObject.title.data : 'Résumé';

@@ -472,36 +472,36 @@
   ],
   "languages": [
     {
-      "language": "English",
-      "fluency": "native"
+      "name": "English",
+      "level": "native"
     },
     {
-      "language": "Esperanto",
-      "fluency": "professional"
+      "name": "Esperanto",
+      "level": "professional"
     },
     {
-      "language": "German",
-      "fluency": "working"
+      "name": "German",
+      "level": "working"
     },
     {
-      "language": "Turkish",
-      "fluency": "working"
+      "name": "Turkish",
+      "level": "working"
     },
     {
-      "language": "French",
-      "fluency": "practical"
+      "name": "French",
+      "level": "practical"
     },
     {
-      "language": "Norwegian (Bokmål)",
-      "fluency": "practical"
+      "name": "Norwegian (Bokmål)",
+      "level": "practical"
     },
     {
-      "language": "Russian",
-      "fluency": "practical"
+      "name": "Russian",
+      "level": "practical"
     },
     {
-      "language": "Latin",
-      "fluency": "fragmentary"
+      "name": "Latin",
+      "level": "fragmentary"
     }
   ],
   "interests": [
