@@ -1,0 +1,1062 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+<title>Jonathan Pool</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+<style type="text/css">
+	@import url(
+	https://fonts.googleapis.com/css?family=Lato:400,700
+);
+body {
+	background: #fff;
+	font-family: Lato, sans-serif;
+	margin: 0 0 80px;
+}
+a {
+	color: #2ecc71;
+}
+a:focus,
+a:hover {
+	color: #f1c40f;
+	text-decoration: none;
+}
+p {
+	line-height: 1.5;
+	margin: 0;
+}
+p + p {
+	margin-top: 10px;
+}
+h1,
+h2,
+h3,
+h4 {
+	margin-top: 0
+}
+section {
+	margin-top: 30px;
+}
+li {
+	line-height: 1.8;
+	list-style: none;
+}
+li:before {
+	content: "\f052";
+	float: left;
+	font: 13px Octicons;
+	margin-top: 6px;
+	margin-left: -20px;
+	opacity: .1;
+	position: absolute;
+}
+blockquote {
+	border-left: 5px solid #e7e9ec;
+	font-size: 14px;
+}
+em {
+	color: #95a5a6;
+	font-weight: normal;
+	font-style: normal;
+}
+h4 span:first-child {
+	color: #000;
+	font-weight: bold;
+}
+.container {
+	max-width: 750px;
+	padding: 0 30px;
+}
+.col-sm-6 {
+	margin-bottom: 10px;
+}
+.col-sm-12 h4 {
+	margin-top: 12px; 
+}
+.col-sm-12 + .col-sm-12 {
+	margin-top: 30px;
+}
+#header {
+	background: #f4f6f6;
+	padding: 50px 0;
+	margin-bottom: 30px;
+}
+#header h2 {
+	color: #95a5a6;
+	font-size: 24px;
+}
+#content h3 {
+	color: #f1c40f;
+	font-size: 26px;
+	margin-top: -4px;
+}
+#content aside {
+	text-align: right;
+	padding-right: 30px;
+}
+#profiles .network {
+	text-transform: capitalize;
+}
+#work .position,
+#volunteer .position {
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+#education .area {
+	font-weight: bold;
+}
+#education .area:before {
+	content: "\f0d7";
+	font: 16px Octicons;
+	margin-right: 6px;
+}
+#education .studyType {
+	margin-left: 25px;
+}
+#awards .summary,
+#publications .summary {
+	margin-top: 8px;
+}
+#publications .website a:before {
+	content: attr(href);
+}
+
+@media (min-width: 480px) {
+	.strike-through {
+		border-top: 1px solid #f4f6f6;
+		height: 20px;
+		margin-top: 12px;
+		margin-bottom: -2px;
+		position: relative;
+	}
+	.strike-through span,
+	.strike-through a {
+		background: #fff;
+		position: absolute;
+	}
+	.strike-through span:first-child {
+		padding-right: 20px;
+		margin-top: -12px;
+	}
+	.strike-through span + span {
+		font-size: 14px;
+		margin-top: -10px;
+		padding-left: 20px;
+		right: 0;
+	}
+}
+@media (max-width: 768px) {
+	.col-sm-6:last-child {
+		margin-bottom: 0px;
+	}
+	#content aside {
+		margin-bottom: 20px;
+		padding-right: 0;
+		text-align: left;
+	}
+	#publications .website a:before {
+		content: "View publication";
+	}
+}
+@media (max-width: 480px) {
+	h1 {
+		font-size: 26px;
+	}
+	.date {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+	.strike-through span:first-child {
+		margin-bottom: 7px;
+	}
+	.strike-through span {
+		display: block;
+	}	
+	#header {
+		margin-bottom: 10px;
+		padding: 40px 0;
+	}
+	#actions {
+		display: none;
+	}
+}
+
+	</style>
+</head>
+<body>
+<header id="header">
+<div class="container">
+<div class="row">
+<div class="col-sm-9 col-sm-push-3">
+<h1>
+Jonathan Pool
+</h1>
+<h2>
+Developer of accessible web applications
+</h2>
+</div>
+</div>
+</div>
+</header>
+<div id="content" class="container">
+<section id="contact" class="row">
+<aside class="col-sm-3">
+<h3>Contact</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<strong>Email</strong>
+<div class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="15657a7a79556661607961743b767a78">[email&#160;protected]</a></div>
+</div>
+<div class="col-sm-6">
+<strong>Phone</strong>
+<div class="phone">(510) 225-1717</div>
+</div>
+<div class="col-sm-6">
+<strong>Website</strong>
+<div class="website">
+<a href="http://jpdev.pro/info">http://jpdev.pro/info</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="about" class="row">
+<aside class="col-sm-3">
+<h3>About</h3>
+</aside>
+<div class="col-sm-9">
+<p>I am available to help you develop web and database applications in JavaScript and other languages, ensuring that your resources comply with legal and social requirements for accessibility.</p>
+</div>
+</section>
+<section id="profiles" class="row">
+<aside class="col-sm-3">
+<h3>Profiles</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<strong class="network">
+Github
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://github.com/jrpool">jrpool</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<strong class="network">
+LinkedIn
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://www.linkedin.com/in/jonathanpool/">jonathanpool</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<strong class="network">
+MDN Web Docs
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://developer.mozilla.org/en-US/profiles/JonathanPool">Jonathan Pool</a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<strong class="network">
+Google Scholar
+</strong>
+<div class="username">
+<div class="url">
+<a href="https://scholar.google.com/citations?user=qSNjYhQAAAAJ&amp;hl=en&amp;oi=ao">JonathanPool</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="work" class="row">
+<aside class="col-sm-3">
+<h3>Work</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>The Long Now Foundation</span>
+<span class="date">
+2012-01-01 — 2016-12-19
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://longnow.org">http://longnow.org</a>
+</div>
+<div class="position">
+Project Director
+</div>
+<div class="summary">
+<p>Director of the PanLex project</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Developed PostgreSQL database of 3.1 billion lexical translations</li>
+<li class="bullet">Developed UIs and SEO for database</li>
+<li class="bullet">Recruited steering committee and advisory committee</li>
+<li class="bullet">Hired and supervised 3 computational linguists and 1 linguist</li>
+<li class="bullet">Director 2 summer internship programs with 45 interns</li>
+<li class="bullet">Established project office</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Centerplex</span>
+<span class="date">
+1993-06-16 — 2004-06-11
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://stulta.com/misc/cx/">http://stulta.com/misc/cx/</a>
+</div>
+<div class="position">
+Proprietor
+</div>
+<div class="summary">
+<p>Owner and operator of 4 office buildings with 100 tenants</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Developed web application and UI for tenant-initiated leasing</li>
+<li class="bullet">Procured, configured, and managed 4-building wireless network with T1 WAN and Cisco LAN</li>
+<li class="bullet">Hired and supervised 20 employees</li>
+<li class="bullet">Upgraded physical plant to enhance ADA accessibility</li>
+<li class="bullet">Procured and managed lighting upgrade with 1.5-year payback</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>University of Washington</span>
+<span class="date">
+1977-09-16 — 1993-06-15
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://www.washington.edu">http://www.washington.edu</a>
+</div>
+<div class="position">
+Assistant and Associate Professor
+</div>
+<div class="summary">
+<p>Member of faculty of Department of Political Science</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Published research articles, collections, and conference papers</li>
+<li class="bullet">Had visiting appointments at University of Paderborn and University of Bielefeld, Germany</li>
+<li class="bullet">Taught courses in research methods, decision theory, and language policy</li>
+<li class="bullet">Served on university committees</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>State University of New York at Stony Brook</span>
+<span class="date">
+1971-01-01 — 1977-06-15
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://www.stonybrook.edu">http://www.stonybrook.edu</a>
+</div>
+<div class="position">
+Assistant Professor
+</div>
+<div class="summary">
+<p>Member of faculty of Department of Political Science</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Published research articles and conference papers</li>
+<li class="bullet">Had visiting appointments at Stanford University, McGill University, and University of Mannheim, Germany</li>
+<li class="bullet">Taught courses in research methods, comparative politics, and language policy</li>
+<li class="bullet">Developed instructional software</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="volunteer" class="row">
+<aside class="col-sm-3">
+<h3>Volunteer</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Berkeley Town House Cooperative Corporation</span>
+<span class="date">
+2011-05-24 — 2011-12-06
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://www.berkeleytownhouse.com">http://www.berkeleytownhouse.com</a>
+</div>
+<div class="position">
+Director and Secretary
+</div>
+<div class="summary">
+<p>Managed and improved access to corporate documentation</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Digitized 52 years of corporate board minutes</li>
+<li class="bullet">Made 13,000 records web-accessible to authorized members</li>
+<li class="bullet">Documented extent and cost of construction defect, permitting corporation to recover $224,415 from contractors</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Peace Corps</span>
+<span class="date">
+1964-06-15 — 1966-06-15
+</span>
+</h4>
+<div class="website pull-right">
+<a href="https://www.peacecorps.gov">https://www.peacecorps.gov</a>
+</div>
+<div class="position">
+Volunteer
+</div>
+<div class="summary">
+<p>Taught ESL in Nevşehir and İstanbul, Turkey</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Achieved 4.5 Foreign Service Institute score in Turkish</li>
+<li class="bullet">Published articles in Turkish periodicals</li>
+<li class="bullet">Authored language textbook for speakers of Turkish</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Operation Crossroads Africa</span>
+<span class="date">
+1963-06-15 — 1963-08-15
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://www.operationcrossroadsafrica.org">http://www.operationcrossroadsafrica.org</a>
+</div>
+<div class="position">
+Volunteer
+</div>
+<div class="summary">
+<p>Worked on a binational team constructing a community center in Nsoatre, Ghana</p>
+</div>
+<h4>Highlights</h4>
+<ul class="highlights">
+<li class="bullet">Visited Côte d’Ivoire, Togo, Benin, and Nigeria</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="education" class="row">
+<aside class="col-sm-3">
+<h3>Education</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Learners Guild</span>
+<span class="date">
+2017-05-01 — 2018-02-16
+</span>
+</h4>
+<div class="area">
+full-stack web development
+</div>
+<div class="studyType">
+Vocational training and apprenticeship
+</div>
+<h4>Courses</h4>
+<ul class="courses">
+<li>full-stack web application development</li>
+<li>JavaScript</li>
+<li>Node.js</li>
+<li>PostgreSQL</li>
+<li>Express</li>
+<li>web accessibility</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>University of Washington</span>
+<span class="date">
+2004-03-29 — 2007-06-01
+</span>
+</h4>
+<div class="area">
+computer science and linguistics
+</div>
+<div class="studyType">
+undergraduate and graduate courses
+</div>
+<h4>Courses</h4>
+<ul class="courses">
+<li>computer programming (Java)</li>
+<li>data structures and algorithms</li>
+<li>user-interface design</li>
+<li>artificial intelligence</li>
+<li>syntax</li>
+<li>morphology</li>
+<li>semantics</li>
+<li>lexical ambiguity</li>
+<li>computational linguistics</li>
+<li>grammar engineering</li>
+<li>human rights law and philosophy</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>The University of Chicago</span>
+<span class="date">
+1966-09-01 — 1971-04-30
+</span>
+</h4>
+<div class="area">
+political science
+</div>
+<div class="studyType">
+M.A. and Ph.D.
+</div>
+<h4>Courses</h4>
+<ul class="courses">
+<li>computational political analysis</li>
+<li>survey research on public opinion</li>
+<li>political science methodology</li>
+<li>political philosophy</li>
+<li>comparative politics</li>
+</ul>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Harvard University</span>
+<span class="date">
+1960-09-01 — 1964-06-30
+</span>
+</h4>
+<div class="area">
+government
+</div>
+<div class="studyType">
+B.A.
+</div>
+<h4>Courses</h4>
+<ul class="courses">
+<li>quantitative analysis of judicial behavior</li>
+<li>political philosophy</li>
+<li>comparative politics</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="awards" class="row">
+<aside class="col-sm-3">
+<h3>Awards</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Computer Simulation in Multilingual International Studies</span>
+</h4>
+<div class="date pull-right">
+<em>Awarded</em>
+1983-07-15
+</div>
+<div class="awarder">
+<em>by</em>
+<strong>University of Maryland</strong>
+</div>
+<div class="summary">
+Cross-national policy simulation for students of politics
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Computer Equipment for Experimental Political Science Research</span>
+</h4>
+<div class="date pull-right">
+<em>Awarded</em>
+1978-09-15
+</div>
+<div class="awarder">
+<em>by</em>
+<strong>National Science Foundation</strong>
+</div>
+<div class="summary">
+Laboratory for study of political behavior; co-principal investigator with Donald R. Matthews
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="publications" class="row">
+<aside class="col-sm-3">
+<h3>Publications</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Countering language attrition with PanLex and the Web of Data</span>
+<span class="date">
+2015-08-01
+</span>
+</h4>
+<div class="website pull-right">
+<a href="https://old.panlex.org/pubs/etc/plwebdata-201404.pdf"></a>
+</div>
+<div class="publisher">
+<em>Published by</em>
+<strong>Semantic Web Journal</strong>
+</div>
+<div class="summary">
+<p>Transformation of PanLex database to RDF, linkage with Lexvo and DBpedia, and publication as Linked Data; co-author with Patrick Westphas and Claus Stadler</p>
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>PanLex and LEXTRACT: Translating all Words of all Languages of the World</span>
+<span class="date">
+2010-07-08
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://aclweb.org/anthology/C/C10/C10-3010.pdf"></a>
+</div>
+<div class="publisher">
+<em>Published by</em>
+<strong>Coling 2010: 23rd International Conference on Computational Linguistics</strong>
+</div>
+<div class="summary">
+<p>Research on expansion of coverage of PanLex, a lemmatic translation resource, via semi-automatic dictionary scraping; co-author with Timothy Baldwin and Susan M. Colowick</p>
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Lemmatic Machine Translation</span>
+<span class="date">
+2009-08-30
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://www.mt-archive.info/MTS-2009-Soderland.pdf"></a>
+</div>
+<div class="publisher">
+<em>Published by</em>
+<strong>Machine Translation Summit XII</strong>
+</div>
+<div class="summary">
+<p>Panlingual Translator, a prototype lemmatic machine-translation system; co-author with Stephen Soderland, Christopher Lim, Mausam, Bo Qin, and Oren Etzioni</p>
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>Disambiguating for the Web: A Test of Two Methods</span>
+<span class="date">
+2007-10-31
+</span>
+</h4>
+<div class="website pull-right">
+<a href="http://turing.cs.washington.edu/papers/disamweb.pdf"></a>
+</div>
+<div class="publisher">
+<em>Published by</em>
+<strong>K-CAP 2007: Fourth International Conference on Knowledge Capture</strong>
+</div>
+<div class="summary">
+<p>Paraphrasal disambiguation was more effective than truth-conditional disambiguation in an experiment with 386 subjects; co-author with Susan M. Colowick</p>
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>“The Official Language Problem</span>
+<span class="date">
+1991-06-15
+</span>
+</h4>
+<div class="website pull-right">
+<a href="https://old.panlex.org/pubs/etc/offlangprob-apsr1991.pdf"></a>
+</div>
+<div class="publisher">
+<em>Published by</em>
+<strong>American Political Science Review, 85, 495–514</strong>
+</div>
+<div class="summary">
+<p>Proves in a mathematical model that it is possible to discover a fair and efficient policy on official languages even when language groups are willing to misrepresent the costs they would incur to use a nonnative official language</p>
+</div>
+</div>
+<div class="col-sm-12">
+<h4 class="strike-through">
+<span>The Distribution of Foreign Language Skills as a Game Equilibrium</span>
+<span class="date">
+1991-01-15
+</span>
+</h4>
+<div class="website pull-right">
+<a href="https://old.panlex.org/pubs/etc/flsge-abs.html"></a>
+</div>
+<div class="publisher">
+<em>Published by</em>
+<strong>Game Equilibrium Models, ed. Reinhard Selten, vol. 4, Social and Political Interaction (Berlin: Springer)</strong>
+</div>
+<div class="summary">
+<p>Proofs of relationships among learning aptitude, language difficulty, and personal benefit in a game model, suggesting that those who learn the hardest languages get the most profit; co-author with Reinhard Selten</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills" class="row">
+<aside class="col-sm-3">
+<h3>Skills</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<div class="name">
+<h4>Web Development</h4>
+</div>
+<ul class="keywords">
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Languages</h4>
+</div>
+<ul class="keywords">
+<li>JavaScript</li>
+<li>Perl</li>
+<li>Java</li>
+<li>bash</li>
+<li>68000 Assembly</li>
+<li>VBA</li>
+<li>APL</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Scopes</h4>
+</div>
+<ul class="keywords">
+<li>full stack</li>
+<li>back end</li>
+<li>front end</li>
+<li>APIs</li>
+<li>SPAs</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Back-end</h4>
+</div>
+<ul class="keywords">
+<li>Node.js</li>
+<li>NPM</li>
+<li>Express</li>
+<li>pg</li>
+<li>pg-promise</li>
+<li>bcrypt</li>
+<li>solr</li>
+<li>DBI</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Databases</h4>
+</div>
+<ul class="keywords">
+<li>PostgreSQL</li>
+<li>PL/pgSQL</li>
+<li>SQL Server</li>
+<li>FileMaker Pro</li>
+<li>MongoDB</li>
+<li>migrations</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Front-end</h4>
+</div>
+<ul class="keywords">
+<li>HTML</li>
+<li>CSS</li>
+<li>JQuery</li>
+<li>Cheerio</li>
+<li>Bootstrap</li>
+<li>EJS</li>
+<li>Pug</li>
+<li>Materialize</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Content and version management</h4>
+</div>
+<ul class="keywords">
+<li>git</li>
+<li>svn</li>
+<li>Github</li>
+<li>Gitlab</li>
+<li>Bitbucket</li>
+<li>SourceForge</li>
+<li>WordPress</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Quality control</h4>
+</div>
+<ul class="keywords">
+<li>ESLint</li>
+<li>mocha</li>
+<li>chai</li>
+<li>Selenium Webdriver</li>
+<li>Chrome Developer Tools</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Accessibility</h4>
+</div>
+<ul class="keywords">
+<li>WCAG 2.1</li>
+<li>ARIA</li>
+<li>Chrome/aXe/Siteimprove/WAVE/OpenWAX/Tenon.io audits</li>
+<li>ADA Title III</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Internationalization</h4>
+</div>
+<ul class="keywords">
+<li>Unicode</li>
+<li>CLDR</li>
+<li>ISO 639</li>
+<li>PanLex API</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Web servers</h4>
+</div>
+<ul class="keywords">
+<li>Apache httpd</li>
+<li>nginx</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Mail servers</h4>
+</div>
+<ul class="keywords">
+<li>Postfix</li>
+<li>sendmail</li>
+<li>SendGrid Web API</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Remote hosts</h4>
+</div>
+<ul class="keywords">
+<li>Amazon AWS (EC2</li>
+<li>S3</li>
+<li>Glacier)</li>
+<li>OVH</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>OS’s</h4>
+</div>
+<ul class="keywords">
+<li>Ubuntu</li>
+<li>RHEL</li>
+<li>OS X</li>
+<li>Cisco IOS</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Configuration management</h4>
+</div>
+<ul class="keywords">
+<li>Puppet</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Files</h4>
+</div>
+<ul class="keywords">
+<li>FineReader</li>
+<li>Acrobat</li>
+<li>iconv</li>
+<li>Atom</li>
+<li>nano</li>
+<li>ed</li>
+<li>sed</li>
+<li>bbEdit/TextWrangler</li>
+<li>GraphicConverter</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>CAD</h4>
+</div>
+<ul class="keywords">
+<li>VectorWorks</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Statistics</h4>
+</div>
+<ul class="keywords">
+<li>SPSS</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Office apps</h4>
+</div>
+<ul class="keywords">
+<li>Apache OpenOffice</li>
+<li>Apple iWork</li>
+<li>Microsoft Office</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>Collaboration</h4>
+</div>
+<ul class="keywords">
+<li>Slack</li>
+<li>Asana</li>
+<li>Wrike</li>
+<li>Trello</li>
+<li>Egnyte</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="languages" class="row">
+<aside class="col-sm-3">
+<h3>Languages</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+</div>
+</section>
+<section id="interests" class="row">
+<aside class="col-sm-3">
+<h3>Interests</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-6">
+<div class="name">
+<h4>language design</h4>
+</div>
+<ul class="keywords">
+<li>controlled Languages</li>
+<li>artificial languages</li>
+<li>disambiguation</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>human rights</h4>
+</div>
+<ul class="keywords">
+<li>universality</li>
+<li>humanitarian intervention</li>
+<li>migration rights</li>
+<li>genocide</li>
+<li>civil liberties</li>
+<li>transparency</li>
+<li>quasi-municipality democracy</li>
+</ul>
+</div>
+<div class="col-sm-6">
+<div class="name">
+<h4>social choice</h4>
+</div>
+<ul class="keywords">
+<li>voting design</li>
+<li>language choice</li>
+<li>rational mediation</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="row">
+<aside class="col-sm-3">
+<h3>References</h3>
+</aside>
+<div class="col-sm-9">
+<div class="row">
+<div class="col-sm-12">
+<blockquote class="reference">
+<p>Instructors and colleagues during 2017–2018 enrollment as trainee-apprentice (on request)</p>
+<p class="name">
+<strong>— Learners Guild</strong>
+</p>
+</blockquote>
+</div>
+<div class="col-sm-12">
+<blockquote class="reference">
+<p>Supervisors and colleagues during 2012–2016 tenure as PanLex Project Director (on request)</p>
+<p class="name">
+<strong>— The Long Now Foundation</strong>
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script></body>
+</html>
