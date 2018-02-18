@@ -22,9 +22,11 @@ Available under [the MIT license](http://mths.be/mit).
 
 ### Introduction
 
-In order to give you more control over your résumé than other themes do, this theme defines a new standard for the JSON source file. The standard is more liberal, by giving you more flexibility. But it also imposes some requirements that you must satisfy in order to exercise your additional power.
+The `jsonresume` project lets you create a JSON-format source file and automatically generate HTML, PDF, and plain-text files from it, with any of over 200 themes. Each theme determines what parts of your document will appear in the output, and how the output will be formatted.
 
-For interoperability with other `jsonresume` themes, this theme contains a module that translates a file from the `jsonresume` standard format to the theme format. If you already have a résumé in the former standard, you can use that module to create a version in the theme’s format. Thereafter you can edit that version as you choose, to change the information in your résumé and how it appears.
+This theme gives you more control over your résumé than other themes do. In order to enable that control, this theme defines a new standard for the JSON source file. The standard is more liberal: It gives you more flexibility. But it also imposes some requirements that you must satisfy in order to exercise your additional power.
+
+For interoperability with other `jsonresume` themes, this theme contains a module that converts a file from the `jsonresume` standard format to the theme format. If you already have a résumé in the `jsonresume` format, you can use the converter to create a version in this theme’s format. Thereafter you can edit that version as you choose, to change the information in your résumé and how it appears.
 
 ### Installation
 
@@ -33,26 +35,30 @@ For interoperability with other `jsonresume` themes, this theme contains a modul
 
 ### Authoring
 
-#### Project format
+#### `jsonresume` format
 
-If you want to create, a résumé in the `jsonresume` format, you can:
+If you want to create a résumé in the `jsonresume` format, you can:
 
 - Use the `resume init` command to generate a starter source file.
-- Name the source file `resume.json` and put it into the `resume-cli` directory where this README file is located.
+- Name the source file `resume.json` and keep it in the `resume-cli` directory where this README file is located.
 - Edit the source file so it contains the information you want.
+
+Alternatively, you can use any editor to create a source file in the format dictated by the [`jsonresume` schema](https://jsonresume.org/schema/).
 
 Once you have a source file in the `jsonresume` format, you can convert it to this theme’s format as follows:
 
 - Clone this theme’s repository into a local directory.
-- Use the `node convert [oldsourcefile] [newsourcefile]` command to convert your source file to this theme’s format.
+- Use the `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]` command to convert your source file to this theme’s format.
 
-If you omit the `oldsourcefile` argument, `convert` will look for the input file as `resume.json`. If you omit the `newsourcefile` argument, `convert` will write the output file to `docs/resume-a11y.json`.
+    - If not specified, `oldsourcefile` defaults to `resume.json`.
+    - If not specified, `newsourcefile` defaults to `resume-a11y.json`.
+    - If specified, `-v` causes array values of object properties other than those in the `basics` object to be converted into bullet sublists. Otherwise, such values are converted into concatenations of their elements, with delimiters.
 
-Once you have converted your project-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s features.
+Once you have converted your `jsonresume`-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s options.
 
 #### Theme format
 
-If you want to use only this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below.
+If you want to use **only** this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below. It is also illustrated by the sample source files.
 
 ### Generation
 
@@ -62,7 +68,7 @@ If you have a source file named `resume.json` in the `jsonresume` format in your
 
 `resume export --theme a11y --format {html|markdown|pdf} [outputfilename]`
 
-This command will generate the output in two steps:
+That command will generate the output in two steps:
 
 - It will convert your source file to a source file in this theme’s format, saving that file as `resume-a11y.json`.
 - It will then generate an output file from the latter file.
@@ -71,19 +77,20 @@ This command will generate the output in two steps:
 
 If you are in a local repository of this theme instead, and if you have already created or generated a source file in this theme’s format, you can generate an HTML output file with the command:
 
-`node index [source file] [output file]`
+`node index [-i (--input) sourcefile] [-o (--output) destinationfile]`
 
-If you omit the source-file argument, the theme expects the source file to be `docs/resume-a11y.json`. If you omit the output-file argument, the theme writes the output file to `docs/resume-a11y.html`.
+- If not specified, `sourcefile` defaults to `resume-a11y.json`.
+- If not specified, `destinationfile` defaults to `resume-a11y.html`.
 
-At this time, this command does not generate a PDF or Markdown output file. You can do that with the `resume-cli` counterpart, or by using another method to convert this command’s HTML output to PDF or Markdown.
+At this time, this command does not generate a PDF, plain-text, or Markdown output file. You can generate PDF and plain text with the `resume-cli` counterpart. You can use other tools to convert this command’s HTML output to PDF, plain text, Markdown, and other formats.
 
 ## Theme format
 
-This is a specification of the theme’s JSON source file format. To understand it more easily, you can look at the sample source file at `docs/resume-sample-a11y.json` for examples of all of the cases described below.
+This is a specification of the theme’s JSON source-file format. To understand it more easily, you can look at the sample source files in the `docs/samples` directory.
 
 ### Language (`lang`)
 
-You can declare what language your résumé is in. This makes your résumé localized and also more accessible. With the language declared, an assistive device that is converting the text to speech may be better able to choose the proper language-specific algorithm and thus render the content with correct pronunciation.
+You can declare what language your résumé is in. This makes your résumé localized and also more accessible. With the language declared, an assistive device (such as a screen reader used by a blind user) that is converting the text to speech may be better able to choose the proper language-specific algorithm and thus render the content with correct pronunciation.
 
 Do this by including a `lang` property at the root level of your source file. Make the value of the `lang` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an [HTML-standard code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a language. Follow the [advice of the W3C](https://www.w3.org/International/questions/qa-choosing-language-tags) on this.
 
@@ -101,15 +108,15 @@ Wherever there is a `title` or `label` property in your source file and the valu
 
 #### Method
 
-To tell the theme to translate a `title` or `label` string, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an object. The `data` object has a property for each string that you want translated. The property’s name is the original text, and its value is the translation.
+To tell the theme to translate a `title` or `label` string, include a `legend` property at the root level of your source file. Make the value of the `legend` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an object. The `data` object has a property for each string that you want translated. The property’s name is the original text, and its value is the translation that you want.
 
-### Order
+### Order (`order`)
 
 You can decide what root-level sections appear in your output file, and in what order.
 
-The root-level properties in your source file, unless they are hidden or omitted, represent sections of your résumé. To decide which sections to include, and what order they will appear in, include an `order` property at the root level of your source file. Make its value an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an array of strings. Each string is one of the root-level property names. **Only** those properties will be rendered, and they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file.
+The root-level properties in your source file, unless they are hidden or omitted, represent sections of your résumé. To decide which sections to include or omit, and what order they will appear in, include an `order` property at the root level of your source file. Make its value an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an array of strings. Each string is one of the root-level property names. **Only** those properties can be rendered, and if rendered they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file. But, even if they appear in the `order` array, they will not be rendered if their `format` value is `hide`. So, to make an abbreviated version of your résumé, you can simply change to `hide` the `format` values of the sections you want to omit.
 
-If your source file does not contain a root-level `order` property, then all of the non-hidden sections will be rendered, and there is no guarantee as to the order they will appear in.
+If your source file does not contain a root-level `order` property, then all of the sections without `hide` formats will be rendered, and there is **no guarantee** as to the order they will appear in.
 
 ### Stringables
 
