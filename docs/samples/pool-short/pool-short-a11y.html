@@ -10,14 +10,21 @@
           font-size: 10px;
         }
       }
-      @media (min-width: 651px) {
+      @media (min-width: 651px), print {
         .cornerPic > img {
           position: absolute;
           top: 3rem;
           right: 3rem;
         }
+      }
+      @media (min-width: 651px) {
         html {
           font-size: 1.6vw;
+        }
+      }
+      @media print {
+        html {
+          font-size: 10px;
         }
       }
       * {
@@ -233,7 +240,7 @@
           <li><strong>Internationalization</strong>: Unicode, CLDR, ISO 639, PanLex API</li>
           <li><strong>Web servers</strong>: Apache httpd, nginx</li>
           <li><strong>Mail servers</strong>: Postfix, sendmail, SendGrid Web API</li>
-          <li><strong>Remote hosts</strong>: Amazon AWS (EC2, S3, Glacier), OVH</li>
+          <li><strong>Remote hosts</strong>: Amazon AWS (EC2, S3, Glacier), Heroku, OVH</li>
           <li><strong>OS’s</strong>: Ubuntu, RHEL, OS X, Cisco IOS</li>
           <li><strong>Configuration management</strong>: Puppet</li>
           <li><strong>Files</strong>: FineReader, Acrobat, iconv, Atom, nano, ed, sed, GraphicConverter</li>
