@@ -81,7 +81,7 @@ If you are in a local repository of this theme instead, and if you have already 
 
 If your source file is in the `jsonresume` format, you can first convert its format, as follows:
 
-`node convert [-i (--input) oldsourcefile] [-o (--output) newsourcefile]`
+`node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]`
 
 - If not specified, `oldsourcefile` defaults to `resume.json`.
 - If not specified, `newsourcefile` defaults to `resume-a11y.json`.
