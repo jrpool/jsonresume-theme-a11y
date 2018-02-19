@@ -2,10 +2,6 @@
 
 This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produces a résumé or curriculum vitae (or any other document!) that satisfies some of the standards of accessibility set forth by the Accessibility Guidelines Working Group and the Accessible Rich Internet Applications (ARIA) Working Group.
 
-## Status
-
-This application is still under development and has not yet been published for use as a theme in the `jsonresume` project.
-
 ## Philosophy
 
 This theme differs from other `jsonresume` themes by:
