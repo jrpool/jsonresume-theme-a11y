@@ -50,7 +50,7 @@ For interoperability with other `jsonresume` themes, this theme contains a modul
 
 The three workflows for producing an HTML résumé with this theme are illustrated here:
 
-![alt text](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/public/workflows.png "A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML" | width=625)
+![alt text](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/public/workflows.png | width=625 "A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML")
 
 ### Installation
 
