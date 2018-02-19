@@ -4,11 +4,23 @@ This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produc
 
 Accessibility, in the sense of usability for a wide range of abilities and disabilities, is abbreviated `a11y`, and that explains the name of this theme.
 
+## Accessibility metrics
+
+The HTML files produced by the current version of this theme and by some other themes from one of the sample source files (`pool-medium-std.json`) obtain the following accessibility scores when audited by five publicly available tools:
+
+Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SI](https://siteimprove.com/)/AAA (–)
+-- | --: | --: | --: | --: | --:
+a11y | 100 | 0 | 0 | 0 | 15
+crisp | 94 | 22 | 15 | 2 | 62
+eloquent | 97 | 211 | 184 | 8 | 590
+flat | 89 | 44 | 42 | 7 | 83
+modern | 97 | 3 | 0 | 2 | 8
+stackoverflow | 89 | 35 | 40 | 16 | 316
+
 ## Philosophy
 
 This theme differs from other `jsonresume` themes by:
 
-- Complying with accessibility standards.
 - Prioritizing accessibility over visual appeal.
 - Giving you granular control over content and format.
 
@@ -19,6 +31,12 @@ Available under [the MIT license](http://mths.be/mit).
 ## Status
 
 The current version of this theme is released as a minimum viable product. Contributions of, or suggestions for, enhancements and repairs are welcome. Feel free to make pull requests or open issues at [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y).
+
+Contemplated future work includes:
+
+- Investigating accessibility flaws reported by Siteimprove (see above table).
+- Performing human accessibility tests.
+- Extension of the theme’s functionality to cover compatibility with commonly used résumé parsers.
 
 ## Usage
 
