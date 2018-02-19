@@ -2,6 +2,8 @@
 
 This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produces a résumé or curriculum vitae (or any other document!) that satisfies some of the standards of accessibility set forth by the Accessibility Guidelines Working Group and the Accessible Rich Internet Applications (ARIA) Working Group.
 
+Accessibility, in the sense of usability for a wide range of abilities and disabilities, is abbreviated `a11y`, and that explains the name of this theme.
+
 ## Philosophy
 
 This theme differs from other `jsonresume` themes by:
@@ -36,25 +38,24 @@ For interoperability with other `jsonresume` themes, this theme contains a modul
 If you want to create a résumé in the `jsonresume` format, you can:
 
 - Use the `resume init` command to generate a starter source file.
-- Name the source file `resume.json` and keep it in the `resume-cli` directory.
 - Edit the source file so it contains the information you want.
 
 Alternatively, you can use any editor to create a source file in the format dictated by the [`jsonresume` schema](https://jsonresume.org/schema/).
 
 Once you have a source file in the `jsonresume` format, you can convert it to this theme’s format as follows:
 
-- Clone this theme’s repository into a local directory.
-- Use the `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]` command to convert your source file to this theme’s format.
+- Fork this theme’s repository and clone your fork into a local directory.
+- Within that directory, use the `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]` command to convert your source file to this theme’s format.
 
-    - If not specified, `oldsourcefile` defaults to `resume.json`.
-    - If not specified, `newsourcefile` defaults to `resume-a11y.json`.
-    - If specified, `-v` causes array values of object properties other than those in the `basics` object to be converted into bullet sublists. Otherwise, such values are converted into concatenations of their elements, with delimiters.
+    - If not specified, `oldsourcefile` defaults to `resume.json` in the current directory.
+    - If not specified, `newsourcefile` defaults to `resume-a11y.json` in the current directory.
+    - If specified, `-v` causes array values of object properties other than those in the `basics` object to be converted to bullet sublists. Otherwise, such values are converted into concatenations of their elements, with delimiters.
 
 Once you have converted your `jsonresume`-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s options.
 
 #### Theme format
 
-If you want to use **only** this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below. It is also illustrated by the sample source files.
+If you want to use **only** this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below. It is also illustrated by the sample source files in the `docs/samples` directory. If you find it easier, you can start with one of the sample files and replace its information with yours.
 
 ### Conversion and generation
 
@@ -73,9 +74,9 @@ You will get only the final output file, not an intermediate source file.
 
 #### With `jsonresume-theme-a11y` commands
 
-If you are in a local repository of this theme instead, and if you have already created a source file in either format, you can generate an HTML output file.
+This theme provides commands that you can use to get an HTML file from a JSON file in either of the above-described formats.
 
-If your source file is in the `jsonresume` format, you can first convert its format, as follows:
+If your source file is in the `jsonresume` format and your current directory is your local repository of this theme, you can first convert the file’s format, as follows:
 
 `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]`
 
