@@ -16,6 +16,10 @@ This theme differs from other `jsonresume` themes by:
 
 Available under [the MIT license](http://mths.be/mit).
 
+## Status
+
+The current version of this theme is released as a minimum viable product. Contributions of, or suggestions for, enhancements and repairs are welcome.
+
 ## Usage
 
 ### Introduction
@@ -44,7 +48,7 @@ Alternatively, you can use any editor to create a source file in the format dict
 
 Once you have a source file in the `jsonresume` format, you can convert it to this theme’s format as follows:
 
-- Fork this theme’s repository and clone your fork into a local directory.
+- Fork [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y) and clone your fork into a local directory.
 - Within that directory, use the `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]` command to convert your source file to this theme’s format.
 
     - If not specified, `oldsourcefile` defaults to `resume.json` in the current directory.
@@ -67,23 +71,36 @@ If you have a source file named `resume.json` in the `jsonresume` format in your
 
 That command will generate the output in two steps:
 
-- It will convert your source file to this theme’s format.
+- It will convert your source file (in memory, not as a file) to this theme’s format.
 - It will then generate an output file from the latter format.
-
-You will get only the final output file, not an intermediate source file.
 
 #### With `jsonresume-theme-a11y` commands
 
-This theme provides commands that you can use to get an HTML file from a JSON file in either of the above-described formats.
+##### Introduction
 
-If your source file is in the `jsonresume` format and your current directory is your local repository of this theme, you can first convert the file’s format, as follows:
+By using this theme’s commands instead of the `resume` command, you can choose different options. Specifically:
+
+- You can choose between a terse and a verbose format.
+- You can get the input from any file, not only a file named `resume.json`.
+- You can generate an intermediate source file, i.e. a file in this theme’s JSON format, and then perform edits on that file before rendering it in HTML. Those edits can make use of options that are not available under the `resume` command.
+
+Conversely, however, you cannot choose to render the file in PDF.
+
+##### From a `jsonresume`-format source file
+
+If your source file is in the `jsonresume` format and is in your local repository of this theme, make that repository your current directory. Then you can convert the file’s format to this theme’s format, as follows:
 
 `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]`
 
 - If not specified, `oldsourcefile` defaults to `resume.json`.
 - If not specified, `newsourcefile` defaults to `resume-a11y.json`.
+- If the --verbose option is chosen, array values of properties, except for properties of the `basics` object, will be retained as arrays in `newsourcefile`. Otherwise they will be concatenated, with a delimiter.
 
-Once you have the converted source file, you can generate an HTML file from it, as follows:
+Then follow the instruction below, using `newsourcefile` as your input.
+
+##### From a source file in this theme’s format
+
+If your source file is in this theme’s format, you can generate an HTML file from it, as follows:
 
 `node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]`
 
@@ -92,7 +109,7 @@ Once you have the converted source file, you can generate an HTML file from it, 
 
 ## Theme format
 
-This is a specification of the theme’s JSON source-file format. To understand it more easily, you can look at the sample source files in the `docs/samples` directory.
+The rest of this README file is a specification of the theme’s JSON source-file format. To understand it more easily, you can look at the sample source files in the `docs/samples` directory.
 
 ### Language (`lang`)
 
@@ -100,15 +117,19 @@ You can declare what language your résumé is in. This makes your résumé loca
 
 Do this by including a `lang` property at the root level of your source file. Make the value of the `lang` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an [HTML-standard code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a language. Follow the [advice of the W3C](https://www.w3.org/International/questions/qa-choosing-language-tags) on this.
 
+If no language is declared in your source file, the HTML language declaration defaults to `en` (English).
+
 ### Page title (`title`)
 
 You can determine the title of the document that will contain your résumé. Do this by including a `title` property at the root level of your source file. Make the value of the `title` property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is the title, as a string.
+
+If no `title` property is included, the document title defaults to “Résumé”.
 
 ### Translation (`legend`)
 
 #### Introduction
 
-You can make the theme translate some strings into other strings.
+You can make the theme translate some strings into other strings when it renders your document.
 
 Wherever there is a `title` or `label` property in your source file and the value of that property is a string (or an array of strings), that string is (or the strings in that array are) translatable. Before rendering such a string, the theme checks whether you want it translated. If so, the theme renders its translation. If not, the theme renders the string as it appears in your source file.
 
@@ -120,13 +141,13 @@ To tell the theme to translate a `title` or `label` string, include a `legend` p
 
 You can decide what root-level sections appear in your output file, and in what order.
 
-The root-level properties in your source file, unless they are hidden or omitted, represent sections of your résumé. To decide which sections to include or omit, and what order they will appear in, include an `order` property at the root level of your source file. Make its value an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an array of strings. Each string is one of the root-level property names. **Only** those properties can be rendered, and if rendered they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file. But, even if they appear in the `order` array, they will not be rendered if their `format` value is `hide`. So, to make an abbreviated version of your résumé, you can simply change to `hide` the `format` values of the sections you want to omit.
+The root-level properties in your source file, unless they are hidden or omitted, represent sections of your résumé. To decide which sections to include or omit, and what order the included ones will appear in, include an `order` property at the root level of your source file. Make its value an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an array of strings. Each string is one of the root-level property names. **Only** those properties can be rendered, and if rendered they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file. But, even if they appear in the `order` array, they will not be rendered if their `format` value is `hide`. So, to make an abbreviated version of your résumé, you can simply change to `hide` the `format` values of the sections you want to omit; you don’t need to remove their properties from the `order` object.
 
 If your source file does not contain a root-level `order` property, then all of the sections without `hide` formats will be rendered, and there is **no guarantee** as to the order they will appear in.
 
 ### Stringables
 
-You can choose how inline text in your résumé is formatted. The theme format requires that some items be “stringables”. A stringable is a string, array, or object. If it is an array, then each of its elements is a stringable. If it is an object, then it has `format` and `data` properties. The format property has one of the following values (`address`, etc.), and the `data` property complies with the specifications of that value. The theme converts the object to a string. Wherever a specification requires a stringable, if an array of stringables is provided, the theme renders each element of the array and then concatenates the renderings into a string.
+You can choose how inline text in your résumé is formatted. You will see below that the theme format requires some items to be “stringables”. A stringable is a string, array, or object. If it is an array, then each of its elements is a stringable. If it is an object, then it has `format` and `data` properties. The format property has one of the values listed below (`address`, etc.), and the `data` property complies with the specifications of that value. The theme converts the object to a string. Wherever a specification requires a stringable, if an array of stringables is provided, the theme renders each element of the array and then concatenates the renderings into a string, without any delimiter.
 
 #### Address (`address`)
 
