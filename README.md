@@ -18,7 +18,7 @@ Available under [the MIT license](http://mths.be/mit).
 
 ## Status
 
-The current version of this theme is released as a minimum viable product. Contributions of, or suggestions for, enhancements and repairs are welcome.
+The current version of this theme is released as a minimum viable product. Contributions of, or suggestions for, enhancements and repairs are welcome. Feel free to make pull requests or open issues at [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y).
 
 ## Usage
 
