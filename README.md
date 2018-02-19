@@ -22,16 +22,16 @@ Available under [the MIT license](http://mths.be/mit).
 
 ### Introduction
 
-The `jsonresume` project lets you create a JSON-format source file and automatically generate HTML, PDF, and plain-text files from it, with any of over 200 themes. Each theme determines what parts of your document will appear in the output, and how the output will be formatted.
+The `jsonresume` project lets you create a JSON-format source file and automatically generate HTML and PDF from it, with any of over 200 themes. Each theme determines what parts of your document will appear in the output, and how the output will be formatted.
 
-This theme gives you more control over your résumé than other themes do. In order to enable that control, this theme defines a new standard for the JSON source file. The standard is more liberal: It gives you more flexibility. But it also imposes some requirements that you must satisfy in order to exercise your additional power.
+This theme, `jsonresume-theme-a11y`, gives you more control over your résumé than other themes do. In order to enable that control, this theme defines a new standard for the JSON source file. The standard is more liberal: It gives you more flexibility. But it also imposes some requirements that you must satisfy in order to exercise your additional power.
 
-For interoperability with other `jsonresume` themes, this theme contains a module that converts a file from the `jsonresume` standard format to the theme format. If you already have a résumé in the `jsonresume` format, you can use the converter to create a version in this theme’s format. Thereafter you can edit that version as you choose, to change the information in your résumé and how it appears.
+For interoperability with other `jsonresume` themes, this theme contains a module that converts a file from the `jsonresume` standard format to the theme format. If you already have a résumé in the `jsonresume` format, the converter can create a version in this theme’s format. Thereafter you can edit that version as you choose, to change the information in your résumé and how it appears.
 
 ### Installation
 
 - Install [resume-cli](https://github.com/jsonresume/resume-cli).
-- Install this theme: `npm install jsonresume-theme-a11y`.
+- Install this theme: `npm install -g jsonresume-theme-a11y`. (The `jsonresume` project’s commands require that each theme you want to use be installed globally.)
 
 ### Authoring
 
@@ -40,7 +40,7 @@ For interoperability with other `jsonresume` themes, this theme contains a modul
 If you want to create a résumé in the `jsonresume` format, you can:
 
 - Use the `resume init` command to generate a starter source file.
-- Name the source file `resume.json` and keep it in the `resume-cli` directory where this README file is located.
+- Name the source file `resume.json` and keep it in the `resume-cli` directory.
 - Edit the source file so it contains the information you want.
 
 Alternatively, you can use any editor to create a source file in the format dictated by the [`jsonresume` schema](https://jsonresume.org/schema/).
@@ -60,29 +60,38 @@ Once you have converted your `jsonresume`-format source file to the theme format
 
 If you want to use **only** this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below. It is also illustrated by the sample source files.
 
-### Generation
+### Conversion and generation
 
-#### In `resume-cli`
+#### With the `resume` command
 
-If you have a source file named `resume.json` in the `jsonresume` format in your working directory, you can generate an output with this theme by using the `resume-cli` command:
+If you have a source file named `resume.json` in the `jsonresume` format in your current directory, you can generate an output with this theme by using the `resume export` command:
 
-`resume export --theme a11y --format {html|markdown|pdf} [outputfilename]`
+`resume export --theme a11y --format {html|pdf} <outputfilename>`
 
 That command will generate the output in two steps:
 
-- It will convert your source file to a source file in this theme’s format, saving that file as `resume-a11y.json`.
-- It will then generate an output file from the latter file.
+- It will convert your source file to this theme’s format.
+- It will then generate an output file from the latter format.
 
-#### In `jsonresume-theme-a11y`
+You will get only the final output file, not an intermediate source file.
 
-If you are in a local repository of this theme instead, and if you have already created or generated a source file in this theme’s format, you can generate an HTML output file with the command:
+#### With `jsonresume-theme-a11y` commands
 
-`node index [-i (--input) sourcefile] [-o (--output) destinationfile]`
+If you are in a local repository of this theme instead, and if you have already created a source file in either format, you can generate an HTML output file.
 
-- If not specified, `sourcefile` defaults to `resume-a11y.json`.
-- If not specified, `destinationfile` defaults to `resume-a11y.html`.
+If your source file is in the `jsonresume` format, you can first convert its format, as follows:
 
-At this time, this command does not generate a PDF, plain-text, or Markdown output file. You can generate PDF and plain text with the `resume-cli` counterpart. You can use other tools to convert this command’s HTML output to PDF, plain text, Markdown, and other formats.
+`node convert [-i (--input) oldsourcefile] [-o (--output) newsourcefile]`
+
+- If not specified, `oldsourcefile` defaults to `resume.json`.
+- If not specified, `newsourcefile` defaults to `resume-a11y.json`.
+
+Once you have the converted source file, you can generate an HTML file from it, as follows:
+
+`node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]`
+
+- If not specified, `newsourcefile` defaults to `resume-a11y.json`.
+- If not specified, `htmlfile` defaults to `resume-a11y.html`.
 
 ## Theme format
 
