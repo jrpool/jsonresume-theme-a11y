@@ -1,6 +1,6 @@
 # jsonresume-theme-a11y
 
-This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produces a résumé or curriculum vitae (or any other document!) that satisfies some of the standards of accessibility set forth by the Accessibility Guidelines Working Group and the Accessible Rich Internet Applications (ARIA) Working Group.
+This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produces a résumé or curriculum vitae (or any other document!) that satisfies some of the standards of accessibility set forth by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
 
 Accessibility, in the sense of usability for a wide range of abilities and disabilities, is abbreviated `a11y`, and that explains the name of this theme.
 
@@ -59,7 +59,7 @@ Once you have converted your `jsonresume`-format source file to the theme format
 
 #### Theme format
 
-If you want to use **only** this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below. It is also illustrated by the sample source files in the `docs/samples` directory. If you find it easier, you can start with one of the sample files and replace its information with yours.
+If you want to use **only** this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below. It is also illustrated by the sample source files containing `a11y` in their names, located in the `docs/samples` directory. If you find it easier, you can start with one of the sample files and replace its information with yours.
 
 ### Conversion and generation
 
@@ -88,7 +88,7 @@ Conversely, however, you cannot choose to render the file in PDF.
 
 ##### From a `jsonresume`-format source file
 
-If your source file is in the `jsonresume` format and is in your local repository of this theme, make that repository your current directory. Then you can convert the file’s format to this theme’s format, as follows:
+If your source file is in the `jsonresume` format and is in your local repository of this theme, make that repository your current directory. Then you can convert the file to a file this theme’s format, as follows:
 
 `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]`
 
