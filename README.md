@@ -8,14 +8,14 @@ Accessibility, in the sense of usability for a wide range of abilities and disab
 
 The HTML files produced by the current version of this theme and by some other themes from one of the sample source files (`pool-medium-std.json`) obtain the following accessibility scores when audited by five publicly available tools:
 
-Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SI](https://siteimprove.com/)/AAA (–)
--- | --: | --: | --: | --: | --:
-a11y | 100 | 0 | 0 | 0 | 15
-crisp | 94 | 22 | 15 | 2 | 62
-eloquent | 97 | 211 | 184 | 8 | 590
-flat | 89 | 44 | 42 | 7 | 83
-modern | 97 | 3 | 0 | 2 | 8
-stackoverflow | 89 | 35 | 40 | 16 | 316
+Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SI](https://siteimprove.com/)/AAA (–) | [HCS](http://pauljadam.com/extension.html)/AAA (–)
+--- | ---: | ---: | ---: | ---: | ---: | ---:
+a11y | 100 | 0 | 0 | 0 | 15 | 0
+crisp | 94 | 22 | 15 | 2 | 62 | 2
+eloquent | 97 | 211 | 184 | 8 | 590 | 328
+flat | 89 | 44 | 42 | 7 | 83 | 42
+modern | 97 | 3 | 0 | 2 | 8 | 2
+stackoverflow | 89 | 35 | 40 | 16 | 316 | 143
 
 ## Philosophy
 
