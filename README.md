@@ -6,9 +6,9 @@ Accessibility, in the sense of usability for a wide range of abilities and disab
 
 ## Accessibility metrics
 
-The HTML files produced by the current version of this theme and by some other themes from one of the sample source files (`pool-medium-std.json`) obtain the following accessibility scores when audited by five publicly available tools:
+The HTML files produced from one of the sample source files (`pool-medium-std.json`) by this theme and some other themes obtain the following accessibility scores (+) or error counts (–) when audited with some publicly available tools:
 
-Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SI](https://siteimprove.com/)/AAA (–) | [HCS](http://pauljadam.com/extension.html)/AAA (–)
+Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SAC](https://siteimprove.com/)/AAA (–) | [HCS](http://pauljadam.com/extension.html)/AAA (–)
 --- | ---: | ---: | ---: | ---: | ---: | ---:
 a11y | 100 | 0 | 0 | 0 | 15 | 0
 crisp | 94 | 22 | 15 | 2 | 62 | 2
@@ -34,15 +34,15 @@ The current version of this theme is released as a minimum viable product. Contr
 
 Contemplated future work includes:
 
-- Investigating accessibility flaws reported by Siteimprove (see above table).
+- Investigating accessibility flaws reported by the Siteimprove Accessibility Checker (see above table).
 - Performing human accessibility tests.
-- Extension of the theme’s functionality to cover compatibility with commonly used résumé parsers.
+- Extending the theme’s functionality to cover compatibility with commonly used résumé parsers.
 
 ## Usage
 
 ### Introduction
 
-The `jsonresume` project lets you create a JSON-format source file and automatically generate HTML and PDF from it, with any of over 200 themes. Each theme determines what parts of your document will appear in the output, and how the output will be formatted.
+The `jsonresume` project lets you create a JSON-format source file and automatically generate HTML and PDF from it, with any of [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme). Each theme determines what parts of your document will appear in the output, and how the output will be formatted.
 
 This theme, `jsonresume-theme-a11y`, gives you more control over your résumé than other themes do. In order to enable that control, this theme defines a new standard for the JSON source file. The standard is more liberal: It gives you more flexibility. But it also imposes some requirements that you must satisfy in order to exercise your additional power.
 
@@ -55,29 +55,20 @@ For interoperability with other `jsonresume` themes, this theme contains a modul
 
 ### Authoring
 
+You can create a source file in either of two formats.
+
 #### `jsonresume` format
 
-If you want to create a résumé in the `jsonresume` format, you can:
+To create a résumé in the `jsonresume` format, you can:
 
 - Use the `resume init` command to generate a starter source file.
 - Edit the source file so it contains the information you want.
 
 Alternatively, you can use any editor to create a source file in the format dictated by the [`jsonresume` schema](https://jsonresume.org/schema/).
 
-Once you have a source file in the `jsonresume` format, you can convert it to this theme’s format as follows:
-
-- Fork [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y) and clone your fork into a local directory.
-- Within that directory, use the `node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]` command to convert your source file to this theme’s format.
-
-    - If not specified, `oldsourcefile` defaults to `resume.json` in the current directory.
-    - If not specified, `newsourcefile` defaults to `resume-a11y.json` in the current directory.
-    - If specified, `-v` causes array values of object properties other than those in the `basics` object to be converted to bullet sublists. Otherwise, such values are converted into concatenations of their elements, with delimiters.
-
-Once you have converted your `jsonresume`-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s options.
-
 #### Theme format
 
-If you want to use **only** this theme and you don’t yet have a résumé in the `jsonresume` format, you can author a file directly in this theme’s format. That format is described below. It is also illustrated by the sample source files containing `a11y` in their names, located in the `docs/samples` directory. If you find it easier, you can start with one of the sample files and replace its information with yours.
+You can create a résumé in this theme’s format by complying with the specification below. If you prefer, you can copy and edit one of the sample source files with `a11y` in their names, located in the `docs/samples` directory of [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y).
 
 ### Conversion and generation
 
@@ -102,32 +93,42 @@ By using this theme’s commands instead of the `resume` command, you can choose
 - You can get the input from any file, not only a file named `resume.json`.
 - You can generate an intermediate source file, i.e. a file in this theme’s JSON format, and then perform edits on that file before rendering it in HTML. Those edits can make use of options that are not available under the `resume` command.
 
-Conversely, however, you cannot choose to render the file in PDF.
+However, this theme’s commands do not render a file in PDF.
+
+##### Installation
+
+In order to use this theme’s commands, fork [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y) and clone your fork into a local directory. Then make that directory your current directory.
 
 ##### From a `jsonresume`-format source file
 
-If your source file is in the `jsonresume` format and is in your local repository of this theme, make that repository your current directory. Then you can convert the file to a file this theme’s format, as follows:
+If you have a source file in the `jsonresume` format, you can convert it to this theme’s format with the following command:
 
-`node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]`
+```bash
+node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]
+```
 
-- If not specified, `oldsourcefile` defaults to `resume.json`.
-- If not specified, `newsourcefile` defaults to `resume-a11y.json`.
-- If the --verbose option is chosen, array values of properties, except for properties of the `basics` object, will be retained as arrays in `newsourcefile`. Otherwise they will be concatenated, with a delimiter.
+- If not specified, `oldsourcefile` defaults to `resume.json` in the current directory.
+- If not specified, `newsourcefile` defaults to `resume-a11y.json` in the current directory.
+- If specified, `-v` causes array values of object properties other than those in the `basics` object to be converted to bullet sublists. Otherwise, such values are converted into concatenations of their elements, with delimiters.
+
+Once you have converted your `jsonresume`-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s options.
 
 Then follow the instruction below, using `newsourcefile` as your input.
 
 ##### From a source file in this theme’s format
 
-If your source file is in this theme’s format, you can generate an HTML file from it, as follows:
+If you have a source file in this theme’s format, you can generate an HTML file from it with the following command:
 
-`node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]`
+```bash
+node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]
+```
 
 - If not specified, `newsourcefile` defaults to `resume-a11y.json`.
 - If not specified, `htmlfile` defaults to `resume-a11y.html`.
 
 ## Theme format
 
-The rest of this README file is a specification of the theme’s JSON source-file format. To understand it more easily, you can look at the sample source files in the `docs/samples` directory.
+The rest of this README file is a specification of the theme’s JSON source-file format. To understand it more easily, you can look at the sample source files with names that include `a11y` in the `docs/samples` directory.
 
 ### Language (`lang`)
 
