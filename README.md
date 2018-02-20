@@ -80,7 +80,7 @@ There are **examples** in two repositories:
 - The `jsonresume` project’s `resume-cli` repository contains an [example of a résumé](https://github.com/jsonresume/resume-cli/blob/master/test/resume.json) of one [Richard Hendricks](http://pied-piper.squarespace.com/the-crew/).
 - This theme’s repository contains an [example of a résumé](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-std.json) of this theme’s initial contributor.
 
-If you choose to start with one of these examples and edit it, you can get the starter file by selecting `Raw` on the example file’s Github page and saving the page as (or copying and pasting its text into) your editor.
+If you choose to start with one of these examples and edit it, you can get the starter file by selecting `Raw` on the example file’s Github page and saving the page (or copying and pasting its text into your editor and saving the file).
 
 #### Theme format
 
