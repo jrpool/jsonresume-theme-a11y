@@ -52,60 +52,55 @@ The three possible workflows for producing an HTML résumé with this theme, des
 
 ![A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML](https://jpdev.pro/jsonresume-theme-a11y/workflows.png)
 
-### Installation
+All three workflows involve **writing** and **rendering**. Workflows A and C also involve **converting**. These are explained below.
 
-- Install [resume-cli](https://github.com/jsonresume/resume-cli).
-- Install this theme: `npm install -g jsonresume-theme-a11y`. (The `jsonresume` project’s commands require that each theme you want to use be installed globally.)
+As a general rule, your choice among the workflows likely depends on your intent:
 
-### Authoring
+- Workflow A is good if you want to render a résumé with various themes and do **not** want to use this theme’s extra features.
+- Workflow B is good if you want to render a résumé with **only** this theme, and to use its extra features.
+- Workflow C is good if you want to render a résumé with various themes and, when rendering it with this theme, to use its extra features.
 
-You can create a source file in either of two formats.
+### Writing
+
+The first step in getting this theme to produce a résumé is writing. You need to write the content of your résumé in a file. The format in which you write must be JSON, and it must further comply with either the `jsonresume` format or this theme’s format. If you choose workflow A or C, you write in the `jsonresume` format. If you choose workflow B, you write in this theme’s format.
+
+You can use any plain-text editor to write the file, but using an editor that supports JSON can help you avoid syntax errors. Such editors exist as applications and also as web services.
 
 #### `jsonresume` format
 
-To create a résumé in the `jsonresume` format, you can:
+If you choose workflow A or C and therefore write in the `jsonresume` format, you can choose between (or adopt a mixture of) two strategies:
 
-- Use the `resume init` command to generate a starter source file.
-- Edit the source file so it contains the information you want.
+- Following instructions
+- Following an example
 
-Alternatively, you can use any editor to create a source file in the format dictated by the [`jsonresume` schema](https://jsonresume.org/schema/).
+The **instructions** are found in the [schema of the `jsonresume` project](https://jsonresume.org/schema/). In fact, those instructions take the form of a stylized example, so these two strategies are similar.
+
+There are **examples** in two repositories:
+
+- The `jsonresume` project’s `resume-cli` repository contains an [example of a résumé](https://github.com/jsonresume/resume-cli/blob/master/test/resume.json) of one [Richard Hendricks](http://pied-piper.squarespace.com/the-crew/).
+- This theme’s repository contains an [example of a résumé](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-std.json) of this theme’s initial contributor.
+
+If you choose to start with one of these examples and edit it, you can get the starter file by selecting `Raw` on the example file’s Github page and saving the page as (or copying and pasting its text into) your editor.
 
 #### Theme format
 
-You can create a résumé in this theme’s format by complying with the specification below. If you prefer, you can copy and edit one of the sample source files with `a11y` in their names, located in the `docs/samples` directory of [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y).
+If you choose workflow B and therefore write in this theme’s format, you can similarly choose to follow instructions and/or follow an example.
 
-### Conversion and generation
+The **instructions** are below, starting at the `Theme format` heading.
 
-#### With the `resume` command
+There is an [**example** in this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-short/pool-short-a11y.json). Use the `Raw` button, as described above.
 
-If you have a source file named `resume.json` in the `jsonresume` format in your current directory, you can generate an output with this theme by using the `resume export` command:
+### Converting
 
-`resume export --theme a11y --format {html|pdf} <outputfilename>`
+If you choose workflow C, your next step is to convert your source file from the `jsonresume` format to this theme’s format. That action produces a second JSON file from the one you wrote.
 
-That command will generate the output in two steps:
+The steps in that conversion are:
 
-- It will convert your source file (in memory, not as a file) to this theme’s format.
-- It will then generate an output file from the latter format.
-
-#### With `jsonresume-theme-a11y` commands
-
-##### Introduction
-
-By using this theme’s commands instead of the `resume` command, you can choose different options. Specifically:
-
-- You can choose between a terse and a verbose format.
-- You can get the input from any file, not only a file named `resume.json`.
-- You can generate an intermediate source file, i.e. a file in this theme’s JSON format, and then perform edits on that file before rendering it in HTML. Those edits can make use of options that are not available under the `resume` command.
-
-However, this theme’s commands do not render a file in PDF.
-
-##### Installation
-
-In order to use this theme’s commands, fork [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y) and clone your fork into a local directory. Then make that directory your current directory.
-
-##### From a `jsonresume`-format source file
-
-If you have a source file in the `jsonresume` format, you can convert it to this theme’s format with the following command:
+- If you don’t yet have `node` running on your computer, [install it](https://nodejs.org/en/). Either the latest version or the LTS version is good.
+- Make a local copy on your own computer of [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y). If you don’t already know how, the easiest way is to click on the `Clone or download` button and choose `Download ZIP`, then open the saved `.zip` file to make a directory.
+- Put your `jsonresume`-format source file into that directory.
+- Open a terminal window and make that directory your current directory.
+- Enter the following command:
 
 ```bash
 node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]
@@ -113,15 +108,15 @@ node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsou
 
 - If not specified, `oldsourcefile` defaults to `resume.json` in the current directory.
 - If not specified, `newsourcefile` defaults to `resume-a11y.json` in the current directory.
-- If specified, `-v` causes array values of object properties other than those in the `basics` object to be converted to bullet sublists. Otherwise, such values are converted into concatenations of their elements, with delimiters.
+- If specified, `--verbose` causes array values of object properties other than those in the `basics` object (for example, lists of keywords) to be converted to bullet sublists. Otherwise, such values are compacted into lists on a single line, with slashes or commas between them.
 
-Once you have converted your `jsonresume`-format source file to the theme format, you can further edit the latter file to take advantage of this theme’s options.
+Once you have converted your `jsonresume`-format source file to a file in the theme format, you can further edit that file to take advantage of this theme’s options.
 
-Then follow the instruction below, using `newsourcefile` as your input.
+### Rendering
 
-##### From a source file in this theme’s format
+If you choose workflow B or C, your final step is to render your source file, namely produce an HTML file (a web page) from it.
 
-If you have a source file in this theme’s format, you can generate an HTML file from it with the following command:
+To do this, get back into (or stay in) the same situation you were in above, under `Converting`, and enter the following command:
 
 ```bash
 node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]
@@ -130,9 +125,34 @@ node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]
 - If not specified, `newsourcefile` defaults to `resume-a11y.json`.
 - If not specified, `htmlfile` defaults to `resume-a11y.html`.
 
+### Converting + rendering
+
+If you choose workflow A, your final step is to convert your source file to this theme’s format and render it, all in a single action. This does **not** produce a source file in this theme’s format. The conversion takes place only in memory, and the converted source disappears immediately after it is rendered.
+
+That step requires the following actions:
+
+- If you don’t yet have `node` running on your computer, [install it](https://nodejs.org/en/). Either the latest version or the LTS version is good.
+- Open a terminal window.
+- Install the `jsonresume` project’s `resume-cli` package with the command `npm install -g resume-cli`.
+- Install this theme with the command `npm install -g jsonresume-theme-a11y`.
+- Name your source file `resume.json`.
+- In your terminal window, make the directory containing your source file your current directory.
+- Convert and render the source file with the command `resume export --theme a11y <outputfilename>`.
+
+In principle, this last action (the `resume export` command) allows you to specify a PDF output format, too, with the option `--format pdf` before or after the `--theme a11y` option. However, in practice, the resulting PDF file is relatively unpresentable. You are likely to want a more powerful converter from HTML to PDF, instead.
+
+### Rendering with other themes
+
+If you choose workflow A or C, you can also render your `jsonresume`-format source file with other `jsonresume` themes. For any theme `xyz`, you can do this with these commands:
+
+- `npm install -g jsonresume-theme-xyz`
+- `resume export --theme xyz <outputfilename>`
+
+You can find those themes at the [`jsonresume` website](https://jsonresume.org/themes/) and the [NPM website](https://www.npmjs.com/search?q=jsonresume-theme).
+
 ## Theme format
 
-The rest of this README file is a specification of the theme’s JSON source-file format. To understand it more easily, you can look at the sample source files with names that include `a11y` in the `docs/samples` directory.
+The rest of this README file is a specification of the theme’s JSON source-file format. To understand it more easily, you can look at the theme’s [sample](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-short/pool-short-a11y.json) file.
 
 ### Language (`lang`)
 
