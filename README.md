@@ -48,9 +48,7 @@ This theme, `jsonresume-theme-a11y`, gives you more control over your résumé t
 
 For interoperability with other `jsonresume` themes, this theme contains a module that converts a file from the `jsonresume` standard format to the theme format. If you already have a résumé in the `jsonresume` format, the converter can create a version in this theme’s format. Thereafter you can edit that version as you choose, to change the information in your résumé and how it appears.
 
-The three workflows for producing an HTML résumé with this theme, described in detail below, are illustrated here (`JR` = `jsonresume` format):
-
-<img alt="A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML" src="https://jpdev.pro/jsonresume-theme-a11y/workflows.png">
+The three possible workflows for producing an HTML résumé with this theme, described in detail below, are illustrated here (`JR` = `jsonresume` format):
 
 ![A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML](https://jpdev.pro/jsonresume-theme-a11y/workflows.png)
 
