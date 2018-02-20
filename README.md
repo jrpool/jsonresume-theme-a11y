@@ -116,7 +116,7 @@ Once you have converted your `jsonresume`-format source file to a file in the th
 
 If you choose workflow B or C, your final step is to render your source file, namely produce an HTML file (a web page) from it.
 
-To do this, get back into (or stay in) the same situation you were in above, under `Converting`, and enter the following command:
+To do this, get into (or stay in) the situation described in above, under `Converting`. Then, instead of the command shown there, enter the following command:
 
 ```bash
 node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]
