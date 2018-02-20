@@ -10,7 +10,7 @@ The HTML files produced from one of the sample source files (`pool-medium-std.js
 
 Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SAC](https://siteimprove.com/)/AAA (–) | [HCS](http://pauljadam.com/extension.html)/AAA (–)
 --- | ---: | ---: | ---: | ---: | ---: | ---:
-a11y | 100 | 0 | 0 | 0 | 15 | 0
+**a11y** | **100** | **0** | **0** | **0** | **15** | **0**
 crisp | 94 | 22 | 15 | 2 | 62 | 2
 eloquent | 97 | 211 | 184 | 8 | 590 | 328
 flat | 89 | 44 | 42 | 7 | 83 | 42
