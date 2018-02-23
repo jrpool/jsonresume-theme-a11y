@@ -212,7 +212,7 @@
     "data": {
       "head": {
         "size": 2,
-        "data": "My latest projects are"
+        "data": "Some of my accessibility-related projects are"
       },
       "list": [
         {
@@ -242,7 +242,7 @@
             "tail": {
               "format": "hLink",
               "data": {
-                "href": "https://github.com/jrpool/jsonresume-theme-a11y"
+                "href": "https://www.npmjs.com/package/jsonresume-theme-a11y"
               }
             },
             "delimiter": ": "
@@ -256,6 +256,19 @@
               "format": "hLink",
               "data": {
                 "href": "https://github.com/jrpool/singlepropertysite"
+              }
+            },
+            "delimiter": ": "
+          }
+        },
+        {
+          "format": "headedString",
+          "data": {
+            "head": "Single-page site of an accessibility consultancy",
+            "tail": {
+              "format": "hLink",
+              "data": {
+                "href": "http://geezer.pro"
               }
             },
             "delimiter": ": "

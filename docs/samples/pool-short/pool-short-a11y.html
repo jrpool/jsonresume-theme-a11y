@@ -45,6 +45,13 @@
       .boxedBulletList + .boxedBulletList {
         margin-top: -1px;
       }
+      .boxedBulletList > h1 {
+        margin-top: 0.1rem;
+      }
+      caption {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
       .center,
       .compact {
         text-align: center;
@@ -67,7 +74,7 @@
         width: 8rem;
       }
       h1 {
-        margin: 0.5rem 0 0 0.3rem;
+        margin: 0.5rem 0 0 0.5rem;
         color: #344;
       }
       li,
@@ -139,7 +146,7 @@
       ul {
         margin: 0.25rem 0;
       }
-
+      
     </style>
   </head>
   <body>
@@ -156,64 +163,102 @@
         <div class="compact">
           <h1 class="size4">I do</h1>
           <table class="rowTable">
-            <tr>
-              <td>planning</td><td>design</td><td>coding</td><td>linting</td><td>testing</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>planning</td>
+                <td>design</td>
+                <td>coding</td>
+                <td>linting</td>
+                <td>testing</td>
+              </tr>
+            </tbody>
           </table>
           <table class="rowTable">
-            <tr>
-              <td>documentation</td><td>blogging</td><td>training</td><td>maintenance</td><td>upgrades</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>documentation</td>
+                <td>blogging</td>
+                <td>training</td>
+                <td>maintenance</td>
+                <td>upgrades</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div></div>
       </section>
       <section title="Contact information" class="center">
-        <h1 class="size4">Find me at</h1>
         <table class="tableLH">
-          <tr>
-            <th>Email</th><td><a href="mailto:pool@stulta.com">pool@stulta.com</a></td>
-          </tr>
-          <tr>
-            <th>Telephone</th><td>(510) 225-1717</td>
-          </tr>
-          <tr>
-            <th>Mobile telephone</th><td>(510) 225-1700</td>
-          </tr>
-          <tr>
-            <th>Blog</th><td><a href="http://stulta.com/forumo">http://stulta.com/forumo</a></td>
-          </tr>
-          <tr>
-            <th>Mailing address</th><td>555 10th St Apt 312<br>Oakland, California 94607-5208, US</td>
-          </tr>
+          <caption class="size4">
+            Find me at
+          </caption>
+          <tbody>
+            <tr>
+              <th>Email</th>
+              <td><a href="mailto:pool@stulta.com">pool@stulta.com</a></td>
+            </tr>
+            <tr>
+              <th>Telephone</th>
+              <td>(510) 225-1717</td>
+            </tr>
+            <tr>
+              <th>Mobile telephone</th>
+              <td>(510) 225-1700</td>
+            </tr>
+            <tr>
+              <th>Blog</th>
+              <td><a href="http://stulta.com/forumo">http://stulta.com/forumo</a></td>
+            </tr>
+            <tr>
+              <th>Mailing address</th>
+              <td>555 10th St Apt 312<br>Oakland, California 94607-5208, US</td>
+            </tr>
+          </tbody>
         </table>
       </section>
       <section title="Profiles" class="center">
-        <h1 class="size4">Look me up at</h1>
         <table class="tableTH">
-          <tr>
-            <th>Host</th><th>User ID</th><th>URL</th>
-          </tr>
-          <tr>
-            <td>Github</td><td>jrpool</td><td><a href="https://github.com/jrpool">https://github.com/jrpool</a></td>
-          </tr>
-          <tr>
-            <td>LinkedIn</td><td>jonathanpool</td><td><a href="https://www.linkedin.com/in/jonathanpool/">https://www.linkedin.com/in/jonathanpool/</a></td>
-          </tr>
-          <tr>
-            <td>MDN Web Docs</td><td>JonathanPool</td><td><a href="https://developer.mozilla.org/en-US/profiles/JonathanPool">https://developer.mozilla.org/en-US/profiles/JonathanPool</a></td>
-          </tr>
-          <tr>
-            <td>Google Scholar</td><td>Jonathan Pool</td><td><a href="https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en&oi=ao">https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en&oi=ao</a></td>
-          </tr>
+          <caption class="size4">
+            Look me up at
+          </caption>
+          <thead>
+            <tr>
+              <th>Host</th>
+              <th>User ID</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Github</td>
+              <td>jrpool</td>
+              <td><a href="https://github.com/jrpool">https://github.com/jrpool</a></td>
+            </tr>
+            <tr>
+              <td>LinkedIn</td>
+              <td>jonathanpool</td>
+              <td><a href="https://www.linkedin.com/in/jonathanpool/">https://www.linkedin.com/in/jonathanpool/</a></td>
+            </tr>
+            <tr>
+              <td>MDN Web Docs</td>
+              <td>JonathanPool</td>
+              <td><a href="https://developer.mozilla.org/en-US/profiles/JonathanPool">https://developer.mozilla.org/en-US/profiles/JonathanPool</a></td>
+            </tr>
+            <tr>
+              <td>Google Scholar</td>
+              <td>Jonathan Pool</td>
+              <td><a href="https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en&oi=ao">https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en&oi=ao</a></td>
+            </tr>
+          </tbody>
         </table>
       </section>
       <section title="Projects" class="boxedBulletList">
-        <h1 class="size2">My latest projects are</h1>
+        <h1 class="size2">Some of my accessibility-related projects are</h1>
         <ul>
           <li><strong>Accessible Calculator</strong>: <a href="https://github.com/jrpool/calculator/blob/master/README3.md">https://github.com/jrpool/calculator/blob/master/README3.md</a></li>
-          <li><strong>Accessible <code>jsonresume</code> theme</strong>: <a href="https://github.com/jrpool/jsonresume-theme-a11y">https://github.com/jrpool/jsonresume-theme-a11y</a></li>
+          <li><strong>Accessible <code>jsonresume</code> theme</strong>: <a href="https://www.npmjs.com/package/jsonresume-theme-a11y">https://www.npmjs.com/package/jsonresume-theme-a11y</a></li>
           <li><strong>Senior-friendly single-page site</strong>: <a href="https://github.com/jrpool/singlepropertysite">https://github.com/jrpool/singlepropertysite</a></li>
+          <li><strong>Single-page site of an accessibility consultancy</strong>: <a href="http://geezer.pro">http://geezer.pro</a></li>
         </ul>
       </section>
       <section title="Open-source development" class="boxedBulletList">
