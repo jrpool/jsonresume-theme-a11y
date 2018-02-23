@@ -1,0 +1,2615 @@
+{
+  "lang": {
+    "format": "hide",
+    "data": "en"
+  },
+  "order": {
+    "format": "hide",
+    "data": [
+      "picture",
+      "identity",
+      "summary",
+      "contacts",
+      "profiles",
+      "work",
+      "volunteer",
+      "education",
+      "awards",
+      "publications",
+      "skills",
+      "languages",
+      "interests",
+      "references"
+    ]
+  },
+  "legend": {
+    "format": "hide",
+    "data": {
+      "address": "Address",
+      "area": "Area",
+      "awarder": "Awarder",
+      "awards": "Awards",
+      "basics": "Basics",
+      "city": "City",
+      "company": "Company",
+      "countryCode": "Country code",
+      "courses": "Courses",
+      "creditTo": "Powered by ",
+      "date": "Date",
+      "education": "Education",
+      "email": "Email",
+      "endDate": "End date",
+      "fluency": "Fluency",
+      "gpa": "GPA",
+      "highlights": "Highlights",
+      "institution": "Institution",
+      "interests": "Interests",
+      "keywords": "Details",
+      "label": "Label",
+      "language": "Language",
+      "languages": "Languages",
+      "level": "Level",
+      "location": "Mailing address",
+      "name": "Name",
+      "network": "Network",
+      "organization": "Organization",
+      "phone": "Phone",
+      "picture": "Photograph",
+      "position": "Position",
+      "postalCode": "Postal code",
+      "profiles": "Profiles",
+      "publications": "Publications",
+      "publisher": "Publisher",
+      "reference": "Reference",
+      "references": "References",
+      "region": "Region",
+      "releaseDate": "Release date",
+      "skills": "Skills",
+      "startDate": "Start date",
+      "studyType": "Study type",
+      "summary": "Synopsis",
+      "title": "Title",
+      "url": "URL",
+      "username": "Username",
+      "volunteer": "Volunteering",
+      "website": "Website",
+      "work": "Work"
+    }
+  },
+  "picture": {
+    "normalFormat": "cornerPic",
+    "format": "cornerPic",
+    "title": "picture",
+    "data": {
+      "src": "http://stulta.com/images/pool-2009.jpg",
+      "alt": "Photograph of Jonathan Pool"
+    }
+  },
+  "identity": {
+    "normalFormat": "center",
+    "format": "center",
+    "title": "identity",
+    "data": [
+      {
+        "size": 1,
+        "text": "Jonathan Pool"
+      },
+      {
+        "size": 2,
+        "text": "Developer of accessible web applications"
+      }
+    ]
+  },
+  "contacts": {
+    "normalFormat": "tableLeftHeads",
+    "format": "tableLeftHeads",
+    "title": "contacts",
+    "data": {
+      "table": {
+        "caption": {
+          "size": 4,
+          "data": "Contacts"
+        },
+        "data": [
+          {
+            "label": "email",
+            "data": [
+              {
+                "format": "mailLink",
+                "data": {
+                  "href": "pool@stulta.com"
+                }
+              }
+            ]
+          },
+          {
+            "label": "phone",
+            "data": [
+              "(510) 225-1717"
+            ]
+          },
+          {
+            "label": "website",
+            "data": [
+              {
+                "format": "hLink",
+                "data": {
+                  "href": "http://jpdev.pro/info"
+                }
+              }
+            ]
+          },
+          {
+            "label": "location",
+            "data": [
+              {
+                "format": "address",
+                "data": {
+                  "point": "555 10th St Apt 312",
+                  "city": "Oakland",
+                  "region": "California",
+                  "postalCode": "94607-5208",
+                  "countryCode": "US"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "normalFormat": "left",
+    "format": "left",
+    "title": "summary",
+    "data": [
+      "I have developed web and database applications in JavaScript and other languages. I am currently adding accessibility features to existing applications and developing new ones that comply with international accessibility standards."
+    ]
+  },
+  "profiles": {
+    "normalFormat": "tableTopHead",
+    "format": "tableTopHead",
+    "title": "profiles",
+    "data": {
+      "table": {
+        "caption": {
+          "size": 4,
+          "data": "Profiles"
+        },
+        "label": [
+          "network",
+          "username",
+          "url"
+        ],
+        "data": [
+          [
+            "Github",
+            "jrpool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://github.com/jrpool"
+              }
+            }
+          ],
+          [
+            "LinkedIn",
+            "jonathanpool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://www.linkedin.com/in/jonathanpool/"
+              }
+            }
+          ],
+          [
+            "MDN Web Docs",
+            "Jonathan Pool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://developer.mozilla.org/en-US/profiles/JonathanPool"
+              }
+            }
+          ],
+          [
+            "Google Scholar",
+            "JonathanPool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en&oi=ao"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "work": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "work",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Work history"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Company",
+              "tail": "The Long Now Foundation",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Project Director",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://longnow.org"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "2012-01-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2016-12-19",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Director of the PanLex project",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Developed PostgreSQL database of 3.1 billion lexical translations",
+                      "Developed UIs and SEO for database",
+                      "Recruited steering committee and advisory committee",
+                      "Hired and supervised 3 computational linguists and 1 linguist",
+                      "Director 2 summer internship programs with 45 interns",
+                      "Established project office"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Company",
+              "tail": "Centerplex",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Proprietor",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://stulta.com/misc/cx/"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "1993-06-16",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2004-06-11",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Owner and operator of 4 office buildings with 100 tenants",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Developed web application and UI for tenant-initiated leasing",
+                      "Procured, configured, and managed 4-building wireless network with T1 WAN and Cisco LAN",
+                      "Hired and supervised 20 employees",
+                      "Upgraded physical plant to enhance ADA accessibility",
+                      "Procured and managed lighting upgrade with 1.5-year payback"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Company",
+              "tail": "University of Washington",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Assistant and Associate Professor",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://www.washington.edu"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "1977-09-16",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "1993-06-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Member of faculty of Department of Political Science",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Published research articles, collections, and conference papers",
+                      "Had visiting appointments at University of Paderborn and University of Bielefeld, Germany",
+                      "Taught courses in research methods, decision theory, and language policy",
+                      "Served on university committees"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Company",
+              "tail": "State University of New York at Stony Brook",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Assistant Professor",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://www.stonybrook.edu"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "1971-01-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "1977-06-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Member of faculty of Department of Political Science",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Published research articles and conference papers",
+                      "Had visiting appointments at Stanford University, McGill University, and University of Mannheim, Germany",
+                      "Taught courses in research methods, comparative politics, and language policy",
+                      "Developed instructional software"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "volunteer": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "volunteer",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Volunteering"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Organization",
+              "tail": "Berkeley Town House Cooperative Corporation",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Director and Secretary",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://www.berkeleytownhouse.com"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "2011-05-24",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2011-12-06",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Managed and improved access to corporate documentation",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Digitized 52 years of corporate board minutes",
+                      "Made 13,000 records web-accessible to authorized members",
+                      "Documented extent and cost of construction defect, permitting corporation to recover $224,415 from contractors"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Organization",
+              "tail": "Peace Corps",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Volunteer",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "https://www.peacecorps.gov"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "1964-06-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "1966-06-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Taught ESL in Nevşehir and İstanbul, Turkey",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Achieved 4.5 Foreign Service Institute score in Turkish",
+                      "Published articles in Turkish periodicals",
+                      "Authored language textbook for speakers of Turkish"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Organization",
+              "tail": "Operation Crossroads Africa",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Position",
+                  "tail": "Volunteer",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://www.operationcrossroadsafrica.org"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "1963-06-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "1963-08-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Worked on a binational team constructing a community center in Nsoatre, Ghana",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Highlights",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Visited Côte d’Ivoire, Togo, Benin, and Nigeria"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "education": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "education",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Education"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Institution",
+              "tail": "Learners Guild",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Area",
+                  "tail": "full-stack web development",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Study type",
+                  "tail": "Vocational training and apprenticeship",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "2017-05-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2018-02-16",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Courses",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "full-stack web application development",
+                      "JavaScript",
+                      "Node.js",
+                      "PostgreSQL",
+                      "Express",
+                      "web accessibility"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Institution",
+              "tail": "University of Washington",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Area",
+                  "tail": "computer science and linguistics",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Study type",
+                  "tail": "undergraduate and graduate courses",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "2004-03-29",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "2007-06-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "GPA",
+                  "tail": "3.97",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Courses",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "computer programming (Java)",
+                      "data structures and algorithms",
+                      "user-interface design",
+                      "artificial intelligence",
+                      "syntax",
+                      "morphology",
+                      "semantics",
+                      "lexical ambiguity",
+                      "computational linguistics",
+                      "grammar engineering",
+                      "human rights law and philosophy"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Institution",
+              "tail": "The University of Chicago",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Area",
+                  "tail": "political science",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Study type",
+                  "tail": "M.A. and Ph.D.",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "1966-09-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "1971-04-30",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Courses",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "computational political analysis",
+                      "survey research on public opinion",
+                      "political science methodology",
+                      "political philosophy",
+                      "comparative politics"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Institution",
+              "tail": "Harvard University",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Area",
+                  "tail": "government",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Study type",
+                  "tail": "B.A.",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Start date",
+                  "tail": "1960-09-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "End date",
+                  "tail": "1964-06-30",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Courses",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "quantitative analysis of judicial behavior",
+                      "political philosophy",
+                      "comparative politics"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "awards": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "awards",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Grants, awards, and prizes"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Title",
+              "tail": "Computer Simulation in Multilingual International Studies",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Date",
+                  "tail": "1983-07-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Awarder",
+                  "tail": "University of Maryland",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Cross-national policy simulation for students of politics",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Title",
+              "tail": "Computer Equipment for Experimental Political Science Research",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Date",
+                  "tail": "1978-09-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Awarder",
+                  "tail": "National Science Foundation",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Laboratory for study of political behavior; co-principal investigator with Donald R. Matthews",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "publications": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "publications",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Publications"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Countering language attrition with PanLex and the Web of Data",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Publisher",
+                  "tail": "Semantic Web Journal",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Release date",
+                  "tail": "2015-08-01",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "https://old.panlex.org/pubs/etc/plwebdata-201404.pdf"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Transformation of PanLex database to RDF, linkage with Lexvo and DBpedia, and publication as Linked Data; co-author with Patrick Westphal and Claus Stadler",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "PanLex and LEXTRACT: Translating all Words of all Languages of the World",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Publisher",
+                  "tail": "Coling 2010: 23rd International Conference on Computational Linguistics",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Release date",
+                  "tail": "2010-07-08",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://aclweb.org/anthology/C/C10/C10-3010.pdf"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Research on expansion of coverage of PanLex, a lemmatic translation resource, via semi-automatic dictionary scraping; co-author with Timothy Baldwin and Susan M. Colowick",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Lemmatic Machine Translation",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Publisher",
+                  "tail": "Machine Translation Summit XII",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Release date",
+                  "tail": "2009-08-30",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://www.mt-archive.info/MTS-2009-Soderland.pdf"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Panlingual Translator, a prototype lemmatic machine-translation system; co-author with Stephen Soderland, Christopher Lim, Mausam, Bo Qin, and Oren Etzioni",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Disambiguating for the Web: A Test of Two Methods",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Publisher",
+                  "tail": "K-CAP 2007: Fourth International Conference on Knowledge Capture",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Release date",
+                  "tail": "2007-10-31",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "http://turing.cs.washington.edu/papers/disamweb.pdf"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Paraphrasal disambiguation was more effective than truth-conditional disambiguation in an experiment with 386 subjects; co-author with Susan M. Colowick",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "“The Official Language Problem",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Publisher",
+                  "tail": "American Political Science Review, 85, 495–514",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Release date",
+                  "tail": "1991-06-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "https://old.panlex.org/pubs/etc/offlangprob-apsr1991.pdf"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Proves in a mathematical model that it is possible to discover a fair and efficient policy on official languages even when language groups are willing to misrepresent the costs they would incur to use a nonnative official language",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "The Distribution of Foreign Language Skills as a Game Equilibrium",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Publisher",
+                  "tail": "Game Equilibrium Models, ed. Reinhard Selten, vol. 4, Social and Political Interaction (Berlin: Springer)",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Release date",
+                  "tail": "1991-01-15",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Website",
+                  "tail": {
+                    "format": "hLink",
+                    "data": {
+                      "href": "https://old.panlex.org/pubs/etc/flsge-abs.html"
+                    }
+                  },
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Synopsis",
+                  "tail": "Proofs of relationships among learning aptitude, language difficulty, and personal benefit in a game model, suggesting that those who learn the hardest languages get the most profit; co-author with Reinhard Selten",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "skills": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "skills",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Skills"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Web Development",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "various",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "HTML",
+                      "CSS",
+                      "Javascript"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Languages",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "various",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "JavaScript",
+                      "Perl",
+                      "Java",
+                      "bash",
+                      "68000 Assembly",
+                      "VBA",
+                      "APL"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Scopes",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "full stack",
+                      "back end",
+                      "front end",
+                      "APIs",
+                      "SPAs"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Back-end",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "various",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Node.js",
+                      "NPM",
+                      "Express",
+                      "pg",
+                      "pg-promise",
+                      "bcrypt",
+                      "solr",
+                      "DBI"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Databases",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "PostgreSQL",
+                      "PL/pgSQL",
+                      "SQL Server",
+                      "FileMaker Pro",
+                      "MongoDB",
+                      "migrations"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Front-end",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "various",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "HTML",
+                      "CSS",
+                      "JQuery",
+                      "Cheerio",
+                      "Bootstrap",
+                      "EJS",
+                      "Pug",
+                      "Materialize"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Content and version management",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "git",
+                      "svn",
+                      "Github",
+                      "Gitlab",
+                      "Bitbucket",
+                      "SourceForge",
+                      "WordPress"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Quality control",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "junior",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "ESLint",
+                      "mocha",
+                      "chai",
+                      "Selenium Webdriver",
+                      "Chrome Developer Tools"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Accessibility",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "junior",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "WCAG 2.1",
+                      "ARIA",
+                      "Chrome/aXe/Siteimprove/WAVE/OpenWAX/Tenon.io audits",
+                      "ADA Title III"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Internationalization",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Unicode",
+                      "CLDR",
+                      "ISO 639",
+                      "PanLex API"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Web servers",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Apache httpd",
+                      "nginx"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Mail servers",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "junior",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Postfix",
+                      "sendmail",
+                      "SendGrid Web API"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Remote hosts",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Amazon AWS (EC2",
+                      "S3",
+                      "Glacier)",
+                      "OVH"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "OS’s",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Ubuntu",
+                      "RHEL",
+                      "OS X",
+                      "Cisco IOS"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Configuration management",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "junior",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Puppet"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Files",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "FineReader",
+                      "Acrobat",
+                      "iconv",
+                      "Atom",
+                      "nano",
+                      "ed",
+                      "sed",
+                      "bbEdit/TextWrangler",
+                      "GraphicConverter"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "CAD",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "VectorWorks"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Statistics",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "junior",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "SPSS"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Office apps",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Apache OpenOffice",
+                      "Apple iWork",
+                      "Microsoft Office"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Collaboration",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "intermediate",
+                  "delimiter": ": "
+                }
+              },
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "Slack",
+                      "Asana",
+                      "Wrike",
+                      "Trello",
+                      "Egnyte"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "languages": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "languages",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Languages known"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "English",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "native",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Esperanto",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "professional",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "German",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "working",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Turkish",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "working",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "French",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "practical",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Norwegian (Bokmål)",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "practical",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Russian",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "practical",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Latin",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Level",
+                  "tail": "fragmentary",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "interests": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "interests",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "Interests"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "language design",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "controlled Languages",
+                      "artificial languages",
+                      "disambiguation"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "human rights",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "universality",
+                      "humanitarian intervention",
+                      "migration rights",
+                      "genocide",
+                      "civil liberties",
+                      "transparency",
+                      "quasi-municipality democracy"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "social choice",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Details",
+                  "tail": {
+                    "format": "bulletList",
+                    "data": [
+                      "voting design",
+                      "language choice",
+                      "rational mediation"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "references": {
+    "normalFormat": "boxedBulletList",
+    "format": "boxedBulletList",
+    "title": "references",
+    "data": {
+      "head": {
+        "size": 2,
+        "data": "References"
+      },
+      "list": [
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "Learners Guild",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Reference",
+                  "tail": "Instructors and colleagues during 2017–2018 enrollment as trainee-apprentice (on request)",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "format": "headedString",
+            "data": {
+              "head": "Name",
+              "tail": "The Long Now Foundation",
+              "delimiter": ": "
+            }
+          },
+          {
+            "format": "bulletList",
+            "data": [
+              {
+                "format": "headedString",
+                "data": {
+                  "head": "Reference",
+                  "tail": "Supervisors and colleagues during 2012–2016 tenure as PanLex Project Director (on request)",
+                  "delimiter": ": "
+                }
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -130,11 +130,11 @@ exports.parse = a11yObject => {
     switch(format) {
       case 'boxedBulletList': {
         const head = headOf(data);
-        const bulletItems = data.list.map(
+        const items = data.list.map(
           item => renderer.bulletItemOf(stringOf(item))
         );
-        const bulletList = renderer.bulletListOf(bulletItems);
-        const content = head ? [head, bulletList].join('\n') : bulletList;
+        const list = renderer.bulletListOf(items);
+        const content = head ? [head, list].join('\n') : list;
         return renderer.sectionOf(content, title, format);
       }
       case 'center': {
@@ -153,8 +153,10 @@ exports.parse = a11yObject => {
       }
       case 'rowTables': {
         const rows = data.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
-        return renderer.sectionOf(rowTables.join('\n'), title, 'center');
+        const tables = rows.map(
+          row => renderer.tableOf([renderer.tableBodyOf([row])], 'rowTable')
+        );
+        return renderer.sectionOf(tables.join('\n'), title, 'center');
       }
       case 'rowTablesCircled': {
         const compactSectionOf = (content, title, format) => {
@@ -163,15 +165,22 @@ exports.parse = a11yObject => {
         };
         const head = headOf(data);
         const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
-        const rowTables = rows.map(row => renderer.tableOf([row], 'rowTable'));
-        const contentItems = head ? [head, ...rowTables] : rowTables;
+        const tables = rows.map(
+          row => renderer.tableOf([renderer.tableBodyOf([row])], 'rowTable')
+        );
+        const items = head ? [head, ...tables] : tables;
         return compactSectionOf(
-          contentItems.join('\n'), title, 'rowTablesCircled'
+          items.join('\n'), title, 'rowTablesCircled'
         );
       }
       case 'tableLeftHeads': {
-        const head = headOf(data);
-        const rowItems = data.table.map(
+        const sectionHead = headOf(data);
+        const sectionTable = data.table;
+        const tableCaption = sectionTable.caption;
+        const caption = renderer.captionOf(
+          tableCaption.size, tableCaption.data
+        );
+        const rows = sectionTable.data.map(
           rowSpec => {
             rowSpec.data.unshift(titleOf(rowSpec.label, legend));
             return renderer.leftHeadRowOf(
@@ -179,24 +188,28 @@ exports.parse = a11yObject => {
             );
           }
         );
-        const table = renderer.tableOf(rowItems, 'tableLH');
-        const content = head ? [head, table].join('\n') : table;
+        const body = renderer.tableBodyOf(rows);
+        const table = renderer.tableOf([caption, body], 'tableLH');
+        const content = sectionHead ? [sectionHead, table].join('\n') : table;
         return renderer.sectionOf(content, title, 'center');
       }
       case 'tableTopHead': {
-        const head = headOf(data);
-        const headRowItem = renderer.headRowOf(
-          data.table.label.map(string => titleOf(string, legend))
+        const sectionHead = headOf(data);
+        const sectionTable = data.table;
+        const tableCaption = sectionTable.caption;
+        const caption = renderer.captionOf(
+          tableCaption.size, tableCaption.data
         );
-        const etcRowItems = data.table.data.map(
+        const head = renderer.headRowOf(
+          sectionTable.label.map(string => titleOf(string, legend))
+        );
+        const etc = renderer.tableBodyOf(sectionTable.data.map(
           rowSpec => renderer.plainRowOf(
             rowSpec.map(cellSpec => stringOf(cellSpec))
           )
-        );
-        const table = renderer.tableOf(
-          [headRowItem, ...etcRowItems], 'tableTH'
-        );
-        const content = head ? [head, table].join('\n') : table;
+        ));
+        const table = renderer.tableOf([caption, head, etc], 'tableTH');
+        const content = sectionHead ? [sectionHead, table].join('\n') : table;
         return renderer.sectionOf(content, title, 'center');
       }
     }

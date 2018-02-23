@@ -25,6 +25,11 @@ const element2Of = (content, tagName, atObject, indent) => {
 
 // ELEMENT CREATORS
 
+// Body rows’ table section.
+const tableBodyOf = rows => {
+  return element2Of(rows.join('\n'), 'tbody', {}, 2);
+};
+
 // Bullet list.
 const bulletListOf = array => element2Of(array.join('\n'), 'ul', {}, 2);
 
@@ -50,10 +55,11 @@ const headOf = (string, size) => element2Of(
   string, 'h1', {class: `size${size}`}, -1
 );
 
-// Heading row.
+// Heading row’s table section.
 const headRowOf = array => {
   const cells = array.map(string => element2Of(string, 'th', {}, -1));
-  return rowOf(cells);
+  const row = rowOf(cells);
+  return element2Of(row, 'thead', {}, 2);
 };
 
 // Hyperlink.
@@ -123,16 +129,22 @@ const squeezeBoxOf = content => {
 const styleOf = style => element2Of(style, 'style', {}, -1);
 
 // Table.
-const tableOf = (rowElements, type) => element2Of(
-  rowElements.join('\n'), 'table', {class: type}, 2
+const tableOf = (tableSections, type) => element2Of(
+  tableSections.join('\n'), 'table', {class: type}, 2
+);
+
+// Table caption.
+const captionOf = (size, data) => element2Of(
+  data, 'caption', {class: `size${size}`}, 2
 );
 
 // Table row.
-const rowOf = cellElements => element2Of(cellElements.join(''), 'tr', {}, 2);
+const rowOf = cellElements => element2Of(cellElements.join('\n'), 'tr', {}, 2);
 
 module.exports = {
   bulletItemOf,
   bulletListOf,
+  captionOf,
   codeOf,
   element1Of,
   element2Of,
@@ -150,5 +162,6 @@ module.exports = {
   sectionOf,
   squeezeBoxOf,
   styleOf,
+  tableBodyOf,
   tableOf,
 };

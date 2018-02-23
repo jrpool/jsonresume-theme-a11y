@@ -56,7 +56,7 @@ exports.convert = (sourceObject, isVerbose) => {
       network: 'Network',
       organization: 'Organization',
       phone: 'Phone',
-      picture: 'Picture',
+      picture: 'Photograph',
       position: 'Position',
       postalCode: 'Postal code',
       profiles: 'Profiles',
@@ -116,51 +116,57 @@ exports.convert = (sourceObject, isVerbose) => {
           : 'hide',
       title: 'contacts',
       data: {
-        table: [
-          {
-            label: 'email',
-            data: [
-              {
-                format: 'mailLink',
-                data: {
-                  href: email
-                }
-              }
-            ]
+        table: {
+          "caption": {
+            "size": 4,
+            "data": "Contacts"
           },
-          {
-            label: 'phone',
-            data: [
-              phone
-            ]
-          },
-          {
-            label: 'website',
-            data: [
-              {
-                format: 'hLink',
-                data: {
-                  href: website
+          "data": [
+            {
+              label: 'email',
+              data: [
+                {
+                  format: 'mailLink',
+                  data: {
+                    href: email
+                  }
                 }
-              }
-            ]
-          },
-          {
-            label: 'location',
-            data: [
-              {
-                format: 'address',
-                data: {
-                  point: address,
-                  city: city,
-                  region: region,
-                  postalCode: postalCode,
-                  countryCode: countryCode
+              ]
+            },
+            {
+              label: 'phone',
+              data: [
+                phone
+              ]
+            },
+            {
+              label: 'website',
+              data: [
+                {
+                  format: 'hLink',
+                  data: {
+                    href: website
+                  }
                 }
-              }
-            ]
-          }
-        ]
+              ]
+            },
+            {
+              label: 'location',
+              data: [
+                {
+                  format: 'address',
+                  data: {
+                    point: address,
+                    city: city,
+                    region: region,
+                    postalCode: postalCode,
+                    countryCode: countryCode
+                  }
+                }
+              ]
+            }
+          ]
+        }
       }
     };
     a11yObject.summary = {
@@ -174,11 +180,11 @@ exports.convert = (sourceObject, isVerbose) => {
       format: profiles && profiles.length ? 'tableTopHead' : 'hide',
       title: 'profiles',
       data: {
-        head: {
-          size: 4,
-          data: 'Profiles'
-        },
         table: {
+          caption: {
+            size: 4,
+            data: 'Profiles'
+          },
           label: ['network', 'username', 'url'],
           data: profiles && profiles.length ? profiles.map(profile => [
             profile.network || '',

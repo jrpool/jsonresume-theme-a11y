@@ -38,6 +38,13 @@ body {
 .boxedBulletList + .boxedBulletList {
   margin-top: -1px;
 }
+.boxedBulletList > h1 {
+  margin-top: 0.1rem;
+}
+caption {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
 .center,
 .compact {
   text-align: center;
@@ -60,7 +67,7 @@ body {
   width: 8rem;
 }
 h1 {
-  margin: 0.5rem 0 0 0.3rem;
+  margin: 0.5rem 0 0 0.5rem;
   color: #344;
 }
 li,

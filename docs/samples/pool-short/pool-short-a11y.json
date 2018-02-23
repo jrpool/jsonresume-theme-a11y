@@ -92,72 +92,74 @@
     "format": "tableLeftHeads",
     "title": "contacts",
     "data": {
-      "head": {
-        "size": 4,
-        "data": "Find me at"
-      },
-      "table": [
-        {
-          "label": "email",
-          "data": [
-            {
-              "format": "mailLink",
-              "data": {
-                "href": "pool@stulta.com"
+      "table": {
+        "caption": {
+          "size": 4,
+          "data": "Find me at"
+        },
+        "data": [
+          {
+            "label": "email",
+            "data": [
+              {
+                "format": "mailLink",
+                "data": {
+                  "href": "pool@stulta.com"
+                }
               }
-            }
-          ]
-        },
-        {
-          "label": "phone",
-          "data": [
-            "(510) 225-1717"
-          ]
-        },
-        {
-          "label": "mobilePhone",
-          "data": [
-            "(510) 225-1700"
-          ]
-        },
-        {
-          "label": "blog",
-          "data": [
-            {
-              "format": "hLink",
-              "data": {
-                "href": "http://stulta.com/forumo"
+            ]
+          },
+          {
+            "label": "phone",
+            "data": [
+              "(510) 225-1717"
+            ]
+          },
+          {
+            "label": "mobilePhone",
+            "data": [
+              "(510) 225-1700"
+            ]
+          },
+          {
+            "label": "blog",
+            "data": [
+              {
+                "format": "hLink",
+                "data": {
+                  "href": "http://stulta.com/forumo"
+                }
               }
-            }
-          ]
-        },
-        {
-          "label": "location",
-          "data": [
-            {
-              "format": "address",
-              "data": {
-                "point": "555 10th St Apt 312",
-                "postalCode": "94607-5208",
-                "city": "Oakland",
-                "countryCode": "US",
-                "region": "California"
+            ]
+          },
+          {
+            "label": "location",
+            "data": [
+              {
+                "format": "address",
+                "data": {
+                  "point": "555 10th St Apt 312",
+                  "postalCode": "94607-5208",
+                  "city": "Oakland",
+                  "countryCode": "US",
+                  "region": "California"
+                }
               }
-            }
-          ]
-        }
-      ]
+            ]
+          }
+        ]
+      }
     }
   },
   "profiles": {
     "format": "tableTopHead",
     "title": "profiles",
     "data": {
-      "head": {
-        "size": 4,
-        "data": "Look me up at"
-      },
       "table": {
+        "caption": {
+          "size": 4,
+          "data": "Look me up at"
+        },
         "label": ["network", "username", "url"],
         "data": [
           [
