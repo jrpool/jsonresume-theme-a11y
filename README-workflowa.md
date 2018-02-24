@@ -1,12 +1,12 @@
 # jsonresume-theme-a11y
 
-This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produces a résumé or curriculum vitae (or any other document!) that satisfies some of the standards of accessibility set forth by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) (WCAG 2.1) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) (WAI-ARIA).
+This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produces a résumé or curriculum vitae (or any other document!) that satisfies some of the standards of accessibility set forth by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
 
-Accessibility, in the sense of usability for a wide range of abilities and disabilities, is abbreviated `a11y`. Hence the name of this theme.
+Accessibility, in the sense of usability for a wide range of abilities and disabilities, is abbreviated `a11y`, and that explains the name of this theme.
 
 ## Accessibility metrics
 
-How accessible are the HTML files produced by this theme? For one approximation, we can perform tests on what this theme and other themes produce from an identical source file. Here are results from such a set of tests. The source file is `pool-medium-std.json`, one of the samples in this theme’s repository. Tests were conducted with some publicly available tools. The goal is to get a high accessibility score (+) or a low error count (–).
+The HTML files produced from one of the sample source files (`pool-medium-std.json`) by this theme and some other themes obtain the following accessibility scores (+) or error counts (–) when audited with some publicly available tools:
 
 Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SAC](https://siteimprove.com/)/AAA (–) | [HCS](http://pauljadam.com/extension.html)/AAA (–)
 --- | ---: | ---: | ---: | ---: | ---: | ---:
@@ -17,7 +17,7 @@ flat | 89 | 44 | 42 | 7 | 83 | 42
 modern | 97 | 3 | 0 | 2 | 8 | 2
 stackoverflow | 89 | 35 | 40 | 16 | 316 | 143
 
-Such automated testing is not definitive. Some of the above-tabulated errors are not really violations of standards, but rather solutions that adopt one of several permitted methods, which a particular tool is not properly recognizing. Conversely, accessibility defects may exist that some tools do not catch.
+Such automated testing is not definitive. Some of the above-tabulated error reports arise from a standard being satisfied in one of several permitted ways, not properly recognized as sufficient by a tool. Other faults may exist but not be caught by tools.
 
 ## Philosophy
 
@@ -45,51 +45,23 @@ Contemplated future work includes:
 
 ### Introduction
 
-The `jsonresume` project lets you create a _source file_ containing the information in your résumé (which is used here to refer to any content) and then automatically generate a web page containing that information in any of over 200 formats. Each format belongs to one of the [`jsonresume` themes](https://www.npmjs.com/search?q=jsonresume-theme). So, instead of baking a format into your résumé by combining the information and the design into a single document, you separate these two components. You can think of the project’s value proposition as “Write once, apply anywhere”.
+The `jsonresume` project lets you create a JSON-format source file and automatically generate HTML and PDF from it, with any of [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme). Each theme determines what parts of your document will appear in the output, and how the output will be formatted.
 
-Here the concept of “format” means more than layout. It also includes selection. Each theme selects some of the information in your source file for inclusion and omits the rest. Some themes select it all. So, to the extent that applying for employment at different organizations requires you to change both the appearance and the content of your résumé, you may find themes that do what you want.
+This theme, `jsonresume-theme-a11y`, gives you more control over your résumé than other themes do. In order to enable that control, this theme defines a new standard for the JSON source file. The standard is more liberal: It gives you more flexibility. But it also imposes some requirements that you must satisfy in order to exercise your additional power.
 
-This theme, `jsonresume-theme-a11y`, approaches your design decisions in a different way. It gives you more control, so if you decide to create a version of your résumé with certain information omitted, you don’t need to look for a theme that does that. You can, instead, tell this theme to do it.
+For interoperability with other `jsonresume` themes, this theme contains a module that converts a file from the `jsonresume` standard format to the theme format. If you already have a résumé in the `jsonresume` format, the converter can create a version in this theme’s format. Thereafter you can edit that version as you choose, to change the information in your résumé and how it appears.
 
-Conversely, this theme forces your résumé to comply with accessibility standards. So it does not let you do things that would impair accessibility. For example, accessible web pages can’t depend on mouse manipulation for navigation, and they can’t have subtle, hard-to-distinguish color differences. Some themes produce résumés violating those requirements; this one does not. So your aesthetic choices are constrained here.
-
-### Source files
-
-The `jsonresume` system depends on your source file adhering strictly to a particular format, so that a program can automatically convert it to the résumé that you want.
-
-This theme permits you to create a source file in a different format, one that contains the more detailed instructions that it permits you to give.
-
-So, there are two possible formats you can create a source file in:
-
-- `jsonresume` format
-- a11y format
-
-The theme can produce a résumé from either kind of source file. If the file is in the a11y format, you have more control over the content and format of the result.
-
-In either case, the format is a special case of a general standard named [JSON](https://en.wikipedia.org/wiki/JSON). If you are not familiar with it, you can think of it as a kind of outlining system. [Some commentators](https://www.json.org/) say it is “easy for humans” to write. That may be an exaggeration. For many users, it is likely easiest to begin with an existing source file of somebody else’s résumé and then replace the information in it with their own. This theme contains some sample source files in both formats, so you can create yours that way if you prefer.
-
-### Workflows
-
-But which format should you create your source file in?
-
-That depends on your situation and your intent. There are three plausible workflows for using this theme: A, B, and C.
-
-- Workflow A is good if you want to render a résumé with **various** themes and do **not** want to use this theme’s extra features.
-- Workflow B is good if you want to render a résumé with **only this** theme, and to use its extra features.
-- Workflow C is good if you want to render a résumé with **various** themes and, when rendering it with this theme, to use its extra features.
-- If you are already a `jsonresume` user and have a source file in the `jsonresume` format, workflows A and C allow you to leverage that file with this theme.
-
-Here is a diagram of the three workflows:
+The three possible workflows for producing an HTML résumé with this theme, described in detail below, are illustrated here (`JR` = `jsonresume` format):
 
 ![A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML](https://jpdev.pro/jsonresume-theme-a11y/workflows.png)
 
-As shown above, in workflows A and C you create a source file in the `jsonresume` format, and in workflow B you create one in the a11y format.
+All three workflows involve **writing** and **rendering**. Workflows A and C also involve **converting**. These are explained below.
 
-If you are ready to start, you can now switch to the instructions for the workflow you prefer:
+As a general rule, your choice among the workflows likely depends on your intent:
 
-- Workflow A: [README-workflowa.md](./README-workflowa.md)
-- Workflow B: [README-workflowb.md](./README-workflowb.md)
-- Workflow C: [README-workflowc.md](./README-workflowc.md)
+- Workflow A is good if you want to render a résumé with various themes and do **not** want to use this theme’s extra features.
+- Workflow B is good if you want to render a résumé with **only** this theme, and to use its extra features.
+- Workflow C is good if you want to render a résumé with various themes and, when rendering it with this theme, to use its extra features.
 
 ### Writing
 
