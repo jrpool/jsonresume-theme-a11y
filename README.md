@@ -17,6 +17,8 @@ flat | 89 | 44 | 42 | 7 | 83 | 42
 modern | 97 | 3 | 0 | 2 | 8 | 2
 stackoverflow | 89 | 35 | 40 | 16 | 316 | 143
 
+Such automated testing is not definitive. Some of the above-tabulated error reports arise from a standard being satisfied in one of several permitted ways, not properly recognized as sufficient by a tool. Other faults may exist but not be caught by tools.
+
 ## Philosophy
 
 This theme differs from other `jsonresume` themes by:
@@ -34,9 +36,10 @@ The current version of this theme is released as a minimum viable product. Contr
 
 Contemplated future work includes:
 
-- Investigating accessibility flaws reported by the Siteimprove Accessibility Checker (see above table).
+- Investigating additional opportunities for accessibility improvements in the theme.
 - Performing human accessibility tests.
 - Extending the theme’s functionality to cover compatibility with commonly used résumé parsers.
+- Implementation of additional formats.
 
 ## Usage
 

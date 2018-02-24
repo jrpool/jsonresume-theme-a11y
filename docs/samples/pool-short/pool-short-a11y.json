@@ -560,7 +560,7 @@
         {
           "format": "edWork",
           "data": {
-            "location": "University of Washington",
+            "location": "University of Washington Interdisciplinary Undergraduate Program",
             "url": "https://jpdev.pro/info/docs/pool-uw-transcript.pdf",
             "startDate": "2004-03-29",
             "endDate": "2007-06-01",
@@ -622,8 +622,8 @@
         {
           "format": "edWork",
           "data": {
-            "location": "University of Washington",
-            "url": "http://www.washington.edu",
+            "location": "University of Washington Department of Political Science",
+            "url": "https://www.polisci.washington.edu/",
             "startDate": "1977-09-16",
             "endDate": "1993-06-15",
             "subject": "research and teaching"
