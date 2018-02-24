@@ -66,7 +66,12 @@ So, there are two possible formats you can create a source file in:
 
 The theme can produce a résumé from either kind of source file. If the file is in the a11y format, you have more control over the content and format of the result.
 
-In either case, the format is a special case of a general standard named [JSON](https://en.wikipedia.org/wiki/JSON). If you are not familiar with it, you can think of it as a kind of outlining system. [Some commentators](https://www.json.org/) say it is “easy for humans” to write. [Other experts](https://github.com/arc-repos/arc-docs/blob/master/en/aws/intro-concepts.md) say it is “difficult to read” and “unforgiving to edit”. For most résumé writers, it is likely easiest to begin with an existing source file of somebody else’s résumé and then replace the information in it with their own. This theme contains some sample source files in both formats, so you can create yours that way if you prefer.
+In either case, the format is a special case of a general standard named [JSON](https://en.wikipedia.org/wiki/JSON). If you are not familiar with it, you can think of it as a kind of outlining system. [Some commentators](https://www.json.org/) say it is “easy for humans” to write. [Other experts](https://github.com/arc-repos/arc-docs/blob/master/en/aws/intro-concepts.md) say it is “difficult to read” and “unforgiving to edit”.
+
+Two relatively convenient methods for writing a source file in either format are:
+
+- Using a text editor that supports JSON. By color-coding syntax errors, it helps you notice and correct any violations.
+- Opening an existing source file of somebody else’s résumé and then editing it, to replace the information in it with your own. This theme contains some sample source files in both formats, so you can create yours that way if you prefer.
 
 ### Workflows
 
