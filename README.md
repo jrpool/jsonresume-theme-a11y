@@ -51,7 +51,7 @@ Contemplated future work includes:
 - Investigating additional opportunities for accessibility improvements in the theme.
 - Performing human accessibility tests.
 - Extending the theme’s functionality to cover compatibility with commonly used résumé parsers.
-- Implementation of additional formats.
+- Implementing additional formats.
 
 ## Usage
 
