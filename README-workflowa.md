@@ -10,11 +10,11 @@ As you can see, in this workflow and in Workflow C the first step is to write a 
 
 The instructions for doing that are in [README-writejr.md](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/README-writejr.md).
 
-### Converting and rendering
+## Converting and rendering
 
 Once you have a source file, you can convert it to the a11y format and render it as a web page in a single action. This does **not** produce an a11y-format source file. The conversion takes place only in memory, and the a11y-format version disappears immediately after it is rendered.
 
-This step requires the following actions:
+This step involves the following actions:
 
 - If you don’t yet have `node` running on your computer, [install it](https://nodejs.org/en/). Either the latest version or the LTS version is good.
 - Open a terminal window.
@@ -26,7 +26,7 @@ This step requires the following actions:
 
 In principle, this last action (the `resume export` command) allows you to specify a PDF output format, too, with the option `--format pdf` before or after the `--theme a11y` option. However, in practice, the resulting PDF file is relatively unpresentable. You are likely to want a more powerful converter from HTML to PDF, instead. Saving a PDF file from the page in your web browser will probably be more satisfactory. Some browsers, such as Chrome, allow you to set the margins of the PDF file before you save.
 
-### Rendering with other themes
+## Rendering with other themes
 
 You can also render your `jsonresume`-format source file with other `jsonresume` themes. For any theme `xyz`, you can do this with these commands:
 

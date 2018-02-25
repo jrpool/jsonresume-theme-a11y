@@ -165,7 +165,7 @@ The property will be rendered as a table whose top row contains headings, center
 
 After writing your source file in the a11y format, your next step is to render it into a web page.
 
-This step consists of the following actions:
+This step involves the following actions:
 
 - If you don’t yet have `node` running on your computer, [install it](https://nodejs.org/en/). Either the latest version or the LTS version is good.
 - Make a local copy on your own computer of [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y). If you don’t already know how, the easiest way is to click on the `Clone or download` button and choose `Download ZIP`, then open the saved `.zip` file to make a directory.
