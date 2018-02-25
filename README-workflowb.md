@@ -126,7 +126,7 @@ The `text` values will be rendered as lines, one below the other.
 
 ##### Left-headed table (`tableLeftHeads`)
 
-The `data` value is an object with an optional `head` property (see above), an optional `caption` property, and a `table` property. The `caption` value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a string. The `table` value is an array of objects. Each object has `label` and `data` properties. The `label` value is a string. The `data` value is an array of stringables.
+The `data` value is an object with an optional `head` property (see above) and a `table` property. The `table` value is an object with an optional `caption` property and a `data` property. The `caption` value is an object with `size` and `data` properties, where the `size` value is an integer from 1 (largest) through 7 (smallest) and the `data` value is a string. The `data` value (of `table`) is an array of objects, each representing a row. Each object has `label` and `data` properties. The `label` value is a string. The `data` value is an array of stringables.
 
 The property will be rendered as a table whose leftmost column contains headings, right-justified and not bordered, with a heading and/or caption if you included a `head` and/or `caption` property.
 
@@ -157,7 +157,7 @@ The property will be rendered as an image in the upper-right corner of the docum
 
 ##### Top-headed table (`tableTopHead`)
 
-The `data` value is an object with an optional `head` property (see above) and a `table` property. The `table` value is an object with an optional `caption` property, a `label` property, and a `data` property. The `caption` value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a string. The `label` value is an array of strings. The `data` value is an array of stringables.
+The `data` value is an object with an optional `head` property (see above) and a `table` property. The `table` value is an object with an optional `caption` property, a `label` property, and a `data` property. The `caption` value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a string. The `label` value is an array of strings. The `data` value is an array of arrays of stringables, each inner array representing a row.
 
 The property will be rendered as a table whose top row contains headings, centered and not bordered, with a heading and/or caption if you included a `head` and/or `caption` property. If you want the table to have only one item of text introducing or labeling it, you can best serve accessibility by making it a `caption` value and omitting the `head` property. That ties it tightly to the table.
 
