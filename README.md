@@ -2,13 +2,26 @@
 
 ## Introduction
 
-This is an accessible theme for [JSON Resume](http://jsonresume.org/). It produces a résumé or curriculum vitae (or any other document!) that satisfies many of the standards of accessibility set forth by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) (WCAG 2.1) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) (WAI-ARIA).
+This is an accessible theme for [JSON Resume](http://jsonresume.org/).
 
-Accessibility, in the sense of usability for a wide range of abilities and disabilities, is abbreviated `a11y`. Hence the name of this theme.
+The idea motivating the `jsonresume` project is that people need to adapt their résumés for different purposes, modifying length, layout, complexity, and content. So, the project aims to let a person write one résumé but render it automatically in many different ways.
+
+The `jsonresume` method for achieving this purpose is to define a format for a _source file_ where you will put all the **information** for your résumé, and then to invite software developers to create converters that will **render** that information in various ways. It calls those converters _themes_.
+
+Developers have created [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme) for the `jsonresume` project, giving you a wealth of rendering options. So, is there a need for **yet another** theme?
+
+This theme does offer something new, compared with the others. In fact, it offers two new features:
+
+- It makes your rendered résumé **accessible**. That means that your rendered document contains features, some visible and some invisible, that help people consume it across a wide range of abilities and disabilities. These features help users, or the assistive devices that some users with disabilities use, understand the structure and content of your résumé and navigate within it. Standards of accessibility have been codified by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) (WCAG 2.1) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) (WAI-ARIA).
+- It gives you granular control over your rendered résumé’s content and layout. You can decide, for any particular rendering, what to include and exclude. You can automatically translate labels into different languages or vocabularies. You can also decide what to render as a list, or a table, or running prose. And you can decide on the sizes of headings.
+
+These two features are in tension. Some designs interfere with accessibility. For example, some themes render text that is subtly lighter or darker than its background, but that prevents users with limited vision from distinguishing the two. This theme prioritizes accessibility over layout control. So, for some aesthetic effects, you may wish to use other themes, possibly sacrificing some accessibility.
+
+“Accessibility” in the sense used here is abbreviated `a11y`. Hence the name of this theme.
 
 ## Accessibility metrics
 
-How accessible are the HTML files produced by this theme? For one approximation, we can perform tests on what this theme and other themes produce from an identical source file. Here are results from such a set of tests. The source file is `pool-medium-std.json`, one of the samples in this theme’s repository. Tests were conducted with some publicly available tools. Relative success is indicated by a high accessibility score (+) or a low error count (–).
+How accessible are the renderings produced by this theme? For one approximation, we can perform tests on what this theme and other themes produce from an identical source file. Here are results from such a set of tests. The source file is `pool-medium-std.json`, one of the samples in this theme’s repository. Tests were conducted with some publicly available tools. Relative success is indicated by a high accessibility score (+) or a low error count (–).
 
 Theme | [ADT](https://chrome.google.com/webstore/detail/fpkknkljclfencbdbgkenhalefipecmb) (+) | [aXe](https://chrome.google.com/webstore/detail/lhdoppojpmngadmnindnejefpokejbdd) (–) | [WAA](https://chrome.google.com/webstore/detail/kpfleokokmllclahndmochhenmhncoej) (–) | [WAVE](https://chrome.google.com/webstore/detail/jbbplnpkjmmeebjpijfedlgcdilocofh) (–) | [SAC](https://siteimprove.com/)/AAA (–) | [HCS](http://pauljadam.com/extension.html)/AAA (–)
 --- | ---: | ---: | ---: | ---: | ---: | ---:
@@ -20,13 +33,6 @@ modern | 97 | 3 | 0 | 2 | 8 | 2
 stackoverflow | 89 | 35 | 40 | 16 | 316 | 143
 
 Such automated testing is not definitive. Some of the above-tabulated errors are not really violations of standards, but rather solutions that adopt one of several permitted methods, which a particular tool is not properly recognizing. Conversely, accessibility defects may exist that some tools do not catch.
-
-## Philosophy
-
-This theme differs from other `jsonresume` themes by:
-
-- Prioritizing accessibility over visual appeal.
-- Giving you granular control over content and format.
 
 ## License
 
@@ -42,7 +48,7 @@ The current version of this theme is 2.0.0. Contributions of, or suggestions for
 
 Version 2.0.0 made a breaking change to version 1.0.12. The schema changed with respect to section formats `tableLeftHeads` and `tableTopHead`.
 
-The prior schema made no provision for table captions. The current schema permits captions in the tables of both these formats. Captions are a recommended feature for usability in general and accessibility in particular. In order to allow captions, the schema revised the specification of `tableLeftHeads` to make the `table` value an object rather than an array. A `tableLeftHeads` section conforming to the schema of version 1.0.12 would fail to conform to the schema of version 2.0.0.
+The prior schema made no provision for table captions. The current schema permits captions in the tables of both these formats. Captions are a recommended feature for usability in general and accessibility in particular. In order to allow captions, the schema revised the specification of `tableLeftHeads`. A `tableLeftHeads` section conforming to the schema of version 1.0.12 would fail to conform to the schema of version 2.0.0.
 
 ### Future
 
@@ -52,31 +58,21 @@ Contemplated future work includes:
 - Performing human accessibility tests.
 - Extending the theme’s functionality to cover compatibility with commonly used résumé parsers.
 - Implementing additional formats.
+- Developing a graphical user interface for source-file creation.
+- Integrated source-file validation.
 
 ## Usage
 
-### Introduction
-
-The `jsonresume` project lets you create a _source file_ containing the information in your résumé (which is used here to refer to any content) and then automatically generate a web page containing that information in any of over 200 formats. Each format belongs to one of the [`jsonresume` themes](https://www.npmjs.com/search?q=jsonresume-theme). So, instead of baking a format into your résumé by combining the information and the design into a single document, you separate these two components. You can think of the project’s value proposition as “Write once, apply anywhere”.
-
-Here the concept of “format” means more than layout. It also includes selection. Each theme selects some of the information in your source file for inclusion and omits the rest. Some themes select it all. So, to the extent that applying for employment at different organizations requires you to change both the appearance and the content of your résumé, you may find themes that do what you want.
-
-This theme, `jsonresume-theme-a11y`, approaches your design decisions in a different way. It gives you more control, so if you decide to create a version of your résumé with certain information omitted, you don’t need to look for a theme that does that. You can, instead, tell this theme to do it.
-
-Conversely, this theme forces your résumé to comply with accessibility standards. So it does not let you do things that would impair accessibility. For example, accessible web pages can’t depend on mouse manipulation for navigation, and they can’t have subtle, hard-to-distinguish color differences. Some themes produce résumés violating those requirements; this one does not. So your aesthetic choices are constrained here.
-
 ### Source files
 
-The `jsonresume` system depends on your source file adhering strictly to a particular format, so that a theme can automatically convert it to the résumé that you want.
+The `jsonresume` system depends on your source file adhering strictly to a particular format, so that a theme can automatically render it.
 
-This theme permits you to create a source file in a different format, one that allows you to give the theme more detailed instructions.
+This theme, as stated above, gives you more control than other themes do. To enable that control, this theme defines a more flexible format for your source file. We can call that the _a11y format_.
 
 So, there are two possible formats you can create a source file in:
 
 - `jsonresume` format
 - a11y format
-
-Other themes can produce a résumé from a `jsonresume`-format source file, but this theme can produce a résumé from either kind of source file. If the file is in the a11y format, you have more control over the content and format of the result.
 
 Both formats are special cases of a general standard named [JSON](https://en.wikipedia.org/wiki/JSON). If you are not familiar with it, you can think of it as a kind of outlining system. [Some commentators](https://www.json.org/) say it is “easy for humans” to write. [Other experts](https://github.com/arc-repos/arc-docs/blob/master/en/aws/intro-concepts.md) say it is “difficult to read” and “unforgiving to edit”.
 
@@ -99,13 +95,15 @@ An example of a fragment of a JSON file is:
 
 As shown, the JSON format lets you outline information, with items of various kinds:
 
-- Objects: Subsidiary items have _names_ (e.g., “state”) and _values_ (e.g., “Texas”).
-- Arrays: Subsidiary items have values (e.g., “risk management”) but no names.
+- Objects: Subsidiary items (_properties_) have _names_ (e.g., “state”) and _values_ (e.g., “Texas”).
+- Arrays: Subsidiary items (_elements_) have values (e.g., “risk management”) but no names.
 - Primitives: strings of text, numbers, values of `true` and `false`, etc.
 
 Objects have values enclosed in braces, arrays have values enclosed in brackets, strings have values enclosed in double quotes, and other primitives have unenclosed values, as shown above.
 
-You can nest items as deeply as you want and still be JSON-compliant. Any value can be an object or array, with its own subsidiary items, whose values can be objects or arrays, etc.
+Strings can include **almost** all possible characters, including spaces, in any language, within the double quotes, but [there are exceptions](https://www.json.org/). The double quote itself, the backslash, and control characters (such as a horizontal tab, carriage return, or newline) are illegal there unless you substitute 2-character codes for them (such as `\n` for newline).
+
+You can nest items as deeply as you want and still be JSON-compliant. Any value can be a primitive, an object, or an array. If it’s an object or array, then it can have its own subsidiary items, whose values can be primitives, objects, or arrays, etc.
 
 Two relatively convenient methods for writing a source file in either format are:
 

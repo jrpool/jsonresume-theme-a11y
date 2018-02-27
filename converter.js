@@ -5,6 +5,10 @@ exports.convert = (sourceObject, isVerbose) => {
     format: 'hide',
     data: 'en'
   };
+  a11yObject.title = {
+    format: 'hide',
+    data: `Résumé: ${sourceObject.basics.name}`
+  };
   a11yObject.order = {
     format: 'hide',
     data: [

@@ -8,9 +8,9 @@ This file gives you instructions for the above-illustrated Workflow B introduced
 
 ### Introduction
 
-As you can see, in this workflow the first step is to write a source file in the a11y format.
+As you can see, in this workflow the first step is to write a source file in the a11y format. You can name it whatever you want, but the name that this theme expects (if you don’t tell it otherwise) is `resume-a11y.json`. You can also put it wherever you want, but this theme expects to find it (if you don’t tell it otherwise) in the directory of this theme. The [rendering section](#rendering) below tells you about that directory.
 
-If you wish to do this by starting with an existing sample source file for another person’s résumé and editing it, or by imitating it in a new source file of your own, you can find three such examples:
+If you wish to start with an existing sample source file for another person’s résumé and edit it, or by imitating it in a new source file of your own, you can find three such examples:
 
 -  [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-short/pool-short-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-short/pool-short-a11y.json)
 - [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y.json)
@@ -21,6 +21,8 @@ If, instead, you wish to follow instructions (or refer to them while using an ex
 ### Schema
 
 This schema describes how you can use the a11y format to make decisions about your résumé.
+
+This section is designed to be more of a reference document than a tutorial. You may want to look at it quickly and return to it to look things up, rather than read it carefully from start to end. Opening a sample `-a11y.json` file and looking up anything in it that puzzles you may be more productive.
 
 #### Language (`lang`)
 
@@ -58,7 +60,7 @@ If your source file does not contain a root-level `order` property, then all of 
 
 #### Stringables
 
-You can choose how inline text in your résumé is formatted. You will see below that the theme format requires some items to be “stringables”. A stringable is a string, array, or object. If it is an array, then each of its elements is a stringable. If it is an object, then it has `format` and `data` properties. The format property has one of the values listed below (`address`, etc.), and the `data` property complies with the specifications of that value. The theme converts the object to a string. Wherever a specification requires a stringable, if an array of stringables is provided, the theme renders each element of the array and then concatenates the renderings into a string, without any delimiter.
+You can choose how passages of text in your résumé are formatted. You will see below that the theme format requires some property values and some array elements to be “stringables”. A stringable can be a string, but it can also be an array or object. If it is an array, then each of its elements is a stringable. If it is an object, then it has `format` and `data` properties. The format property has one of the values listed below (from `address` through `mailLink`), and the `data` property complies with the specifications of that value. The theme converts the object to a string. Wherever a specification requires a stringable, if an array of stringables is provided, the theme renders each element of the array and then concatenates the renderings into a string, without any delimiter. So, in the end, every stringable becomes a string.
 
 ##### Address (`address`)
 
@@ -170,11 +172,19 @@ This step involves the following actions:
 - If you don’t yet have `node` running on your computer, [install it](https://nodejs.org/en/). Either the latest version or the LTS version is good.
 - Make a local copy on your own computer of [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y). If you don’t already know how, the easiest way is to click on the `Clone or download` button and choose `Download ZIP`, then open the saved `.zip` file to make a directory.
 - Open a terminal window and make that directory your current directory.
-- Enter the following command:
+- Enter the command `node parse`, optionally followed by one or two qualifications:
+
+- If your source file is not in the current directory or is not named `resume-a11y.json`, tell the theme where to find it, using an `-i` or `--input` option.
+- If you want your output file not to be in the current directory or not to be named `resume-a11y.html`, tell the theme were to put it, using an `-o` or `--output` option.
+
+Here are examples:
 
 ```bash
-node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]
+node parse
+node parse -i docs/technical-resume.json
+node parse --input docs/technical-resume.json
+node parse -o technical-resume.html
+node parse --output technical-resume.html
+node parse -i docs/technical-resume.json --output technical-resume.html
 ```
-
-- If not specified, `newsourcefile` defaults to `resume-a11y.json`.
-- If not specified, `htmlfile` defaults to `resume-a11y.html`.
+In the last of these examples, you would be asking the theme to retrieve your source file from inside the `docs` directory within the current directory, and telling it that the source file will be named `technical-resume.json`. And you would be asking the theme to render the résumé to a file named `technical-resume.html` in the current directory (not inside `docs`).

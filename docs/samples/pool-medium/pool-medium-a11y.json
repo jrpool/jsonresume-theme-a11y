@@ -3,6 +3,10 @@
     "format": "hide",
     "data": "en"
   },
+  "title": {
+    "format": "hide",
+    "data": "Résumé: Jonathan Pool"
+  },
   "order": {
     "format": "hide",
     "data": [
