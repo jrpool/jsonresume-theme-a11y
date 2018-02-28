@@ -114,7 +114,7 @@ exports.parse = a11yObject => {
     format: 'hLink',
     data: {
       label: 'jsonresume-theme-a11y',
-      href: 'https://github.com/jrpool/jsonresume-theme-a11y'
+      href: 'https://www.npmjs.com/package/jsonresume-theme-a11y'
     }
   };
   const footContent = [footPrefix, stringOf(footLink)].join('');
