@@ -40,15 +40,11 @@ Available under [the MIT license](http://mths.be/mit).
 
 ## Status
 
-### Current
-
-The current version of this theme is 2.0.0. Contributions of, or suggestions for, enhancements and repairs are welcome. Feel free to make pull requests or open issues at [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y).
-
 ### History
 
-Version 2.0.0 made a breaking change to version 1.0.12. The schema changed with respect to section formats `tableLeftHeads` and `tableTopHead`.
+Version 2.0.0 made a breaking change to version 1.0.12. The schema changed with respect to section formats `tableLeftHeads` and `tableTopHead`. The prior schema made no provision for table captions. The current schema permits captions in the tables of both these formats. Captions are a recommended feature for usability in general and accessibility in particular. In order to allow captions, the schema revised the specification of `tableLeftHeads`. A `tableLeftHeads` section conforming to the schema of version 1.0.12 would fail to conform to the schema of version 2.0.0.
 
-The prior schema made no provision for table captions. The current schema permits captions in the tables of both these formats. Captions are a recommended feature for usability in general and accessibility in particular. In order to allow captions, the schema revised the specification of `tableLeftHeads`. A `tableLeftHeads` section conforming to the schema of version 1.0.12 would fail to conform to the schema of version 2.0.0.
+Version 2.1.0 added automatic page-title creation to the `converter` module.
 
 ### Future
 
@@ -60,6 +56,8 @@ Contemplated future work includes:
 - Implementing additional formats.
 - Developing a graphical user interface for source-file creation.
 - Integrated source-file validation.
+
+Contributions of, or suggestions for, enhancements and repairs, and comments on priorities, are welcome. Feel free to make pull requests or open issues at [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y).
 
 ## Usage
 
