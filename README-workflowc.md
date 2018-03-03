@@ -22,15 +22,31 @@ This step involves the following actions:
 - Make a local copy on your own computer of [this theme’s repository](https://github.com/jrpool/jsonresume-theme-a11y). If you don’t already know how, the easiest way is to click on the `Clone or download` button and choose `Download ZIP`, then open the saved `.zip` file to make a directory.
 - Put your source file into that directory.
 - In your terminal window, make that directory your current directory.
-- Convert the source file with the following command:
+- Enter the command `node convert`, optionally followed by one, two, or three qualifications:
+
+- If your source file is not in the current directory or is not named `resume.json`, tell the theme where to find it, using an `-i` or `--input` option.
+- If you want your output file not to be in the current directory or not to be named `resume-a11y.json`, tell the theme where to put it, using an `-o` or `--output` option.
+- Some objects in your source file may have properties with array values. The elements of such arrays, if not inside the `basics` object, can be laid out in two ways: (1) as bulleted lists or (2) strung together into a single string, with slashes or commas between them. If you want the bullet-list layout, specify this with the `-v` or `--verbose` option.
+
+Here are examples:
 
 ```bash
-node convert [-v (--verbose)] [-i (--input) oldsourcefile] [-o (--output) newsourcefile]
+node convert
+node convert -i docs/technical-resume.json
+node convert --input docs/technical-resume.json
+node convert -o technical-resume-a11y.json
+node convert --output technical-resume-a11y.json
+node convert -i docs/technical-resume.json --output technical-resume-a11y.json
+node convert -v
+node convert --verbose
+node convert -v -i docs/technical-resume.json
+node convert --verbose -i docs/technical-resume.json
+node convert -i docs/technical-resume.json -v
+node convert --output technical-resume-a11y.json --verbose
+node convert -vi docs/technical-resume.json
 ```
 
-- If not specified, `oldsourcefile` defaults to `resume.json` in the current directory.
-- If not specified, `newsourcefile` defaults to `resume-a11y.json` in the current directory.
-- If specified, `--verbose` causes array values of object properties other than those in the `basics` object (for example, lists of keywords) to be converted in such a way that they will be rendered as bullet sublists. If `--verbose` is not specified, such values are compacted into lists on a single line, with slashes or commas between the items.
+In the last example, you would be asking the theme to retrieve your source file from inside the `docs` directory within the current directory, and telling it that the source file will be named `technical-resume.json`. And you would be asking the theme to convert the file to a source file named `resume-a11y.json` in the current directory (not inside `docs`), and in doing so to apply the bullet-list treatment to array values.
 
 ## Editing
 
@@ -40,16 +56,7 @@ Your editorial changes must comply with the schema of the a11y format, described
 
 ## Rendering with this theme
 
-After converting your source file to a file in the a11y format, and, if you so choose, further editing it, the next step is to render the résumé as a web page.
-
-To do this, enter the following command in your terminal window:
-
-```bash
-node parse [-i (--input) newsourcefile] [-o (--output) htmlfile]
-```
-
-- If not specified, `newsourcefile` defaults to `resume-a11y.json`.
-- If not specified, `htmlfile` defaults to `resume-a11y.html`.
+After converting your source file to a file in the a11y format and, if you so choose, further editing it, the next step is to render the résumé as a web page. To do this, enter the command `node parse`, optionally followed by one or two qualifications. The [instructions for this command](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/README-workflowb.md#rendering) are in the README file for Workflow B.
 
 ## Rendering with other themes
 

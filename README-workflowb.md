@@ -174,8 +174,8 @@ This step involves the following actions:
 - Open a terminal window and make that directory your current directory.
 - Enter the command `node parse`, optionally followed by one or two qualifications:
 
-- If your source file is not in the current directory or is not named `resume-a11y.json`, tell the theme where to find it, using an `-i` or `--input` option.
-- If you want your output file not to be in the current directory or not to be named `resume-a11y.html`, tell the theme were to put it, using an `-o` or `--output` option.
+    - If your source file is not in the current directory or is not named `resume-a11y.json`, tell the theme where to find it, using an `-i` or `--input` option.
+    - If you want your output file not to be in the current directory or not to be named `resume-a11y.html`, tell the theme where to put it, using an `-o` or `--output` option.
 
 Here are examples:
 
