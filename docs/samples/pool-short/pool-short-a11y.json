@@ -218,19 +218,6 @@
         {
           "format": "headedString",
           "data": {
-            "head": "Accessible Calculator",
-            "tail": {
-              "format": "hLink",
-              "data": {
-                "href": "https://github.com/jrpool/calculator/blob/master/README3.md"
-              }
-            },
-            "delimiter": ": "
-          }
-        },
-        {
-          "format": "headedString",
-          "data": {
             "head": [
               "Accessible ",
               {
@@ -243,6 +230,19 @@
               "format": "hLink",
               "data": {
                 "href": "https://www.npmjs.com/package/jsonresume-theme-a11y"
+              }
+            },
+            "delimiter": ": "
+          }
+        },
+        {
+          "format": "headedString",
+          "data": {
+            "head": "Accessible Calculator",
+            "tail": {
+              "format": "hLink",
+              "data": {
+                "href": "https://github.com/jrpool/calculator"
               }
             },
             "delimiter": ": "
