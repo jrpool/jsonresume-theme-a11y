@@ -32,8 +32,10 @@
       "blog": "Blog",
       "contacts": "Contact information",
       "creditTo": "Powered by ",
+      "deployment": "Demo",
       "education": "Education",
       "email": "Email",
+      "githubRepo": "Github",
       "identity": "Name and occupation",
       "languages": "Human languages",
       "location": "Mailing address",
@@ -44,6 +46,7 @@
       "picture": "Photograph",
       "profDetail": "Professional repertoire",
       "profiles": "Profiles",
+      "project": "Project name",
       "projects": "Projects",
       "publications": "Publications",
       "skills": "Skills",
@@ -207,74 +210,102 @@
     }
   },
   "projects": {
-    "format": "boxedBulletList",
+    "format": "tableTopHead",
     "title": "projects",
     "data": {
-      "head": {
-        "size": 2,
-        "data": "Some of my accessibility-related projects are"
-      },
-      "list": [
-        {
-          "format": "headedString",
-          "data": {
-            "head": [
-              "Accessible ",
-              {
-                "format": "code",
-                "data": "jsonresume"
-              },
-              " theme"
-            ],
-            "tail": {
+      "table": {
+        "caption": {
+          "size": 4,
+          "data": "I’ve been working on"
+        },
+        "label": ["project", "githubRepo", "deployment"],
+        "data": [
+          [
+            {
+              "format": "code",
+              "data": "jsonresume-theme-a11y"
+            },
+            {
               "format": "hLink",
               "data": {
-                "href": "https://www.npmjs.com/package/jsonresume-theme-a11y"
+                "label": "jrpool/jsonresume-theme-a11y",
+                "href": "https://github.com/jrpool/jsonresume-theme-a11y"
               }
             },
-            "delimiter": ": "
-          }
-        },
-        {
-          "format": "headedString",
-          "data": {
-            "head": "Accessible Calculator",
-            "tail": {
+            {
               "format": "hLink",
               "data": {
+                "label": "npm: jsonresume-theme-a11y",
+                "href": "https://www.npmjs.com/package/jsonresume-theme-a11y"
+              }
+            }
+          ],
+          [
+            "Accessible Calculator",
+            {
+              "format": "hLink",
+              "data": {
+                "label": "jrpool/calculator",
                 "href": "https://github.com/jrpool/calculator"
               }
             },
-            "delimiter": ": "
-          }
-        },
-        {
-          "format": "headedString",
-          "data": {
-            "head": "Senior-friendly single-page site",
-            "tail": {
+            {
               "format": "hLink",
               "data": {
-                "href": "https://github.com/jrpool/singlepropertysite"
+                "href": "https://jrpool.github.io/calculator/"
+              }
+            }
+          ],
+          [
+            "DocSearch",
+            {
+              "format": "hLink",
+              "data": {
+                "label": "jrpool/docsearch",
+                "href": "https://github.com/jrpool/docsearch"
               }
             },
-            "delimiter": ": "
-          }
-        },
-        {
-          "format": "headedString",
-          "data": {
-            "head": "Single-page site of an accessibility consultancy",
-            "tail": {
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://jpdev.pro/ds/"
+              }
+            }
+          ],
+          [
+            "Geezer.pro",
+            {
+              "format": "hLink",
+              "data": {
+                "label": "jrpool/geezer.pro-main",
+                "href": "https://github.com/jrpool/geezer.pro-main"
+              }
+            },
+            {
               "format": "hLink",
               "data": {
                 "href": "http://geezer.pro"
               }
+            }
+          ],
+          [
+            "SPA for Seniors",
+            {
+              "format": "hLink",
+              "data": {
+                "label": "jrpool/singlepropertysite",
+                "href": "https://github.com/jrpool/singlepropertysite"
+              }
             },
-            "delimiter": ": "
-          }
-        }
-      ]
+            {
+              "format": "hLink",
+              "data": {
+                "href": "http://berkhouse.info"
+              }
+            }
+          ]
+        ]
+      }
     }
   },
   "openSource": {
@@ -422,8 +453,16 @@
         {
           "format": "headedString",
           "data": {
-            "head": "Accessibility",
-            "tail": "WCAG 2.1, ARIA, Chrome/WAVE/aXe/Siteimprove audits, VoiceOver, Acrobat Pro DC, ADA Title III",
+            "head": "Accessibility testing",
+            "tail": "Chrome Developer Tools, WAVE, aXe, Siteimprove",
+            "delimiter": ": "
+          }
+        },
+        {
+          "format": "headedString",
+          "data": {
+            "head": "Accessible development",
+            "tail": "WCAG 2.1, ARIA, VoiceOver, Acrobat Pro DC, ADA Title III",
             "delimiter": ": "
           }
         },
