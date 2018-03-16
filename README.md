@@ -8,7 +8,7 @@ The idea motivating the `jsonresume` project is that people need to adapt their 
 
 The `jsonresume` method for achieving this purpose is to define a format for a _source file_ where you will put all the **information** for your résumé, and then to invite software developers to create converters that will **render** that information in various ways. It calls those converters _themes_.
 
-Developers have created [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme) for the `jsonresume` project, giving you a wealth of rendering options. So, is there a need for **yet another** theme?
+This theme, [as published at `npm`](https://www.npmjs.com/package/jsonresume-theme-a11y), is one of [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme) for the `jsonresume` project, giving you a wealth of rendering options. Why is there a need for **yet another** theme?
 
 This theme does offer something new, compared with the others. In fact, it offers two new features:
 
