@@ -8,16 +8,16 @@ The idea motivating the `jsonresume` project is that people need to adapt their 
 
 The `jsonresume` method for achieving this purpose is to define a format for a _source file_ where you will put all the **information** for your résumé, and then to invite software developers to create converters that will **render** that information in various ways. It calls those converters _themes_.
 
-This theme, [as published at `npm`](https://www.npmjs.com/package/jsonresume-theme-a11y), is one of [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme) for the `jsonresume` project, giving you a wealth of rendering options. Why is there a need for **yet another** theme?
+This theme, [as published at `npm`](https://www.npmjs.com/package/jsonresume-theme-a11y), is one of [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme) for the `jsonresume` project, giving you a wealth of rendering options. With that many themes to choose from, do we really need **yet another** one?
 
-This theme does offer something new, compared with the others. In fact, it offers two new features:
+Yes, we do. This theme offers two new features:
 
-- It makes your rendered résumé **accessible**. That means that your rendered document contains features, some visible and some invisible, that help people consume it across a wide range of abilities and disabilities. These features help users, or the assistive devices that some users with disabilities use, understand the structure and content of your résumé and navigate within it. Standards of accessibility have been codified by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) (WCAG 2.1) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) (WAI-ARIA).
-- It gives you granular control over your rendered résumé’s content and layout. You can decide, for any particular rendering, what to include and exclude. You can decide what order the sections appear in. You can automatically translate labels into different languages or vocabularies. You can also decide what to render as a list, or a table, or running prose. And you can decide on the sizes of headings.
+- It makes your rendered résumé **accessible**. In other words, it renders your résumé with features, some visible and some invisible, that help people consume it across a wide range of abilities and disabilities. These features help users, or the assistive devices that some users with disabilities use, to understand the structure and content of your résumé and navigate within it. Standards of accessibility have been codified by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) (WCAG 2.1) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) (WAI-ARIA).
+- It gives you **granular control** over your rendered résumé’s content and layout. You can decide what, from the contents of your source file, the theme should include and exclude. You can decide what order the sections appear in. You can have the theme automatically translate headings into different languages or vocabularies. You can also decide what parts will be rendered as lists, tables, or running prose. And you can decide on the sizes of headings.
 
-These two features are in tension. Some designs interfere with accessibility. For example, some themes render text that is subtly lighter or darker than its background, but that prevents users with limited vision from distinguishing the two. This theme prioritizes accessibility over layout control. So, for some aesthetic effects, you may wish to use other themes, possibly sacrificing some accessibility.
+These two features are in some tension. Some designs interfere with accessibility. For example, some other themes render text that is subtly lighter or darker than its background, but that prevents users with limited vision from distinguishing the two. _This_ theme prioritizes accessibility. When you want visual elegance instead, you have many other themes to use.
 
-“Accessibility” in the sense used here is abbreviated `a11y`. Hence the name of this theme.
+“Accessibility” in the sense used here is commonly abbreviated `a11y`. Hence the name of this theme.
 
 ## Accessibility metrics
 
