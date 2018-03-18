@@ -4,13 +4,13 @@
 
 This is an accessible theme for [JSON Resume](http://jsonresume.org/).
 
-The idea motivating the `jsonresume` project is that people need to adapt their résumés for different purposes, modifying length, layout, complexity, and content. So, the project aims to let a person write one résumé but render it automatically in many different ways.
+The idea motivating the `jsonresume` project is that people need to adapt their résumés for different purposes, modifying length, layout, complexity, and content. The project aims to let a person write specifications for a résumé once, and then render it automatically in many different ways.
 
-The `jsonresume` method for achieving this purpose is to define a format for a _source file_ where you will put all the **information** for your résumé, and then to invite software developers to create converters that will **render** that information in various ways. It calls those converters _themes_.
+The `jsonresume` strategy for achieving this purpose is to define a format for a _source file_, where you put all the **information** for your résumé, and then to invite software developers to create converters that **render** the information in various ways. It calls those converters _themes_.
 
-This theme, [as published at `npm`](https://www.npmjs.com/package/jsonresume-theme-a11y), is one of [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme) for the `jsonresume` project, giving you a wealth of rendering options. With that many themes to choose from, do we really need **yet another** one?
+_This_ theme, [as published at `npm`](https://www.npmjs.com/package/jsonresume-theme-a11y), is one of [over 200 themes](https://www.npmjs.com/search?q=jsonresume-theme) for the `jsonresume` project. Thus, you have a wealth of rendering options. With that many themes to choose from, do we really need **yet another** one?
 
-Yes, we do. This theme offers two new features:
+Yes, we do need yet another theme. This one offers two new features:
 
 - It makes your rendered résumé **accessible**. In other words, it renders your résumé with features, some visible and some invisible, that help people consume it across a wide range of abilities and disabilities. These features help users, or the assistive devices that some users with disabilities use, to understand the structure and content of your résumé and navigate within it. Standards of accessibility have been codified by the [Accessibility Guidelines Working Group](https://www.w3.org/TR/WCAG21/) (WCAG 2.1) and the [Accessible Rich Internet Applications (ARIA) Working Group](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) (WAI-ARIA).
 - It gives you **granular control** over your rendered résumé’s content and layout. You can decide what, from the contents of your source file, the theme should include and exclude. You can decide what order the sections appear in. You can have the theme automatically translate headings into different languages or vocabularies. You can also decide what parts will be rendered as lists, tables, or running prose. And you can decide on the sizes of headings.
@@ -84,6 +84,8 @@ An example of a fragment of a JSON file is:
     "state": "Texas"
   },
   "years worked": 4,
+  "title": "Risk Management Specialist",
+  "W-2": true,
   "duties": [
     "insurance procurement",
     "risk management"
@@ -95,7 +97,7 @@ As shown, the JSON format lets you outline information, with items of various ki
 
 - Objects: Subsidiary items (_properties_) have _names_ (e.g., “state”) and _values_ (e.g., “Texas”).
 - Arrays: Subsidiary items (_elements_) have values (e.g., “risk management”) but no names.
-- Primitives: strings of text, numbers, values of `true` and `false`, etc.
+- Primitives: strings of text, numbers, values of `true` and `false`, etc. These have no subsidiary items.
 
 Objects have values enclosed in braces, arrays have values enclosed in brackets, strings have values enclosed in double quotes, and other primitives have unenclosed values, as shown above.
 

@@ -49,6 +49,7 @@
       "project": "Project name",
       "projects": "Projects",
       "publications": "Publications",
+      "résumé": "Résumé",
       "skills": "Skills",
       "url": "URL",
       "username": "User ID",
@@ -131,6 +132,17 @@
                 "format": "hLink",
                 "data": {
                   "href": "http://stulta.com/forumo"
+                }
+              }
+            ]
+          },
+          {
+            "label": "résumé",
+            "data": [
+              {
+                "format": "hLink",
+                "data": {
+                  "href": "https://jpdev.pro"
                 }
               }
             ]
@@ -284,7 +296,7 @@
             {
               "format": "hLink",
               "data": {
-                "href": "http://geezer.pro"
+                "href": "https://geezer.pro"
               }
             }
           ],
@@ -300,7 +312,7 @@
             {
               "format": "hLink",
               "data": {
-                "href": "http://berkhouse.info"
+                "href": "https://berkhouse.info"
               }
             }
           ]
