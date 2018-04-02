@@ -3,18 +3,6 @@
     "format": "hide",
     "data": "en"
   },
-  "order": {
-    "format": "hide",
-    "data": [
-      "basic",
-      "work",
-      "volunteer",
-      "conferences",
-      "education",
-      "grants",
-      "publications"
-    ]
-  },
   "title": "Jonathan Pool: Curriculum Vitae",
   "legend": {
     "format": "hide",
@@ -43,6 +31,18 @@
       "volunteer": "Volunteering",
       "work": "Work History"
     }
+  },
+  "order": {
+    "format": "hide",
+    "data": [
+      "basic",
+      "work",
+      "volunteer",
+      "conferences",
+      "education",
+      "grants",
+      "publications"
+    ]
   },
   "basicData": {
     "format": "hide",

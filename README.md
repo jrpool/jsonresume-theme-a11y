@@ -46,6 +46,8 @@ Version 2.0.0 made a breaking change to version 1.0.12. The schema changed with 
 
 Version 2.1.0 added automatic page-title creation to the `converter` module.
 
+Version 2.2.0 added the extraction mode to version 2.1.8.
+
 ### Future
 
 Contemplated future work includes:

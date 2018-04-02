@@ -10,11 +10,13 @@ This file gives you instructions for the above-illustrated Workflow B introduced
 
 As you can see, in this workflow the first step is to write a source file in the a11y format. You can name it whatever you want, but the name that this theme expects (if you don’t tell it otherwise) is `resume-a11y.json`. You can also put it wherever you want, but this theme expects to find it (if you don’t tell it otherwise) in the directory of this theme. The [rendering section](#rendering) below tells you about that directory.
 
-If you wish to start with an existing sample source file for another person’s résumé and edit it, or by imitating it in a new source file of your own, you can find three such examples:
+If you wish to start with an existing sample source file for another person’s résumé and edit it, or by imitating it in a new source file of your own, you can find five such examples:
 
 -  [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-short/pool-short-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-short/pool-short-a11y.json)
 - [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y.json)
 - [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y-verbose.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y-verbose.json)
+- [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-medium-ex-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-medium-ex-a11y.json)
+- [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-mediumrecent-ex-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-mediumrecent-ex/pool-medium-ex-a11y.json)
 
 If, instead, you wish to follow instructions (or refer to them while using an example source file), here they are:
 
@@ -57,6 +59,12 @@ You can decide what root-level sections appear in your output file, and in what 
 The root-level properties in your source file, unless they are hidden or omitted, represent sections of your résumé. To decide which sections to include or omit, and what order the included ones will appear in, include an `order` property at the root level of your source file. Make its value an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an array of strings. Each string is one of the root-level property names. **Only** those properties can be rendered, and if rendered they will appear in the same order as their names appear in the `order.data` array, **not** in the order of the properties in the source file. But, even if they appear in the `order` array, they will not be rendered if their `format` value is `hide`. So, to make an abbreviated version of your résumé, you can simply change to `hide` the `format` values of the sections you want to omit; you don’t need to remove their properties from the `order` object.
 
 If your source file does not contain a root-level `order` property, then all of the sections without `hide` formats will be rendered, and there is **no guarantee** as to the order they will appear in.
+
+#### Data (any arbitrary names)
+
+You can record data that will be extracted into a section of your résumé. The benefit of doing this is that your data can remain constant, while from time to time you can change how the data are rendered.
+
+Do this by including a property with any unique arbitrary name at the root level of your source file. Make the value of the property an object with 2 properties: `format` and `data`. The value of `format` is `hide`, and the value of `data` is an array of 1 or more objects. Each object in the array describes some item in the section. For example, if you are recording data about your history of education, each object could be one of the schools you have attended, or it could be one of the subjects you have studied. It’s your choice how to organize the section and how to structure each item in it, but the items for any given section should have uniform structures, so one set of rules for the section can render all its items.
 
 #### Stringables
 
@@ -112,7 +120,69 @@ Each section has a format, a “title” (i.e. metafact), and some content. To s
 
 Some formats require that the `data` property have an object value. This object may be required, or permitted, to have a `head` property. In such cases, the `head` property’s value is an object with `size` and `data` properties. The `size` value is an integer from 1 (largest) through 7 (smallest). The `data` value is a stringable.
 
-There are 8 permitted section formats:
+##### Section types
+
+Sections can be of two types:
+
+- Extractive: Your section object creates an extractive section by applying a named format to the data in a named object. The theme extracts the data from the object and renders them according to the rules of the format.
+- Integrated: Your section object creates an integrated section by applying a named format to data that you include in the section object itself.
+
+The named formats of both types are defined in the `parser.js` file. If you want to define additional formats, you can do so by adding format definitions to that file. If your additional formats are likely to be useful to other users, you are invited to submit them as pull requests.
+
+##### Extractive formats
+
+An extractive section’s object has `extraction` as the value of its `format` property. Its `data` property’s value is an object with `from` and `into` properties. The `from` property has as its value a string naming the object containing the data for the section. The `into` property has as its value a string naming the extractive format for the section (shown in parentheses below).
+
+There are 6 extractive formats to choose from:
+
+###### Basic (`basicMainHeads`)
+
+The named object’s value is an array of 1 object, which has `head` and `subhead` properties, both having strings as values.
+
+The property will be rendered as 2 centered large-font-size lines, one below the other.
+
+###### Work/Volunteering (`headedWorkVolParagraphs`)
+
+The named object’s value is an array of objects, each of which has `organization`, `role`, `website`, `startDate`, `endDate`, and `synopsis` properties, all of whose values are strings. The value of the `website` property is a URL, and the values of the `startDate` and `endDate` properties are dates.
+
+The property will be rendered as a succession of 3-line blocks. In each block, the first line is the organization’s name as a link to the website. The second line is the date range and the role, separated by a colon. The third line is the synopsis. The first 2 lines are bold, with the first having a font size larger than that of the second.
+
+###### Conference presentations (`headedConferenceParagraphs`)
+
+The named object’s value is an array of objects, each of which has `name`, `date`, and `title` properties, all of whose values are strings. The value of the `date` property is a date.
+
+The property will be rendered as a succession of 2-line blocks. In each block, the first line is the conference name and the date, separated by a comma. The second line is the title, in quotation marks. The first line is bold.
+
+###### Education (`headedEducationParagraphs`)
+
+The named object’s value is an array of obects, each of which has `organization`, `level`, `diploma`, `specialties`, `website`, `startDate`, `endDate`, `synopsis`, `gpa`, and `transcript` properties, all of whose values are strings. The value of the `website` and `transcript` properties are URLs, and the values of the `startDate` and `endDate` properties are dates.
+
+The property will be rendered as a succession of 3-line blocks. In each block, the first line is the organization’s name as a link to the website and the date range, separated by a comma. The second line is 4 elements, separated by semicolons:
+
+- The `level` value (e.g., “undergraduate”).
+- The `diploma` value (e.g., “B.A.”).
+- The `gpa` value, labeled as such (e.g., “3.5” rendered as “GPA = 3.5”).
+- A link to the URL that is the `transcript` value, identified as such.
+
+The first and second lines are bold. The first line has a font size larger than that of the second line.
+
+###### Grants (`headedGrantParagraphs`)
+
+The named object’s value is an array of objects, each of which has `grantor`, `date`, and `title` properties, all of whose values are strings. The value of the `date` property is a date.
+
+The property will be rendered as a succession of 2-line blocks. In each block, the first line is the grantor’s name and the date, separated by a comma. The second line is the grant title, in quotation marks. The first line is bold.
+
+###### Publications (`headedPublicationParagraphs`)
+
+The named object’s value is an array of objects, each of which has `authors`, `title`, `date`, `publisher`, and `url` properties. The `authors` value is an array of strings. The other properties’ values are strings. The `date` value is a date, and the `url` value is a URL.
+
+The property will be rendered as a succession of 3-line blocks. In each block, the first line is the authors’ names, separated by commas. The second line is the publication title (not in quotation marks), as a link to the URL that is the `url` value. The third line is the publisher and the publication date, separated by a colon. If you want an article title quoted, you can include quotation marks in the `title` value.
+
+##### Integrated formats
+
+An integrated section’s object has a named format as the value of its `format` property (shown in paretheses below). Its `data` property’s value is specified by the rules of the section’s format, given below.
+
+There are 8 section formats to choose from:
 
 ##### Boxed bullet list (`boxedBulletList`)
 
@@ -147,6 +217,7 @@ The `data` value is an object with an optional `head` property (see above) and a
 The property will be rendered as a set of one-row tables, as with “One-row tables”, but also with a heading if you included a `head` property and an oval border.
 
 ##### Paragraph (`left`)
+
 The `data` value is an array of strings.
 
 The property will be rendered as a succession of paragraphs, left-justified, one per string.
@@ -187,4 +258,5 @@ node parse -o technical-resume.html
 node parse --output technical-resume.html
 node parse -i docs/technical-resume.json --output technical-resume.html
 ```
-In the last of these examples, you would be asking the theme to retrieve your source file from inside the `docs` directory within the current directory, and telling it that the source file will be named `technical-resume.json`. And you would be asking the theme to render the résumé to a file named `technical-resume.html` in the current directory (not inside `docs`).
+
+ In the last of these examples, you would be asking the theme to retrieve your source file from inside the `docs` directory within the current directory, and telling it that the source file will be named `technical-resume.json`. And you would be asking the theme to render the résumé to a file named `technical-resume.html` in the current directory (not inside `docs`).

@@ -170,6 +170,7 @@ const extractionOf = (fromArray, intoType, title, legend) => {
         });
         const head = renderer.headOf(`${orgLink}, ${dates}`, 5);
         const recordData = [
+          level,
           diploma,
           gpa ? `${titleOf('gpa', legend)} ${gpa}` : '',
           transcript ? stringOf({
