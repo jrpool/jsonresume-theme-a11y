@@ -116,12 +116,6 @@
           {
             "label": "phone",
             "data": [
-              "(510) 225-1717"
-            ]
-          },
-          {
-            "label": "mobilePhone",
-            "data": [
               "(510) 225-1700"
             ]
           },
@@ -153,11 +147,11 @@
               {
                 "format": "address",
                 "data": {
-                  "point": "555 10th St Apt 312",
-                  "postalCode": "94607-5208",
-                  "city": "Oakland",
+                  "point": "901 24th Ave S",
+                  "postalCode": "98144-3032",
+                  "city": "Seattle",
                   "countryCode": "US",
-                  "region": "California"
+                  "region": "Washington"
                 }
               }
             ]

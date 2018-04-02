@@ -100,13 +100,135 @@ const headOf = object => {
     : '';
 };
 
+// Function prepending the title as a heading to an array of content.
+const headedOf = (contentArray, title, size) => {
+  const headedContentArray = contentArray;
+  headedContentArray.unshift(renderer.headOf(title, size));
+  return headedContentArray;
+};
+
+// Function rendering the body of an extracted section.
+const extractionOf = (fromArray, intoType, title, legend) => {
+  switch(intoType) {
+    case 'basicMainHeads': {
+      const {head, subhead} = fromArray[0];
+      const content = renderer.headOf(renderer.multilineOf([head, subhead]), 1);
+      return renderer.sectionOf(content, `${head}: ${subhead}`, 'center');
+    }
+    case 'headedWorkVolParagraphs': {
+      const subsections = fromArray.map(fromObject => {
+        const {organization, role, website, startDate, endDate, synopsis}
+          = fromObject;
+        const head = renderer.headOf(stringOf({
+          format: 'hLink',
+          data: {
+            label: organization,
+            href: website
+          }
+        }), 5);
+        const subhead = renderer.headOf(
+          stringOf(`${startDate} – ${endDate}: ${role}`), 6
+        );
+        const content = [
+          head, subhead, renderer.paragraphOf(synopsis)
+        ].join('\n');
+        return renderer.sectionOf(content, organization, '');
+      });
+      return headedOf(subsections, title, 3).join('\n');
+    }
+    case 'headedConferenceParagraphs': {
+      const subsections = fromArray.map(fromObject => {
+        const {name, date, title} = fromObject;
+        const head = renderer.headOf(`${name}, ${date}`, 5);
+        const titleLine = renderer.paragraphOf(`“${title}”`);
+        const content = [head, titleLine].join('\n');
+        return renderer.sectionOf(content, name, '');
+      });
+      return headedOf(subsections, title, 3).join('\n');
+    }
+    case 'headedEducationParagraphs': {
+      const subsections = fromArray.map(fromObject => {
+        const {
+          organization,
+          level,
+          diploma,
+          specialties,
+          website,
+          startDate,
+          endDate,
+          synopsis,
+          gpa,
+          transcript
+        } = fromObject;
+        const dates = `${startDate} – ${endDate}`;
+        const orgLink = stringOf({
+          format: 'hLink',
+          data: {
+            label: organization,
+            href: website
+          }
+        });
+        const head = renderer.headOf(`${orgLink}, ${dates}`, 5);
+        const recordData = [
+          diploma,
+          gpa ? `${titleOf('gpa', legend)} ${gpa}` : '',
+          transcript ? stringOf({
+            format: 'hLink',
+            data: {
+              label: titleOf('transcript', legend),
+              href: transcript
+            }
+          }) : ''
+        ];
+        const record = recordData.filter(item => item).join('; ');
+        const subhead = record ? renderer.headOf(record, 6) : '';
+        const heads = subhead ? [head, subhead] : [head];
+        const content = heads.concat(
+          renderer.paragraphOf(synopsis)
+        ).join('\n');
+        return renderer.sectionOf(content, organization, '');
+      });
+      return headedOf(subsections, title, 3).join('\n');
+    }
+    case 'headedGrantParagraphs': {
+      const subsections = fromArray.map(fromObject => {
+        const {grantor, date, title} = fromObject;
+        const head = renderer.headOf(`${grantor}, ${date}`, 5);
+        const content = [head, `“${title}”`].join('\n');
+        return renderer.sectionOf(content, grantor, '');
+      });
+      return headedOf(subsections, title, 3).join('\n');
+    }
+    case 'headedPublicationParagraphs': {
+      const subsections = fromArray.map(fromObject => {
+        const {authors, title, date, publisher, url} = fromObject;
+        const authorLine = authors.join(', ');
+        const titleLine = url ? stringOf({
+          format: 'hLink',
+          data: {
+            label: title,
+            href: url
+          }
+        }) : title;
+        const pubLine = `${publisher}: ${date}`;
+        const content = renderer.paragraphOf(
+          renderer.multilineOf([authorLine, titleLine, pubLine])
+        );
+        return renderer.sectionOf(content, title, '');
+      });
+      return headedOf(subsections, title, 3).join('\n');
+    }
+  }
+  return '';
+};
+
 /*
   Function returning an HTML document rendering a jsonresume-theme-a11y
   source object.
 */
 exports.parse = a11yObject => {
   const lang = a11yObject.lang ? a11yObject.lang.data : 'en';
-  const pageTitle = a11yObject.title ? a11yObject.title.data : 'Résumé';
+  const pageTitle = a11yObject.title ? a11yObject.title : 'Résumé';
   const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
   const legend = a11yObject.legend ? a11yObject.legend.data : {};
   const footPrefix = titleOf('creditTo', legend);
@@ -146,6 +268,12 @@ exports.parse = a11yObject => {
       case 'cornerPic': {
         const image = renderer.imageOf(data.src, data.alt);
         return renderer.sectionOf(image, title, format);
+      }
+      case 'extraction': {
+        const content = extractionOf(
+          a11yObject[data.from].data, data.into, title, legend
+        );
+        return renderer.sectionOf(content, title, '');
       }
       case 'left': {
         const lines = data.map(line => renderer.paragraphOf(line));

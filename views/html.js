@@ -115,7 +115,7 @@ const plainRowOf = array => {
 
 // Section.
 const sectionOf = (content, title, type) => element2Of(
-  content, 'section', {title, class: type}, 2
+  content, 'section', type ? {title, class: type} : {title}, 2
 );
 
 // Squeeze box.

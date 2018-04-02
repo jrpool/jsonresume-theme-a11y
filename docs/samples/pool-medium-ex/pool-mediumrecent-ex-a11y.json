@@ -1,0 +1,334 @@
+{
+  "lang": {
+    "format": "hide",
+    "data": "en"
+  },
+  "order": {
+    "format": "hide",
+    "data": [
+      "basic",
+      "work",
+      "conferences",
+      "education",
+      "grants",
+      "publications"
+    ]
+  },
+  "title": "Jonathan Pool: Curriculum Vitae",
+  "legend": {
+    "format": "hide",
+    "data": {
+      "area": "Concentrations",
+      "basic": "Jonathan Pool: Curriculum Vitae",
+      "company": "Company",
+      "conferences": "Conference presentations",
+      "courses": "Courses",
+      "creditTo": "Powered by ",
+      "education": "Education",
+      "email": "Email",
+      "endDate": "End date",
+      "gpa": "GPA =",
+      "grants": "Computing technology grants",
+      "highlights": "Accomplishments",
+      "label": "Label",
+      "position": "Position",
+      "publications": "Selected publications",
+      "publisher": "Publisher",
+      "releaseDate": "Release date",
+      "startDate": "Start date",
+      "studyType": "Study type",
+      "title": "Title",
+      "transcript": "transcript",
+      "volunteer": "Volunteering",
+      "work": "Work History"
+    }
+  },
+  "basicData": {
+    "format": "hide",
+    "data": [
+      {
+        "head": "Jonathan Pool",
+        "subhead": "Curriculum Vitae"
+      }
+    ]
+  },
+  "workData": {
+    "format": "hide",
+    "data": [
+      {
+        "organization": "Independent Research",
+        "role": "Web Accessibility Researcher",
+        "website": "https://jpdev.pro",
+        "startDate": "2018-02-17",
+        "endDate": "",
+        "synopsis": "Participated in IAAP webinar “Bringing CSS and SVG Back into the Accessibility Spotlight”. Participated in CSUN workshop “Advanced PDF Accessibility”. Attended CSUN Assistive Technology Conference. Participated in Deque Systems 3rd Annual aXe-Hackathon. Added features to Accessible Résumé application with JavaScript, HTML, and CSS."
+      },
+      {
+        "organization": "The Long Now Foundation",
+        "role": "Project Director, PanLex Project",
+        "website": "https://panlex.org",
+        "startDate": "2012-01-01",
+        "endDate": "2016-12-19",
+        "synopsis": "Ported database from MS SQL Server to PostgreSQL. Grew data to 24 million words and 1.3 billion word-pair translations. Designed and implemented Perl-based developer, end-user, and search-engine interfaces to database. Documented project standards, practices, and tools. Presented paper at IUC 2012. Published technical articles. Recruited steering committee. Hired 5 developers and linguists and negotiated transfer of project control to them."
+      },
+      {
+        "organization": "Utilika Foundation",
+        "role": "President",
+        "website": "http://stulta.com/misc/uf/",
+        "startDate": "2004-05-03",
+        "endDate": "2011-12-31",
+        "synopsis": "Founded foundation. Obtained IRS recognition. Recruited board of directors. Directed search for research partner. Negotiated partnership with Turing Center at University of Washington. Managed partnership. Participated in research, development, and publication, using Perl, CSS, HTML, and PostgreSQL. Presented papers at CLAW/AMTA 2006, K-CAP 2007, SAAKM 2007, LISA Berkeley 2009, Machine Translation Summit XII, Coling 2010, and DELPH-IN Summit 2011."
+      },
+      {
+        "organization": "Centerplex",
+        "role": "Proprietor",
+        "website": "http://stulta.com/misc/cx/",
+        "startDate": "1993-06-16",
+        "endDate": "2004-06-11",
+        "synopsis": "Pioneered web-based leasing and room reservations using Perl, CSS, HTML, PostgreSQL, and VBA. Designed and managed inter-building LAN using Cisco IOS. Designed and managed free Internet access. Managed energy-conservation and recycling. Earned 1999 EPA Energy Star for Small Business Award."
+      },
+      {
+        "organization": "SUNY/Stony Brook and University of Washington",
+        "role": "Assistant and Associate Professor",
+        "website": "http://www.washington.edu",
+        "startDate": "1971-01-01",
+        "endDate": "1993-06-15",
+        "synopsis": "Performed mathematical, statistical, and game-theoretic research and graduate and undergraduate teaching. Designed instructional software with APL. Presented papers at conferences of American Political Science Association and other organizations. Published book chapters, research articles, and working papers."
+      },
+      {
+        "organization": "Peace Corps",
+        "role": "Teacher of English as a foreign language",
+        "website": "https://www.peacecorps.gov",
+        "startDate": "1964-06-15",
+        "endDate": "1966-06-15",
+        "synopsis": "Taught English in Turkey. Published articles in Turkish periodicals and “Peace Corps Volunteer”. Wrote and published textbook in Turkish. Helped fund summer camp for disadvantaged youth."
+      }
+    ]
+  },
+  "conferenceData": {
+    "format": "hide",
+    "data": [
+      {
+        "name": "SF Globalization",
+        "date": "2015",
+        "title": "Extreme Localization: Translating Every Word in Every Language"
+      },
+      {
+        "name": "36th Internationalization & Unicode Conference",
+        "date": "2012",
+        "title": "Designing a Panlingual Dictionary"
+      },
+      {
+        "name": "DELPH-IN Summit",
+        "date": "2011",
+        "title": "PanLex: A Panlingual Lexical Resource"
+      },
+      {
+        "name": "Localization Industry Standards Association Berkeley Globalization Conference",
+        "date": "2009",
+        "title": "Panlingual Localization"
+      },
+      {
+        "name": "Semantic Authoring, Annotation and Knowledge Markup Workshop",
+        "date": "2007",
+        "title": "Syntactic Disambiguation for the Semantic Web"
+      },
+      {
+        "name": "Fourth International Conference on Knowledge Capture",
+        "date": "2007",
+        "title": "Disambiguating for the Web: A Test of Two Methods"
+      },
+      {
+        "name": "5th International Workshop on Controlled Language Applications",
+        "date": "2006",
+        "title": "Can Controlled Languages Scale to the Web?"
+      },
+      {
+        "name": "International Symposium on Linguistic Human Rights",
+        "date": "1991",
+        "title": "The Language Auction: A Nondiscriminatory Method of Choosing Official Languages"
+      },
+      {
+        "name": "American Political Science Association",
+        "date": "1986",
+        "title": "The Pure Theory of Language Conflict"
+      }
+    ]
+  },
+  "educationData": {
+    "format": "hide",
+    "data": [
+      {
+        "organization": "Learners Guild",
+        "level": "postsecondary",
+        "diploma": "",
+        "specialties": [
+          "full-stack web development",
+          "web accessibility"
+        ],
+        "website": "https://learnersguild.org",
+        "startDate": "2017-05-01",
+        "endDate": "2018-02-16",
+        "synopsis": "Developed, tested, and documented server-client applications, responsive SPAs, and APIs with JavaScript, Express, JQuery, AJAX, Bootstrap, bcrypt, PostgreSQL, MongoDB, Rethinkdb, commander, and other tools. Implemented web applications with databases, file storage, authentication, authorization, and WCAG 2.0 compliance. Tested websites’ accessibility with Siteimprove Accessibility Checker, aXe Accessibility, WAVE, OpenWAX, Tenon, Chrome Developer Tools, and VoiceOver. Wrote reports on test results and transmitted to website owners. Became the 25th most active contributor to ESLint project (out of 550 contributors). Contributed more than 200 improvements to MDN Web Docs. Achieved 4th highest over-all-quality ranking among more than 200 themes in JSON Résumé project.",
+        "gpa": "",
+        "transcript": ""
+      },
+      {
+        "organization": "University of Washington",
+        "level": "undergraduate and graduate",
+        "diploma": "",
+        "specialties": [
+          "computer science",
+          "human-computer interaction",
+          "linguistics",
+          "computational linguistics",
+          "human rights law and philosophy"
+        ],
+        "website": "https://www.washington.edu",
+        "startDate": "2004-03-29",
+        "endDate": "2007-06-01",
+        "synopsis": "Studied programming, data structures, algorithms, Java, user interfaces, AI, syntax, semantics, grammar engineering, human-rights law and philosophy, and public policy.",
+        "gpa": "3.97/4",
+        "transcript": "https://jpdev.pro/info/docs/pool-uw-transcript.pdf"
+      },
+      {
+        "organization": "The University of Chicago",
+        "level": "graduate",
+        "diploma": "Ph.D.",
+        "specialties": [
+          "political science"
+        ],
+        "website": "https://www.uchicago.edu",
+        "startDate": "1966-09-01",
+        "endDate": "1971-04-30",
+        "synopsis": "Studied all fields of political science. Did statistical analyses of opinion surveys for M.A. thesis and Ph.D. dissertation with SPSS.",
+        "gpa": "",
+        "transcript": "https://jpdev.pro/info/docs/pool-uc-transcript.pdf"
+      },
+      {
+        "organization": "Harvard University",
+        "level": "undergraduate",
+        "diploma": "B.A. cum laude",
+        "specialties": [
+          "government"
+        ],
+        "website": "https://www.harvard.edu",
+        "startDate": "1960-09-01",
+        "endDate": "1964-06-30",
+        "synopsis": "Studied political science, social sciences, humanities, calculus, physics. Did dimensional analysis of voting behavior of U.S. Supreme Court justices for B.A. honors thesis.",
+        "gpa": "",
+        "transcript": "https://jpdev.pro/info/docs/pool-hu-transcript.pdf"
+      }
+    ]
+  },
+  "grantData": {
+    "format": "hide",
+    "data": [
+      {
+        "grantor": "University of Maryland",
+        "date": "1983",
+        "title": "Computer Simulation in Multilingual International Studies"
+      },
+      {
+        "grantor": "National Science Foundation",
+        "date": "1978",
+        "title": "Computer Equipment for Experimental Political Science Research"
+      }
+    ]
+  },
+  "publicationData": {
+    "format": "hide",
+    "data": [
+      {
+        "authors": ["Patrick Westphal", "Claus Stadler", "Jonathan Pool"],
+        "title": "Countering language attrition with PanLex and the Web of Data",
+        "publisher": "Semantic Web Journal",
+        "date": "2015",
+        "url": "http://www.semantic-web-journal.net/system/files/swj509.pdf"
+      },
+      {
+        "authors": ["David Kamholz", "Jonathan Pool", "Susan M. Colowick"],
+        "title": "PanLex: Building a Resource for Panlingual Lexical Translation",
+        "publisher": "LREC",
+        "date": "2014",
+        "url": "https://pdfs.semanticscholar.org/4bf5/387ec770f557525484b7c99be3a0c568651a.pdf"
+      },
+      {
+        "authors": ["Timothy Baldwin", "Jonathan Pool", "Susan M. Colowick"],
+        "title": "PanLex and LEXTRACT: Translating all Words of all Languages of the World",
+        "publisher": "Coling",
+        "date": "2010",
+        "url": "http://turing.cs.washington.edu/papers/BaldwinEtAl-Lextract.pdf"
+      },
+      {
+        "authors": [
+          "Katherine Everitt",
+          "Christopher Lim",
+          "Oren Etzioni",
+          "Jonathan Pool",
+          "Susan Colowick",
+          "Stephen Soderland"
+        ],
+        "title": "Evaluating Lemmatic Communication",
+        "publisher": "trans-kom",
+        "date": "2010",
+        "url": "http://www.trans-kom.eu/bd03nr01/trans-kom_03_01_03_Everitt_et_al_Lemmatic_Communication.20100531.pdf"
+      },
+      {
+        "authors": ["Jonathan Pool", "S. M. Colowick"],
+        "title": "Syntactic Disambiguation for the Semantic Web",
+        "publisher": "SAAKM",
+        "date": "2007",
+        "url": "http://ftp.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-289/po02.pdf"
+      }
+    ]
+  },
+  "basic": {
+    "format": "extraction",
+    "title": "basic",
+    "data": {
+      "from": "basicData",
+      "into": "basicMainHeads"
+    }
+  },
+  "work": {
+    "format": "extraction",
+    "title": "work",
+    "data": {
+      "from": "workData",
+      "into": "headedWorkVolParagraphs"
+    }
+  },
+  "conferences": {
+    "format": "extraction",
+    "title": "conferences",
+    "data": {
+      "from": "conferenceData",
+      "into": "headedConferenceParagraphs"
+    }
+  },
+  "education": {
+    "format": "extraction",
+    "title": "education",
+    "data": {
+      "from": "educationData",
+      "into": "headedEducationParagraphs"
+    }
+  },
+  "grants": {
+    "format": "extraction",
+    "title": "grants",
+    "data": {
+      "from": "grantData",
+      "into": "headedGrantParagraphs"
+    }
+  },
+  "publications": {
+    "format": "extraction",
+    "title": "publications",
+    "data": {
+      "from": "publicationData",
+      "into": "headedPublicationParagraphs"
+    }
+  }
+}
