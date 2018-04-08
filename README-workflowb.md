@@ -16,7 +16,7 @@ If you wish to start with an existing sample source file for another person’s 
 - [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y.json)
 - [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y-verbose.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium/pool-medium-a11y-verbose.json)
 - [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-medium-ex-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-medium-ex-a11y.json)
-- [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-mediumrecent-ex-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-mediumrecent-ex/pool-medium-ex-a11y.json)
+- [https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-mediumrecent-ex-a11y.json](https://github.com/jrpool/jsonresume-theme-a11y/blob/master/docs/samples/pool-medium-ex/pool-mediumrecent-ex-a11y.json)
 
 If, instead, you wish to follow instructions (or refer to them while using an example source file), here they are:
 
