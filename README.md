@@ -97,11 +97,17 @@ An example of a fragment of a JSON file is:
 
 As shown, the JSON format lets you outline information, with items of various kinds:
 
-- Objects: Subsidiary items (_properties_) have _names_ (e.g., “state”) and _values_ (e.g., “Texas”).
-- Arrays: Subsidiary items (_elements_) have values (e.g., “risk management”) but no names.
-- Primitives: strings of text, numbers, values of `true` and `false`, etc. These have no subsidiary items.
+- Objects: Collections of _properties_, each of which has a _name_ (e.g., “state”) and a _value_ (e.g., “Texas”), and which, when you retrieve them, can appear in any arbitrary order.
+- Arrays: Collections of _elements_, each of which has an _index_ (i.e. its position in its array) and a value (e.g., “risk management”), but no name.
+- Primitives: text strings, numbers, Booleans (`true` and `false`), etc.
 
-Objects have values enclosed in braces, arrays have values enclosed in brackets, strings have values enclosed in double quotes, and other primitives have unenclosed values, as shown above.
+Objects (such as the value of `employer` above) are represented as comma-separated lists of colon-separated name-value pairs, enclosed in a pair of braces.
+
+Arrays (such as the value of `duties` above) are represented as comma-separated values, enclosed in a pair of brackets.
+
+Strings (such as the value of `title` above) are represented as sequences of characters of text, enclosed in a pair of double quotes.
+
+Other primitives (such as the values of `years worked` and `W-2` above) are represented as sequences of characters of text, not enclosed in anything.
 
 Strings can include **almost** all possible characters, including spaces, in any language, within the double quotes, but [there are exceptions](https://www.json.org/). The double quote itself, the backslash, and control characters (such as a horizontal tab, carriage return, or newline) are illegal there unless you substitute 2-character codes for them (such as `\n` for newline).
 
