@@ -112,8 +112,10 @@ const extractionOf = (fromArray, intoType, title, legend) => {
   switch(intoType) {
     case 'basicMainHeads': {
       const {head, subhead} = fromArray[0];
-      const content = renderer.headOf(renderer.multilineOf([head, subhead]), 1);
-      return renderer.sectionOf(content, `${head}: ${subhead}`, 'center');
+      const content = [head, subhead].map(
+        line => renderer.paragraphOf(stringOf(line), 1)
+      ).join('\n');
+      return content;
     }
     case 'headedWorkVolParagraphs': {
       const subsections = fromArray.map(fromObject => {
@@ -229,7 +231,7 @@ const extractionOf = (fromArray, intoType, title, legend) => {
 */
 exports.parse = a11yObject => {
   const lang = a11yObject.lang ? a11yObject.lang.data : 'en';
-  const pageTitle = a11yObject.title ? a11yObject.title : 'Résumé';
+  const pageTitle = a11yObject.title ? a11yObject.title.data : 'Résumé';
   const style = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8');
   const legend = a11yObject.legend ? a11yObject.legend.data : {};
   const footPrefix = titleOf('creditTo', legend);
@@ -262,7 +264,9 @@ exports.parse = a11yObject => {
       }
       case 'center': {
         const lines = data.filter(lineSpec => lineSpec.text.length).map(
-          lineSpec => renderer.headOf(stringOf(lineSpec.text), lineSpec.size)
+          lineSpec => renderer.paragraphOf(
+            stringOf(lineSpec.text), lineSpec.size
+          )
         );
         return renderer.sectionOf(lines.join('\n'), title, format);
       }
@@ -274,7 +278,9 @@ exports.parse = a11yObject => {
         const content = extractionOf(
           a11yObject[data.from].data, data.into, title, legend
         );
-        return renderer.sectionOf(content, title, '');
+        return renderer.sectionOf(
+          content, title, data.into === 'basicMainHeads' ? 'center' : ''
+        );
       }
       case 'left': {
         const lines = data.map(line => renderer.paragraphOf(line));

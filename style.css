@@ -82,6 +82,10 @@ main > section > h1 {
 p {
   margin: 0.3rem 0 0.8rem 0.5rem;
 }
+p.size1,
+p.size2 {
+  font-weight: bold;
+}
 .rowTable ~ .rowTable {
   margin-top: 0.1rem;
 }

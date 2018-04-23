@@ -14,7 +14,10 @@
       "publications"
     ]
   },
-  "title": "Jonathan Pool: Curriculum Vitae",
+  "title": {
+    "format": "hide",
+    "data": "Jonathan Pool: Curriculum Vitae"
+  },
   "legend": {
     "format": "hide",
     "data": {

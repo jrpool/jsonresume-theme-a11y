@@ -129,7 +129,7 @@
           {
             "label": "phone",
             "data": [
-              "(510) 225-1717"
+              "(510) 225-1700"
             ]
           },
           {
@@ -138,7 +138,7 @@
               {
                 "format": "hLink",
                 "data": {
-                  "href": "http://jpdev.pro/info"
+                  "href": "http://jpdev.pro"
                 }
               }
             ]
@@ -149,10 +149,10 @@
               {
                 "format": "address",
                 "data": {
-                  "point": "555 10th St Apt 312",
-                  "city": "Oakland",
-                  "region": "California",
-                  "postalCode": "94607-5208",
+                  "point": "901 24th Avenue South",
+                  "city": "Seattle",
+                  "region": "Washington",
+                  "postalCode": "98144-3032",
                   "countryCode": "US"
                 }
               }
@@ -167,7 +167,7 @@
     "format": "left",
     "title": "summary",
     "data": [
-      "I have developed web and database applications in JavaScript and other languages. I am currently adding accessibility features to existing applications and developing new ones that comply with international accessibility standards."
+      "I have developed web and database applications in JavaScript and other languages. I have tested numerous websites for accessibility and reported written findings to website administrators as a pro bono service. I am currently adding accessibility features to existing applications and developing new ones that comply with international accessibility standards."
     ]
   },
   "profiles": {
@@ -308,7 +308,7 @@
                       "Developed UIs and SEO for database",
                       "Recruited steering committee and advisory committee",
                       "Hired and supervised 3 computational linguists and 1 linguist",
-                      "Director 2 summer internship programs with 45 interns",
+                      "Directed 2 summer internship programs with 45 interns",
                       "Established project office"
                     ]
                   }

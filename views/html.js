@@ -12,10 +12,11 @@ const element1Of = (tagName, atObject) => `<${tagName}${atSpecOf(atObject)}>`;
 
 // Element with content.
 const element2Of = (content, tagName, atObject, indent) => {
+  const bareContent = content.replace(/\n+$/, '');
   const fullOpenTag = `<${tagName}${atSpecOf(atObject)}>`;
   if (indent > -1) {
     const indenter = `\n${' '.repeat(indent)}`;
-    const indentedContent = `${indenter}${content.replace(/\n/g, indenter)}\n`;
+    const indentedContent = `${indenter}${bareContent.replace(/\n(?=.)/g, indenter)}\n`;
     return `${fullOpenTag}${indentedContent}</${tagName}>`;
   }
   else {
@@ -105,7 +106,9 @@ const pageOf = (content, foot, lang, title, style) => {
 };
 
 // Paragraph.
-const paragraphOf = string => element2Of(string, 'p', {}, -1);
+const paragraphOf = (string, size) => element2Of(
+  string, 'p', size ? {class: `size${size}`} : {}, -1
+);
 
 // Plain row.
 const plainRowOf = array => {
