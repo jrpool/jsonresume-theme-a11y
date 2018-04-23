@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-a11y",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Theme for JSON Resume addressing WCAG 2.1 and ARIA accessibility (a11y) standards",
   "scripts": {
     "lint": "eslint *.js views/*.js; exit 0"
@@ -10,6 +10,8 @@
     "resume",
     "curriculum vitae",
     "CV",
+    "jsonresume",
+    "jsonresume-theme",
     "accessibility",
     "a11y",
     "WCAG",
