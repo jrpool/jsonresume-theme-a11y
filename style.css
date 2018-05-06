@@ -26,6 +26,13 @@
 a {
   overflow-wrap: break-word;
 }
+.band {
+  background-color: lightgray;
+}
+.band,
+.rowTablesCircled {
+  margin-top: 1.5rem;
+}
 body {
   background: #eee;
   margin: 3rem 3rem;
@@ -41,6 +48,9 @@ body {
 .boxedBulletList > h1 {
   margin-top: 0.1rem;
 }
+.caps {
+  text-transform: uppercase;
+}
 caption {
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -48,10 +58,6 @@ caption {
 .center,
 .compact {
   text-align: center;
-}
-.center,
-.rowTablesCircled {
-  margin-top: 1.5rem;
 }
 .compact {
   padding: 0 3rem 2rem 3rem;
@@ -70,14 +76,12 @@ h1 {
   margin: 0.5rem 0 0 0.5rem;
   color: #344;
 }
+.left {
+  text-align: left;
+}
 li,
 td {
   font-size: 1.2rem;
-}
-main > section > h1 {
-  margin-top: 2rem;
-  text-align: center;
-  background-color: lightgray;
 }
 p {
   margin: 0.3rem 0 0.8rem 0.5rem;
@@ -97,6 +101,9 @@ p.size2 {
   padding-right: 0.3rem;
 }
 section:not(.boxedBulletList) + .boxedBulletList {
+  margin-top: 2rem;
+}
+.section-head {
   margin-top: 2rem;
 }
 .size1 {
@@ -124,7 +131,8 @@ section:not(.boxedBulletList) + .boxedBulletList {
 p {
   font-size: 1rem;
 }
-strong {
+strong,
+.strong {
   font-weight: bold;
 }
 table {
@@ -135,12 +143,6 @@ table {
   text-align: right;
   padding-right: 0.5rem;
 }
-.theme-credit {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
-}
 td {
   padding: 0.2rem;
   border-style: solid;
@@ -148,6 +150,19 @@ td {
   border-color: slategray;
   text-align: left;
 }
+.theme-credit {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+.tight {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 ul {
   margin: 0.25rem 0;
+}
+.under {
+  margin-top: 0;
 }

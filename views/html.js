@@ -52,9 +52,10 @@ const headedStringOf = (head, tail, delimiter) => {
 };
 
 // Heading.
-const headOf = (string, size) => element2Of(
-  string, 'h1', {class: `size${size}`}, -1
-);
+const headOf = (string, size, type) => {
+  const elementClass = `size${size}` + (type ? ` ${type}` : '');
+  return element2Of(string, 'h1', {class: elementClass}, -1);
+};
 
 // Heading row’s table section.
 const headRowOf = array => {
@@ -106,9 +107,10 @@ const pageOf = (content, foot, lang, title, style) => {
 };
 
 // Paragraph.
-const paragraphOf = (string, size) => element2Of(
-  string, 'p', size ? {class: `size${size}`} : {}, -1
-);
+const paragraphOf = (string, size, type) => {
+  const elementClass = `size${size}` + (type ? ` ${type}` : '');
+  return element2Of(string, 'p', {class: elementClass}, -1);
+};
 
 // Plain row.
 const plainRowOf = array => {
@@ -166,5 +168,5 @@ module.exports = {
   squeezeBoxOf,
   styleOf,
   tableBodyOf,
-  tableOf,
+  tableOf
 };

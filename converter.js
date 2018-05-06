@@ -121,11 +121,11 @@ exports.convert = (sourceObject, isVerbose) => {
       title: 'contacts',
       data: {
         table: {
-          "caption": {
-            "size": 4,
-            "data": "Contacts"
+          'caption': {
+            'size': 4,
+            'data': 'Contacts'
           },
-          "data": [
+          'data': [
             {
               label: 'email',
               data: [

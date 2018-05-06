@@ -96,26 +96,54 @@ const stringOf = stringable => {
 const headOf = object => {
   const headObject = object.head;
   return headObject
-    ? renderer.headOf(stringOf(headObject.data), headObject.size)
+    ? renderer.headOf(stringOf(headObject.data), headObject.size, '')
     : '';
 };
 
 // Function prepending the title as a heading to an array of content.
-const headedOf = (contentArray, title, size) => {
+const headedOf = (contentArray, title, size, type) => {
   const headedContentArray = contentArray;
-  headedContentArray.unshift(renderer.headOf(title, size));
+  headedContentArray.unshift(renderer.headOf(title, size, type));
   return headedContentArray;
 };
 
 // Function rendering the body of an extracted section.
-const extractionOf = (fromArray, intoType, title, legend) => {
+const extractionOf = (fromArray, intoType, headStyle, title, legend) => {
+  const bandClass = `band ${headStyle || 'center'}`;
   switch(intoType) {
     case 'basicMainHeads': {
       const {head, subhead} = fromArray[0];
-      const content = [head, subhead].map(
-        line => renderer.paragraphOf(stringOf(line), 1)
+      const content = [
+        renderer.paragraphOf(stringOf(head), 1, 'center'),
+        renderer.paragraphOf(stringOf(subhead), 2, 'center under')
+      ].join('\n');
+      return content;
+    }
+    case 'centeredStrongLines': {
+      const content = fromArray.map(
+        line => renderer.paragraphOf(stringOf(line), 3, 'center tight strong')
       ).join('\n');
       return content;
+    }
+    case 'headedWorkVolLists': {
+      const subsections = fromArray.map(fromObject => {
+        const {organization, role, location, startDate, endDate, highlights}
+          = fromObject;
+        const head = renderer.headOf(renderer.multilineOf(
+          [
+            stringOf(organization),
+            stringOf(role),
+            stringOf(location),
+            stringOf(`${startDate} – ${endDate}`)
+          ]
+        ), 5, 'section-head strong');
+        const list = renderer.bulletListOf(highlights.map(
+          highlight => renderer.bulletItemOf(highlight)
+        ));
+        const content = [head, list].join('\n');
+        return renderer.sectionOf(content, organization, '');
+      });
+      return headedOf(subsections, title, 3, bandClass).join('\n');
     }
     case 'headedWorkVolParagraphs': {
       const subsections = fromArray.map(fromObject => {
@@ -127,26 +155,26 @@ const extractionOf = (fromArray, intoType, title, legend) => {
             label: organization,
             href: website
           }
-        }), 5);
+        }), 5, '');
         const subhead = renderer.headOf(
-          stringOf(`${startDate} – ${endDate}: ${role}`), 6
+          stringOf(`${startDate} – ${endDate}: ${role}`), 6, ''
         );
         const content = [
-          head, subhead, renderer.paragraphOf(synopsis)
+          head, subhead, renderer.paragraphOf(synopsis, 7, '')
         ].join('\n');
         return renderer.sectionOf(content, organization, '');
       });
-      return headedOf(subsections, title, 3).join('\n');
+      return headedOf(subsections, title, 3, bandClass).join('\n');
     }
     case 'headedConferenceParagraphs': {
       const subsections = fromArray.map(fromObject => {
         const {name, date, title} = fromObject;
-        const head = renderer.headOf(`${name}, ${date}`, 5);
-        const titleLine = renderer.paragraphOf(`“${title}”`);
+        const head = renderer.headOf(`${name}, ${date}`, 5, '');
+        const titleLine = renderer.paragraphOf(`“${title}”`, 7, '');
         const content = [head, titleLine].join('\n');
         return renderer.sectionOf(content, name, '');
       });
-      return headedOf(subsections, title, 3).join('\n');
+      return headedOf(subsections, title, 3, bandClass).join('\n');
     }
     case 'headedEducationParagraphs': {
       const subsections = fromArray.map(fromObject => {
@@ -170,10 +198,11 @@ const extractionOf = (fromArray, intoType, title, legend) => {
             href: website
           }
         });
-        const head = renderer.headOf(`${orgLink}, ${dates}`, 5);
+        const head = renderer.headOf(`${orgLink}, ${dates}`, 5, '');
         const recordData = [
           level,
           diploma,
+          specialties,
           gpa ? `${titleOf('gpa', legend)} ${gpa}` : '',
           transcript ? stringOf({
             format: 'hLink',
@@ -184,23 +213,23 @@ const extractionOf = (fromArray, intoType, title, legend) => {
           }) : ''
         ];
         const record = recordData.filter(item => item).join('; ');
-        const subhead = record ? renderer.headOf(record, 6) : '';
+        const subhead = record ? renderer.headOf(record, 6, '') : '';
         const heads = subhead ? [head, subhead] : [head];
         const content = heads.concat(
-          renderer.paragraphOf(synopsis)
+          renderer.paragraphOf(synopsis, 7, '')
         ).join('\n');
         return renderer.sectionOf(content, organization, '');
       });
-      return headedOf(subsections, title, 3).join('\n');
+      return headedOf(subsections, title, 3, bandClass).join('\n');
     }
     case 'headedGrantParagraphs': {
       const subsections = fromArray.map(fromObject => {
         const {grantor, date, title} = fromObject;
-        const head = renderer.headOf(`${grantor}, ${date}`, 5);
+        const head = renderer.headOf(`${grantor}, ${date}`, 5, '');
         const content = [head, `“${title}”`].join('\n');
         return renderer.sectionOf(content, grantor, '');
       });
-      return headedOf(subsections, title, 3).join('\n');
+      return headedOf(subsections, title, 3, bandClass).join('\n');
     }
     case 'headedPublicationParagraphs': {
       const subsections = fromArray.map(fromObject => {
@@ -215,11 +244,39 @@ const extractionOf = (fromArray, intoType, title, legend) => {
         }) : title;
         const pubLine = `${publisher}: ${date}`;
         const content = renderer.paragraphOf(
-          renderer.multilineOf([authorLine, titleLine, pubLine])
+          renderer.multilineOf([authorLine, titleLine, pubLine]), 7, ''
         );
         return renderer.sectionOf(content, title, '');
       });
-      return headedOf(subsections, title, 3).join('\n');
+      return headedOf(subsections, title, 3, bandClass).join('\n');
+    }
+    case 'introLists': {
+      const subsections = fromArray.map(fromObject => {
+        const {introTopic, list} = fromObject;
+        const head = renderer.headOf(
+          stringOf(introTopic), 5, 'strong'
+        );
+        const items = renderer.bulletListOf(list.map(
+          item => renderer.bulletItemOf(item)
+        ));
+        const content = [head, items].join('\n');
+        return renderer.sectionOf(content, introTopic, '');
+      });
+      return headedOf(subsections, title, 3, bandClass).join('\n');
+    }
+    case 'headedGroupList': {
+      const subsections = fromArray.map(fromObject => {
+        const {organization, roles} = fromObject;
+        const head = renderer.headOf(
+          stringOf(organization), 5, 'strong'
+        );
+        const roleList = renderer.bulletListOf(roles.map(
+          role => renderer.bulletItemOf(role)
+        ));
+        const content = [head, roleList].join('\n');
+        return renderer.sectionOf(content, organization, '');
+      });
+      return headedOf(subsections, title, 3, bandClass).join('\n');
     }
   }
   return '';
@@ -265,7 +322,7 @@ exports.parse = a11yObject => {
       case 'center': {
         const lines = data.filter(lineSpec => lineSpec.text.length).map(
           lineSpec => renderer.paragraphOf(
-            stringOf(lineSpec.text), lineSpec.size
+            stringOf(lineSpec.text), lineSpec.size, ''
           )
         );
         return renderer.sectionOf(lines.join('\n'), title, format);
@@ -276,14 +333,14 @@ exports.parse = a11yObject => {
       }
       case 'extraction': {
         const content = extractionOf(
-          a11yObject[data.from].data, data.into, title, legend
+          a11yObject[data.from].data, data.into, data.headStyle, title, legend
         );
         return renderer.sectionOf(
           content, title, data.into === 'basicMainHeads' ? 'center' : ''
         );
       }
       case 'left': {
-        const lines = data.map(line => renderer.paragraphOf(line));
+        const lines = data.map(line => renderer.paragraphOf(line, 7, ''));
         return renderer.sectionOf(lines.join('\n'), title, format);
       }
       case 'rowTables': {

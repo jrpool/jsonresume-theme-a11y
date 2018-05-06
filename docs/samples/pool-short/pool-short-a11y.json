@@ -210,6 +210,16 @@
                 "href": "https://scholar.google.com/citations?user=qSNjYhQAAAAJ&hl=en&oi=ao"
               }
             }
+          ],
+          [
+            "Semantic Scholar",
+            "Jonathan Pool",
+            {
+              "format": "hLink",
+              "data": {
+                "href": "https://www.semanticscholar.org/author/31879705"
+              }
+            }
           ]
         ]
       }
@@ -557,6 +567,14 @@
           "data": {
             "head": "Collaboration",
             "tail": "Slack, Asana, Wrike, Trello, Egnyte",
+            "delimiter": ": "
+          }
+        },
+        {
+          "format": "headedString",
+          "data": {
+            "head": "E-commerce",
+            "tail": "web contracting, web reservations, crowdsourcing (Amazon Mechanical Turk), Google AdWords, IP licensing, authentication, authorization, sales form management (design, validation, tabulation)",
             "delimiter": ": "
           }
         }
