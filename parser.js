@@ -93,10 +93,10 @@ const stringOf = stringable => {
 };
 
 // Function rendering a heading.
-const headOf = object => {
+const headOf = (object, type) => {
   const headObject = object.head;
   return headObject
-    ? renderer.headOf(stringOf(headObject.data), headObject.size, '')
+    ? renderer.headOf(stringOf(headObject.data), headObject.size, type)
     : '';
 };
 
@@ -136,7 +136,7 @@ const extractionOf = (fromArray, intoType, headStyle, title, legend) => {
             stringOf(location),
             stringOf(`${startDate} – ${endDate}`)
           ]
-        ), 5, 'section-head strong');
+        ), 5, 'section-subhead strong');
         const list = renderer.bulletListOf(highlights.map(
           highlight => renderer.bulletItemOf(highlight)
         ));
@@ -202,7 +202,7 @@ const extractionOf = (fromArray, intoType, headStyle, title, legend) => {
         const recordData = [
           level,
           diploma,
-          specialties,
+          specialties.join(', '),
           gpa ? `${titleOf('gpa', legend)} ${gpa}` : '',
           transcript ? stringOf({
             format: 'hLink',
@@ -311,7 +311,7 @@ exports.parse = a11yObject => {
     const data = sectionObject.data;
     switch(format) {
       case 'boxedBulletList': {
-        const head = headOf(data);
+        const head = headOf(data, 'section-head band center');
         const items = data.list.map(
           item => renderer.bulletItemOf(stringOf(item))
         );
@@ -335,9 +335,9 @@ exports.parse = a11yObject => {
         const content = extractionOf(
           a11yObject[data.from].data, data.into, data.headStyle, title, legend
         );
-        return renderer.sectionOf(
-          content, title, data.into === 'basicMainHeads' ? 'center' : ''
-        );
+        return renderer.sectionOf(content, title, `section-head${
+          data.into === 'basicMainHeads' ? ' center' : ''
+        }`);
       }
       case 'left': {
         const lines = data.map(line => renderer.paragraphOf(line, 7, ''));
@@ -355,7 +355,7 @@ exports.parse = a11yObject => {
           const quasiTable = renderer.squeezeBoxOf(content);
           return renderer.sectionOf(quasiTable, title, format);
         };
-        const head = headOf(data);
+        const head = headOf(data, '');
         const rows = data.tables.map(rowArray => renderer.plainRowOf(rowArray));
         const tables = rows.map(
           row => renderer.tableOf([renderer.tableBodyOf([row])], 'rowTable')
@@ -366,7 +366,7 @@ exports.parse = a11yObject => {
         );
       }
       case 'tableLeftHeads': {
-        const sectionHead = headOf(data);
+        const sectionHead = headOf(data, '');
         const sectionTable = data.table;
         const tableCaption = sectionTable.caption;
         const caption = renderer.captionOf(
@@ -383,10 +383,10 @@ exports.parse = a11yObject => {
         const body = renderer.tableBodyOf(rows);
         const table = renderer.tableOf([caption, body], 'tableLH');
         const content = sectionHead ? [sectionHead, table].join('\n') : table;
-        return renderer.sectionOf(content, title, 'center');
+        return renderer.sectionOf(content, title, 'section-head center');
       }
       case 'tableTopHead': {
-        const sectionHead = headOf(data);
+        const sectionHead = headOf(data, '');
         const sectionTable = data.table;
         const tableCaption = sectionTable.caption;
         const caption = renderer.captionOf(
@@ -402,7 +402,7 @@ exports.parse = a11yObject => {
         ));
         const table = renderer.tableOf([caption, head, etc], 'tableTH');
         const content = sectionHead ? [sectionHead, table].join('\n') : table;
-        return renderer.sectionOf(content, title, 'center');
+        return renderer.sectionOf(content, title, 'section-head center');
       }
     }
   });

@@ -33,6 +33,14 @@
       a {
         overflow-wrap: break-word;
       }
+      .band {
+        background-color: lightgray;
+      }
+      .band,
+      .rowTablesCircled,
+      .section-subhead {
+        margin-top: 1rem;
+      }
       body {
         background: #eee;
         margin: 3rem 3rem;
@@ -48,6 +56,9 @@
       .boxedBulletList > h1 {
         margin-top: 0.1rem;
       }
+      .caps {
+        text-transform: uppercase;
+      }
       caption {
         margin-bottom: 0.5rem;
         font-weight: bold;
@@ -55,10 +66,6 @@
       .center,
       .compact {
         text-align: center;
-      }
-      .center,
-      .rowTablesCircled {
-        margin-top: 1.5rem;
       }
       .compact {
         padding: 0 3rem 2rem 3rem;
@@ -77,14 +84,12 @@
         margin: 0.5rem 0 0 0.5rem;
         color: #344;
       }
+      .left {
+        text-align: left;
+      }
       li,
       td {
         font-size: 1.2rem;
-      }
-      main > section > h1 {
-        margin-top: 2rem;
-        text-align: center;
-        background-color: lightgray;
       }
       p {
         margin: 0.3rem 0 0.8rem 0.5rem;
@@ -103,7 +108,8 @@
       .rowTablesCircled td {
         padding-right: 0.3rem;
       }
-      section:not(.boxedBulletList) + .boxedBulletList {
+      section:not(.boxedBulletList) + .boxedBulletList,
+      .section-head {
         margin-top: 2rem;
       }
       .size1 {
@@ -131,7 +137,8 @@
       p {
         font-size: 1rem;
       }
-      strong {
+      strong,
+      .strong {
         font-weight: bold;
       }
       table {
@@ -142,12 +149,6 @@
         text-align: right;
         padding-right: 0.5rem;
       }
-      .theme-credit {
-        margin-top: 1rem;
-        text-align: center;
-        font-size: 1rem;
-        font-style: italic;
-      }
       td {
         padding: 0.2rem;
         border-style: solid;
@@ -155,142 +156,155 @@
         border-color: slategray;
         text-align: left;
       }
+      .theme-credit {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+        font-style: italic;
+      }
+      .tight {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
       ul {
         margin: 0.25rem 0;
+      }
+      .under {
+        margin-top: 0;
       }
     </style>
   </head>
   <body>
     <main>
-      <section title="Jonathan Pool: Curriculum Vitae" class="center">
-        <p class="size1">Jonathan Pool</p>
-        <p class="size1">Curriculum Vitae</p>
+      <section title="Jonathan Pool: Curriculum Vitae" class="section-head center">
+        <p class="size1 center">Jonathan Pool</p>
+        <p class="size2 center under">Curriculum Vitae</p>
       </section>
-      <section title="Work History">
-        <h1 class="size3">Work History</h1>
+      <section title="Work History" class="section-head">
+        <h1 class="size3 band center">Work History</h1>
         <section title="The Long Now Foundation">
           <h1 class="size5"><a href="https://panlex.org">The Long Now Foundation</a></h1>
           <h1 class="size6">2012-01-01 – 2016-12-19: Project Director, PanLex Project</h1>
-          <p>Ported database from MS SQL Server to PostgreSQL. Grew data to 24 million words and 1.3 billion word-pair translations. Designed and implemented developer, end-user, and search-engine interfaces to database. Documented project standards, practices, and tools. Presented paper at IUC 2012. Published technical articles. Recruited steering committee. Hired 5 developers and linguists and negotiated transfer of project control to them.</p>
+          <p class="size7">Ported database from MS SQL Server to PostgreSQL. Grew data to 24 million words and 1.3 billion word-pair translations. Designed and implemented developer, end-user, and search-engine interfaces to database. Documented project standards, practices, and tools. Presented paper at IUC 2012. Published technical articles. Recruited steering committee. Hired 5 developers and linguists and negotiated transfer of project control to them.</p>
         </section>
         <section title="Utilika Foundation">
           <h1 class="size5"><a href="http://stulta.com/misc/uf/">Utilika Foundation</a></h1>
           <h1 class="size6">2004-05-03 – 2011-12-31: President</h1>
-          <p>Founded foundation. Obtained IRS recognition. Recruited board of directors. Directed search for research partner. Negotiated partnership with Turing Center at University of Washington. Managed partnership. Participated in research, development, and publication. Presented papers at CLAW/AMTA 2006, K-CAP 2007, SAAKM 2007, LISA Berkeley 2009, Machine Translation Summit XII, Coling 2010, and DELPH-IN Summit 2011.</p>
+          <p class="size7">Founded foundation. Obtained IRS recognition. Recruited board of directors. Directed search for research partner. Negotiated partnership with Turing Center at University of Washington. Managed partnership. Participated in research, development, and publication. Presented papers at CLAW/AMTA 2006, K-CAP 2007, SAAKM 2007, LISA Berkeley 2009, Machine Translation Summit XII, Coling 2010, and DELPH-IN Summit 2011.</p>
         </section>
         <section title="Centerplex">
           <h1 class="size5"><a href="http://stulta.com/misc/cx/">Centerplex</a></h1>
           <h1 class="size6">1993-06-16 – 2004-06-11: Proprietor</h1>
-          <p>Purchased, improved, and operated 4 Tukwila, Washington, office buildings with about 100 tenants. Pioneered micro-offices, virtual tenancies, web-based leasing and room reservations, inter-building LAN, free Internet access, and energy-conservation and recycling programs. Earned 1999 EPA Energy Star for Small Business Award. Implemented lighting upgrade recognized by International Interior Design Association. Profiled in Joseph Romm, “Cool Companies” (2006).</p>
+          <p class="size7">Purchased, improved, and operated 4 Tukwila, Washington, office buildings with about 100 tenants. Pioneered micro-offices, virtual tenancies, web-based leasing and room reservations, inter-building LAN, free Internet access, and energy-conservation and recycling programs. Earned 1999 EPA Energy Star for Small Business Award. Implemented lighting upgrade recognized by International Interior Design Association. Profiled in Joseph Romm, “Cool Companies” (2006).</p>
         </section>
         <section title="University of Washington">
           <h1 class="size5"><a href="http://www.washington.edu">University of Washington</a></h1>
           <h1 class="size6">1977-09-16 – 1993-06-15: Assistant and Associate Professor</h1>
-          <p>Performed research and graduate and undergraduate teaching in political science, including language policy, social choice theory, and quantitative research methods. Presented papers at conferences of American Political Science Association and other organizations. Published book chapters, research articles, and working papers. Held visiting research and teaching appointments at Universities of Paderborn and Bielefeld, Germany.</p>
+          <p class="size7">Performed research and graduate and undergraduate teaching in political science, including language policy, social choice theory, and quantitative research methods. Presented papers at conferences of American Political Science Association and other organizations. Published book chapters, research articles, and working papers. Held visiting research and teaching appointments at Universities of Paderborn and Bielefeld, Germany.</p>
         </section>
         <section title="State University of New York at Stony Brook">
           <h1 class="size5"><a href="http://www.stonybrook.edu">State University of New York at Stony Brook</a></h1>
           <h1 class="size6">1971-01-01 – 1977-06-15: Assistant Professor</h1>
-          <p>Performed research and graduate and undergraduate teaching in political science, including language policy, social choice theory, and quantitative research methods. Presented papers at conferences of American Political Science Association and other organizations. Published book chapters, research articles, and working papers. Held visiting research and teaching appointments at University of Mannheim (Germany), McGill University (Canada), the USSR Academy of Sciences, and Stanford University.</p>
+          <p class="size7">Performed research and graduate and undergraduate teaching in political science, including language policy, social choice theory, and quantitative research methods. Presented papers at conferences of American Political Science Association and other organizations. Published book chapters, research articles, and working papers. Held visiting research and teaching appointments at University of Mannheim (Germany), McGill University (Canada), the USSR Academy of Sciences, and Stanford University.</p>
         </section>
         <section title="Peace Corps">
           <h1 class="size5"><a href="https://www.peacecorps.gov">Peace Corps</a></h1>
           <h1 class="size6">1964-06-15 – 1966-06-15: Teacher of English as a foreign language</h1>
-          <p>Taught English in secondary schools in Nevşehir and İstanbul, Turkey. Published articles in Turkish periodicals (“Türk Dili”, “Yön”) and “Peace Corps Volunteer”. Wrote and published an Esperanto textbook in Turkish. Helped fund a summer camp for disadvantaged youth.</p>
+          <p class="size7">Taught English in secondary schools in Nevşehir and İstanbul, Turkey. Published articles in Turkish periodicals (“Türk Dili”, “Yön”) and “Peace Corps Volunteer”. Wrote and published an Esperanto textbook in Turkish. Helped fund a summer camp for disadvantaged youth.</p>
         </section>
       </section>
-      <section title="Volunteering">
-        <h1 class="size3">Volunteering</h1>
+      <section title="Volunteering" class="section-head">
+        <h1 class="size3 band center">Volunteering</h1>
         <section title="Esperantic Studies Foundation">
           <h1 class="size5"><a href="http://www.esperantic.org">Esperantic Studies Foundation</a></h1>
           <h1 class="size6">1968 – : Cofounder, director, and Advisory Board member</h1>
-          <p>Co-organized mission, strategy, and partnerships.</p>
+          <p class="size7">Co-organized mission, strategy, and partnerships.</p>
         </section>
         <section title="City of Tukwila, Washington">
           <h1 class="size5"><a href="http://www.tukwilawa.gov">City of Tukwila, Washington</a></h1>
           <h1 class="size6">2002 – 2004: Connectivity Advisory Committee member</h1>
-          <p>Drafted proposal for municipal broadband fiberoptic network.</p>
+          <p class="size7">Drafted proposal for municipal broadband fiberoptic network.</p>
         </section>
         <section title="Johns Hopkins University">
           <h1 class="size5"><a href="http://www.worldcat.org/title/proceedings-of-the-johns-hopkins-first-national-search-for-applications-of-personal-computing-to-aid-the-handicapped-october-31-1981/oclc/8446123">Johns Hopkins University</a></h1>
           <h1 class="size6">1981 – 1981: Proposal reviewer</h1>
-          <p>Reviewed proposals for First National Search for Applications of Personal Computing to Aid the Handicapped.</p>
+          <p class="size7">Reviewed proposals for First National Search for Applications of Personal Computing to Aid the Handicapped.</p>
         </section>
         <section title="International Sociological Association, Research Committee on Sociolinguistics">
           <h1 class="size5"><a href="http://www.language-and-society.org/index.html">International Sociological Association, Research Committee on Sociolinguistics</a></h1>
           <h1 class="size6">1974 – 1978: First Vice-President</h1>
-          <p>Organized and obtained support for travel grants to sociolinguistics program of 9th World Congress of Sociology, 1978.</p>
+          <p class="size7">Organized and obtained support for travel grants to sociolinguistics program of 9th World Congress of Sociology, 1978.</p>
         </section>
         <section title="Operation Crossroads Africa">
           <h1 class="size5"><a href="http://operationcrossroadsafrica.org">Operation Crossroads Africa</a></h1>
           <h1 class="size6">1963-06-15 – 1963-08-15: Unskilled laborer</h1>
-          <p>Participated in construction of a community center in Nsoatre, Ghana.</p>
+          <p class="size7">Participated in construction of a community center in Nsoatre, Ghana.</p>
         </section>
       </section>
-      <section title="Conference presentations">
-        <h1 class="size3">Conference presentations</h1>
+      <section title="Conference presentations" class="section-head">
+        <h1 class="size3 band center">Conference presentations</h1>
         <section title="SF Globalization">
           <h1 class="size5">SF Globalization, 2015</h1>
-          <p>“Extreme Localization: Translating Every Word in Every Language”</p>
+          <p class="size7">“Extreme Localization: Translating Every Word in Every Language”</p>
         </section>
         <section title="36th Internationalization & Unicode Conference">
           <h1 class="size5">36th Internationalization & Unicode Conference, 2012</h1>
-          <p>“Designing a Panlingual Dictionary”</p>
+          <p class="size7">“Designing a Panlingual Dictionary”</p>
         </section>
         <section title="DELPH-IN Summit">
           <h1 class="size5">DELPH-IN Summit, 2011</h1>
-          <p>“PanLex: A Panlingual Lexical Resource”</p>
+          <p class="size7">“PanLex: A Panlingual Lexical Resource”</p>
         </section>
         <section title="Localization Industry Standards Association Berkeley Globalization Conference">
           <h1 class="size5">Localization Industry Standards Association Berkeley Globalization Conference, 2009</h1>
-          <p>“Panlingual Localization”</p>
+          <p class="size7">“Panlingual Localization”</p>
         </section>
         <section title="Semantic Authoring, Annotation and Knowledge Markup Workshop">
           <h1 class="size5">Semantic Authoring, Annotation and Knowledge Markup Workshop, 2007</h1>
-          <p>“Syntactic Disambiguation for the Semantic Web”</p>
+          <p class="size7">“Syntactic Disambiguation for the Semantic Web”</p>
         </section>
         <section title="Fourth International Conference on Knowledge Capture">
           <h1 class="size5">Fourth International Conference on Knowledge Capture, 2007</h1>
-          <p>“Disambiguating for the Web: A Test of Two Methods”</p>
+          <p class="size7">“Disambiguating for the Web: A Test of Two Methods”</p>
         </section>
         <section title="5th International Workshop on Controlled Language Applications">
           <h1 class="size5">5th International Workshop on Controlled Language Applications, 2006</h1>
-          <p>“Can Controlled Languages Scale to the Web?”</p>
+          <p class="size7">“Can Controlled Languages Scale to the Web?”</p>
         </section>
         <section title="International Symposium on Linguistic Human Rights">
           <h1 class="size5">International Symposium on Linguistic Human Rights, 1991</h1>
-          <p>“The Language Auction: A Nondiscriminatory Method of Choosing Official Languages”</p>
+          <p class="size7">“The Language Auction: A Nondiscriminatory Method of Choosing Official Languages”</p>
         </section>
         <section title="American Political Science Association">
           <h1 class="size5">American Political Science Association, 1986</h1>
-          <p>“The Pure Theory of Language Conflict”</p>
+          <p class="size7">“The Pure Theory of Language Conflict”</p>
         </section>
       </section>
-      <section title="Education">
-        <h1 class="size3">Education</h1>
+      <section title="Education" class="section-head">
+        <h1 class="size3 band center">Education</h1>
         <section title="Learners Guild">
           <h1 class="size5"><a href="https://learnersguild.org">Learners Guild</a>, 2017-05-01 – 2018-02-16</h1>
-          <h1 class="size6">postsecondary</h1>
-          <p>Developed, tested, and documented server-client applications, responsive SPAs, and APIs with databases, authentication, authorization, and WCAG 2.0 compliance.</p>
+          <h1 class="size6">postsecondary; full-stack web development, web accessibility</h1>
+          <p class="size7">Developed, tested, and documented server-client applications, responsive SPAs, and APIs with databases, authentication, authorization, and WCAG 2.0 compliance.</p>
         </section>
         <section title="University of Washington">
           <h1 class="size5"><a href="https://www.washington.edu">University of Washington</a>, 2004-03-29 – 2007-06-01</h1>
-          <h1 class="size6">undergraduate and graduate; GPA = 3.97/4; <a href="https://jpdev.pro/info/docs/pool-uw-transcript.pdf">transcript</a></h1>
-          <p>Studied programming, data structures, algorithms, Java, user interfaces, AI, syntax, semantics, grammar engineering, human-rights law and philosophy, and public policy.</p>
+          <h1 class="size6">undergraduate and graduate; computer science, human-computer interaction, linguistics, computational linguistics, human rights law and philosophy; GPA = 3.97/4; <a href="https://jpdev.pro/info/docs/pool-uw-transcript.pdf">transcript</a></h1>
+          <p class="size7">Studied programming, data structures, algorithms, Java, user interfaces, AI, syntax, semantics, grammar engineering, human-rights law and philosophy, and public policy.</p>
         </section>
         <section title="The University of Chicago">
           <h1 class="size5"><a href="https://www.uchicago.edu">The University of Chicago</a>, 1966-09-01 – 1971-04-30</h1>
-          <h1 class="size6">graduate; Ph.D.; <a href="https://jpdev.pro/info/docs/pool-uc-transcript.pdf">transcript</a></h1>
-          <p>Studied all fields of political science. Did statistical analyses of opinion surveys for M.A. thesis and Ph.D. dissertation.</p>
+          <h1 class="size6">graduate; Ph.D.; political science; <a href="https://jpdev.pro/info/docs/pool-uc-transcript.pdf">transcript</a></h1>
+          <p class="size7">Studied all fields of political science. Did statistical analyses of opinion surveys for M.A. thesis and Ph.D. dissertation.</p>
         </section>
         <section title="Harvard University">
           <h1 class="size5"><a href="https://www.harvard.edu">Harvard University</a>, 1960-09-01 – 1964-06-30</h1>
-          <h1 class="size6">undergraduate; B.A. cum laude; <a href="https://jpdev.pro/info/docs/pool-hu-transcript.pdf">transcript</a></h1>
-          <p>Studied political science, social sciences, humanities, calculus, physics. Did dimensional analysis of voting behavior of U.S. Supreme Court justices for B.A. honors thesis.</p>
+          <h1 class="size6">undergraduate; B.A. cum laude; government; <a href="https://jpdev.pro/info/docs/pool-hu-transcript.pdf">transcript</a></h1>
+          <p class="size7">Studied political science, social sciences, humanities, calculus, physics. Did dimensional analysis of voting behavior of U.S. Supreme Court justices for B.A. honors thesis.</p>
         </section>
       </section>
-      <section title="Grants">
-        <h1 class="size3">Grants</h1>
+      <section title="Grants" class="section-head">
+        <h1 class="size3 band center">Grants</h1>
         <section title="Embassy of Canada to the United States">
           <h1 class="size5">Embassy of Canada to the United States, 1985</h1>
           “The Political Economy of Language”
@@ -332,37 +346,37 @@
           “New Directions in Research: Comparative Studies”
         </section>
       </section>
-      <section title="Selected publications">
-        <h1 class="size3">Selected publications</h1>
+      <section title="Selected publications" class="section-head">
+        <h1 class="size3 band center">Selected publications</h1>
         <section title="Countering language attrition with PanLex and the Web of Data">
-          <p>Patrick Westphal, Claus Stadler, Jonathan Pool<br><a href="http://www.semantic-web-journal.net/system/files/swj509.pdf">Countering language attrition with PanLex and the Web of Data</a><br>Semantic Web Journal: 2015</p>
+          <p class="size7">Patrick Westphal, Claus Stadler, Jonathan Pool<br><a href="http://www.semantic-web-journal.net/system/files/swj509.pdf">Countering language attrition with PanLex and the Web of Data</a><br>Semantic Web Journal: 2015</p>
         </section>
         <section title="PanLex: Building a Resource for Panlingual Lexical Translation">
-          <p>David Kamholz, Jonathan Pool, Susan M. Colowick<br><a href="https://pdfs.semanticscholar.org/4bf5/387ec770f557525484b7c99be3a0c568651a.pdf">PanLex: Building a Resource for Panlingual Lexical Translation</a><br>LREC: 2014</p>
+          <p class="size7">David Kamholz, Jonathan Pool, Susan M. Colowick<br><a href="https://pdfs.semanticscholar.org/4bf5/387ec770f557525484b7c99be3a0c568651a.pdf">PanLex: Building a Resource for Panlingual Lexical Translation</a><br>LREC: 2014</p>
         </section>
         <section title="PanLex and LEXTRACT: Translating all Words of all Languages of the World">
-          <p>Timothy Baldwin, Jonathan Pool, Susan M. Colowick<br><a href="http://turing.cs.washington.edu/papers/BaldwinEtAl-Lextract.pdf">PanLex and LEXTRACT: Translating all Words of all Languages of the World</a><br>Coling: 2010</p>
+          <p class="size7">Timothy Baldwin, Jonathan Pool, Susan M. Colowick<br><a href="http://turing.cs.washington.edu/papers/BaldwinEtAl-Lextract.pdf">PanLex and LEXTRACT: Translating all Words of all Languages of the World</a><br>Coling: 2010</p>
         </section>
         <section title="Evaluating Lemmatic Communication">
-          <p>Katherine Everitt, Christopher Lim, Oren Etzioni, Jonathan Pool, Susan Colowick, Stephen Soderland<br><a href="http://www.trans-kom.eu/bd03nr01/trans-kom_03_01_03_Everitt_et_al_Lemmatic_Communication.20100531.pdf">Evaluating Lemmatic Communication</a><br>trans-kom: 2010</p>
+          <p class="size7">Katherine Everitt, Christopher Lim, Oren Etzioni, Jonathan Pool, Susan Colowick, Stephen Soderland<br><a href="http://www.trans-kom.eu/bd03nr01/trans-kom_03_01_03_Everitt_et_al_Lemmatic_Communication.20100531.pdf">Evaluating Lemmatic Communication</a><br>trans-kom: 2010</p>
         </section>
         <section title="Syntactic Disambiguation for the Semantic Web">
-          <p>Jonathan Pool, S. M. Colowick<br><a href="http://ftp.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-289/po02.pdf">Syntactic Disambiguation for the Semantic Web</a><br>SAAKM: 2007</p>
+          <p class="size7">Jonathan Pool, S. M. Colowick<br><a href="http://ftp.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-289/po02.pdf">Syntactic Disambiguation for the Semantic Web</a><br>SAAKM: 2007</p>
         </section>
         <section title="The Multilingual Election Problem">
-          <p>Jonathan Pool<br><a href="https://old.panlex.org/pubs/etc/multielectprob.pdf">The Multilingual Election Problem</a><br>Journal of Theoretical Politics: 1992</p>
+          <p class="size7">Jonathan Pool<br><a href="https://old.panlex.org/pubs/etc/multielectprob.pdf">The Multilingual Election Problem</a><br>Journal of Theoretical Politics: 1992</p>
         </section>
         <section title="The Distribution of Foreign Language Skills as a Game Equilibrium">
-          <p>Reinhard Selten, Jonathan Pool<br><a href="https://pdfs.semanticscholar.org/fe68/86cfbf8c2d18f4175b490dcc8837a14d3a5c.pdf">The Distribution of Foreign Language Skills as a Game Equilibrium</a><br>Springer: 1991</p>
+          <p class="size7">Reinhard Selten, Jonathan Pool<br><a href="https://pdfs.semanticscholar.org/fe68/86cfbf8c2d18f4175b490dcc8837a14d3a5c.pdf">The Distribution of Foreign Language Skills as a Game Equilibrium</a><br>Springer: 1991</p>
         </section>
         <section title="The Official Language Problem">
-          <p>Jonathan Pool<br><a href="https://www.jstor.org/stable/1963171">The Official Language Problem</a><br>American Political Science Review: 1991</p>
+          <p class="size7">Jonathan Pool<br><a href="https://www.jstor.org/stable/1963171">The Official Language Problem</a><br>American Political Science Review: 1991</p>
         </section>
         <section title="How to Make Cooperation the Optimizing Strategy in a Two-Person Game">
-          <p>Bernard Grofman, Jonathan Pool<br><a href="http://www.tandfonline.com/doi/abs/10.1080/0022250X.1977.9989871?src=recsys&">How to Make Cooperation the Optimizing Strategy in a Two-Person Game</a><br>Journal of Mathematical Sociology: 1977</p>
+          <p class="size7">Bernard Grofman, Jonathan Pool<br><a href="http://www.tandfonline.com/doi/abs/10.1080/0022250X.1977.9989871?src=recsys&">How to Make Cooperation the Optimizing Strategy in a Two-Person Game</a><br>Journal of Mathematical Sociology: 1977</p>
         </section>
         <section title="Coalition Formation in Small Groups with Incomplete Communication Networks">
-          <p>Jonathan Pool<br><a href="https://old.panlex.org/pubs/etc/cfsg.pdf">Coalition Formation in Small Groups with Incomplete Communication Networks</a><br>Journal of Personality and Social Psychology: 1976</p>
+          <p class="size7">Jonathan Pool<br><a href="https://old.panlex.org/pubs/etc/cfsg.pdf">Coalition Formation in Small Groups with Incomplete Communication Networks</a><br>Journal of Personality and Social Psychology: 1976</p>
         </section>
       </section>
     </main>

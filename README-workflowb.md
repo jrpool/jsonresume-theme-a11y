@@ -133,17 +133,38 @@ The named formats of both types are defined in the `parser.js` file. If you want
 
 An extractive section’s object has `extraction` as the value of its `format` property. Its `data` property’s value is an object with `from` and `into` properties. The `from` property has as its value a string naming the object containing the data for the section. The `into` property has as its value a string naming the extractive format for the section (shown in parentheses below).
 
-There are 6 extractive formats to choose from:
+There are 10 extractive formats to choose from:
 
-###### Basic (`basicMainHeads`)
+###### Basic 2-line (`basicMainHeads`)
 
 The named object’s value is an array of 1 object, which has `head` and `subhead` properties, both having strings as values.
 
-The property will be rendered as 2 centered large-font-size lines, one below the other.
+The property will be rendered as 2 centered large-font-size bold lines, one below the other.
 
-###### Work/Volunteering (`headedWorkVolParagraphs`)
+This format may be appropriate for a page heading like:
 
-The named object’s value is an array of objects, each of which has `organization`, `role`, `website`, `startDate`, `endDate`, and `synopsis` properties, all of whose values are strings. The value of the `website` property is a URL, and the values of the `startDate` and `endDate` properties are dates.
+```
+Forename Surname
+Résumé
+```
+
+###### Basic multiline (`centeredStrongLines`)
+
+The named object’s value is an array of stringables.
+
+The property will be rendered as centered large-font-size bold lines, one below the other.
+
+This format may be appropriate for a page heading of 3 or more lines, such as a heading containing a name, an occupation, a telephone number, and an email address.
+
+###### Work/volunteering with list details (`headedWorkVolLists`)
+
+The named object’s value is an array of objects, each of which has `organization`, `role`, `location`, `startDate`, `endDate`, and `highlights`. The value of the `highlights` property is an array of strings. The values of the other properties are stringables.
+
+The property will be rendered as a succession of blocks. In each block, the first 4 lines are the organization’s name, the role, the location, and the date range, in a bold medium-size font. After that is a bulleted list of the elements of the `highlights` array.
+
+###### Work/volunteering with prose details (`headedWorkVolParagraphs`)
+
+The named object’s value is an array of objects, each of which has `organization`, `role`, `website`, `startDate`, `endDate`, and `synopsis` properties, all of whose values are strings. The value of the `website` property is a URL.
 
 The property will be rendered as a succession of 3-line blocks. In each block, the first line is the organization’s name as a link to the website. The second line is the date range and the role, separated by a colon. The third line is the synopsis. The first 2 lines are bold, with the first having a font size larger than that of the second.
 
@@ -177,6 +198,18 @@ The property will be rendered as a succession of 2-line blocks. In each block, t
 The named object’s value is an array of objects, each of which has `authors`, `title`, `date`, `publisher`, and `url` properties. The `authors` value is an array of strings. The other properties’ values are strings. The `date` value is a date, and the `url` value is a URL.
 
 The property will be rendered as a succession of 3-line blocks. In each block, the first line is the authors’ names, separated by commas. The second line is the publication title (not in quotation marks), as a link to the URL that is the `url` value. The third line is the publisher and the publication date, separated by a colon. If you want an article title quoted, you can include quotation marks in the `title` value.
+
+###### Introductory lists (`introLists`)
+
+The named object’s value is an array of objects, each of which has `introTopic` and `list` properties. The `introTopic` value is a stringable. The `list` property’s value is an array of strings.
+
+The property will be rendered as a succession of blocks. In each block, the first line the `introTopic` value in a medium-size bold font. The remaining lines are a bulleted list of the elements in the `list` array.
+
+###### Affiliations (`headedGroupLists`)
+
+In this version this structure is identical to that of `introLists`, except that the property names are `organization` and `roles` (rather than `introTopic` and `list`).
+
+The reason for the separate existence of this format is an intent to elaborate it in a future version, such as by permitting the inclusion of start and end dates of roles. Making this format distinct from `introLists` minimizes the revisions that would be required in a source file when such elaborations are added.
 
 ##### Integrated formats
 

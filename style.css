@@ -30,8 +30,9 @@ a {
   background-color: lightgray;
 }
 .band,
-.rowTablesCircled {
-  margin-top: 1.5rem;
+.rowTablesCircled,
+.section-subhead {
+  margin-top: 1rem;
 }
 body {
   background: #eee;
@@ -100,9 +101,7 @@ p.size2 {
 .rowTablesCircled td {
   padding-right: 0.3rem;
 }
-section:not(.boxedBulletList) + .boxedBulletList {
-  margin-top: 2rem;
-}
+section:not(.boxedBulletList) + .boxedBulletList,
 .section-head {
   margin-top: 2rem;
 }

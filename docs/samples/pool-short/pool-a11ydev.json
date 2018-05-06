@@ -1,0 +1,225 @@
+{
+  "lang": {
+    "format": "hide",
+    "data": "en"
+  },
+  "order": {
+    "format": "hide",
+    "data": [
+      "basic",
+      "intro",
+      "work",
+      "groups"
+    ]
+  },
+  "title": {
+    "format": "hide",
+    "data": "Jonathan Pool: Résumé"
+  },
+  "legend": {
+    "format": "hide",
+    "data": {
+      "basic": "Jonathan Pool: Résumé",
+      "company": "Employer",
+      "creditTo": "Powered by ",
+      "email": "Email",
+      "endDate": "End date",
+      "groups": "Professional affiliations",
+      "highlights": "Accomplishments",
+      "intro": "Synopsis",
+      "position": "Role",
+      "startDate": "Start date",
+      "title": "Title",
+      "work": "Recent Work History"
+    }
+  },
+  "basicData": {
+    "format": "hide",
+    "data": [
+      "Jonathan Pool",
+      "(510) 225-1700",
+      "pool@jpdev.pro"
+    ]
+  },
+  "introData": {
+    "format": "hide",
+    "data": [
+      {
+        "introTopic": "Motto",
+        "list": [
+          "“Hit the ground learning”"
+        ]
+      },
+      {
+        "introTopic": "Principal roles",
+        "list": [
+          "Full-stack web developer",
+          "Accessibility engineer"
+        ]
+      },
+      {
+        "introTopic": "Prior experience and training",
+        "list": [
+          "UI design and usability",
+          "Automated and user testing",
+          "Automated internationalization and localization",
+          "Documentation",
+          "Conference presentations, training, business acquisition, customer liaison",
+          "Physical and cloud server installation, configuration, maintenance",
+          "Network and firewall configuration and maintenance",
+          "Project planning, cost-benefit estimation, coordination, management",
+          "Grant solicitation and management",
+          "Procurement",
+          "Regulatory compliance and risk management",
+          "Nonprofit and for-profit startup founding",
+          "Political research, mathematical models of social choice, and statistical analysis of public opinion (Harvard University, B.A.; University of Chicago, Ph.D.)"
+        ]
+      }
+    ]
+  },
+  "workData": {
+    "format": "hide",
+    "data": [
+      {
+        "organization": "Self-employment",
+        "role": "Web accessibility developer/consultant",
+        "location": "Seattle, Washington",
+        "startDate": "2018-02-17",
+        "endDate": "",
+        "highlights": [
+          "Conducted WCAG 2.1, WAI-ARIA, and usability tests with aXe, WAVE, Siteimprove, WCAG Accessibility Audit Developer UI, Safari a11y Tools, Acrobat Pro DC, VoiceOver, and other assistive technologies",
+          "Provided pro bono accessibility consulting to for-profit, nonprofit, and government organizations",
+          "Published accessibility reports",
+          "Developed and maintained web applications with nginx, PM2, PostgreSQL, SendGrid Web API, and Twilio Programmable Voice API on Ubuntu Linux OVH VPS",
+          "Received training on “Advanced PDF Accessibility”, accessible CSS and SVG, and aXe development"
+        ]
+      },
+      {
+        "organization": "Learners Guild",
+        "role": "Full-stack web-development and accessibility apprentice",
+        "location": "Oakland, California",
+        "startDate": "2017-05-01",
+        "endDate": "2018-02-16",
+        "highlights": [
+          "Developed accessible and responsive front-end, back-end, and full-stack web applications, SPAs, and APIs coded in HTML5, CSS3, JavaScript (ES2015), and SQL, using Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, PostgreSQL, Mongoose/MongoDB, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize, ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools, and Heroku",
+          "Studied best practices in code organization, asynchronous programming, naming conventions, debugging, linting, testing, TDD, MVC architecture, and documentation in agile development",
+          "Became ESLint contributor #25",
+          "Made 200+ contributions to MDN Web Docs",
+          "Managed versions, collaboration, and workflows with git, Github, Slack, and Trello"
+        ]
+      },
+      {
+        "organization": "The Long Now Foundation",
+        "role": "Project director and web/database developer",
+        "location": "Berkeley, California",
+        "startDate": "2012-01-01",
+        "endDate": "2016-12-19",
+        "highlights": [
+          "Managed PanLex project",
+          "Developed 3.1-billion-translation database and UIs supporting access to digital content across thousands of languages, using Perl, PostgreSQL, PL/pgSQL, DBI, MojoDOM, OCR tools, iconv, and ISO 639-3",
+          "Developed web UIs with authentication and authorization and SEO API",
+          "Tuned and tested indirect-translation algorithms",
+          "Developed NLTK corpus in 2000 languages",
+          "Contributed to Common Locale Data Repository of the Unicode Standard",
+          "Recruited steering committee, 5 web developers and linguists, and 40 summer interns",
+          "Installed, configured, and managed servers under Ubuntu Linux on AWS EC2 and dedicated OVH hosts",
+          "Wrote project developer documentation with WordPress",
+          "Collaborated with git, svn, Github, Gitlab, Bitbucket, SourceForge, Slack, Asana, Wrike, and Egnyte",
+          "Published and presented technical papers"
+        ]
+      },
+      {
+        "organization": "Utilika Foundation",
+        "role": "Founder, CEO, and web/database developer",
+        "location": "Seattle, Washington",
+        "startDate": "2004-05-03",
+        "endDate": "2011-12-31",
+        "highlights": [
+          "Converted SQL Server database to PostgreSQL",
+          "Developed database and web UIs with Perl, CSS, and HTML for access to digital content and communications across language barriers",
+          "Designed authentication and authorization rules",
+          "Installed, configured, and managed web, database, and mail servers with Red Hat Enterprise Linux",
+          "Managed research partnership with Turing Center, University of Washington",
+          "Published and presented research papers",
+          "Recruited and trained volunteers and 10 interns",
+          "Took undergraduate and graduate courses in Java, data structures and algorithms, UI design, user testing, syntax, semantics, and morphology at University of Washington (GPA 3.97)"
+          ]
+      },
+      {
+        "organization": "Centerplex",
+        "role": "Founder, CEO, and web/eCommerce/network developer",
+        "location": "Tukwila, Washington",
+        "startDate": "1993-06-16",
+        "endDate": "2004-06-11",
+        "highlights": [
+          "Developed web applications for property management, resource allocation, and contracting with Perl, CSS, HTML, PostgreSQL, VBA, and VectorWorks CAD",
+          "Designed and managed search-engine advertising",
+          "Designed and managed secure inter-building LAN and firewall under Cisco IOS",
+          "Designed physical accessibility upgrades per ADA"
+        ]
+      }
+    ]
+  },
+  "groupData": {
+    "format": "hide",
+    "data": [
+      {
+        "organization": "International Association of Accessibility Professionals",
+        "roles": ["member"]
+      },
+      {
+        "organization": "Puget Sound Special Interest Group in Computer-Human Interaction",
+        "roles": ["member"]
+      },
+      {
+        "organization": "Seattle Area Accessibility & Universal Design",
+        "roles": [
+          "member",
+          "invited speaker"
+        ]
+      },
+      {
+        "organization": "Esperantic Studies Foundation",
+        "roles": [
+          "cofounder",
+          "Advisory Board member"
+        ]
+      }
+    ]
+  },
+  "basic": {
+    "format": "extraction",
+    "title": "basic",
+    "data": {
+      "from": "basicData",
+      "into": "centeredStrongLines"
+    }
+  },
+  "intro": {
+    "format": "extraction",
+    "title": "intro",
+    "data": {
+      "from": "introData",
+      "into": "introLists",
+      "headStyle": "left caps"
+    }
+  },
+  "work": {
+    "format": "extraction",
+    "title": "work",
+    "data": {
+      "from": "workData",
+      "into": "headedWorkVolLists",
+      "headStyle": "left caps"
+    }
+  },
+  "group": {
+    "format": "extraction",
+    "title": "groups",
+    "data": {
+      "from": "groupData",
+      "into": "headedGroupList",
+      "headStyle": "left caps"
+    }
+  }
+}

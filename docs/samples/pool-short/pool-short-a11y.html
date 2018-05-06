@@ -33,6 +33,13 @@
       a {
         overflow-wrap: break-word;
       }
+      .band {
+        background-color: lightgray;
+      }
+      .band,
+      .rowTablesCircled {
+        margin-top: 1.5rem;
+      }
       body {
         background: #eee;
         margin: 3rem 3rem;
@@ -48,6 +55,9 @@
       .boxedBulletList > h1 {
         margin-top: 0.1rem;
       }
+      .caps {
+        text-transform: uppercase;
+      }
       caption {
         margin-bottom: 0.5rem;
         font-weight: bold;
@@ -55,10 +65,6 @@
       .center,
       .compact {
         text-align: center;
-      }
-      .center,
-      .rowTablesCircled {
-        margin-top: 1.5rem;
       }
       .compact {
         padding: 0 3rem 2rem 3rem;
@@ -77,14 +83,12 @@
         margin: 0.5rem 0 0 0.5rem;
         color: #344;
       }
+      .left {
+        text-align: left;
+      }
       li,
       td {
         font-size: 1.2rem;
-      }
-      main > section > h1 {
-        margin-top: 2rem;
-        text-align: center;
-        background-color: lightgray;
       }
       p {
         margin: 0.3rem 0 0.8rem 0.5rem;
@@ -104,6 +108,9 @@
         padding-right: 0.3rem;
       }
       section:not(.boxedBulletList) + .boxedBulletList {
+        margin-top: 2rem;
+      }
+      .section-head {
         margin-top: 2rem;
       }
       .size1 {
@@ -131,7 +138,8 @@
       p {
         font-size: 1rem;
       }
-      strong {
+      strong,
+      .strong {
         font-weight: bold;
       }
       table {
@@ -142,12 +150,6 @@
         text-align: right;
         padding-right: 0.5rem;
       }
-      .theme-credit {
-        margin-top: 1rem;
-        text-align: center;
-        font-size: 1rem;
-        font-style: italic;
-      }
       td {
         padding: 0.2rem;
         border-style: solid;
@@ -155,8 +157,21 @@
         border-color: slategray;
         text-align: left;
       }
+      .theme-credit {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+        font-style: italic;
+      }
+      .tight {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
       ul {
         margin: 0.25rem 0;
+      }
+      .under {
+        margin-top: 0;
       }
     </style>
   </head>
@@ -198,7 +213,7 @@
         </div>
         <div></div>
       </section>
-      <section title="Contact information" class="center">
+      <section title="Contact information" class="section-head center">
         <table class="tableLH">
           <caption class="size4">
             Find me at
@@ -227,7 +242,7 @@
           </tbody>
         </table>
       </section>
-      <section title="Profiles" class="center">
+      <section title="Profiles" class="section-head center">
         <table class="tableTH">
           <caption class="size4">
             Look me up at
@@ -268,7 +283,7 @@
           </tbody>
         </table>
       </section>
-      <section title="Projects" class="center">
+      <section title="Projects" class="section-head center">
         <table class="tableTH">
           <caption class="size4">
             I’ve been working on
@@ -310,7 +325,7 @@
         </table>
       </section>
       <section title="Open-source development" class="boxedBulletList">
-        <h1 class="size2">I have contributed to</h1>
+        <h1 class="size2 section-head band center">I have contributed to</h1>
         <ul>
           <li><strong>ESLint (#25)</strong>: <a href="https://github.com/eslint/eslint/graphs/contributors">https://github.com/eslint/eslint/graphs/contributors</a></li>
           <li><strong>MDN Web Docs</strong>: <a href="https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool">https://developer.mozilla.org/en-US/dashboards/revisions?user=JonathanPool</a></li>
@@ -320,7 +335,7 @@
         </ul>
       </section>
       <section title="Skills" class="boxedBulletList">
-        <h1 class="size2">I have worked with</h1>
+        <h1 class="size2 section-head band center">I have worked with</h1>
         <ul>
           <li><strong>Languages</strong>: JavaScript, Perl, Java, bash, 68000 Assembly, VBA, APL</li>
           <li><strong>Scopes</strong>: full-stack, back-end, front-end, APIs, SPAs</li>
@@ -346,7 +361,7 @@
         </ul>
       </section>
       <section title="Human languages" class="boxedBulletList">
-        <h1 class="size2">I can communicate in (best→worst)</h1>
+        <h1 class="size2 section-head band center">I can communicate in (best→worst)</h1>
         <ul>
           <li>English</li>
           <li>Esperanto</li>
@@ -359,7 +374,7 @@
         </ul>
       </section>
       <section title="Education" class="boxedBulletList">
-        <h1 class="size2">I have studied at</h1>
+        <h1 class="size2 section-head band center">I have studied at</h1>
         <ul>
           <li><a href="https://learnersguild.org">Learners Guild</a>, 2017-05-01–2018-02-16: web development</li>
           <li><a href="https://jpdev.pro/info/docs/pool-uw-transcript.pdf">University of Washington Interdisciplinary Undergraduate Program</a>, 2004-03-29–2007-06-01: computer science, UI design, linguistics</li>
@@ -368,7 +383,7 @@
         </ul>
       </section>
       <section title="Work" class="boxedBulletList">
-        <h1 class="size2">I have worked at</h1>
+        <h1 class="size2 section-head band center">I have worked at</h1>
         <ul>
           <li><a href="http://longnow.org">The Long Now Foundation</a>, 2012-01-01–2016-12-19: Project Director, PanLex</li>
           <li><a href="http://stulta.com/misc/cx/">Centerplex</a>, 1993-06-16–2004-06-11: contracting, project management, ADA upgrades</li>
@@ -378,14 +393,14 @@
         </ul>
       </section>
       <section title="Awards" class="boxedBulletList">
-        <h1 class="size2">I have received software grants from</h1>
+        <h1 class="size2 section-head band center">I have received software grants from</h1>
         <ul>
           <li>University of Maryland</li>
           <li>National Science Foundation</li>
         </ul>
       </section>
       <section title="Publications" class="boxedBulletList">
-        <h1 class="size2">I have published about</h1>
+        <h1 class="size2 section-head band center">I have published about</h1>
         <ul>
           <li>computational lexicography</li>
           <li>syntactic ambiguity</li>
