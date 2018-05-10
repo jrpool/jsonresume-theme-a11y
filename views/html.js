@@ -103,7 +103,7 @@ const pageOf = (content, foot, lang, title, style) => {
   const htmlElement = element2Of(
     [headElement, bodyElement].join('\n'), 'html', {lang}, 2
   );
-  return ['<!DOCTYPE html>', htmlElement].join('\n');
+  return `${['<!DOCTYPE html>', htmlElement].join('\n')}\n`;
 };
 
 // Paragraph.

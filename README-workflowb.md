@@ -281,11 +281,14 @@ This step involves the following actions:
     - If your source file is not in the current directory or is not named `resume-a11y.json`, tell the theme where to find it, using an `-i` or `--input` option.
     - If you want your output file not to be in the current directory or not to be named `resume-a11y.html`, tell the theme where to put it, using an `-o` or `--output` option.
 
+The file paths that you give as the values of the `-i`, `--input`, `-o`, and `--output` arguments can each be relative to the module directory or absolute paths starting with `/`.
+
 Here are examples:
 
 ```bash
 node parse
 node parse -i docs/technical-resume.json
+node parse -i /home/wang/cv/technical-resume.json
 node parse --input docs/technical-resume.json
 node parse -o technical-resume.html
 node parse --output technical-resume.html

@@ -64,15 +64,17 @@
           "Automated and user testing",
           "Automated internationalization and localization",
           "Documentation",
-          "Conference presentations, training, business acquisition, customer liaison",
-          "Physical and cloud server installation, configuration, maintenance",
+          "Conference presentations, training, business acquisition, and customer relationship management",
+          "Design, implementation, and deployment of instructional software",
+          "Physical and cloud server installation, configuration, and maintenance",
           "Network and firewall configuration and maintenance",
-          "Project planning, cost-benefit estimation, coordination, management",
-          "Grant solicitation and management",
+          "Project planning, costing, coordination, and management",
+          "Grant and contract solicitation, negotiation, and management",
           "Procurement",
           "Regulatory compliance and risk management",
-          "Nonprofit and for-profit startup founding",
-          "Political research, mathematical models of social choice, and statistical analysis of public opinion (Harvard University, B.A.; University of Chicago, Ph.D.)"
+          "Founding of nonprofit and for-profit startups",
+          "Political research, mathematical models of social behavior, and statistical analysis of social data (Harvard University, B.A.; University of Chicago, Ph.D.)",
+          "Volunteer service in Peace Corps, Operation Crossroads Africa, nonprofit boards of directors, and advisory boards"
         ]
       }
     ]
@@ -87,7 +89,7 @@
         "startDate": "2018-02-17",
         "endDate": "",
         "highlights": [
-          "Conducted WCAG 2.1, WAI-ARIA, and usability tests with aXe, WAVE, Siteimprove, WCAG Accessibility Audit Developer UI, Safari a11y Tools, Acrobat Pro DC, VoiceOver, and other assistive technologies",
+          "Conducted cross-browser WCAG 2.1, WAI-ARIA, and usability tests on web pages and other digital documents with aXe, WAVE, Siteimprove, WCAG Accessibility Audit Developer UI, Safari a11y Tools, Acrobat Pro DC, VoiceOver, ChromeVox, and other assistive technologies",
           "Provided pro bono accessibility consulting to for-profit, nonprofit, and government organizations",
           "Published accessibility reports",
           "Developed and maintained web applications with nginx, PM2, PostgreSQL, SendGrid Web API, and Twilio Programmable Voice API on Ubuntu Linux OVH VPS",
@@ -102,7 +104,8 @@
         "endDate": "2018-02-16",
         "highlights": [
           "Developed accessible and responsive front-end, back-end, and full-stack web applications, SPAs, and APIs coded in HTML5, CSS3, JavaScript (ES2015), and SQL, using Node.js, NPM, Express, pg, pg-promise, bcrypt, solr, PostgreSQL, Mongoose/MongoDB, JQuery, Cheerio, Bootstrap, EJS, Pug, Materialize, ESLint, mocha, chai, Selenium Webdriver, Chrome Developer Tools, and Heroku",
-          "Studied best practices in code organization, asynchronous programming, naming conventions, debugging, linting, testing, TDD, MVC architecture, and documentation in agile development",
+          "Researched state and federal U.S. and foreign accessibility laws and regulations",
+          "Studied best practices in code organization, asynchronous programming, naming conventions, debugging, linting, testing, TDD, continuous integration, MVC architecture, documentation, and code reviews in agile development",
           "Became ESLint contributor #25",
           "Made 200+ contributions to MDN Web Docs",
           "Managed versions, collaboration, and workflows with git, Github, Slack, and Trello"
@@ -110,13 +113,13 @@
       },
       {
         "organization": "The Long Now Foundation",
-        "role": "Project director and web/database developer",
+        "role": "Director and web/database developer in multilingual accessibility project",
         "location": "Berkeley, California",
         "startDate": "2012-01-01",
         "endDate": "2016-12-19",
         "highlights": [
           "Managed PanLex project",
-          "Developed 3.1-billion-translation database and UIs supporting access to digital content across thousands of languages, using Perl, PostgreSQL, PL/pgSQL, DBI, MojoDOM, OCR tools, iconv, and ISO 639-3",
+          "Developed 3.1-billion-translation database and UIs supporting accessibility of digital content for speakers of all languages, using Perl, PostgreSQL, PL/pgSQL, DBI, MojoDOM, OCR tools, iconv, and ISO 639-3",
           "Developed web UIs with authentication and authorization and SEO API",
           "Tuned and tested indirect-translation algorithms",
           "Developed NLTK corpus in 2000 languages",
@@ -130,19 +133,19 @@
       },
       {
         "organization": "Utilika Foundation",
-        "role": "Founder, CEO, and web/database developer",
+        "role": "Founder, CEO, and web/database developer in multilingual accessibility project",
         "location": "Seattle, Washington",
         "startDate": "2004-05-03",
         "endDate": "2011-12-31",
         "highlights": [
           "Converted SQL Server database to PostgreSQL",
-          "Developed database and web UIs with Perl, CSS, and HTML for access to digital content and communications across language barriers",
+          "Developed database, web framework, and UIs with Perl, CSS, and HTML for accessibility of digital content and communications for speakers of all languages",
           "Designed authentication and authorization rules",
           "Installed, configured, and managed web, database, and mail servers with Red Hat Enterprise Linux",
           "Managed research partnership with Turing Center, University of Washington",
           "Published and presented research papers",
           "Recruited and trained volunteers and 10 interns",
-          "Took undergraduate and graduate courses in Java, data structures and algorithms, UI design, user testing, syntax, semantics, and morphology at University of Washington (GPA 3.97)"
+          "Took undergraduate and graduate courses in Java, data structures and algorithms, UI design, user testing, usability research, AI, syntax, semantics, and morphology at University of Washington (GPA 3.97)"
           ]
       },
       {
@@ -155,7 +158,7 @@
           "Developed web applications for property management, resource allocation, and contracting with Perl, CSS, HTML, PostgreSQL, VBA, and VectorWorks CAD",
           "Designed and managed search-engine advertising",
           "Designed and managed secure inter-building LAN and firewall under Cisco IOS",
-          "Designed physical accessibility upgrades per ADA"
+          "Designed physical accessibility upgrades per ADA Title III"
         ]
       }
     ]

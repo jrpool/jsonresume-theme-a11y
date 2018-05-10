@@ -17,6 +17,10 @@ commander
 commander.parse(process.argv);
 const inFile = commander.input || 'resume-a11y.json';
 const outFile = commander.output || 'resume-a11y.html';
-const sourceObject = require(path.join(__dirname, inFile));
+const sourceObject = require(
+  inFile.startsWith('/') ? inFile : path.join(__dirname, inFile)
+);
 const result = parser.parse(sourceObject);
-fs.writeFileSync(path.join(__dirname, outFile), result);
+fs.writeFileSync(
+  outFile.startsWith('/') ? outFile : path.join(__dirname, outFile), result
+);

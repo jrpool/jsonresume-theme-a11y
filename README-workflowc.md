@@ -37,6 +37,7 @@ node convert --input docs/technical-resume.json
 node convert -o technical-resume-a11y.json
 node convert --output technical-resume-a11y.json
 node convert -i docs/technical-resume.json --output technical-resume-a11y.json
+node convert -i /home/wang/cv/cv3.json -o /home/wang/cv/cv3.html
 node convert -v
 node convert --verbose
 node convert -v -i docs/technical-resume.json

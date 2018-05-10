@@ -23,12 +23,15 @@ const outFile = commander.output || 'resume-a11y.json';
 const isVerbose = commander.verbose;
 
 // Retrieve the source file.
-const sourceObject = require(path.join(__dirname, inFile));
+const sourceObject = require(
+  inFile.startsWith('/') ? inFile : path.join(__dirname, inFile)
+);
 
 // Convert it to an object in jsonresume-theme-a11y format.
 const a11yObject = converter.convert(sourceObject, isVerbose);
 
 // Write that object as a JSON string to a file.
 fs.writeFileSync(
-  path.join(__dirname, outFile), JSON.stringify(a11yObject, null, 2)
+  outFile.startsWith('/') ? outFile : path.join(__dirname, outFile),
+  JSON.stringify(a11yObject, null, 2)
 );

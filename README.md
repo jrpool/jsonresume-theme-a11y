@@ -50,6 +50,8 @@ Version 2.2.0 added the extraction mode to version 2.1.8.
 
 Version 2.3.0 added 3 more extractive formats to version 2.2.4.
 
+Version 2.4.0 added the option of making the -i and -o arguments to `parse` and `convert` absolute file paths.
+
 ### Future
 
 Contemplated future work includes:
