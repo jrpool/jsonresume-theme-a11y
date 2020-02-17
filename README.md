@@ -135,7 +135,7 @@ That depends on your situation and your intent. There are three plausible workfl
 
 Here is a diagram of the three workflows:
 
-![A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML](https://jpdev.pro/jsonresume-theme-a11y/workflows.png)
+![A: write jsonresume JSON, convert+render to HTML; B: write a11y JSON, render to HTML; C: write jsonresume JSON, convert to a11y JSON, render to HTML](public/workflows.png)
 
 As shown above, in workflows A and C you create a source file in the `jsonresume` format, and in workflow B you create one in the a11y format.
 
