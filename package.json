@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-a11y",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Theme for JSON Resume addressing WCAG 2.1 and ARIA accessibility (a11y) standards",
   "scripts": {
     "lint": "eslint *.js views/*.js; exit 0"
@@ -22,12 +22,11 @@
   "author": "Jonathan Pool",
   "license": "MIT",
   "dependencies": {
-    "commander": ">=2.14.1"
+    "commander": "*"
   },
   "devDependencies": {
-    "babel-preset-es2015": ">=7.0.0-beta.3",
-    "babel-register": ">=6.26.0",
-    "eslint": "^4.18.0"
+    "babel-preset-es2015": "*",
+    "eslint": "*"
   },
   "bugs": {
     "url": "https://github.com/jrpool/jsonresume-theme-a11y.git/issues"
